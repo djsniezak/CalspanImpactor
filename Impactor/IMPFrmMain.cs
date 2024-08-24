@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace Impactor
 {
     public partial class IMPFrmMain : Form
     {
+        private readonly string _ConnectionString = string.Empty;
         public IMPFrmMain()
         {
             InitializeComponent();
+            _ConnectionString = ConfigurationManager.ConnectionStrings["Impactor"].ConnectionString;
         }
 
         private void MnuExit(object sender, EventArgs e)
@@ -24,7 +27,7 @@ namespace Impactor
 
         private void MnuImpactor_Click(object sender, EventArgs e)
         {
-            IMPFrmImpactor frm = new IMPFrmImpactor()
+            IMPFrmImpactor frm = new IMPFrmImpactor(_ConnectionString)
             {
                 MdiParent = this
             };

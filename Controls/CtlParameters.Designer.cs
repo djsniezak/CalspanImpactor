@@ -1,4 +1,4 @@
-﻿namespace Controls
+﻿namespace ImpactorControls
 {
     partial class CtlParameters
     {
@@ -29,6 +29,64 @@
         private void InitializeComponent()
         {
             this.grpParameters = new System.Windows.Forms.GroupBox();
+            this.lblPercentHumidity = new System.Windows.Forms.Label();
+            this.lblRequired10 = new System.Windows.Forms.Label();
+            this.lblRequired9 = new System.Windows.Forms.Label();
+            this.lblRequired8 = new System.Windows.Forms.Label();
+            this.lblRequired7 = new System.Windows.Forms.Label();
+            this.lblRequired6 = new System.Windows.Forms.Label();
+            this.lblRequired5 = new System.Windows.Forms.Label();
+            this.lblRequired4 = new System.Windows.Forms.Label();
+            this.lblRequired3 = new System.Windows.Forms.Label();
+            this.lblRequired2 = new System.Windows.Forms.Label();
+            this.lblRequired1 = new System.Windows.Forms.Label();
+            this.lblTankC = new System.Windows.Forms.Label();
+            this.lblAccC = new System.Windows.Forms.Label();
+            this.lblTempC = new System.Windows.Forms.Label();
+            this.txtTankTemperature = new System.Windows.Forms.TextBox();
+            this.lblTankTemperature = new System.Windows.Forms.Label();
+            this.txtAcceleratorTemperature = new System.Windows.Forms.TextBox();
+            this.lblAcceleratorTemperature = new System.Windows.Forms.Label();
+            this.lblCylWOUnits = new System.Windows.Forms.Label();
+            this.txtCylinderwithout = new System.Windows.Forms.TextBox();
+            this.lblCylenderwithout = new System.Windows.Forms.Label();
+            this.lblMeasuredKPH = new System.Windows.Forms.Label();
+            this.txtMeasuredKPH = new System.Windows.Forms.TextBox();
+            this.lblCylinderKPH = new System.Windows.Forms.Label();
+            this.txtCylenderKPH = new System.Windows.Forms.TextBox();
+            this.dgAxis = new System.Windows.Forms.DataGridView();
+            this.Parm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Xaxis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Yaxis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Zaxis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Alpha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grpFForGuided = new System.Windows.Forms.GroupBox();
+            this.rdoGuided = new System.Windows.Forms.RadioButton();
+            this.rdoFF = new System.Windows.Forms.RadioButton();
+            this.lblAirbag3Ms = new System.Windows.Forms.Label();
+            this.txtAirbag3 = new System.Windows.Forms.TextBox();
+            this.lblAirbag3 = new System.Windows.Forms.Label();
+            this.lblAirbag2Ms = new System.Windows.Forms.Label();
+            this.txtAirbag2 = new System.Windows.Forms.TextBox();
+            this.lblAirbag2 = new System.Windows.Forms.Label();
+            this.lblAirbag1Ms = new System.Windows.Forms.Label();
+            this.txtAirbag1 = new System.Windows.Forms.TextBox();
+            this.lblAirbag1 = new System.Windows.Forms.Label();
+            this.txtAngleYZ = new System.Windows.Forms.TextBox();
+            this.lblAngleYZ = new System.Windows.Forms.Label();
+            this.txtAngleXz = new System.Windows.Forms.TextBox();
+            this.lblAngleXZ = new System.Windows.Forms.Label();
+            this.lblTrapMsKphMph = new System.Windows.Forms.Label();
+            this.txtMeasuredSpeed = new System.Windows.Forms.TextBox();
+            this.lblTrapVelocity = new System.Windows.Forms.Label();
+            this.lblMsKphMph = new System.Windows.Forms.Label();
+            this.txtCylinderSpeed = new System.Windows.Forms.TextBox();
+            this.lblLaunchVelocity = new System.Windows.Forms.Label();
+            this.lblBarPsi = new System.Windows.Forms.Label();
+            this.txtFirePressure = new System.Windows.Forms.TextBox();
+            this.lblFirePressure = new System.Windows.Forms.Label();
+            this.txtNotes = new System.Windows.Forms.TextBox();
+            this.lblNotes = new System.Windows.Forms.Label();
             this.lblTrigger2Ms = new System.Windows.Forms.Label();
             this.txtTrigger2 = new System.Windows.Forms.TextBox();
             this.lblTrigger2 = new System.Windows.Forms.Label();
@@ -37,69 +95,13 @@
             this.lblTrigger1 = new System.Windows.Forms.Label();
             this.txtHumidity = new System.Windows.Forms.TextBox();
             this.lblHumidity = new System.Windows.Forms.Label();
-            this.rdoC = new System.Windows.Forms.RadioButton();
-            this.rdoF = new System.Windows.Forms.RadioButton();
             this.txtTemperature = new System.Windows.Forms.TextBox();
             this.lblTemperature = new System.Windows.Forms.Label();
-            this.btnBrowse = new System.Windows.Forms.Button();
-            this.txtAriesFile = new System.Windows.Forms.TextBox();
-            this.lblAriesFile = new System.Windows.Forms.Label();
-            this.cboLauncher = new System.Windows.Forms.ComboBox();
-            this.lblLauncher = new System.Windows.Forms.Label();
-            this.cboFFGuided = new System.Windows.Forms.ComboBox();
-            this.lblFFGuided = new System.Windows.Forms.Label();
             this.cboImpactor = new System.Windows.Forms.ComboBox();
             this.lblImpactor = new System.Windows.Forms.Label();
-            this.lblXAxisMm = new System.Windows.Forms.Label();
-            this.txtXAxis = new System.Windows.Forms.TextBox();
-            this.lblXAxis = new System.Windows.Forms.Label();
-            this.lblYAxisMm = new System.Windows.Forms.Label();
-            this.txtYAxis = new System.Windows.Forms.TextBox();
-            this.lblYAxis = new System.Windows.Forms.Label();
-            this.lblZAxisMm = new System.Windows.Forms.Label();
-            this.txtZAxis = new System.Windows.Forms.TextBox();
-            this.lblZAxis = new System.Windows.Forms.Label();
-            this.lblDeg = new System.Windows.Forms.Label();
-            this.txtAlpha = new System.Windows.Forms.TextBox();
-            this.lblAlpha = new System.Windows.Forms.Label();
-            this.lblNotes = new System.Windows.Forms.Label();
-            this.txtNotes = new System.Windows.Forms.TextBox();
-            this.lblTrapMsKphMph = new System.Windows.Forms.Label();
-            this.txtTrapVelocity = new System.Windows.Forms.TextBox();
-            this.lblTrapVelocity = new System.Windows.Forms.Label();
-            this.lblMsKphMph = new System.Windows.Forms.Label();
-            this.txtLaunchVelocity = new System.Windows.Forms.TextBox();
-            this.lblLaunchVelocity = new System.Windows.Forms.Label();
-            this.lblBarPsi = new System.Windows.Forms.Label();
-            this.txtFirePressure = new System.Windows.Forms.TextBox();
-            this.lblFirePressure = new System.Windows.Forms.Label();
-            this.lblMmIn = new System.Windows.Forms.Label();
-            this.txtTravelDistance = new System.Windows.Forms.TextBox();
-            this.lblTravelDistance = new System.Windows.Forms.Label();
-            this.grpUnits = new System.Windows.Forms.GroupBox();
-            this.rdoEnglish = new System.Windows.Forms.RadioButton();
-            this.rdoMetric = new System.Windows.Forms.RadioButton();
-            this.grpMilliKph = new System.Windows.Forms.GroupBox();
-            this.rdoMilliseconds = new System.Windows.Forms.RadioButton();
-            this.rdoMphKph = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblAngleYZ = new System.Windows.Forms.Label();
-            this.txtAngleXz = new System.Windows.Forms.TextBox();
-            this.lblAngleXZ = new System.Windows.Forms.Label();
-            this.txtImpactAngle = new System.Windows.Forms.TextBox();
-            this.lblImpactAngle = new System.Windows.Forms.Label();
-            this.lblAirbag3Ms = new System.Windows.Forms.Label();
-            this.txtAirbag3 = new System.Windows.Forms.TextBox();
-            this.lblAirbag3 = new System.Windows.Forms.Label();
-            this.lblAirbag2Ms = new System.Windows.Forms.Label();
-            this.txtAitbag2 = new System.Windows.Forms.TextBox();
-            this.lblAirbag2 = new System.Windows.Forms.Label();
-            this.lblAirbag1Ms = new System.Windows.Forms.Label();
-            this.txtAirbag1 = new System.Windows.Forms.TextBox();
-            this.lblAirbag1 = new System.Windows.Forms.Label();
             this.grpParameters.SuspendLayout();
-            this.grpUnits.SuspendLayout();
-            this.grpMilliKph.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAxis)).BeginInit();
+            this.grpFForGuided.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpParameters
@@ -107,49 +109,57 @@
             this.grpParameters.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpParameters.Controls.Add(this.lblPercentHumidity);
+            this.grpParameters.Controls.Add(this.lblRequired10);
+            this.grpParameters.Controls.Add(this.lblRequired9);
+            this.grpParameters.Controls.Add(this.lblRequired8);
+            this.grpParameters.Controls.Add(this.lblRequired7);
+            this.grpParameters.Controls.Add(this.lblRequired6);
+            this.grpParameters.Controls.Add(this.lblRequired5);
+            this.grpParameters.Controls.Add(this.lblRequired4);
+            this.grpParameters.Controls.Add(this.lblRequired3);
+            this.grpParameters.Controls.Add(this.lblRequired2);
+            this.grpParameters.Controls.Add(this.lblRequired1);
+            this.grpParameters.Controls.Add(this.lblTankC);
+            this.grpParameters.Controls.Add(this.lblAccC);
+            this.grpParameters.Controls.Add(this.lblTempC);
+            this.grpParameters.Controls.Add(this.txtTankTemperature);
+            this.grpParameters.Controls.Add(this.lblTankTemperature);
+            this.grpParameters.Controls.Add(this.txtAcceleratorTemperature);
+            this.grpParameters.Controls.Add(this.lblAcceleratorTemperature);
+            this.grpParameters.Controls.Add(this.lblCylWOUnits);
+            this.grpParameters.Controls.Add(this.txtCylinderwithout);
+            this.grpParameters.Controls.Add(this.lblCylenderwithout);
+            this.grpParameters.Controls.Add(this.lblMeasuredKPH);
+            this.grpParameters.Controls.Add(this.txtMeasuredKPH);
+            this.grpParameters.Controls.Add(this.lblCylinderKPH);
+            this.grpParameters.Controls.Add(this.txtCylenderKPH);
+            this.grpParameters.Controls.Add(this.dgAxis);
+            this.grpParameters.Controls.Add(this.grpFForGuided);
             this.grpParameters.Controls.Add(this.lblAirbag3Ms);
             this.grpParameters.Controls.Add(this.txtAirbag3);
             this.grpParameters.Controls.Add(this.lblAirbag3);
             this.grpParameters.Controls.Add(this.lblAirbag2Ms);
-            this.grpParameters.Controls.Add(this.txtAitbag2);
+            this.grpParameters.Controls.Add(this.txtAirbag2);
             this.grpParameters.Controls.Add(this.lblAirbag2);
             this.grpParameters.Controls.Add(this.lblAirbag1Ms);
             this.grpParameters.Controls.Add(this.txtAirbag1);
             this.grpParameters.Controls.Add(this.lblAirbag1);
-            this.grpParameters.Controls.Add(this.textBox1);
+            this.grpParameters.Controls.Add(this.txtAngleYZ);
             this.grpParameters.Controls.Add(this.lblAngleYZ);
             this.grpParameters.Controls.Add(this.txtAngleXz);
             this.grpParameters.Controls.Add(this.lblAngleXZ);
-            this.grpParameters.Controls.Add(this.txtImpactAngle);
-            this.grpParameters.Controls.Add(this.lblImpactAngle);
-            this.grpParameters.Controls.Add(this.grpMilliKph);
-            this.grpParameters.Controls.Add(this.grpUnits);
-            this.grpParameters.Controls.Add(this.lblMmIn);
-            this.grpParameters.Controls.Add(this.txtTravelDistance);
-            this.grpParameters.Controls.Add(this.lblTravelDistance);
             this.grpParameters.Controls.Add(this.lblTrapMsKphMph);
-            this.grpParameters.Controls.Add(this.txtTrapVelocity);
+            this.grpParameters.Controls.Add(this.txtMeasuredSpeed);
             this.grpParameters.Controls.Add(this.lblTrapVelocity);
             this.grpParameters.Controls.Add(this.lblMsKphMph);
-            this.grpParameters.Controls.Add(this.txtLaunchVelocity);
+            this.grpParameters.Controls.Add(this.txtCylinderSpeed);
             this.grpParameters.Controls.Add(this.lblLaunchVelocity);
             this.grpParameters.Controls.Add(this.lblBarPsi);
             this.grpParameters.Controls.Add(this.txtFirePressure);
             this.grpParameters.Controls.Add(this.lblFirePressure);
             this.grpParameters.Controls.Add(this.txtNotes);
             this.grpParameters.Controls.Add(this.lblNotes);
-            this.grpParameters.Controls.Add(this.lblDeg);
-            this.grpParameters.Controls.Add(this.txtAlpha);
-            this.grpParameters.Controls.Add(this.lblAlpha);
-            this.grpParameters.Controls.Add(this.lblZAxisMm);
-            this.grpParameters.Controls.Add(this.txtZAxis);
-            this.grpParameters.Controls.Add(this.lblZAxis);
-            this.grpParameters.Controls.Add(this.lblYAxisMm);
-            this.grpParameters.Controls.Add(this.txtYAxis);
-            this.grpParameters.Controls.Add(this.lblYAxis);
-            this.grpParameters.Controls.Add(this.lblXAxisMm);
-            this.grpParameters.Controls.Add(this.txtXAxis);
-            this.grpParameters.Controls.Add(this.lblXAxis);
             this.grpParameters.Controls.Add(this.lblTrigger2Ms);
             this.grpParameters.Controls.Add(this.txtTrigger2);
             this.grpParameters.Controls.Add(this.lblTrigger2);
@@ -158,223 +168,721 @@
             this.grpParameters.Controls.Add(this.lblTrigger1);
             this.grpParameters.Controls.Add(this.txtHumidity);
             this.grpParameters.Controls.Add(this.lblHumidity);
-            this.grpParameters.Controls.Add(this.rdoC);
-            this.grpParameters.Controls.Add(this.rdoF);
             this.grpParameters.Controls.Add(this.txtTemperature);
             this.grpParameters.Controls.Add(this.lblTemperature);
-            this.grpParameters.Controls.Add(this.btnBrowse);
-            this.grpParameters.Controls.Add(this.txtAriesFile);
-            this.grpParameters.Controls.Add(this.lblAriesFile);
-            this.grpParameters.Controls.Add(this.cboLauncher);
-            this.grpParameters.Controls.Add(this.lblLauncher);
-            this.grpParameters.Controls.Add(this.cboFFGuided);
-            this.grpParameters.Controls.Add(this.lblFFGuided);
             this.grpParameters.Controls.Add(this.cboImpactor);
             this.grpParameters.Controls.Add(this.lblImpactor);
             this.grpParameters.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpParameters.Location = new System.Drawing.Point(3, 3);
             this.grpParameters.Name = "grpParameters";
-            this.grpParameters.Size = new System.Drawing.Size(587, 347);
+            this.grpParameters.Size = new System.Drawing.Size(726, 432);
             this.grpParameters.TabIndex = 0;
             this.grpParameters.TabStop = false;
             this.grpParameters.Text = "Parameters";
+            // 
+            // lblPercentHumidity
+            // 
+            this.lblPercentHumidity.AutoSize = true;
+            this.lblPercentHumidity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPercentHumidity.Location = new System.Drawing.Point(287, 52);
+            this.lblPercentHumidity.Name = "lblPercentHumidity";
+            this.lblPercentHumidity.Size = new System.Drawing.Size(15, 13);
+            this.lblPercentHumidity.TabIndex = 90;
+            this.lblPercentHumidity.Text = "%";
+            // 
+            // lblRequired10
+            // 
+            this.lblRequired10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblRequired10.AutoSize = true;
+            this.lblRequired10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired10.ForeColor = System.Drawing.Color.Red;
+            this.lblRequired10.Location = new System.Drawing.Point(467, 360);
+            this.lblRequired10.Name = "lblRequired10";
+            this.lblRequired10.Size = new System.Drawing.Size(15, 18);
+            this.lblRequired10.TabIndex = 99;
+            this.lblRequired10.Text = "*";
+            this.lblRequired10.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblRequired9
+            // 
+            this.lblRequired9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblRequired9.AutoSize = true;
+            this.lblRequired9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired9.ForeColor = System.Drawing.Color.Red;
+            this.lblRequired9.Location = new System.Drawing.Point(260, 363);
+            this.lblRequired9.Name = "lblRequired9";
+            this.lblRequired9.Size = new System.Drawing.Size(15, 18);
+            this.lblRequired9.TabIndex = 99;
+            this.lblRequired9.Text = "*";
+            this.lblRequired9.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblRequired8
+            // 
+            this.lblRequired8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblRequired8.AutoSize = true;
+            this.lblRequired8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired8.ForeColor = System.Drawing.Color.Red;
+            this.lblRequired8.Location = new System.Drawing.Point(2, 363);
+            this.lblRequired8.Name = "lblRequired8";
+            this.lblRequired8.Size = new System.Drawing.Size(15, 18);
+            this.lblRequired8.TabIndex = 99;
+            this.lblRequired8.Text = "*";
+            this.lblRequired8.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblRequired7
+            // 
+            this.lblRequired7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblRequired7.AutoSize = true;
+            this.lblRequired7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired7.ForeColor = System.Drawing.Color.Red;
+            this.lblRequired7.Location = new System.Drawing.Point(431, 323);
+            this.lblRequired7.Name = "lblRequired7";
+            this.lblRequired7.Size = new System.Drawing.Size(15, 18);
+            this.lblRequired7.TabIndex = 99;
+            this.lblRequired7.Text = "*";
+            this.lblRequired7.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblRequired6
+            // 
+            this.lblRequired6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblRequired6.AutoSize = true;
+            this.lblRequired6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired6.ForeColor = System.Drawing.Color.Red;
+            this.lblRequired6.Location = new System.Drawing.Point(170, 324);
+            this.lblRequired6.Name = "lblRequired6";
+            this.lblRequired6.Size = new System.Drawing.Size(15, 18);
+            this.lblRequired6.TabIndex = 99;
+            this.lblRequired6.Text = "*";
+            this.lblRequired6.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblRequired5
+            // 
+            this.lblRequired5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblRequired5.AutoSize = true;
+            this.lblRequired5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired5.ForeColor = System.Drawing.Color.Red;
+            this.lblRequired5.Location = new System.Drawing.Point(6, 321);
+            this.lblRequired5.Name = "lblRequired5";
+            this.lblRequired5.Size = new System.Drawing.Size(15, 18);
+            this.lblRequired5.TabIndex = 84;
+            this.lblRequired5.Text = "*";
+            this.lblRequired5.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblRequired4
+            // 
+            this.lblRequired4.AutoSize = true;
+            this.lblRequired4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired4.ForeColor = System.Drawing.Color.Red;
+            this.lblRequired4.Location = new System.Drawing.Point(170, 47);
+            this.lblRequired4.Name = "lblRequired4";
+            this.lblRequired4.Size = new System.Drawing.Size(15, 18);
+            this.lblRequired4.TabIndex = 83;
+            this.lblRequired4.Text = "*";
+            this.lblRequired4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblRequired3
+            // 
+            this.lblRequired3.AutoSize = true;
+            this.lblRequired3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired3.ForeColor = System.Drawing.Color.Red;
+            this.lblRequired3.Location = new System.Drawing.Point(5, 47);
+            this.lblRequired3.Name = "lblRequired3";
+            this.lblRequired3.Size = new System.Drawing.Size(15, 18);
+            this.lblRequired3.TabIndex = 82;
+            this.lblRequired3.Text = "*";
+            this.lblRequired3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblRequired2
+            // 
+            this.lblRequired2.AutoSize = true;
+            this.lblRequired2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired2.ForeColor = System.Drawing.Color.Red;
+            this.lblRequired2.Location = new System.Drawing.Point(236, 17);
+            this.lblRequired2.Name = "lblRequired2";
+            this.lblRequired2.Size = new System.Drawing.Size(15, 18);
+            this.lblRequired2.TabIndex = 81;
+            this.lblRequired2.Text = "*";
+            this.lblRequired2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblRequired1
+            // 
+            this.lblRequired1.AutoSize = true;
+            this.lblRequired1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired1.ForeColor = System.Drawing.Color.Red;
+            this.lblRequired1.Location = new System.Drawing.Point(21, 18);
+            this.lblRequired1.Name = "lblRequired1";
+            this.lblRequired1.Size = new System.Drawing.Size(15, 18);
+            this.lblRequired1.TabIndex = 80;
+            this.lblRequired1.Text = "*";
+            this.lblRequired1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblTankC
+            // 
+            this.lblTankC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblTankC.AutoSize = true;
+            this.lblTankC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTankC.Location = new System.Drawing.Point(633, 364);
+            this.lblTankC.Name = "lblTankC";
+            this.lblTankC.Size = new System.Drawing.Size(14, 13);
+            this.lblTankC.TabIndex = 99;
+            this.lblTankC.Text = "C";
+            // 
+            // lblAccC
+            // 
+            this.lblAccC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblAccC.AutoSize = true;
+            this.lblAccC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccC.Location = new System.Drawing.Point(448, 363);
+            this.lblAccC.Name = "lblAccC";
+            this.lblAccC.Size = new System.Drawing.Size(14, 13);
+            this.lblAccC.TabIndex = 99;
+            this.lblAccC.Text = "C";
+            // 
+            // lblTempC
+            // 
+            this.lblTempC.AutoSize = true;
+            this.lblTempC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTempC.Location = new System.Drawing.Point(142, 51);
+            this.lblTempC.Name = "lblTempC";
+            this.lblTempC.Size = new System.Drawing.Size(14, 13);
+            this.lblTempC.TabIndex = 77;
+            this.lblTempC.Text = "C";
+            // 
+            // txtTankTemperature
+            // 
+            this.txtTankTemperature.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtTankTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTankTemperature.Location = new System.Drawing.Point(582, 360);
+            this.txtTankTemperature.Name = "txtTankTemperature";
+            this.txtTankTemperature.Size = new System.Drawing.Size(45, 20);
+            this.txtTankTemperature.TabIndex = 14;
+            // 
+            // lblTankTemperature
+            // 
+            this.lblTankTemperature.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblTankTemperature.AutoSize = true;
+            this.lblTankTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTankTemperature.Location = new System.Drawing.Point(478, 364);
+            this.lblTankTemperature.Name = "lblTankTemperature";
+            this.lblTankTemperature.Size = new System.Drawing.Size(98, 13);
+            this.lblTankTemperature.TabIndex = 99;
+            this.lblTankTemperature.Text = "Tank Temperature:";
+            // 
+            // txtAcceleratorTemperature
+            // 
+            this.txtAcceleratorTemperature.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtAcceleratorTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAcceleratorTemperature.Location = new System.Drawing.Point(398, 360);
+            this.txtAcceleratorTemperature.Name = "txtAcceleratorTemperature";
+            this.txtAcceleratorTemperature.Size = new System.Drawing.Size(45, 20);
+            this.txtAcceleratorTemperature.TabIndex = 13;
+            // 
+            // lblAcceleratorTemperature
+            // 
+            this.lblAcceleratorTemperature.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblAcceleratorTemperature.AutoSize = true;
+            this.lblAcceleratorTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAcceleratorTemperature.Location = new System.Drawing.Point(271, 364);
+            this.lblAcceleratorTemperature.Name = "lblAcceleratorTemperature";
+            this.lblAcceleratorTemperature.Size = new System.Drawing.Size(127, 13);
+            this.lblAcceleratorTemperature.TabIndex = 99;
+            this.lblAcceleratorTemperature.Text = "Accelerator Temperature:";
+            // 
+            // lblCylWOUnits
+            // 
+            this.lblCylWOUnits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblCylWOUnits.AutoSize = true;
+            this.lblCylWOUnits.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCylWOUnits.Location = new System.Drawing.Point(223, 364);
+            this.lblCylWOUnits.Name = "lblCylWOUnits";
+            this.lblCylWOUnits.Size = new System.Drawing.Size(33, 13);
+            this.lblCylWOUnits.TabIndex = 99;
+            this.lblCylWOUnits.Text = "mm/s";
+            // 
+            // txtCylinderwithout
+            // 
+            this.txtCylinderwithout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtCylinderwithout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCylinderwithout.Location = new System.Drawing.Point(174, 360);
+            this.txtCylinderwithout.Name = "txtCylinderwithout";
+            this.txtCylinderwithout.Size = new System.Drawing.Size(45, 20);
+            this.txtCylinderwithout.TabIndex = 12;
+            // 
+            // lblCylenderwithout
+            // 
+            this.lblCylenderwithout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblCylenderwithout.AutoSize = true;
+            this.lblCylenderwithout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCylenderwithout.Location = new System.Drawing.Point(14, 364);
+            this.lblCylenderwithout.Name = "lblCylenderwithout";
+            this.lblCylenderwithout.Size = new System.Drawing.Size(159, 13);
+            this.lblCylenderwithout.TabIndex = 70;
+            this.lblCylenderwithout.Text = "Cylinder w/o Impactor Set Point:";
+            // 
+            // lblMeasuredKPH
+            // 
+            this.lblMeasuredKPH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblMeasuredKPH.AutoSize = true;
+            this.lblMeasuredKPH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMeasuredKPH.Location = new System.Drawing.Point(680, 325);
+            this.lblMeasuredKPH.Name = "lblMeasuredKPH";
+            this.lblMeasuredKPH.Size = new System.Drawing.Size(25, 13);
+            this.lblMeasuredKPH.TabIndex = 99;
+            this.lblMeasuredKPH.Text = "kph";
+            // 
+            // txtMeasuredKPH
+            // 
+            this.txtMeasuredKPH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMeasuredKPH.Enabled = false;
+            this.txtMeasuredKPH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeasuredKPH.Location = new System.Drawing.Point(634, 321);
+            this.txtMeasuredKPH.Name = "txtMeasuredKPH";
+            this.txtMeasuredKPH.Size = new System.Drawing.Size(45, 20);
+            this.txtMeasuredKPH.TabIndex = 99;
+            // 
+            // lblCylinderKPH
+            // 
+            this.lblCylinderKPH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblCylinderKPH.AutoSize = true;
+            this.lblCylinderKPH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCylinderKPH.Location = new System.Drawing.Point(403, 326);
+            this.lblCylinderKPH.Name = "lblCylinderKPH";
+            this.lblCylinderKPH.Size = new System.Drawing.Size(25, 13);
+            this.lblCylinderKPH.TabIndex = 99;
+            this.lblCylinderKPH.Text = "kph";
+            // 
+            // txtCylenderKPH
+            // 
+            this.txtCylenderKPH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtCylenderKPH.Enabled = false;
+            this.txtCylenderKPH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCylenderKPH.Location = new System.Drawing.Point(352, 321);
+            this.txtCylenderKPH.Name = "txtCylenderKPH";
+            this.txtCylenderKPH.Size = new System.Drawing.Size(45, 20);
+            this.txtCylenderKPH.TabIndex = 99;
+            // 
+            // dgAxis
+            // 
+            this.dgAxis.AllowUserToAddRows = false;
+            this.dgAxis.AllowUserToDeleteRows = false;
+            this.dgAxis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAxis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Parm,
+            this.Xaxis,
+            this.Yaxis,
+            this.Zaxis,
+            this.Alpha});
+            this.dgAxis.Location = new System.Drawing.Point(87, 99);
+            this.dgAxis.Name = "dgAxis";
+            this.dgAxis.Size = new System.Drawing.Size(599, 150);
+            this.dgAxis.TabIndex = 7;
+            // 
+            // Parm
+            // 
+            this.Parm.HeaderText = "Parm";
+            this.Parm.Name = "Parm";
+            // 
+            // Xaxis
+            // 
+            this.Xaxis.HeaderText = "X-Axis";
+            this.Xaxis.Name = "Xaxis";
+            // 
+            // Yaxis
+            // 
+            this.Yaxis.HeaderText = "Y-Axis";
+            this.Yaxis.Name = "Yaxis";
+            // 
+            // Zaxis
+            // 
+            this.Zaxis.HeaderText = "Z-Axis";
+            this.Zaxis.Name = "Zaxis";
+            // 
+            // Alpha
+            // 
+            this.Alpha.HeaderText = "Alpha";
+            this.Alpha.Name = "Alpha";
+            // 
+            // grpFForGuided
+            // 
+            this.grpFForGuided.Controls.Add(this.rdoGuided);
+            this.grpFForGuided.Controls.Add(this.rdoFF);
+            this.grpFForGuided.Location = new System.Drawing.Point(251, 10);
+            this.grpFForGuided.Name = "grpFForGuided";
+            this.grpFForGuided.Size = new System.Drawing.Size(141, 31);
+            this.grpFForGuided.TabIndex = 2;
+            this.grpFForGuided.TabStop = false;
+            // 
+            // rdoGuided
+            // 
+            this.rdoGuided.AutoSize = true;
+            this.rdoGuided.Location = new System.Drawing.Point(64, 10);
+            this.rdoGuided.Name = "rdoGuided";
+            this.rdoGuided.Size = new System.Drawing.Size(65, 17);
+            this.rdoGuided.TabIndex = 1;
+            this.rdoGuided.TabStop = true;
+            this.rdoGuided.Text = "Guided";
+            this.rdoGuided.UseVisualStyleBackColor = true;
+            // 
+            // rdoFF
+            // 
+            this.rdoFF.AutoSize = true;
+            this.rdoFF.Location = new System.Drawing.Point(6, 10);
+            this.rdoFF.Name = "rdoFF";
+            this.rdoFF.Size = new System.Drawing.Size(39, 17);
+            this.rdoFF.TabIndex = 0;
+            this.rdoFF.TabStop = true;
+            this.rdoFF.Text = "FF";
+            this.rdoFF.UseVisualStyleBackColor = true;
+            // 
+            // lblAirbag3Ms
+            // 
+            this.lblAirbag3Ms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblAirbag3Ms.AutoSize = true;
+            this.lblAirbag3Ms.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAirbag3Ms.Location = new System.Drawing.Point(680, 400);
+            this.lblAirbag3Ms.Name = "lblAirbag3Ms";
+            this.lblAirbag3Ms.Size = new System.Drawing.Size(20, 13);
+            this.lblAirbag3Ms.TabIndex = 99;
+            this.lblAirbag3Ms.Text = "ms";
+            // 
+            // txtAirbag3
+            // 
+            this.txtAirbag3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtAirbag3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAirbag3.Location = new System.Drawing.Point(629, 397);
+            this.txtAirbag3.Name = "txtAirbag3";
+            this.txtAirbag3.Size = new System.Drawing.Size(45, 20);
+            this.txtAirbag3.TabIndex = 17;
+            // 
+            // lblAirbag3
+            // 
+            this.lblAirbag3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblAirbag3.AutoSize = true;
+            this.lblAirbag3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAirbag3.Location = new System.Drawing.Point(574, 401);
+            this.lblAirbag3.Name = "lblAirbag3";
+            this.lblAirbag3.Size = new System.Drawing.Size(49, 13);
+            this.lblAirbag3.TabIndex = 99;
+            this.lblAirbag3.Text = "Airbag 3:";
+            // 
+            // lblAirbag2Ms
+            // 
+            this.lblAirbag2Ms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblAirbag2Ms.AutoSize = true;
+            this.lblAirbag2Ms.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAirbag2Ms.Location = new System.Drawing.Point(398, 401);
+            this.lblAirbag2Ms.Name = "lblAirbag2Ms";
+            this.lblAirbag2Ms.Size = new System.Drawing.Size(20, 13);
+            this.lblAirbag2Ms.TabIndex = 99;
+            this.lblAirbag2Ms.Text = "ms";
+            // 
+            // txtAirbag2
+            // 
+            this.txtAirbag2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtAirbag2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAirbag2.Location = new System.Drawing.Point(347, 397);
+            this.txtAirbag2.Name = "txtAirbag2";
+            this.txtAirbag2.Size = new System.Drawing.Size(45, 20);
+            this.txtAirbag2.TabIndex = 16;
+            // 
+            // lblAirbag2
+            // 
+            this.lblAirbag2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblAirbag2.AutoSize = true;
+            this.lblAirbag2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAirbag2.Location = new System.Drawing.Point(292, 401);
+            this.lblAirbag2.Name = "lblAirbag2";
+            this.lblAirbag2.Size = new System.Drawing.Size(49, 13);
+            this.lblAirbag2.TabIndex = 99;
+            this.lblAirbag2.Text = "Airbag 2:";
+            // 
+            // lblAirbag1Ms
+            // 
+            this.lblAirbag1Ms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblAirbag1Ms.AutoSize = true;
+            this.lblAirbag1Ms.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAirbag1Ms.Location = new System.Drawing.Point(145, 401);
+            this.lblAirbag1Ms.Name = "lblAirbag1Ms";
+            this.lblAirbag1Ms.Size = new System.Drawing.Size(20, 13);
+            this.lblAirbag1Ms.TabIndex = 99;
+            this.lblAirbag1Ms.Text = "ms";
+            // 
+            // txtAirbag1
+            // 
+            this.txtAirbag1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtAirbag1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAirbag1.Location = new System.Drawing.Point(94, 397);
+            this.txtAirbag1.Name = "txtAirbag1";
+            this.txtAirbag1.Size = new System.Drawing.Size(45, 20);
+            this.txtAirbag1.TabIndex = 15;
+            // 
+            // lblAirbag1
+            // 
+            this.lblAirbag1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblAirbag1.AutoSize = true;
+            this.lblAirbag1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAirbag1.Location = new System.Drawing.Point(43, 401);
+            this.lblAirbag1.Name = "lblAirbag1";
+            this.lblAirbag1.Size = new System.Drawing.Size(49, 13);
+            this.lblAirbag1.TabIndex = 99;
+            this.lblAirbag1.Text = "Airbag 1:";
+            // 
+            // txtAngleYZ
+            // 
+            this.txtAngleYZ.Enabled = false;
+            this.txtAngleYZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAngleYZ.Location = new System.Drawing.Point(560, 47);
+            this.txtAngleYZ.Name = "txtAngleYZ";
+            this.txtAngleYZ.Size = new System.Drawing.Size(45, 20);
+            this.txtAngleYZ.TabIndex = 54;
+            this.txtAngleYZ.Visible = false;
+            // 
+            // lblAngleYZ
+            // 
+            this.lblAngleYZ.AutoSize = true;
+            this.lblAngleYZ.Enabled = false;
+            this.lblAngleYZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAngleYZ.Location = new System.Drawing.Point(500, 50);
+            this.lblAngleYZ.Name = "lblAngleYZ";
+            this.lblAngleYZ.Size = new System.Drawing.Size(54, 13);
+            this.lblAngleYZ.TabIndex = 53;
+            this.lblAngleYZ.Text = "Angle YZ:";
+            this.lblAngleYZ.Visible = false;
+            // 
+            // txtAngleXz
+            // 
+            this.txtAngleXz.Enabled = false;
+            this.txtAngleXz.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAngleXz.Location = new System.Drawing.Point(437, 47);
+            this.txtAngleXz.Name = "txtAngleXz";
+            this.txtAngleXz.Size = new System.Drawing.Size(45, 20);
+            this.txtAngleXz.TabIndex = 52;
+            this.txtAngleXz.Visible = false;
+            // 
+            // lblAngleXZ
+            // 
+            this.lblAngleXZ.AutoSize = true;
+            this.lblAngleXZ.Enabled = false;
+            this.lblAngleXZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAngleXZ.Location = new System.Drawing.Point(377, 50);
+            this.lblAngleXZ.Name = "lblAngleXZ";
+            this.lblAngleXZ.Size = new System.Drawing.Size(54, 13);
+            this.lblAngleXZ.TabIndex = 51;
+            this.lblAngleXZ.Text = "Angle XZ:";
+            this.lblAngleXZ.Visible = false;
+            // 
+            // lblTrapMsKphMph
+            // 
+            this.lblTrapMsKphMph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblTrapMsKphMph.AutoSize = true;
+            this.lblTrapMsKphMph.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrapMsKphMph.Location = new System.Drawing.Point(585, 325);
+            this.lblTrapMsKphMph.Name = "lblTrapMsKphMph";
+            this.lblTrapMsKphMph.Size = new System.Drawing.Size(33, 13);
+            this.lblTrapMsKphMph.TabIndex = 99;
+            this.lblTrapMsKphMph.Text = "mm/s";
+            // 
+            // txtMeasuredSpeed
+            // 
+            this.txtMeasuredSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtMeasuredSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeasuredSpeed.Location = new System.Drawing.Point(539, 321);
+            this.txtMeasuredSpeed.Name = "txtMeasuredSpeed";
+            this.txtMeasuredSpeed.Size = new System.Drawing.Size(45, 20);
+            this.txtMeasuredSpeed.TabIndex = 11;
+            this.txtMeasuredSpeed.Leave += new System.EventHandler(this.TxtMeasuredSpeed_Leave);
+            // 
+            // lblTrapVelocity
+            // 
+            this.lblTrapVelocity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblTrapVelocity.AutoSize = true;
+            this.lblTrapVelocity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrapVelocity.Location = new System.Drawing.Point(442, 325);
+            this.lblTrapVelocity.Name = "lblTrapVelocity";
+            this.lblTrapVelocity.Size = new System.Drawing.Size(91, 13);
+            this.lblTrapVelocity.TabIndex = 99;
+            this.lblTrapVelocity.Text = "Measured Speed:";
+            // 
+            // lblMsKphMph
+            // 
+            this.lblMsKphMph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblMsKphMph.AutoSize = true;
+            this.lblMsKphMph.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMsKphMph.Location = new System.Drawing.Point(317, 327);
+            this.lblMsKphMph.Name = "lblMsKphMph";
+            this.lblMsKphMph.Size = new System.Drawing.Size(33, 13);
+            this.lblMsKphMph.TabIndex = 99;
+            this.lblMsKphMph.Text = "mm/s";
+            // 
+            // txtCylinderSpeed
+            // 
+            this.txtCylinderSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtCylinderSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCylinderSpeed.Location = new System.Drawing.Point(257, 322);
+            this.txtCylinderSpeed.Name = "txtCylinderSpeed";
+            this.txtCylinderSpeed.Size = new System.Drawing.Size(45, 20);
+            this.txtCylinderSpeed.TabIndex = 10;
+            this.txtCylinderSpeed.Leave += new System.EventHandler(this.TxtCylinderSpeed_Leave);
+            // 
+            // lblLaunchVelocity
+            // 
+            this.lblLaunchVelocity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblLaunchVelocity.AutoSize = true;
+            this.lblLaunchVelocity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLaunchVelocity.Location = new System.Drawing.Point(182, 326);
+            this.lblLaunchVelocity.Name = "lblLaunchVelocity";
+            this.lblLaunchVelocity.Size = new System.Drawing.Size(81, 13);
+            this.lblLaunchVelocity.TabIndex = 99;
+            this.lblLaunchVelocity.Text = "Cylinder Speed:";
+            // 
+            // lblBarPsi
+            // 
+            this.lblBarPsi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblBarPsi.AutoSize = true;
+            this.lblBarPsi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBarPsi.Location = new System.Drawing.Point(147, 325);
+            this.lblBarPsi.Name = "lblBarPsi";
+            this.lblBarPsi.Size = new System.Drawing.Size(22, 13);
+            this.lblBarPsi.TabIndex = 99;
+            this.lblBarPsi.Text = "bar";
+            // 
+            // txtFirePressure
+            // 
+            this.txtFirePressure.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtFirePressure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirePressure.Location = new System.Drawing.Point(96, 321);
+            this.txtFirePressure.Name = "txtFirePressure";
+            this.txtFirePressure.Size = new System.Drawing.Size(45, 20);
+            this.txtFirePressure.TabIndex = 9;
+            // 
+            // lblFirePressure
+            // 
+            this.lblFirePressure.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblFirePressure.AutoSize = true;
+            this.lblFirePressure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirePressure.Location = new System.Drawing.Point(23, 325);
+            this.lblFirePressure.Name = "lblFirePressure";
+            this.lblFirePressure.Size = new System.Drawing.Size(71, 13);
+            this.lblFirePressure.TabIndex = 99;
+            this.lblFirePressure.Text = "Fire Pressure:";
+            // 
+            // txtNotes
+            // 
+            this.txtNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNotes.Location = new System.Drawing.Point(87, 255);
+            this.txtNotes.Multiline = true;
+            this.txtNotes.Name = "txtNotes";
+            this.txtNotes.Size = new System.Drawing.Size(599, 50);
+            this.txtNotes.TabIndex = 8;
+            // 
+            // lblNotes
+            // 
+            this.lblNotes.AutoSize = true;
+            this.lblNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotes.Location = new System.Drawing.Point(43, 280);
+            this.lblNotes.Name = "lblNotes";
+            this.lblNotes.Size = new System.Drawing.Size(38, 13);
+            this.lblNotes.TabIndex = 99;
+            this.lblNotes.Text = "Notes:";
             // 
             // lblTrigger2Ms
             // 
             this.lblTrigger2Ms.AutoSize = true;
             this.lblTrigger2Ms.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrigger2Ms.Location = new System.Drawing.Point(262, 117);
+            this.lblTrigger2Ms.Location = new System.Drawing.Point(287, 76);
             this.lblTrigger2Ms.Name = "lblTrigger2Ms";
             this.lblTrigger2Ms.Size = new System.Drawing.Size(20, 13);
-            this.lblTrigger2Ms.TabIndex = 20;
+            this.lblTrigger2Ms.TabIndex = 99;
             this.lblTrigger2Ms.Text = "ms";
             // 
             // txtTrigger2
             // 
             this.txtTrigger2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTrigger2.Location = new System.Drawing.Point(211, 114);
+            this.txtTrigger2.Location = new System.Drawing.Point(236, 73);
             this.txtTrigger2.Name = "txtTrigger2";
             this.txtTrigger2.Size = new System.Drawing.Size(45, 20);
-            this.txtTrigger2.TabIndex = 19;
+            this.txtTrigger2.TabIndex = 6;
             // 
             // lblTrigger2
             // 
             this.lblTrigger2.AutoSize = true;
             this.lblTrigger2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrigger2.Location = new System.Drawing.Point(153, 117);
+            this.lblTrigger2.Location = new System.Drawing.Point(178, 76);
             this.lblTrigger2.Name = "lblTrigger2";
             this.lblTrigger2.Size = new System.Drawing.Size(52, 13);
-            this.lblTrigger2.TabIndex = 18;
+            this.lblTrigger2.TabIndex = 99;
             this.lblTrigger2.Text = "Trigger 2:";
             // 
             // lblTrigger1Ms
             // 
             this.lblTrigger1Ms.AutoSize = true;
             this.lblTrigger1Ms.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrigger1Ms.Location = new System.Drawing.Point(115, 117);
+            this.lblTrigger1Ms.Location = new System.Drawing.Point(144, 76);
             this.lblTrigger1Ms.Name = "lblTrigger1Ms";
             this.lblTrigger1Ms.Size = new System.Drawing.Size(20, 13);
-            this.lblTrigger1Ms.TabIndex = 17;
+            this.lblTrigger1Ms.TabIndex = 99;
             this.lblTrigger1Ms.Text = "ms";
             // 
             // txtTrigger1
             // 
             this.txtTrigger1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTrigger1.Location = new System.Drawing.Point(63, 114);
+            this.txtTrigger1.Location = new System.Drawing.Point(90, 73);
             this.txtTrigger1.Name = "txtTrigger1";
             this.txtTrigger1.Size = new System.Drawing.Size(45, 20);
-            this.txtTrigger1.TabIndex = 16;
+            this.txtTrigger1.TabIndex = 5;
             // 
             // lblTrigger1
             // 
             this.lblTrigger1.AutoSize = true;
             this.lblTrigger1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrigger1.Location = new System.Drawing.Point(5, 117);
+            this.lblTrigger1.Location = new System.Drawing.Point(32, 76);
             this.lblTrigger1.Name = "lblTrigger1";
             this.lblTrigger1.Size = new System.Drawing.Size(52, 13);
-            this.lblTrigger1.TabIndex = 15;
+            this.lblTrigger1.TabIndex = 99;
             this.lblTrigger1.Text = "Trigger 1:";
             // 
             // txtHumidity
             // 
             this.txtHumidity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHumidity.Location = new System.Drawing.Point(391, 73);
+            this.txtHumidity.Location = new System.Drawing.Point(236, 47);
             this.txtHumidity.Name = "txtHumidity";
             this.txtHumidity.Size = new System.Drawing.Size(45, 20);
-            this.txtHumidity.TabIndex = 14;
+            this.txtHumidity.TabIndex = 4;
             // 
             // lblHumidity
             // 
             this.lblHumidity.AutoSize = true;
             this.lblHumidity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHumidity.Location = new System.Drawing.Point(335, 77);
+            this.lblHumidity.Location = new System.Drawing.Point(182, 50);
             this.lblHumidity.Name = "lblHumidity";
             this.lblHumidity.Size = new System.Drawing.Size(50, 13);
-            this.lblHumidity.TabIndex = 13;
+            this.lblHumidity.TabIndex = 99;
             this.lblHumidity.Text = "Humidity:";
-            // 
-            // rdoC
-            // 
-            this.rdoC.AutoSize = true;
-            this.rdoC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoC.Location = new System.Drawing.Point(262, 75);
-            this.rdoC.Name = "rdoC";
-            this.rdoC.Size = new System.Drawing.Size(32, 17);
-            this.rdoC.TabIndex = 12;
-            this.rdoC.Text = "C";
-            this.rdoC.UseVisualStyleBackColor = true;
-            // 
-            // rdoF
-            // 
-            this.rdoF.AutoSize = true;
-            this.rdoF.Checked = true;
-            this.rdoF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoF.Location = new System.Drawing.Point(225, 75);
-            this.rdoF.Name = "rdoF";
-            this.rdoF.Size = new System.Drawing.Size(31, 17);
-            this.rdoF.TabIndex = 11;
-            this.rdoF.TabStop = true;
-            this.rdoF.Text = "F";
-            this.rdoF.UseVisualStyleBackColor = true;
             // 
             // txtTemperature
             // 
             this.txtTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTemperature.Location = new System.Drawing.Point(167, 73);
+            this.txtTemperature.Location = new System.Drawing.Point(91, 47);
             this.txtTemperature.Name = "txtTemperature";
             this.txtTemperature.Size = new System.Drawing.Size(45, 20);
-            this.txtTemperature.TabIndex = 10;
+            this.txtTemperature.TabIndex = 3;
             // 
             // lblTemperature
             // 
             this.lblTemperature.AutoSize = true;
             this.lblTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemperature.Location = new System.Drawing.Point(91, 76);
+            this.lblTemperature.Location = new System.Drawing.Point(15, 50);
             this.lblTemperature.Name = "lblTemperature";
             this.lblTemperature.Size = new System.Drawing.Size(70, 13);
-            this.lblTemperature.TabIndex = 9;
+            this.lblTemperature.TabIndex = 99;
             this.lblTemperature.Text = "Temperature:";
-            // 
-            // btnBrowse
-            // 
-            this.btnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBrowse.Location = new System.Drawing.Point(500, 46);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse.TabIndex = 8;
-            this.btnBrowse.Text = "Browse...";
-            this.btnBrowse.UseVisualStyleBackColor = true;
-            // 
-            // txtAriesFile
-            // 
-            this.txtAriesFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAriesFile.Location = new System.Drawing.Point(63, 47);
-            this.txtAriesFile.Name = "txtAriesFile";
-            this.txtAriesFile.Size = new System.Drawing.Size(431, 20);
-            this.txtAriesFile.TabIndex = 7;
-            // 
-            // lblAriesFile
-            // 
-            this.lblAriesFile.AutoSize = true;
-            this.lblAriesFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAriesFile.Location = new System.Drawing.Point(5, 50);
-            this.lblAriesFile.Name = "lblAriesFile";
-            this.lblAriesFile.Size = new System.Drawing.Size(52, 13);
-            this.lblAriesFile.TabIndex = 6;
-            this.lblAriesFile.Text = "Aries File:";
-            // 
-            // cboLauncher
-            // 
-            this.cboLauncher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboLauncher.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLauncher.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboLauncher.FormattingEnabled = true;
-            this.cboLauncher.Location = new System.Drawing.Point(454, 18);
-            this.cboLauncher.Name = "cboLauncher";
-            this.cboLauncher.Size = new System.Drawing.Size(121, 21);
-            this.cboLauncher.TabIndex = 5;
-            // 
-            // lblLauncher
-            // 
-            this.lblLauncher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblLauncher.AutoSize = true;
-            this.lblLauncher.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLauncher.Location = new System.Drawing.Point(397, 22);
-            this.lblLauncher.Name = "lblLauncher";
-            this.lblLauncher.Size = new System.Drawing.Size(55, 13);
-            this.lblLauncher.TabIndex = 4;
-            this.lblLauncher.Text = "Launcher:";
-            // 
-            // cboFFGuided
-            // 
-            this.cboFFGuided.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cboFFGuided.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboFFGuided.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboFFGuided.FormattingEnabled = true;
-            this.cboFFGuided.Location = new System.Drawing.Point(261, 18);
-            this.cboFFGuided.Name = "cboFFGuided";
-            this.cboFFGuided.Size = new System.Drawing.Size(121, 21);
-            this.cboFFGuided.TabIndex = 3;
-            // 
-            // lblFFGuided
-            // 
-            this.lblFFGuided.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblFFGuided.AutoSize = true;
-            this.lblFFGuided.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFFGuided.Location = new System.Drawing.Point(194, 22);
-            this.lblFFGuided.Name = "lblFFGuided";
-            this.lblFFGuided.Size = new System.Drawing.Size(61, 13);
-            this.lblFFGuided.TabIndex = 2;
-            this.lblFFGuided.Text = "FF/Guided:";
             // 
             // cboImpactor
             // 
             this.cboImpactor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboImpactor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboImpactor.FormattingEnabled = true;
-            this.cboImpactor.Location = new System.Drawing.Point(63, 18);
+            this.cboImpactor.Location = new System.Drawing.Point(90, 16);
             this.cboImpactor.Name = "cboImpactor";
             this.cboImpactor.Size = new System.Drawing.Size(121, 21);
             this.cboImpactor.TabIndex = 1;
@@ -383,464 +891,11 @@
             // 
             this.lblImpactor.AutoSize = true;
             this.lblImpactor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImpactor.Location = new System.Drawing.Point(6, 22);
+            this.lblImpactor.Location = new System.Drawing.Point(33, 22);
             this.lblImpactor.Name = "lblImpactor";
             this.lblImpactor.Size = new System.Drawing.Size(51, 13);
             this.lblImpactor.TabIndex = 0;
             this.lblImpactor.Text = "Impactor:";
-            // 
-            // lblXAxisMm
-            // 
-            this.lblXAxisMm.AutoSize = true;
-            this.lblXAxisMm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblXAxisMm.Location = new System.Drawing.Point(115, 143);
-            this.lblXAxisMm.Name = "lblXAxisMm";
-            this.lblXAxisMm.Size = new System.Drawing.Size(23, 13);
-            this.lblXAxisMm.TabIndex = 23;
-            this.lblXAxisMm.Text = "mm";
-            // 
-            // txtXAxis
-            // 
-            this.txtXAxis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtXAxis.Location = new System.Drawing.Point(63, 139);
-            this.txtXAxis.Name = "txtXAxis";
-            this.txtXAxis.Size = new System.Drawing.Size(45, 20);
-            this.txtXAxis.TabIndex = 22;
-            // 
-            // lblXAxis
-            // 
-            this.lblXAxis.AutoSize = true;
-            this.lblXAxis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblXAxis.Location = new System.Drawing.Point(18, 143);
-            this.lblXAxis.Name = "lblXAxis";
-            this.lblXAxis.Size = new System.Drawing.Size(39, 13);
-            this.lblXAxis.TabIndex = 21;
-            this.lblXAxis.Text = "X-Axis:";
-            // 
-            // lblYAxisMm
-            // 
-            this.lblYAxisMm.AutoSize = true;
-            this.lblYAxisMm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblYAxisMm.Location = new System.Drawing.Point(261, 143);
-            this.lblYAxisMm.Name = "lblYAxisMm";
-            this.lblYAxisMm.Size = new System.Drawing.Size(23, 13);
-            this.lblYAxisMm.TabIndex = 26;
-            this.lblYAxisMm.Text = "mm";
-            // 
-            // txtYAxis
-            // 
-            this.txtYAxis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtYAxis.Location = new System.Drawing.Point(210, 139);
-            this.txtYAxis.Name = "txtYAxis";
-            this.txtYAxis.Size = new System.Drawing.Size(45, 20);
-            this.txtYAxis.TabIndex = 25;
-            // 
-            // lblYAxis
-            // 
-            this.lblYAxis.AutoSize = true;
-            this.lblYAxis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblYAxis.Location = new System.Drawing.Point(166, 143);
-            this.lblYAxis.Name = "lblYAxis";
-            this.lblYAxis.Size = new System.Drawing.Size(39, 13);
-            this.lblYAxis.TabIndex = 24;
-            this.lblYAxis.Text = "Y-Axis:";
-            // 
-            // lblZAxisMm
-            // 
-            this.lblZAxisMm.AutoSize = true;
-            this.lblZAxisMm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblZAxisMm.Location = new System.Drawing.Point(389, 143);
-            this.lblZAxisMm.Name = "lblZAxisMm";
-            this.lblZAxisMm.Size = new System.Drawing.Size(23, 13);
-            this.lblZAxisMm.TabIndex = 29;
-            this.lblZAxisMm.Text = "mm";
-            // 
-            // txtZAxis
-            // 
-            this.txtZAxis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtZAxis.Location = new System.Drawing.Point(337, 139);
-            this.txtZAxis.Name = "txtZAxis";
-            this.txtZAxis.Size = new System.Drawing.Size(45, 20);
-            this.txtZAxis.TabIndex = 28;
-            // 
-            // lblZAxis
-            // 
-            this.lblZAxis.AutoSize = true;
-            this.lblZAxis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblZAxis.Location = new System.Drawing.Point(295, 143);
-            this.lblZAxis.Name = "lblZAxis";
-            this.lblZAxis.Size = new System.Drawing.Size(39, 13);
-            this.lblZAxis.TabIndex = 27;
-            this.lblZAxis.Text = "Z-Axis:";
-            // 
-            // lblDeg
-            // 
-            this.lblDeg.AutoSize = true;
-            this.lblDeg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeg.Location = new System.Drawing.Point(551, 143);
-            this.lblDeg.Name = "lblDeg";
-            this.lblDeg.Size = new System.Drawing.Size(25, 13);
-            this.lblDeg.TabIndex = 32;
-            this.lblDeg.Text = "deg";
-            // 
-            // txtAlpha
-            // 
-            this.txtAlpha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAlpha.Location = new System.Drawing.Point(502, 139);
-            this.txtAlpha.Name = "txtAlpha";
-            this.txtAlpha.Size = new System.Drawing.Size(45, 20);
-            this.txtAlpha.TabIndex = 31;
-            // 
-            // lblAlpha
-            // 
-            this.lblAlpha.AutoSize = true;
-            this.lblAlpha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlpha.Location = new System.Drawing.Point(459, 143);
-            this.lblAlpha.Name = "lblAlpha";
-            this.lblAlpha.Size = new System.Drawing.Size(37, 13);
-            this.lblAlpha.TabIndex = 30;
-            this.lblAlpha.Text = "Alpha:";
-            // 
-            // lblNotes
-            // 
-            this.lblNotes.AutoSize = true;
-            this.lblNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotes.Location = new System.Drawing.Point(19, 181);
-            this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(38, 13);
-            this.lblNotes.TabIndex = 33;
-            this.lblNotes.Text = "Notes:";
-            // 
-            // txtNotes
-            // 
-            this.txtNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNotes.Location = new System.Drawing.Point(65, 166);
-            this.txtNotes.Multiline = true;
-            this.txtNotes.Name = "txtNotes";
-            this.txtNotes.Size = new System.Drawing.Size(511, 50);
-            this.txtNotes.TabIndex = 34;
-            // 
-            // lblTrapMsKphMph
-            // 
-            this.lblTrapMsKphMph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTrapMsKphMph.AutoSize = true;
-            this.lblTrapMsKphMph.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrapMsKphMph.Location = new System.Drawing.Point(550, 226);
-            this.lblTrapMsKphMph.Name = "lblTrapMsKphMph";
-            this.lblTrapMsKphMph.Size = new System.Drawing.Size(25, 13);
-            this.lblTrapMsKphMph.TabIndex = 43;
-            this.lblTrapMsKphMph.Text = "kph";
-            // 
-            // txtTrapVelocity
-            // 
-            this.txtTrapVelocity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTrapVelocity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTrapVelocity.Location = new System.Drawing.Point(499, 222);
-            this.txtTrapVelocity.Name = "txtTrapVelocity";
-            this.txtTrapVelocity.Size = new System.Drawing.Size(45, 20);
-            this.txtTrapVelocity.TabIndex = 42;
-            // 
-            // lblTrapVelocity
-            // 
-            this.lblTrapVelocity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTrapVelocity.AutoSize = true;
-            this.lblTrapVelocity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrapVelocity.Location = new System.Drawing.Point(421, 226);
-            this.lblTrapVelocity.Name = "lblTrapVelocity";
-            this.lblTrapVelocity.Size = new System.Drawing.Size(72, 13);
-            this.lblTrapVelocity.TabIndex = 41;
-            this.lblTrapVelocity.Text = "Trap Velocity:";
-            // 
-            // lblMsKphMph
-            // 
-            this.lblMsKphMph.AutoSize = true;
-            this.lblMsKphMph.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMsKphMph.Location = new System.Drawing.Point(346, 226);
-            this.lblMsKphMph.Name = "lblMsKphMph";
-            this.lblMsKphMph.Size = new System.Drawing.Size(25, 13);
-            this.lblMsKphMph.TabIndex = 40;
-            this.lblMsKphMph.Text = "m/s";
-            // 
-            // txtLaunchVelocity
-            // 
-            this.txtLaunchVelocity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLaunchVelocity.Location = new System.Drawing.Point(295, 223);
-            this.txtLaunchVelocity.Name = "txtLaunchVelocity";
-            this.txtLaunchVelocity.Size = new System.Drawing.Size(45, 20);
-            this.txtLaunchVelocity.TabIndex = 39;
-            // 
-            // lblLaunchVelocity
-            // 
-            this.lblLaunchVelocity.AutoSize = true;
-            this.lblLaunchVelocity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaunchVelocity.Location = new System.Drawing.Point(203, 226);
-            this.lblLaunchVelocity.Name = "lblLaunchVelocity";
-            this.lblLaunchVelocity.Size = new System.Drawing.Size(86, 13);
-            this.lblLaunchVelocity.TabIndex = 38;
-            this.lblLaunchVelocity.Text = "Launch Velocity:";
-            // 
-            // lblBarPsi
-            // 
-            this.lblBarPsi.AutoSize = true;
-            this.lblBarPsi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBarPsi.Location = new System.Drawing.Point(141, 226);
-            this.lblBarPsi.Name = "lblBarPsi";
-            this.lblBarPsi.Size = new System.Drawing.Size(22, 13);
-            this.lblBarPsi.TabIndex = 37;
-            this.lblBarPsi.Text = "bar";
-            // 
-            // txtFirePressure
-            // 
-            this.txtFirePressure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirePressure.Location = new System.Drawing.Point(90, 222);
-            this.txtFirePressure.Name = "txtFirePressure";
-            this.txtFirePressure.Size = new System.Drawing.Size(45, 20);
-            this.txtFirePressure.TabIndex = 36;
-            // 
-            // lblFirePressure
-            // 
-            this.lblFirePressure.AutoSize = true;
-            this.lblFirePressure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirePressure.Location = new System.Drawing.Point(17, 226);
-            this.lblFirePressure.Name = "lblFirePressure";
-            this.lblFirePressure.Size = new System.Drawing.Size(71, 13);
-            this.lblFirePressure.TabIndex = 35;
-            this.lblFirePressure.Text = "Fire Pressure:";
-            // 
-            // lblMmIn
-            // 
-            this.lblMmIn.AutoSize = true;
-            this.lblMmIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMmIn.Location = new System.Drawing.Point(144, 285);
-            this.lblMmIn.Name = "lblMmIn";
-            this.lblMmIn.Size = new System.Drawing.Size(23, 13);
-            this.lblMmIn.TabIndex = 46;
-            this.lblMmIn.Text = "mm";
-            // 
-            // txtTravelDistance
-            // 
-            this.txtTravelDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTravelDistance.Location = new System.Drawing.Point(90, 281);
-            this.txtTravelDistance.Name = "txtTravelDistance";
-            this.txtTravelDistance.Size = new System.Drawing.Size(45, 20);
-            this.txtTravelDistance.TabIndex = 45;
-            // 
-            // lblTravelDistance
-            // 
-            this.lblTravelDistance.AutoSize = true;
-            this.lblTravelDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTravelDistance.Location = new System.Drawing.Point(3, 285);
-            this.lblTravelDistance.Name = "lblTravelDistance";
-            this.lblTravelDistance.Size = new System.Drawing.Size(85, 13);
-            this.lblTravelDistance.TabIndex = 44;
-            this.lblTravelDistance.Text = "Travel Distance:";
-            // 
-            // grpUnits
-            // 
-            this.grpUnits.Controls.Add(this.rdoMetric);
-            this.grpUnits.Controls.Add(this.rdoEnglish);
-            this.grpUnits.Location = new System.Drawing.Point(236, 275);
-            this.grpUnits.Name = "grpUnits";
-            this.grpUnits.Size = new System.Drawing.Size(149, 33);
-            this.grpUnits.TabIndex = 47;
-            this.grpUnits.TabStop = false;
-            // 
-            // rdoEnglish
-            // 
-            this.rdoEnglish.AutoSize = true;
-            this.rdoEnglish.Location = new System.Drawing.Point(71, 11);
-            this.rdoEnglish.Name = "rdoEnglish";
-            this.rdoEnglish.Size = new System.Drawing.Size(66, 17);
-            this.rdoEnglish.TabIndex = 0;
-            this.rdoEnglish.TabStop = true;
-            this.rdoEnglish.Text = "English";
-            this.rdoEnglish.UseVisualStyleBackColor = true;
-            // 
-            // rdoMetric
-            // 
-            this.rdoMetric.AutoSize = true;
-            this.rdoMetric.Location = new System.Drawing.Point(6, 11);
-            this.rdoMetric.Name = "rdoMetric";
-            this.rdoMetric.Size = new System.Drawing.Size(60, 17);
-            this.rdoMetric.TabIndex = 1;
-            this.rdoMetric.TabStop = true;
-            this.rdoMetric.Text = "Metric";
-            this.rdoMetric.UseVisualStyleBackColor = true;
-            // 
-            // grpMilliKph
-            // 
-            this.grpMilliKph.Controls.Add(this.rdoMphKph);
-            this.grpMilliKph.Controls.Add(this.rdoMilliseconds);
-            this.grpMilliKph.Location = new System.Drawing.Point(415, 275);
-            this.grpMilliKph.Name = "grpMilliKph";
-            this.grpMilliKph.Size = new System.Drawing.Size(160, 35);
-            this.grpMilliKph.TabIndex = 48;
-            this.grpMilliKph.TabStop = false;
-            // 
-            // rdoMilliseconds
-            // 
-            this.rdoMilliseconds.AutoSize = true;
-            this.rdoMilliseconds.Location = new System.Drawing.Point(6, 11);
-            this.rdoMilliseconds.Name = "rdoMilliseconds";
-            this.rdoMilliseconds.Size = new System.Drawing.Size(93, 17);
-            this.rdoMilliseconds.TabIndex = 2;
-            this.rdoMilliseconds.TabStop = true;
-            this.rdoMilliseconds.Text = "milliseconds";
-            this.rdoMilliseconds.UseVisualStyleBackColor = true;
-            // 
-            // rdoMphKph
-            // 
-            this.rdoMphKph.AutoSize = true;
-            this.rdoMphKph.Location = new System.Drawing.Point(105, 11);
-            this.rdoMphKph.Name = "rdoMphKph";
-            this.rdoMphKph.Size = new System.Drawing.Size(46, 17);
-            this.rdoMphKph.TabIndex = 3;
-            this.rdoMphKph.TabStop = true;
-            this.rdoMphKph.Text = "kph";
-            this.rdoMphKph.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(499, 255);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(45, 20);
-            this.textBox1.TabIndex = 54;
-            // 
-            // lblAngleYZ
-            // 
-            this.lblAngleYZ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblAngleYZ.AutoSize = true;
-            this.lblAngleYZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAngleYZ.Location = new System.Drawing.Point(439, 258);
-            this.lblAngleYZ.Name = "lblAngleYZ";
-            this.lblAngleYZ.Size = new System.Drawing.Size(54, 13);
-            this.lblAngleYZ.TabIndex = 53;
-            this.lblAngleYZ.Text = "Angle YZ:";
-            // 
-            // txtAngleXz
-            // 
-            this.txtAngleXz.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAngleXz.Location = new System.Drawing.Point(295, 255);
-            this.txtAngleXz.Name = "txtAngleXz";
-            this.txtAngleXz.Size = new System.Drawing.Size(45, 20);
-            this.txtAngleXz.TabIndex = 52;
-            // 
-            // lblAngleXZ
-            // 
-            this.lblAngleXZ.AutoSize = true;
-            this.lblAngleXZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAngleXZ.Location = new System.Drawing.Point(235, 258);
-            this.lblAngleXZ.Name = "lblAngleXZ";
-            this.lblAngleXZ.Size = new System.Drawing.Size(54, 13);
-            this.lblAngleXZ.TabIndex = 51;
-            this.lblAngleXZ.Text = "Angle XZ:";
-            // 
-            // txtImpactAngle
-            // 
-            this.txtImpactAngle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImpactAngle.Location = new System.Drawing.Point(90, 255);
-            this.txtImpactAngle.Name = "txtImpactAngle";
-            this.txtImpactAngle.Size = new System.Drawing.Size(45, 20);
-            this.txtImpactAngle.TabIndex = 50;
-            // 
-            // lblImpactAngle
-            // 
-            this.lblImpactAngle.AutoSize = true;
-            this.lblImpactAngle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImpactAngle.Location = new System.Drawing.Point(16, 258);
-            this.lblImpactAngle.Name = "lblImpactAngle";
-            this.lblImpactAngle.Size = new System.Drawing.Size(72, 13);
-            this.lblImpactAngle.TabIndex = 49;
-            this.lblImpactAngle.Text = "Impact Angle:";
-            // 
-            // lblAirbag3Ms
-            // 
-            this.lblAirbag3Ms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblAirbag3Ms.AutoSize = true;
-            this.lblAirbag3Ms.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAirbag3Ms.Location = new System.Drawing.Point(550, 317);
-            this.lblAirbag3Ms.Name = "lblAirbag3Ms";
-            this.lblAirbag3Ms.Size = new System.Drawing.Size(20, 13);
-            this.lblAirbag3Ms.TabIndex = 63;
-            this.lblAirbag3Ms.Text = "ms";
-            // 
-            // txtAirbag3
-            // 
-            this.txtAirbag3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAirbag3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAirbag3.Location = new System.Drawing.Point(499, 313);
-            this.txtAirbag3.Name = "txtAirbag3";
-            this.txtAirbag3.Size = new System.Drawing.Size(45, 20);
-            this.txtAirbag3.TabIndex = 62;
-            // 
-            // lblAirbag3
-            // 
-            this.lblAirbag3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblAirbag3.AutoSize = true;
-            this.lblAirbag3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAirbag3.Location = new System.Drawing.Point(444, 317);
-            this.lblAirbag3.Name = "lblAirbag3";
-            this.lblAirbag3.Size = new System.Drawing.Size(49, 13);
-            this.lblAirbag3.TabIndex = 61;
-            this.lblAirbag3.Text = "Airbag 3:";
-            // 
-            // lblAirbag2Ms
-            // 
-            this.lblAirbag2Ms.AutoSize = true;
-            this.lblAirbag2Ms.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAirbag2Ms.Location = new System.Drawing.Point(346, 317);
-            this.lblAirbag2Ms.Name = "lblAirbag2Ms";
-            this.lblAirbag2Ms.Size = new System.Drawing.Size(20, 13);
-            this.lblAirbag2Ms.TabIndex = 60;
-            this.lblAirbag2Ms.Text = "ms";
-            // 
-            // txtAitbag2
-            // 
-            this.txtAitbag2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAitbag2.Location = new System.Drawing.Point(295, 313);
-            this.txtAitbag2.Name = "txtAitbag2";
-            this.txtAitbag2.Size = new System.Drawing.Size(45, 20);
-            this.txtAitbag2.TabIndex = 59;
-            // 
-            // lblAirbag2
-            // 
-            this.lblAirbag2.AutoSize = true;
-            this.lblAirbag2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAirbag2.Location = new System.Drawing.Point(240, 317);
-            this.lblAirbag2.Name = "lblAirbag2";
-            this.lblAirbag2.Size = new System.Drawing.Size(49, 13);
-            this.lblAirbag2.TabIndex = 58;
-            this.lblAirbag2.Text = "Airbag 2:";
-            // 
-            // lblAirbag1Ms
-            // 
-            this.lblAirbag1Ms.AutoSize = true;
-            this.lblAirbag1Ms.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAirbag1Ms.Location = new System.Drawing.Point(141, 317);
-            this.lblAirbag1Ms.Name = "lblAirbag1Ms";
-            this.lblAirbag1Ms.Size = new System.Drawing.Size(20, 13);
-            this.lblAirbag1Ms.TabIndex = 57;
-            this.lblAirbag1Ms.Text = "ms";
-            // 
-            // txtAirbag1
-            // 
-            this.txtAirbag1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAirbag1.Location = new System.Drawing.Point(90, 313);
-            this.txtAirbag1.Name = "txtAirbag1";
-            this.txtAirbag1.Size = new System.Drawing.Size(45, 20);
-            this.txtAirbag1.TabIndex = 56;
-            // 
-            // lblAirbag1
-            // 
-            this.lblAirbag1.AutoSize = true;
-            this.lblAirbag1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAirbag1.Location = new System.Drawing.Point(39, 317);
-            this.lblAirbag1.Name = "lblAirbag1";
-            this.lblAirbag1.Size = new System.Drawing.Size(49, 13);
-            this.lblAirbag1.TabIndex = 55;
-            this.lblAirbag1.Text = "Airbag 1:";
             // 
             // CtlParameters
             // 
@@ -848,13 +903,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.grpParameters);
             this.Name = "CtlParameters";
-            this.Size = new System.Drawing.Size(593, 353);
+            this.Size = new System.Drawing.Size(732, 438);
             this.grpParameters.ResumeLayout(false);
             this.grpParameters.PerformLayout();
-            this.grpUnits.ResumeLayout(false);
-            this.grpUnits.PerformLayout();
-            this.grpMilliKph.ResumeLayout(false);
-            this.grpMilliKph.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAxis)).EndInit();
+            this.grpFForGuided.ResumeLayout(false);
+            this.grpFForGuided.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -862,73 +916,75 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grpParameters;
-        private System.Windows.Forms.ComboBox cboLauncher;
-        private System.Windows.Forms.Label lblLauncher;
-        private System.Windows.Forms.ComboBox cboFFGuided;
-        private System.Windows.Forms.Label lblFFGuided;
         private System.Windows.Forms.ComboBox cboImpactor;
         private System.Windows.Forms.Label lblImpactor;
-        private System.Windows.Forms.Button btnBrowse;
-        private System.Windows.Forms.TextBox txtAriesFile;
-        private System.Windows.Forms.Label lblAriesFile;
         private System.Windows.Forms.TextBox txtTemperature;
         private System.Windows.Forms.Label lblTemperature;
         private System.Windows.Forms.Label lblTrigger1;
         private System.Windows.Forms.TextBox txtHumidity;
         private System.Windows.Forms.Label lblHumidity;
-        private System.Windows.Forms.RadioButton rdoC;
-        private System.Windows.Forms.RadioButton rdoF;
         private System.Windows.Forms.Label lblTrigger2Ms;
         private System.Windows.Forms.TextBox txtTrigger2;
         private System.Windows.Forms.Label lblTrigger2;
         private System.Windows.Forms.Label lblTrigger1Ms;
         private System.Windows.Forms.TextBox txtTrigger1;
-        private System.Windows.Forms.Label lblDeg;
-        private System.Windows.Forms.TextBox txtAlpha;
-        private System.Windows.Forms.Label lblAlpha;
-        private System.Windows.Forms.Label lblZAxisMm;
-        private System.Windows.Forms.TextBox txtZAxis;
-        private System.Windows.Forms.Label lblZAxis;
-        private System.Windows.Forms.Label lblYAxisMm;
-        private System.Windows.Forms.TextBox txtYAxis;
-        private System.Windows.Forms.Label lblYAxis;
-        private System.Windows.Forms.Label lblXAxisMm;
-        private System.Windows.Forms.TextBox txtXAxis;
-        private System.Windows.Forms.Label lblXAxis;
         private System.Windows.Forms.TextBox txtNotes;
         private System.Windows.Forms.Label lblNotes;
         private System.Windows.Forms.Label lblTrapMsKphMph;
-        private System.Windows.Forms.TextBox txtTrapVelocity;
+        private System.Windows.Forms.TextBox txtMeasuredSpeed;
         private System.Windows.Forms.Label lblTrapVelocity;
         private System.Windows.Forms.Label lblMsKphMph;
-        private System.Windows.Forms.TextBox txtLaunchVelocity;
+        private System.Windows.Forms.TextBox txtCylinderSpeed;
         private System.Windows.Forms.Label lblLaunchVelocity;
         private System.Windows.Forms.Label lblBarPsi;
         private System.Windows.Forms.TextBox txtFirePressure;
         private System.Windows.Forms.Label lblFirePressure;
-        private System.Windows.Forms.Label lblMmIn;
-        private System.Windows.Forms.TextBox txtTravelDistance;
-        private System.Windows.Forms.Label lblTravelDistance;
-        private System.Windows.Forms.GroupBox grpUnits;
-        private System.Windows.Forms.RadioButton rdoMetric;
-        private System.Windows.Forms.RadioButton rdoEnglish;
-        private System.Windows.Forms.GroupBox grpMilliKph;
-        private System.Windows.Forms.RadioButton rdoMphKph;
-        private System.Windows.Forms.RadioButton rdoMilliseconds;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAngleYZ;
         private System.Windows.Forms.Label lblAngleYZ;
         private System.Windows.Forms.TextBox txtAngleXz;
         private System.Windows.Forms.Label lblAngleXZ;
-        private System.Windows.Forms.TextBox txtImpactAngle;
-        private System.Windows.Forms.Label lblImpactAngle;
         private System.Windows.Forms.Label lblAirbag3Ms;
         private System.Windows.Forms.TextBox txtAirbag3;
         private System.Windows.Forms.Label lblAirbag3;
         private System.Windows.Forms.Label lblAirbag2Ms;
-        private System.Windows.Forms.TextBox txtAitbag2;
+        private System.Windows.Forms.TextBox txtAirbag2;
         private System.Windows.Forms.Label lblAirbag2;
         private System.Windows.Forms.Label lblAirbag1Ms;
         private System.Windows.Forms.TextBox txtAirbag1;
         private System.Windows.Forms.Label lblAirbag1;
+        private System.Windows.Forms.GroupBox grpFForGuided;
+        private System.Windows.Forms.RadioButton rdoGuided;
+        private System.Windows.Forms.RadioButton rdoFF;
+        private System.Windows.Forms.DataGridView dgAxis;
+        private System.Windows.Forms.TextBox txtCylenderKPH;
+        private System.Windows.Forms.Label lblMeasuredKPH;
+        private System.Windows.Forms.TextBox txtMeasuredKPH;
+        private System.Windows.Forms.Label lblCylinderKPH;
+        private System.Windows.Forms.Label lblCylWOUnits;
+        private System.Windows.Forms.TextBox txtCylinderwithout;
+        private System.Windows.Forms.Label lblCylenderwithout;
+        private System.Windows.Forms.TextBox txtAcceleratorTemperature;
+        private System.Windows.Forms.Label lblAcceleratorTemperature;
+        private System.Windows.Forms.TextBox txtTankTemperature;
+        private System.Windows.Forms.Label lblTankTemperature;
+        private System.Windows.Forms.Label lblTempC;
+        private System.Windows.Forms.Label lblRequired1;
+        private System.Windows.Forms.Label lblTankC;
+        private System.Windows.Forms.Label lblAccC;
+        private System.Windows.Forms.Label lblRequired10;
+        private System.Windows.Forms.Label lblRequired9;
+        private System.Windows.Forms.Label lblRequired8;
+        private System.Windows.Forms.Label lblRequired7;
+        private System.Windows.Forms.Label lblRequired6;
+        private System.Windows.Forms.Label lblRequired5;
+        private System.Windows.Forms.Label lblRequired4;
+        private System.Windows.Forms.Label lblRequired3;
+        private System.Windows.Forms.Label lblRequired2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Parm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Xaxis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Yaxis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Zaxis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Alpha;
+        private System.Windows.Forms.Label lblPercentHumidity;
     }
 }

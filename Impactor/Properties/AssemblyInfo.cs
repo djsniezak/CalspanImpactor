@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Impactor")]
-[assembly: AssemblyCopyright("Copyright ©  2023")]
+[assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -34,5 +34,7 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 //
 //  Version 1.0.001 - Released July 7, 2023
-[assembly: AssemblyVersion("1.0.001")]
-[assembly: AssemblyFileVersion("1.0.001")]
+//  Version 1.0.001 
+//      August 24, 2024 - Stored Verson 1.002
+[assembly: AssemblyVersion("1.0.002")]
+[assembly: AssemblyFileVersion("1.0.002")]

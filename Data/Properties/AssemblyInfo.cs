@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Controls")]
+[assembly: AssemblyTitle("Data")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Controls")]
-[assembly: AssemblyCopyright("Copyright ©  2023")]
+[assembly: AssemblyProduct("Data")]
+[assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f5d01961-edcc-4440-8ca8-f12cc8ba2806")]
+[assembly: Guid("a731d6c1-586b-4b29-980c-2af5f56e69f6")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -33,7 +33,10 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 //
-//  Version 1.0.0   - Released July 7, 2023
-//  Version 1.1.0 - Stored Not released August 24, 20
-[assembly: AssemblyVersion("1.1.0")]
-[assembly: AssemblyFileVersion("1.1.0")]
+// Version 1.0.0
+//          July 23, 2024 - Added Database, Impactor Test, Imapctor Parameters
+//          July 27, 2024 - Added Impactor Axis
+//          August 24, 2024 - Add rest of classes
+//          Stored Not Released August 24, 2024 - Version 1.002
+[assembly: AssemblyVersion("1.0.0")]
+[assembly: AssemblyFileVersion("1.0.0")]

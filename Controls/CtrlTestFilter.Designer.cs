@@ -1,4 +1,4 @@
-﻿namespace Controls
+﻿namespace ImpactorControls
 {
     partial class CtrlTestFilter
     {
@@ -157,6 +157,7 @@
             this.lstTests.Name = "lstTests";
             this.lstTests.Size = new System.Drawing.Size(196, 550);
             this.lstTests.TabIndex = 1;
+            this.lstTests.SelectedIndexChanged += new System.EventHandler(this.LstTests_SelectedIndexChanged);
             // 
             // CtrlTestFilter
             // 

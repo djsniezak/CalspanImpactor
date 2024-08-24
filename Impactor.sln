@@ -5,7 +5,9 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Impactor", "Impactor\Impactor.csproj", "{00AED292-66E8-482D-B5E9-4841F6C76C98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controls", "Controls\Controls.csproj", "{F5D01961-EDCC-4440-8CA8-F12CC8BA2806}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpactorControls", "Controls\ImpactorControls.csproj", "{F5D01961-EDCC-4440-8CA8-F12CC8BA2806}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{A731D6C1-586B-4B29-980C-2AF5F56E69F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F5D01961-EDCC-4440-8CA8-F12CC8BA2806}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5D01961-EDCC-4440-8CA8-F12CC8BA2806}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5D01961-EDCC-4440-8CA8-F12CC8BA2806}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A731D6C1-586B-4B29-980C-2AF5F56E69F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A731D6C1-586B-4B29-980C-2AF5F56E69F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A731D6C1-586B-4B29-980C-2AF5F56E69F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A731D6C1-586B-4B29-980C-2AF5F56E69F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

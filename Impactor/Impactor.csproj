@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -111,9 +112,13 @@
     <None Include="Resources\ProgramsPlus1.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Controls\Controls.csproj">
+    <ProjectReference Include="..\Controls\ImpactorControls.csproj">
       <Project>{F5D01961-EDCC-4440-8CA8-F12CC8BA2806}</Project>
-      <Name>Controls</Name>
+      <Name>ImpactorControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{a731d6c1-586b-4b29-980c-2af5f56e69f6}</Project>
+      <Name>Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

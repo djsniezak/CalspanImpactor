@@ -49,6 +49,12 @@
     <Compile Include="CtlParameters.Designer.cs">
       <DependentUpon>CtlParameters.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtlProtocol.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlProtocol.Designer.cs">
+      <DependentUpon>CtlProtocol.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlTestSetUp.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -67,12 +73,21 @@
     <EmbeddedResource Include="CtlParameters.resx">
       <DependentUpon>CtlParameters.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CtlProtocol.resx">
+      <DependentUpon>CtlProtocol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtlTestSetUp.resx">
       <DependentUpon>CtlTestSetUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlTestFilter.resx">
       <DependentUpon>CtrlTestFilter.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{a731d6c1-586b-4b29-980c-2af5f56e69f6}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
