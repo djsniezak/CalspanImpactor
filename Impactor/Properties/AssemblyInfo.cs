@@ -42,5 +42,6 @@ using System.Runtime.InteropServices;
 //      September 9, 2024 - Added Impactor Type Dialog
 //      September 16, 2024 - Added Protocol Dialog
 //      October 6, 2024 - Added Saving and Loading Protocol
+//      November 16, 2024 - Released
 [assembly: AssemblyVersion("1.0.003")]
 [assembly: AssemblyFileVersion("1.0.003")]
