@@ -53,11 +53,23 @@
     <Compile Include="IMPAbout.Designer.cs">
       <DependentUpon>IMPAbout.cs</DependentUpon>
     </Compile>
+    <Compile Include="IMPClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMPClient.Designer.cs">
+      <DependentUpon>IMPClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="IMPFrmImpactor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IMPFrmImpactor.Designer.cs">
       <DependentUpon>IMPFrmImpactor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IMPFrmImpactorType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMPFrmImpactorType.Designer.cs">
+      <DependentUpon>IMPFrmImpactorType.cs</DependentUpon>
     </Compile>
     <Compile Include="IMPFrmMain.cs">
       <SubType>Form</SubType>
@@ -65,16 +77,40 @@
     <Compile Include="IMPFrmMain.Designer.cs">
       <DependentUpon>IMPFrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="IMPFrmProtocol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMPFrmProtocol.Designer.cs">
+      <DependentUpon>IMPFrmProtocol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IMPFrmTestType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMPFrmTestType.Designer.cs">
+      <DependentUpon>IMPFrmTestType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="IMPAbout.resx">
       <DependentUpon>IMPAbout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IMPClient.resx">
+      <DependentUpon>IMPClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IMPFrmImpactor.resx">
       <DependentUpon>IMPFrmImpactor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IMPFrmImpactorType.resx">
+      <DependentUpon>IMPFrmImpactorType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IMPFrmMain.resx">
       <DependentUpon>IMPFrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IMPFrmProtocol.resx">
+      <DependentUpon>IMPFrmProtocol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IMPFrmTestType.resx">
+      <DependentUpon>IMPFrmTestType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -98,7 +134,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="App.Debug.config">
+        <DependentUpon>App.config</DependentUpon>
+    </None>
+    <None Include="App.Release.config">
+        <DependentUpon>App.config</DependentUpon>
+    </None>
   </ItemGroup>
+  <Target Name="SetAppConfig" BeforeTargets="Compile">
+    <Copy SourceFiles="App.Debug.config" DestinationFiles="App.config" OverwriteReadOnlyFiles="true" Condition=" '$(Configuration)' == 'Debug' " />
+    <Copy SourceFiles="App.Release.config" DestinationFiles="App.config" OverwriteReadOnlyFiles="true" Condition=" '$(Configuration)' == 'Release' " />
+  </Target>
   <ItemGroup>
     <None Include="Resources\Calspan_Logo.jpg" />
   </ItemGroup>

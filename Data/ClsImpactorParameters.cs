@@ -21,12 +21,6 @@ namespace Data
         [XmlAttribute("ImpactorTypeId")]
         public long ImpactorTypeId { get; set; } = long.MinValue;
 
-        [XmlAttribute("AxisId")]
-        public long AxisId { get; set; } = long.MinValue;
-
-        [XmlAttribute("GuidedOrFreeFlight")]
-        public string GuidedOrFreeFlight { get; set; } = string.Empty;
-
         [XmlAttribute("Temperature")]
         public decimal Temperature { get; set; } = decimal.MinValue;
 
@@ -108,14 +102,7 @@ namespace Data
                         {
                             ImpactorTypeId = lTemp;
                         }
-
-                        if (long.TryParse(reader["AxisId"].ToString(), out lTemp) == true)
-                        {
-                            AxisId = lTemp;
-                        }
-
-                        GuidedOrFreeFlight = reader["GuidedOrFreeFlight"].ToString();
-
+                        
                         if (decimal.TryParse(reader["Temperature"].ToString(), out decimal dTemp) == true )
                         {
                             Temperature = dTemp;
@@ -236,13 +223,6 @@ namespace Data
                             ImpactorTypeId = lTemp;
                         }
 
-                        if (long.TryParse(reader["AxisId"].ToString(), out lTemp) == true)
-                        {
-                            AxisId = lTemp;
-                        }
-
-                        GuidedOrFreeFlight = reader["GuidedOrFreeFlight"].ToString();
-
                         if (decimal.TryParse(reader["Temperature"].ToString(), out decimal dTemp) == true)
                         {
                             Temperature = dTemp;
@@ -334,35 +314,123 @@ namespace Data
             _connection = Open(out string strErrorMessage);
             if (string.IsNullOrEmpty(strErrorMessage) == true)
             {
-                SqlCommand sqlCommand = new SqlCommand()
+                SqlCommand cmd = new SqlCommand()
                 {
                     Connection = _connection,
                     CommandType = CommandType.StoredProcedure,
                     CommandText = "InsertImpactorParameter",
                 };
 
-                sqlCommand.Parameters.Add("@ImpactorTestId", SqlDbType.BigInt).Value = ImpactorTestId;
-                sqlCommand.Parameters.Add("@ImpactorTypeId", SqlDbType.BigInt).Value = ImpactorTypeId;
-                sqlCommand.Parameters.Add("@AxisId", SqlDbType.BigInt).Value = AxisId;
-                sqlCommand.Parameters.Add("@GuidedOrFreeFlight", SqlDbType.VarChar).Value = GuidedOrFreeFlight;
-                sqlCommand.Parameters.Add("@Temperature", SqlDbType.Decimal).Value = Temperature;
-                sqlCommand.Parameters.Add("@Humidity", SqlDbType.Decimal).Value = Humidity;
-                sqlCommand.Parameters.Add("@Trigger1", SqlDbType.Int).Value = Trigger1;
-                sqlCommand.Parameters.Add("@Trigger2", SqlDbType.Int).Value = Trigger2;
-                sqlCommand.Parameters.Add("@Notes", SqlDbType.VarChar).Value = Notes;
-                sqlCommand.Parameters.Add("@FirePressure", SqlDbType.Decimal).Value = FirePressure;
-                sqlCommand.Parameters.Add("@CylinderSpeed", SqlDbType.Int).Value = CylinderSpeed;
-                sqlCommand.Parameters.Add("@MeasuredSpeed", SqlDbType.Int).Value = MeasuredSpeed;
-                sqlCommand.Parameters.Add("@WithOutImpactorSetPoint", SqlDbType.Int).Value = CylinderWithOutImpactorSetpoint;
-                sqlCommand.Parameters.Add("@AcceleratorTemperature", SqlDbType.Decimal).Value = AcceleratorTemperature;
-                sqlCommand.Parameters.Add("@TankTemperature", SqlDbType.Decimal).Value = TankTemperature;
-                sqlCommand.Parameters.Add("@Airbag1", SqlDbType.Int).Value = AirBag1;
-                sqlCommand.Parameters.Add("@Airbag2", SqlDbType.Int).Value = AirBag2;
-                sqlCommand.Parameters.Add("@Airbag3", SqlDbType.Int).Value = AirBag3;
+                cmd.Parameters.Add("@ImpactorTestId", SqlDbType.BigInt).Value = ImpactorTestId;
+                cmd.Parameters.Add("@ImpactorTypeId", SqlDbType.BigInt).Value = ImpactorTypeId;
+                cmd.Parameters.Add("@Temperature", SqlDbType.Decimal).Value = Temperature;
+                cmd.Parameters.Add("@Humidity", SqlDbType.Decimal).Value = Humidity;
+
+                if (Trigger1 == int.MinValue)
+                {
+                    cmd.Parameters.Add("@Trigger1", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@Trigger1", SqlDbType.Int).Value = Trigger1;
+                }
+
+                if (Trigger2 == int.MinValue)
+                {
+                    cmd.Parameters.Add("@Trigger2", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@Trigger2", SqlDbType.Int).Value = Trigger2;
+                }
+
+                cmd.Parameters.Add("@Notes", SqlDbType.VarChar).Value = Notes;
+
+                if (FirePressure == decimal.MinValue)
+                {
+                    cmd.Parameters.Add("@FirePressure", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@FirePressure", SqlDbType.Decimal).Value = FirePressure;
+                }
+
+                if (CylinderSpeed == int.MinValue)
+                {
+                    cmd.Parameters.Add("@CylinderSpeed", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@CylinderSpeed", SqlDbType.Int).Value = CylinderSpeed;
+                }
+
+                if (MeasuredSpeed == int.MinValue)
+                {
+                    cmd.Parameters.Add("@MeasuredSpeed", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@MeasuredSpeed", SqlDbType.Int).Value = MeasuredSpeed;
+                }
+
+                if (CylinderWithOutImpactorSetpoint == int.MinValue)
+                {
+                    cmd.Parameters.Add("@WithOutImpactorSetPoint", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@WithOutImpactorSetPoint", SqlDbType.Int).Value = CylinderWithOutImpactorSetpoint;
+                }
+
+                if (AcceleratorTemperature == decimal.MinValue)
+                {
+                    cmd.Parameters.Add("@AcceleratorTemperature", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@AcceleratorTemperature", SqlDbType.Decimal).Value = AcceleratorTemperature;
+                }
+
+                if (TankTemperature == decimal.MinValue)
+                {
+                    cmd.Parameters.Add("@TankTemperature", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@TankTemperature", SqlDbType.Decimal).Value = TankTemperature;
+                }
+
+                if (AirBag1 == int.MinValue)
+                {
+                    cmd.Parameters.Add("@Airbag1", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@Airbag1", SqlDbType.Int).Value = AirBag1;
+                }
+
+                if (AirBag2 == int.MinValue)
+                {
+                    cmd.Parameters.Add("@Airbag2", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@Airbag2", SqlDbType.Int).Value = AirBag2;
+
+                }
+
+                if (AirBag3 == int.MinValue)
+                {
+                    cmd.Parameters.Add("@Airbag3", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@Airbag3", SqlDbType.Int).Value = AirBag3;
+                }
 
                 try
                 {
-                    object retvalue = sqlCommand.ExecuteScalar();
+                    object retvalue = cmd.ExecuteScalar();
                     if (long.TryParse(retvalue.ToString(), out long lTemp) == true)
                     {
                         ImpactorParametersId = lTemp;
@@ -378,7 +446,7 @@ namespace Data
                 }
                 finally
                 {
-                    sqlCommand.Dispose();
+                    cmd.Dispose();
                     strErrorMessage += Close();
                 }
             }
@@ -400,23 +468,110 @@ namespace Data
                 cmd.Parameters.Add("@ImpactorParametersId", SqlDbType.BigInt).Value = ImpactorParametersId;
                 cmd.Parameters.Add("@ImpactorTestId", SqlDbType.BigInt).Value = ImpactorTestId;
                 cmd.Parameters.Add("@ImpactorTypeId", SqlDbType.BigInt).Value = ImpactorTypeId;
-                cmd.Parameters.Add("@AxisId", SqlDbType.BigInt).Value = AxisId;
-                cmd.Parameters.Add("@GuidedOrFreeFlight", SqlDbType.VarChar).Value = GuidedOrFreeFlight;
                 cmd.Parameters.Add("@Temperature", SqlDbType.Decimal).Value = Temperature;
                 cmd.Parameters.Add("@Humidity", SqlDbType.Decimal).Value = Humidity;
-                cmd.Parameters.Add("@Trigger1", SqlDbType.Int).Value = Trigger1;
-                cmd.Parameters.Add("@Trigger2", SqlDbType.Int).Value = Trigger2;
-                cmd.Parameters.Add("@Notes", SqlDbType.VarChar).Value = Notes;
-                cmd.Parameters.Add("@FirePressure", SqlDbType.Decimal).Value = FirePressure;
-                cmd.Parameters.Add("@CylinderSpeed", SqlDbType.Int).Value = CylinderSpeed;
-                cmd.Parameters.Add("@MeasuredSpeed", SqlDbType.Int).Value = MeasuredSpeed;
-                cmd.Parameters.Add("@WithOutImpactorSetPoint", SqlDbType.Int).Value = CylinderWithOutImpactorSetpoint;
-                cmd.Parameters.Add("@AcceleratorTemperature", SqlDbType.Decimal).Value = AcceleratorTemperature;
-                cmd.Parameters.Add("@TankTemperature", SqlDbType.Decimal).Value = TankTemperature;
-                cmd.Parameters.Add("@Airbag1", SqlDbType.Int).Value = AirBag1;
-                cmd.Parameters.Add("@Airbag2", SqlDbType.Int).Value = AirBag2;
-                cmd.Parameters.Add("@Airbag3", SqlDbType.Int).Value = AirBag3;
+               
+                if (Trigger1 == int.MinValue)
+                {
+                    cmd.Parameters.Add("@Trigger1", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@Trigger1", SqlDbType.Int).Value = Trigger1;
+                }
 
+                if (Trigger2 == int.MinValue)
+                {
+                    cmd.Parameters.Add("@Trigger2", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@Trigger2", SqlDbType.Int).Value = Trigger2;
+                }
+                
+                cmd.Parameters.Add("@Notes", SqlDbType.VarChar).Value = Notes;
+
+                if (FirePressure == decimal.MinValue)
+                {
+                    cmd.Parameters.Add("@FirePressure", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@FirePressure", SqlDbType.Decimal).Value = FirePressure;
+                }
+
+                if (CylinderSpeed == int.MinValue)
+                {
+                    cmd.Parameters.Add("@CylinderSpeed", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@CylinderSpeed", SqlDbType.Int).Value = CylinderSpeed;
+                }
+
+                if (MeasuredSpeed == int.MinValue)
+                {
+                    cmd.Parameters.Add("@MeasuredSpeed", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@MeasuredSpeed", SqlDbType.Int).Value = MeasuredSpeed;
+                }
+
+                if (CylinderWithOutImpactorSetpoint == int.MinValue)
+                {
+                    cmd.Parameters.Add("@WithOutImpactorSetPoint", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@WithOutImpactorSetPoint", SqlDbType.Int).Value = CylinderWithOutImpactorSetpoint;
+                }
+
+                if (AcceleratorTemperature == decimal.MinValue)
+                {
+                    cmd.Parameters.Add("@AcceleratorTemperature", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@AcceleratorTemperature", SqlDbType.Decimal).Value = AcceleratorTemperature;
+                }
+                
+                if (TankTemperature == decimal.MinValue)
+                {
+                    cmd.Parameters.Add("@TankTemperature", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@TankTemperature", SqlDbType.Decimal).Value = TankTemperature;
+                }
+                
+                if ( AirBag1 == int.MinValue)
+                {
+                    cmd.Parameters.Add("@Airbag1", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@Airbag1", SqlDbType.Int).Value = AirBag1;
+                }
+                
+                if ( AirBag2 == int.MinValue)
+                {
+                    cmd.Parameters.Add("@Airbag2", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@Airbag2", SqlDbType.Int).Value = AirBag2;
+
+                }
+                
+                if ( AirBag3 == int.MinValue)
+                {
+                    cmd.Parameters.Add("@Airbag3", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@Airbag3", SqlDbType.Int).Value = AirBag3;
+                }
 
                 try
                 {

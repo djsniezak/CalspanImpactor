@@ -38,7 +38,6 @@
             this.lblRequired5 = new System.Windows.Forms.Label();
             this.lblRequired4 = new System.Windows.Forms.Label();
             this.lblRequired3 = new System.Windows.Forms.Label();
-            this.lblRequired2 = new System.Windows.Forms.Label();
             this.lblRequired1 = new System.Windows.Forms.Label();
             this.lblTankC = new System.Windows.Forms.Label();
             this.lblAccC = new System.Windows.Forms.Label();
@@ -55,14 +54,6 @@
             this.lblCylinderKPH = new System.Windows.Forms.Label();
             this.txtCylenderKPH = new System.Windows.Forms.TextBox();
             this.dgAxis = new System.Windows.Forms.DataGridView();
-            this.Parm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Xaxis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Yaxis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Zaxis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Alpha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grpFForGuided = new System.Windows.Forms.GroupBox();
-            this.rdoGuided = new System.Windows.Forms.RadioButton();
-            this.rdoFF = new System.Windows.Forms.RadioButton();
             this.lblAirbag3Ms = new System.Windows.Forms.Label();
             this.txtAirbag3 = new System.Windows.Forms.TextBox();
             this.lblAirbag3 = new System.Windows.Forms.Label();
@@ -99,9 +90,14 @@
             this.lblTemperature = new System.Windows.Forms.Label();
             this.cboImpactor = new System.Windows.Forms.ComboBox();
             this.lblImpactor = new System.Windows.Forms.Label();
+            this.Parm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Xaxis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Yaxis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Zaxis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Alpha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AxisId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpParameters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAxis)).BeginInit();
-            this.grpFForGuided.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpParameters
@@ -118,7 +114,6 @@
             this.grpParameters.Controls.Add(this.lblRequired5);
             this.grpParameters.Controls.Add(this.lblRequired4);
             this.grpParameters.Controls.Add(this.lblRequired3);
-            this.grpParameters.Controls.Add(this.lblRequired2);
             this.grpParameters.Controls.Add(this.lblRequired1);
             this.grpParameters.Controls.Add(this.lblTankC);
             this.grpParameters.Controls.Add(this.lblAccC);
@@ -135,7 +130,6 @@
             this.grpParameters.Controls.Add(this.lblCylinderKPH);
             this.grpParameters.Controls.Add(this.txtCylenderKPH);
             this.grpParameters.Controls.Add(this.dgAxis);
-            this.grpParameters.Controls.Add(this.grpFForGuided);
             this.grpParameters.Controls.Add(this.lblAirbag3Ms);
             this.grpParameters.Controls.Add(this.txtAirbag3);
             this.grpParameters.Controls.Add(this.lblAirbag3);
@@ -292,18 +286,6 @@
             this.lblRequired3.Text = "*";
             this.lblRequired3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblRequired2
-            // 
-            this.lblRequired2.AutoSize = true;
-            this.lblRequired2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequired2.ForeColor = System.Drawing.Color.Red;
-            this.lblRequired2.Location = new System.Drawing.Point(236, 17);
-            this.lblRequired2.Name = "lblRequired2";
-            this.lblRequired2.Size = new System.Drawing.Size(15, 18);
-            this.lblRequired2.TabIndex = 81;
-            this.lblRequired2.Text = "*";
-            this.lblRequired2.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
             // lblRequired1
             // 
             this.lblRequired1.AutoSize = true;
@@ -421,7 +403,7 @@
             // 
             // lblMeasuredKPH
             // 
-            this.lblMeasuredKPH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblMeasuredKPH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMeasuredKPH.AutoSize = true;
             this.lblMeasuredKPH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMeasuredKPH.Location = new System.Drawing.Point(680, 325);
@@ -471,68 +453,12 @@
             this.Xaxis,
             this.Yaxis,
             this.Zaxis,
-            this.Alpha});
+            this.Alpha,
+            this.AxisId});
             this.dgAxis.Location = new System.Drawing.Point(87, 99);
             this.dgAxis.Name = "dgAxis";
             this.dgAxis.Size = new System.Drawing.Size(599, 150);
             this.dgAxis.TabIndex = 7;
-            // 
-            // Parm
-            // 
-            this.Parm.HeaderText = "Parm";
-            this.Parm.Name = "Parm";
-            // 
-            // Xaxis
-            // 
-            this.Xaxis.HeaderText = "X-Axis";
-            this.Xaxis.Name = "Xaxis";
-            // 
-            // Yaxis
-            // 
-            this.Yaxis.HeaderText = "Y-Axis";
-            this.Yaxis.Name = "Yaxis";
-            // 
-            // Zaxis
-            // 
-            this.Zaxis.HeaderText = "Z-Axis";
-            this.Zaxis.Name = "Zaxis";
-            // 
-            // Alpha
-            // 
-            this.Alpha.HeaderText = "Alpha";
-            this.Alpha.Name = "Alpha";
-            // 
-            // grpFForGuided
-            // 
-            this.grpFForGuided.Controls.Add(this.rdoGuided);
-            this.grpFForGuided.Controls.Add(this.rdoFF);
-            this.grpFForGuided.Location = new System.Drawing.Point(251, 10);
-            this.grpFForGuided.Name = "grpFForGuided";
-            this.grpFForGuided.Size = new System.Drawing.Size(141, 31);
-            this.grpFForGuided.TabIndex = 2;
-            this.grpFForGuided.TabStop = false;
-            // 
-            // rdoGuided
-            // 
-            this.rdoGuided.AutoSize = true;
-            this.rdoGuided.Location = new System.Drawing.Point(64, 10);
-            this.rdoGuided.Name = "rdoGuided";
-            this.rdoGuided.Size = new System.Drawing.Size(65, 17);
-            this.rdoGuided.TabIndex = 1;
-            this.rdoGuided.TabStop = true;
-            this.rdoGuided.Text = "Guided";
-            this.rdoGuided.UseVisualStyleBackColor = true;
-            // 
-            // rdoFF
-            // 
-            this.rdoFF.AutoSize = true;
-            this.rdoFF.Location = new System.Drawing.Point(6, 10);
-            this.rdoFF.Name = "rdoFF";
-            this.rdoFF.Size = new System.Drawing.Size(39, 17);
-            this.rdoFF.TabIndex = 0;
-            this.rdoFF.TabStop = true;
-            this.rdoFF.Text = "FF";
-            this.rdoFF.UseVisualStyleBackColor = true;
             // 
             // lblAirbag3Ms
             // 
@@ -886,6 +812,7 @@
             this.cboImpactor.Name = "cboImpactor";
             this.cboImpactor.Size = new System.Drawing.Size(121, 21);
             this.cboImpactor.TabIndex = 1;
+            this.cboImpactor.SelectedIndexChanged += new System.EventHandler(this.CboImpactorIndexChanged);
             // 
             // lblImpactor
             // 
@@ -897,6 +824,37 @@
             this.lblImpactor.TabIndex = 0;
             this.lblImpactor.Text = "Impactor:";
             // 
+            // Parm
+            // 
+            this.Parm.HeaderText = "Parm";
+            this.Parm.Name = "Parm";
+            // 
+            // Xaxis
+            // 
+            this.Xaxis.HeaderText = "X-Axis";
+            this.Xaxis.Name = "Xaxis";
+            // 
+            // Yaxis
+            // 
+            this.Yaxis.HeaderText = "Y-Axis";
+            this.Yaxis.Name = "Yaxis";
+            // 
+            // Zaxis
+            // 
+            this.Zaxis.HeaderText = "Z-Axis";
+            this.Zaxis.Name = "Zaxis";
+            // 
+            // Alpha
+            // 
+            this.Alpha.HeaderText = "Alpha";
+            this.Alpha.Name = "Alpha";
+            // 
+            // AxisId
+            // 
+            this.AxisId.HeaderText = "Id";
+            this.AxisId.Name = "AxisId";
+            this.AxisId.Visible = false;
+            // 
             // CtlParameters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -907,8 +865,6 @@
             this.grpParameters.ResumeLayout(false);
             this.grpParameters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAxis)).EndInit();
-            this.grpFForGuided.ResumeLayout(false);
-            this.grpFForGuided.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -952,9 +908,6 @@
         private System.Windows.Forms.Label lblAirbag1Ms;
         private System.Windows.Forms.TextBox txtAirbag1;
         private System.Windows.Forms.Label lblAirbag1;
-        private System.Windows.Forms.GroupBox grpFForGuided;
-        private System.Windows.Forms.RadioButton rdoGuided;
-        private System.Windows.Forms.RadioButton rdoFF;
         private System.Windows.Forms.DataGridView dgAxis;
         private System.Windows.Forms.TextBox txtCylenderKPH;
         private System.Windows.Forms.Label lblMeasuredKPH;
@@ -979,12 +932,12 @@
         private System.Windows.Forms.Label lblRequired5;
         private System.Windows.Forms.Label lblRequired4;
         private System.Windows.Forms.Label lblRequired3;
-        private System.Windows.Forms.Label lblRequired2;
+        private System.Windows.Forms.Label lblPercentHumidity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Parm;
         private System.Windows.Forms.DataGridViewTextBoxColumn Xaxis;
         private System.Windows.Forms.DataGridViewTextBoxColumn Yaxis;
         private System.Windows.Forms.DataGridViewTextBoxColumn Zaxis;
         private System.Windows.Forms.DataGridViewTextBoxColumn Alpha;
-        private System.Windows.Forms.Label lblPercentHumidity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AxisId;
     }
 }

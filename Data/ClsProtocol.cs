@@ -22,17 +22,17 @@ namespace Data
         public string Name { get; set; } = string.Empty;
 
         [XmlAttribute("ImpactorMass")]
-        public double ImpactorMass { get; set; } = double.MinValue;
+        public decimal ImpactorMass { get; set; } = decimal.MinValue;
 
         [XmlAttribute("Targeting Method")]
         public string TargetingMethod { get; set; } = string.Empty;
 
-        [XmlAttribute("ImpactSpeed")]
+        [XmlAttribute("NormalImpactSpeed")]
 
-        public double ImpactSpeed { get; set; } = double.MinValue;
+        public decimal NormalImpactSpeed { get; set; } = decimal.MinValue;
 
-        [XmlAttribute("ImpactAngle")]
-        public int ImpactAngle { get; set; } = int.MinValue;
+        [XmlAttribute("NormalImpactAngle")]
+        public int NormalImpactAngle { get; set; } = int.MinValue;
 
         private readonly string _ConnectionString = string.Empty;
         private SqlConnection _Connection { get; set; } = null;
@@ -65,7 +65,7 @@ namespace Data
                             ProtocolId = lTemp;
                         }
 
-                        if (long.TryParse(reader["ImactorTypeId"].ToString(), out lTemp) == true)
+                        if (long.TryParse(reader["ImpactorTypeId"].ToString(), out lTemp) == true)
                         {
                             ImpactorTypeId = lTemp;
                         }
@@ -73,21 +73,21 @@ namespace Data
                         Name = reader["Name"].ToString();
 
 
-                        if ( double.TryParse (reader["ImpactorMass"].ToString(), out double dTemp) == true )
+                        if ( decimal.TryParse (reader["ImpactorMass"].ToString(), out decimal dTemp) == true )
                         {
                             ImpactorMass = dTemp;
                         }
 
                         TargetingMethod = reader["TargetingMethod"].ToString();
 
-                        if (double.TryParse(reader["ImpactSpeed"].ToString(), out dTemp) == true)
+                        if (decimal.TryParse(reader["NormalImpactSpeed"].ToString(), out dTemp) == true)
                         {
-                            ImpactSpeed = dTemp;
+                            NormalImpactSpeed = dTemp;
                         }
 
-                        if (int.TryParse(reader["ImpactAngle"].ToString(), out int iTemp) == true)
+                        if (int.TryParse(reader["NormalImpactAngle"].ToString(), out int iTemp) == true)
                         {
-                            ImpactAngle= iTemp;
+                            NormalImpactAngle= iTemp;
                         }
                     }
                 }
@@ -107,6 +107,81 @@ namespace Data
             }
             return strErrorMessage;
         }
+
+        public List<Protocol> GelAll(out string errorMessage)
+        {
+            List<Protocol> result = new List<Protocol>();
+            _Connection = Open(out errorMessage);
+
+            if (string.IsNullOrEmpty(errorMessage) == true)
+            {
+                SqlDataReader reader;
+                SqlCommand cmd = _Connection.CreateCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "GetAllProtocols";
+
+                try
+                {
+                    reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            Protocol protocol = new Protocol(_ConnectionString);
+
+                            if (long.TryParse(reader["ProtocolId"].ToString(), out long lTemp) == true)
+                            {
+                                protocol.ProtocolId = lTemp;
+                            }
+
+                            if (long.TryParse(reader["ImpactorTypeId"].ToString(), out lTemp) == true)
+                            {
+                                protocol.ImpactorTypeId = lTemp;
+                            }
+
+                            protocol.Name = reader["Name"].ToString();
+
+
+                            if (decimal.TryParse(reader["ImpactorMass"].ToString(), out decimal dTemp) == true)
+                            {
+                                protocol.ImpactorMass = dTemp;
+                            }
+
+                            protocol.TargetingMethod = reader["TargetingMethod"].ToString();
+
+                            if (decimal.TryParse(reader["NormalImpactSpeed"].ToString(), out dTemp) == true)
+                            {
+                                protocol.NormalImpactSpeed = dTemp;
+                            }
+
+                            if (int.TryParse(reader["NormalImpactAngle"].ToString(), out int iTemp) == true)
+                            {
+                                protocol.NormalImpactAngle = iTemp;
+                            }
+
+                            result.Add(protocol);   
+                        }
+                    }
+                }
+
+                catch (SqlException sqlEx)
+                {
+                    errorMessage = sqlEx.Message;
+                }
+                catch (Exception ex)
+                {
+                    errorMessage = ex.Message;
+                }
+                finally
+                {
+                    cmd.Dispose();
+                    errorMessage += Close();
+                }
+            }
+
+            return result;
+        }
+
 
         public string GetParametersForProtocolAndImpactorType(string name, long impactorTypeId)
         {
@@ -140,21 +215,21 @@ namespace Data
                         Name = reader["Name"].ToString();
 
 
-                        if (double.TryParse(reader["ImpactorMass"].ToString(), out double dTemp) == true)
+                        if (decimal.TryParse(reader["ImpactorMass"].ToString(), out decimal dTemp) == true)
                         {
                             ImpactorMass = dTemp;
                         }
 
                         TargetingMethod = reader["TargetingMethod"].ToString();
 
-                        if (double.TryParse(reader["ImpactSpeed"].ToString(), out dTemp) == true)
+                        if (decimal.TryParse(reader["NormalImpactSpeed"].ToString(), out dTemp) == true)
                         {
-                            ImpactSpeed = dTemp;
+                            NormalImpactSpeed = dTemp;
                         }
 
-                        if (int.TryParse(reader["ImpactAngle"].ToString(), out int iTemp) == true)
+                        if (int.TryParse(reader["NormalImpactAngle"].ToString(), out int iTemp) == true)
                         {
-                            ImpactAngle = iTemp;
+                            NormalImpactAngle = iTemp;
                         }
                     }
                 }
@@ -191,8 +266,8 @@ namespace Data
                 sqlCommand.Parameters.Add("@Name", SqlDbType.VarChar).Value = Name;
                 sqlCommand.Parameters.Add("@ImpactorMass", SqlDbType.Decimal).Value = ImpactorMass;
                 sqlCommand.Parameters.Add("@TargetingMethod", SqlDbType.VarChar).Value = TargetingMethod;
-                sqlCommand.Parameters.Add("@ImpactSpeed", SqlDbType.Decimal).Value = ImpactSpeed;
-                sqlCommand.Parameters.Add("@ImpactAngle", SqlDbType.Int).Value = ImpactAngle;
+                sqlCommand.Parameters.Add("@NormalImpactSpeed", SqlDbType.Decimal).Value = NormalImpactSpeed;
+                sqlCommand.Parameters.Add("@NormalImpactAngle", SqlDbType.Int).Value = NormalImpactAngle;
 
                 try
                 {
@@ -227,12 +302,14 @@ namespace Data
                 SqlCommand cmd = _Connection.CreateCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "UpdateProtocol";
+
+                cmd.Parameters.Add("@ProtocolId", SqlDbType.BigInt).Value = ProtocolId;
                 cmd.Parameters.Add("@ImpactorTypeId", SqlDbType.BigInt).Value = ImpactorTypeId;
                 cmd.Parameters.Add("@Name", SqlDbType.VarChar).Value = Name;
                 cmd.Parameters.Add("@ImpactorMass", SqlDbType.Decimal).Value = ImpactorMass;
                 cmd.Parameters.Add("@TargetingMethod", SqlDbType.VarChar).Value = TargetingMethod;
-                cmd.Parameters.Add("@ImpactSpeed", SqlDbType.Decimal).Value = ImpactSpeed;
-                cmd.Parameters.Add("@ImpactAngle", SqlDbType.Int).Value = ImpactAngle;
+                cmd.Parameters.Add("@NormalImpactSpeed", SqlDbType.Decimal).Value = NormalImpactSpeed;
+                cmd.Parameters.Add("@NormalImpactAngle", SqlDbType.Int).Value = NormalImpactAngle;
 
                 try
                 {

@@ -34,6 +34,9 @@ namespace Data
         [XmlAttribute("TestTypeId")]
         public long TestTypeId { get; set; } = long.MinValue;
 
+        [XmlAttribute("ProtocolId")]
+        public long ProtocolId { get; set; } = long.MinValue;
+
         [XmlAttribute("Notes")]
         public string Notes { get; set; }  = string.Empty;
 
@@ -105,6 +108,11 @@ namespace Data
                             TestTypeId = lTemp;
                         }
 
+                        if (long.TryParse(reader["ProtocolId"].ToString(), out lTemp) == true)
+                        {
+                            ProtocolId = lTemp;
+                        }
+
                         Notes = reader["Notes"].ToString();
                     }
                 }
@@ -171,6 +179,11 @@ namespace Data
                                 test.TestTypeId = lTemp;
                             }
 
+                            if (long.TryParse(reader["ProtocolId"].ToString(), out lTemp) == true)
+                            {
+                                test.ProtocolId = lTemp;
+                            }
+
                             test.Notes = reader["Notes"].ToString();
                             result.Add(test);
                         }
@@ -213,7 +226,8 @@ namespace Data
                 sqlCommand.Parameters.Add("@Specimen", SqlDbType.VarChar).Value = Specimen;
                 sqlCommand.Parameters.Add("@Engineer", SqlDbType.VarChar).Value = Engineer;
                 sqlCommand.Parameters.Add("@Operator", SqlDbType.VarChar).Value = Operator;
-                sqlCommand.Parameters.Add("@TestTypeId", SqlDbType.Decimal).Value = TestTypeId;
+                sqlCommand.Parameters.Add("@TestTypeId", SqlDbType.BigInt).Value = TestTypeId;
+                sqlCommand.Parameters.Add("@ProtocolId", SqlDbType.BigInt).Value = ProtocolId;
                 sqlCommand.Parameters.Add("@Notes", SqlDbType.VarChar).Value = Notes;
 
                 try
@@ -256,7 +270,8 @@ namespace Data
                 cmd.Parameters.Add("@Specimen", SqlDbType.VarChar).Value = Specimen;
                 cmd.Parameters.Add("@Engineer", SqlDbType.VarChar).Value = Engineer;
                 cmd.Parameters.Add("@Operator", SqlDbType.VarChar).Value = Operator;
-                cmd.Parameters.Add("@TestTypeId", SqlDbType.Decimal).Value = TestTypeId;
+                cmd.Parameters.Add("@TestTypeId", SqlDbType.BigInt).Value = TestTypeId;
+                cmd.Parameters.Add("@ProtocolId", SqlDbType.BigInt).Value = ProtocolId;
                 cmd.Parameters.Add("@Notes", SqlDbType.VarChar).Value = Notes;
 
                 try

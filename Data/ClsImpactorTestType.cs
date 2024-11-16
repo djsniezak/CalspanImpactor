@@ -39,14 +39,16 @@ namespace Data
                 SqlCommand cmd = _Connection.CreateCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "GetImpactorTestType";
-                cmd.Parameters.Add("@ImpactorParameterId", SqlDbType.BigInt).Value = impactorTestTypeId;
+                cmd.Parameters.Add("@ImpactorTestTypeId", SqlDbType.BigInt).Value = impactorTestTypeId;
 
                 try
                 {
                     reader = cmd.ExecuteReader();
                     if (reader.HasRows)
                     {
-                        if (long.TryParse(reader["ImactorTestId"].ToString(), out long lTemp) == true)
+                        reader.Read();
+
+                        if (long.TryParse(reader["ImpactorTestTypeId"].ToString(), out long lTemp) == true)
                         {
                             ImpactorTestTypeId = lTemp;
                         }
@@ -136,7 +138,7 @@ namespace Data
                 };
 
                 sqlCommand.Parameters.Add("@TestName", SqlDbType.VarChar).Value = TestName;
-                sqlCommand.Parameters.Add("@Description", SqlDbType.DateTime).Value = Description;
+                sqlCommand.Parameters.Add("@Description", SqlDbType.VarChar).Value = Description;
 
                 try
                 {
@@ -170,7 +172,7 @@ namespace Data
             {
                 SqlCommand cmd = _Connection.CreateCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "UpdateImpactorTypeTest";
+                cmd.CommandText = "UpdateImpactorTestType";
                 cmd.Parameters.Add("@ImpactorTestTypeId", SqlDbType.BigInt).Value = ImpactorTestTypeId;
                 cmd.Parameters.Add("@TestName", SqlDbType.VarChar).Value = TestName;
                 cmd.Parameters.Add("@Description", SqlDbType.VarChar).Value = Description;

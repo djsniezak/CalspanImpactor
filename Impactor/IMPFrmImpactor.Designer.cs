@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IMPFrmImpactor));
-            this.ctrlTestFilter = new ImpactorControls.CtrlTestFilter();
-            this.ctlTestSetUp = new ImpactorControls.CtlTestSetUp();
-            this.ctlParameters = new ImpactorControls.CtlParameters();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.btnSeperatorOne = new System.Windows.Forms.ToolStripButton();
@@ -40,37 +37,14 @@
             this.btnCopy = new System.Windows.Forms.ToolStripButton();
             this.btnSeperatorThree = new System.Windows.Forms.ToolStripButton();
             this.btnReload = new System.Windows.Forms.ToolStripButton();
-            this.ctlProtocol1 = new Controls.CtlProtocol();
+            this.ctlParameters = new ImpactorControls.CtlParameters();
+            this.ctlTestSetUp = new ImpactorControls.CtlTestSetUp();
+            this.ctrlTestFilter = new ImpactorControls.CtrlTestFilter();
+            this.ctlProtocol = new Controls.CtlProtocol();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.btnClearAll = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // ctrlTestFilter
-            // 
-            this.ctrlTestFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.ctrlTestFilter.Location = new System.Drawing.Point(12, 28);
-            this.ctrlTestFilter.Name = "ctrlTestFilter";
-            this.ctrlTestFilter.Size = new System.Drawing.Size(218, 703);
-            this.ctrlTestFilter.TabIndex = 0;
-            // 
-            // ctlTestSetUp
-            // 
-            this.ctlTestSetUp.Location = new System.Drawing.Point(236, 28);
-            this.ctlTestSetUp.Name = "ctlTestSetUp";
-            this.ctlTestSetUp.Size = new System.Drawing.Size(525, 236);
-            this.ctlTestSetUp.TabIndex = 1;
-            this.ctlTestSetUp.TestId = ((long)(-9223372036854775808));
-            // 
-            // ctlParameters
-            // 
-            this.ctlParameters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ctlParameters.ImpactorAxisId = ((long)(-9223372036854775808));
-            this.ctlParameters.ImpactorParametersId = ((long)(-9223372036854775808));
-            this.ctlParameters.Location = new System.Drawing.Point(236, 270);
-            this.ctlParameters.Name = "ctlParameters";
-            this.ctlParameters.Size = new System.Drawing.Size(729, 461);
-            this.ctlParameters.TabIndex = 2;
-            this.ctlParameters.TestId = ((long)(-9223372036854775808));
             // 
             // toolStrip1
             // 
@@ -81,10 +55,12 @@
             this.btnSeperatorTwo,
             this.btnCopy,
             this.btnSeperatorThree,
-            this.btnReload});
+            this.btnReload,
+            this.toolStripLabel1,
+            this.btnClearAll});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1455, 28);
+            this.toolStrip1.Size = new System.Drawing.Size(1099, 28);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -153,19 +129,65 @@
             this.btnReload.Text = "Reload";
             this.btnReload.Click += new System.EventHandler(this.BtnReload);
             // 
-            // ctlProtocol1
+            // ctlParameters
             // 
-            this.ctlProtocol1.Location = new System.Drawing.Point(971, 31);
-            this.ctlProtocol1.Name = "ctlProtocol1";
-            this.ctlProtocol1.Size = new System.Drawing.Size(472, 452);
-            this.ctlProtocol1.TabIndex = 4;
+            this.ctlParameters.ImpactorParametersId = ((long)(-9223372036854775808));
+            this.ctlParameters.Location = new System.Drawing.Point(236, 279);
+            this.ctlParameters.Name = "ctlParameters";
+            this.ctlParameters.Size = new System.Drawing.Size(732, 438);
+            this.ctlParameters.TabIndex = 5;
+            this.ctlParameters.TestId = ((long)(-9223372036854775808));
+            // 
+            // ctlTestSetUp
+            // 
+            this.ctlTestSetUp.Location = new System.Drawing.Point(236, 28);
+            this.ctlTestSetUp.Name = "ctlTestSetUp";
+            this.ctlTestSetUp.ProtocolId = ((long)(-9223372036854775808));
+            this.ctlTestSetUp.Size = new System.Drawing.Size(525, 245);
+            this.ctlTestSetUp.TabIndex = 1;
+            this.ctlTestSetUp.TestId = ((long)(-9223372036854775808));
+            // 
+            // ctrlTestFilter
+            // 
+            this.ctrlTestFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ctrlTestFilter.Location = new System.Drawing.Point(12, 28);
+            this.ctrlTestFilter.Name = "ctrlTestFilter";
+            this.ctrlTestFilter.Size = new System.Drawing.Size(218, 703);
+            this.ctrlTestFilter.TabIndex = 0;
+            // 
+            // ctlProtocol
+            // 
+            this.ctlProtocol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctlProtocol.Location = new System.Drawing.Point(767, 31);
+            this.ctlProtocol.Name = "ctlProtocol";
+            this.ctlProtocol.Size = new System.Drawing.Size(263, 230);
+            this.ctlProtocol.TabIndex = 6;
+            this.ctlProtocol.TestType = ((long)(-9223372036854775808));
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(142, 25);
+            this.toolStripLabel1.Text = "                                             ";
+            // 
+            // btnClearAll
+            // 
+            this.btnClearAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnClearAll.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearAll.Image = ((System.Drawing.Image)(resources.GetObject("btnClearAll.Image")));
+            this.btnClearAll.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnClearAll.Name = "btnClearAll";
+            this.btnClearAll.Size = new System.Drawing.Size(78, 25);
+            this.btnClearAll.Text = "Clear All";
+            this.btnClearAll.Click += new System.EventHandler(this.BrnClearAll_Click);
             // 
             // IMPFrmImpactor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1455, 739);
-            this.Controls.Add(this.ctlProtocol1);
+            this.ClientSize = new System.Drawing.Size(1099, 739);
+            this.Controls.Add(this.ctlProtocol);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.ctlParameters);
             this.Controls.Add(this.ctlTestSetUp);
@@ -193,6 +215,8 @@
         private System.Windows.Forms.ToolStripButton btnCopy;
         private System.Windows.Forms.ToolStripButton btnSeperatorThree;
         private System.Windows.Forms.ToolStripButton btnReload;
-        private Controls.CtlProtocol ctlProtocol1;
+        private Controls.CtlProtocol ctlProtocol;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripButton btnClearAll;
     }
 }

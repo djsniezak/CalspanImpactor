@@ -40,5 +40,65 @@ namespace Impactor
             IMPAbout frm = new IMPAbout();
             frm.ShowDialog();
         }
+
+        private void MnuClient_Click(object sender, EventArgs e)
+        {
+            IMPClient frm = new IMPClient(_ConnectionString);
+
+            switch (frm.ShowDialog())
+            {
+                case DialogResult.OK:
+                    break;
+                case DialogResult.Cancel:
+                    break;
+                default:
+                    break;
+
+            }
+        }
+
+        private void MnuTestType_Click(object sender, EventArgs e)
+        {
+            IMPFrmTestType frm = new IMPFrmTestType (_ConnectionString);
+
+            switch (frm.ShowDialog())
+            {
+                case DialogResult.OK:
+                    break;
+                case DialogResult.Cancel:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void MnuImpactorType_Click(object sender, EventArgs e)
+        {
+            IMPFrmImpactorType frm = new IMPFrmImpactorType(_ConnectionString);
+            switch (frm.ShowDialog())
+            {
+                case DialogResult.OK:
+                    break;
+                case DialogResult.Cancel:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void MnuProtocil_Click(object sender, EventArgs e)
+        {
+            IMPFrmProtocol frm = new IMPFrmProtocol (_ConnectionString);
+
+            switch (frm.ShowDialog()) 
+            { 
+                case DialogResult.OK:
+                    break;
+                case DialogResult.Cancel:
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

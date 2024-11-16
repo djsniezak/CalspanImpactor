@@ -52,12 +52,12 @@ namespace Data
                     if (reader.HasRows)
                     {
                         reader.Read();
-                        if (long.TryParse(reader["ImactorTypeId"].ToString(), out long lTemp) == true)
+                        if (long.TryParse(reader["ImpactorTypeId"].ToString(), out long lTemp) == true)
                         {
                             ImpactorTypeId = lTemp;
                         }
 
-                        if (long.TryParse(reader["ImactorTestTypeId"].ToString(), out lTemp) == true)
+                        if (long.TryParse(reader["ImpactorTestTypeId"].ToString(), out lTemp) == true)
                         {
                             ImpactorTestTypeId = lTemp;
                         }

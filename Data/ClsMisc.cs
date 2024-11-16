@@ -23,15 +23,30 @@ namespace Data
     }
 
     public class ComboFuctions
-    { 
-        public static void SelectCmboItem ( ComboBox cmbo, long Id)
+    {
+        public static void SelectCmboItem(ComboBox cmbo, long Id)
         {
-            foreach ( Object obj in cmbo.Items ) 
-            { 
-                if (obj is DropDownItem item) 
-                { 
-                    if (item.Id == Id) 
-                    { 
+            foreach (object obj in cmbo.Items)
+            {
+                if (obj is DropDownItem item)
+                {
+                    if (item.Id == Id)
+                    {
+                        cmbo.SelectedItem = item;
+                        break;
+                    }
+                }
+            }
+        }
+
+        public static void SelectCmboItem(ComboBox cmbo, string Text)
+        {
+            foreach (object obj in cmbo.Items)
+            {
+                if (obj is DropDownItem item)
+                {
+                    if (item.Text == Text)
+                    {
                         cmbo.SelectedItem = item;
                         break;
                     }
@@ -55,46 +70,46 @@ namespace Data
             }
         }
 
-        public static string FormatDecimal ( decimal value, string format )
+        public static string FormatDecimal(decimal value, string format)
         {
             string returnValue = "";
-            if ( value != decimal.MinValue ) 
+            if (value != decimal.MinValue)
             {
                 returnValue = value.ToString(format);
             }
             return returnValue;
         }
 
-        public static string FormatInt ( int value, string format ) 
+        public static string FormatInt(int value, string format)
         {
             string returnValue = "";
-            if ( value != int.MinValue ) 
-            { 
+            if (value != int.MinValue)
+            {
                 returnValue = value.ToString(format);
             }
 
             return returnValue;
         }
 
-        public static string FormatFloat (float value, string format ) 
+        public static string FormatFloat(float value, string format)
         {
             string returnValue = "";
 
-            if ( value != float.MinValue ) 
-            { 
-                returnValue = value.ToString(format);   
+            if (value != float.MinValue)
+            {
+                returnValue = value.ToString(format);
             }
 
             return returnValue;
         }
 
-        public static string FormatDouble (double value, string format ) 
+        public static string FormatDouble(double value, string format)
         {
             string returnValue = "";
 
-            if ( value != double.MinValue )
+            if (value != double.MinValue)
             {
-                returnValue = value.ToString(format);   
+                returnValue = value.ToString(format);
             }
 
             return returnValue;
@@ -103,11 +118,26 @@ namespace Data
     }
     public class ImpactorTestId : EventArgs
     {
-        public long SelectedTestId { get; set; } = long.MaxValue;
+        public long SelectedTestId { get; set; } = long.MinValue;
     }
 
     public class ImpactorTestTypeId : EventArgs
     {
-        public long SelectedTestTypeId { get; set; } = long.MaxValue;
+        public long SelectedTestTypeId { get; set; } = long.MinValue;
+    }
+
+    public class ImpactorId : EventArgs
+    {
+        public long SelectedImpactorId { get; set; } = long.MinValue;
+    }
+
+    public class ProtocolId : EventArgs
+    {
+        public long SelectedProtocolId { get; set; } = long.MinValue;
+    }
+
+    public class SaveOptions : EventArgs
+    {
+        public bool isAfterCopy { get; set; } = false;
     }
 }

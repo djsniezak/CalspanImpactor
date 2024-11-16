@@ -19,6 +19,7 @@ namespace ImpactorControls
     {
         private string _ConnectionString = string.Empty;
         private long _TestId = long.MinValue;
+        private long _ProtocolId = long.MinValue;
 
         public event EventHandler ImpactorTestTypeSelected;
         public CtlTestSetUp()
@@ -53,15 +54,31 @@ namespace ImpactorControls
 
         public long TestId
         {
+            get { return _TestId; }
+            set { _TestId = value;}
+        }
+
+        public long ProtocolId
+        {
+            get { return _ProtocolId; }
+            set { _ProtocolId = value; }
+        }
+
+        public string TestNumber
+        {
             get
             {
-                return _TestId;
+                string Id = "Not Assigned";
+                if (string.IsNullOrEmpty(txtImpactorID.Text) == false)
+                {
+                    Id = txtImpactorID.Text;
+                }
+
+                return Id;
             }
-            set
-            {
-                _TestId = value;
-            }
+            
         }
+
         public string CheckforRequiredNewTestFields ()
         {
             string strErrorMessage = string.Empty;
@@ -106,20 +123,14 @@ namespace ImpactorControls
                 Notes = txtNotes.Text
             };
 
-            if (cmbClientName.SelectedItem != null)
+            if (cmbClientName.SelectedItem is DropDownItem item)
             {
-                if (cmbClientName.SelectedItem is DropDownItem item)
-                {
-                    newTest.CustomerId = item.Id;
-                }
+                newTest.CustomerId = item.Id;
             }
 
-            if (cboTestType.SelectedItem != null)
+            if (cboTestType.SelectedItem is DropDownItem Typeitem)
             {
-                if (cboTestType.SelectedItem is DropDownItem item)
-                {
-                    newTest.TestTypeId = item.Id;
-                }
+                newTest.TestTypeId = Typeitem.Id;
             }
 
             newTest.ImpactorRunNumber = newTest.CreateImpactorRunNumber(txtClientPrefix.Text, out string strErrorMessage);
@@ -136,6 +147,34 @@ namespace ImpactorControls
             return strErrorMessage;
         }
 
+        public void ClearAll()
+        {
+            txtImpactorID.Text = string.Empty;
+            dteTestDateTime.Value = DateTime.Now;
+            cmbClientName.SelectedIndex = -1;  
+            txtClientCode.Text = string.Empty;
+            txtClientPrefix.Text = string.Empty; 
+            txtSpecimen.Text = string.Empty;
+            txtEngineer.Text = string.Empty;    
+            txtOperator.Text = string.Empty;    
+            cboTestType.SelectedIndex = -1;
+            txtNotes.Text = string.Empty;
+        }
+
+        public void ClearControl(string name)
+        {
+            if (string.IsNullOrEmpty(name) == false)
+            {
+                Control[] found = Controls.Find(name, true);
+                foreach (Control ctrl in found)
+                {
+                    if (ctrl is TextBox txt)
+                    {
+                        txt.Text = string.Empty;
+                    }
+                }
+            }
+        }
         public string LoadTest (long TestId )
         {
             string strErrorMessage;
@@ -153,6 +192,7 @@ namespace ImpactorControls
                     txtOperator.Text = loadTest.Operator;
                     ComboFuctions.SelectCmboItem(cboTestType, loadTest.TestTypeId);
                     txtNotes.Text = loadTest.Notes;
+                    ProtocolId = loadTest.ProtocolId;
                 }
             }
             else
@@ -175,6 +215,7 @@ namespace ImpactorControls
                     Specimen = txtSpecimen.Text,
                     Engineer = txtEngineer.Text,
                     Operator = txtOperator.Text,
+                    ProtocolId = ProtocolId,
                     Notes = txtNotes.Text,
                 };
 

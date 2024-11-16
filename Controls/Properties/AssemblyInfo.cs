@@ -35,5 +35,7 @@ using System.Runtime.InteropServices;
 //
 //  Version 1.0.0   - Released July 7, 2023
 //  Version 1.1.0 - Stored Not released August 24, 20
+//  Version 1.2.0
+//              October 7, 2024 - Added Load and Save Protocol
 [assembly: AssemblyVersion("1.1.0")]
 [assembly: AssemblyFileVersion("1.1.0")]

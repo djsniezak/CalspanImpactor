@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Impactor")]
-[assembly: AssemblyCopyright("Copyright ©  2024")]
+[assembly: AssemblyCopyright("Copyright © 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -36,5 +36,11 @@ using System.Runtime.InteropServices;
 //  Version 1.0.001 - Released July 7, 2023
 //  Version 1.0.001 
 //      August 24, 2024 - Stored Verson 1.002
-[assembly: AssemblyVersion("1.0.002")]
-[assembly: AssemblyFileVersion("1.0.002")]
+//  Version 1.0.003
+//      September 8, 2024 - Added Client Dialog
+//      September 9, 2024 - Added Test Type Dialog
+//      September 9, 2024 - Added Impactor Type Dialog
+//      September 16, 2024 - Added Protocol Dialog
+//      October 6, 2024 - Added Saving and Loading Protocol
+[assembly: AssemblyVersion("1.0.003")]
+[assembly: AssemblyFileVersion("1.0.003")]

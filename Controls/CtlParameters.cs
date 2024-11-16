@@ -20,7 +20,8 @@ namespace ImpactorControls
         private string _ConnectionString = string.Empty;
         private long _TestId = long.MinValue;
         private long _ParametersId = long.MinValue;
-        private long _AxisId = long.MinValue;
+
+        public event EventHandler ImpactorIdChanged;
         public CtlParameters()
         {
             InitializeComponent();
@@ -47,12 +48,7 @@ namespace ImpactorControls
             get { return _ParametersId; }
             set { _ParametersId = value; }
         }
-
-        public long ImpactorAxisId
-        {
-            get { return _AxisId; }
-            set { _AxisId = value; }
-        }
+      
 
         public string LoadTest (long testId)
         {
@@ -61,21 +57,8 @@ namespace ImpactorControls
             if (string.IsNullOrEmpty(strErrorMessage) == true)
             {
                 ImpactorParametersId = parms.ImpactorParametersId;
-                ImpactorAxisId = parms.AxisId;
-
                 ComboFuctions.SelectCmboItem(cboImpactor, parms.ImpactorTypeId);
-                if (string.IsNullOrEmpty(parms.GuidedOrFreeFlight) == false)
-                {
-                    if (parms.GuidedOrFreeFlight == "FF")
-                    {
-                        rdoFF.Checked = true;
-                    }
-                    else
-                    {
-                        rdoGuided.Checked = true;
-                    }
-                }
-
+               
                 txtTemperature.Text = Conversion.FormatDecimal(parms.Temperature, "##0.0");
                 txtHumidity.Text = Conversion.FormatDecimal(parms.Humidity, "##0.0");
                 txtTrigger1.Text = Conversion.FormatInt (parms.Trigger1,"##0");
@@ -96,7 +79,6 @@ namespace ImpactorControls
                 strErrorMessage = LoadAxisGrid(testId);
             }
             
-
             return strErrorMessage; 
         }
 
@@ -120,129 +102,130 @@ namespace ImpactorControls
 
             return strErrorMessage;
         }
-        public string Save()
+        public string Save(bool isAfterCopy )
         {
             ImpactorParameters parms = new ImpactorParameters(_ConnectionString);
 
-            string strErrorMessage;
-            if ( TestId != long.MinValue ) 
+            string strErrorMessage = VerifyRequiredFields(isAfterCopy);
+            if (string.IsNullOrEmpty(strErrorMessage) == true)
             {
-                parms.ImpactorTestId = TestId;
-                parms.ImpactorParametersId = ImpactorParametersId;
-
-                if (cboImpactor.SelectedItem is DropDownItem item)
+                if (TestId != long.MinValue)
                 {
-                    parms.ImpactorTypeId = item.Id;
-                }
-
-                if (rdoFF.Checked == true)
-                {
-                    parms.GuidedOrFreeFlight = "FF";
-                }
-                else
-                {
-                    parms.GuidedOrFreeFlight = "Guided";
-                }
-
-                if ( decimal.TryParse (txtTemperature.Text, out decimal value) == true ) 
-                { 
-                    parms.Temperature = value;
-                }
-
-                if (decimal.TryParse(txtHumidity.Text, out value) == true)
-                {
-                    parms.Humidity = value;
-                }
-
-                if ( int.TryParse (txtTrigger1.Text, out int iTemp) == true ) 
-                { 
-                    parms.Trigger1 = iTemp;
-                }
-
-                if (int.TryParse(txtTrigger2.Text, out iTemp) == true)
-                {
-                    parms.Trigger2 = iTemp;
-                }
-
-                parms.Notes = txtNotes.Text;
-
-                if ( decimal.TryParse (txtFirePressure.Text, out value ) == true ) 
-                { 
-                    parms.FirePressure = value;
-                }
-                if (int.TryParse(txtCylinderSpeed.Text, out iTemp) == true)
-                {
-                    parms.CylinderSpeed = iTemp;
-                }
-
-                if (int.TryParse(txtMeasuredSpeed.Text, out iTemp) == true)
-                {
-                    parms.MeasuredSpeed = iTemp;
-                }
-
-                if (int.TryParse(txtCylinderwithout.Text, out iTemp) == true)
-                {
-                    parms.CylinderWithOutImpactorSetpoint = iTemp;
-                }
-
-                if (decimal.TryParse(txtAcceleratorTemperature.Text, out value) == true)
-                {
-                    parms.AcceleratorTemperature = value;
-                }
-
-                if (decimal.TryParse(txtTankTemperature.Text, out value) == true)
-                {
-                    parms.TankTemperature = value;
-                }
-
-                if (int.TryParse(txtAirbag1.Text, out iTemp) == true)
-                {
-                    parms.AirBag1 = iTemp;
-                }
-
-                if (int.TryParse(txtAirbag2.Text, out iTemp) == true)
-                {
-                    parms.AirBag2 = iTemp;
-                }
-
-                if (int.TryParse(txtAirbag3.Text, out iTemp) == true)
-                {
-                    parms.AirBag3 = iTemp;
-                }
-
-                if (parms.ImpactorParametersId == long.MinValue)
-                {
-                    strErrorMessage = parms.Insert();
-                }
-                else
-                {
-                    strErrorMessage = parms.Update();
-                }
-
-                if (string.IsNullOrEmpty(strErrorMessage) == true)
-                {
-                    if (parms.AxisId == long.MinValue)
+                    parms.ImpactorTestId = TestId;
+                    
+                    if (isAfterCopy == true )
                     {
-                        strErrorMessage = InsertAxis(TestId, parms.ImpactorParametersId);
+                        parms.ImpactorParametersId = long.MinValue;
                     }
                     else
                     {
-                        strErrorMessage = UpdateAxis(TestId, parms.ImpactorParametersId, ImpactorAxisId);
+                        parms.ImpactorParametersId = ImpactorParametersId;
+                    }
+
+                    if (cboImpactor.SelectedItem is DropDownItem item)
+                    {
+                        parms.ImpactorTypeId = item.Id;
+                    }
+
+                    if (decimal.TryParse(txtTemperature.Text, out decimal value) == true)
+                    {
+                        parms.Temperature = value;
+                    }
+                    if (decimal.TryParse(txtHumidity.Text, out value) == true)
+                    {
+                        parms.Humidity = value;
+                    }
+
+                    parms.Notes = txtNotes.Text;
+
+                    if (isAfterCopy == false)
+                    {
+                        if (int.TryParse(txtTrigger1.Text, out int iTemp) == true)
+                        {
+                            parms.Trigger1 = iTemp;
+                        }
+
+                        if (int.TryParse(txtTrigger2.Text, out iTemp) == true)
+                        {
+                            parms.Trigger2 = iTemp;
+                        }
+
+                        
+
+                        if (decimal.TryParse(txtFirePressure.Text, out value) == true)
+                        {
+                            parms.FirePressure = value;
+                        }
+                        if (int.TryParse(txtCylinderSpeed.Text, out iTemp) == true)
+                        {
+                            parms.CylinderSpeed = iTemp;
+                        }
+
+                        if (int.TryParse(txtMeasuredSpeed.Text, out iTemp) == true)
+                        {
+                            parms.MeasuredSpeed = iTemp;
+                        }
+
+                        if (int.TryParse(txtCylinderwithout.Text, out iTemp) == true)
+                        {
+                            parms.CylinderWithOutImpactorSetpoint = iTemp;
+                        }
+
+                        if (decimal.TryParse(txtAcceleratorTemperature.Text, out value) == true)
+                        {
+                            parms.AcceleratorTemperature = value;
+                        }
+
+                        if (decimal.TryParse(txtTankTemperature.Text, out value) == true)
+                        {
+                            parms.TankTemperature = value;
+                        }
+
+                        if (int.TryParse(txtAirbag1.Text, out iTemp) == true)
+                        {
+                            parms.AirBag1 = iTemp;
+                        }
+
+                        if (int.TryParse(txtAirbag2.Text, out iTemp) == true)
+                        {
+                            parms.AirBag2 = iTemp;
+                        }
+
+                        if (int.TryParse(txtAirbag3.Text, out iTemp) == true)
+                        {
+                            parms.AirBag3 = iTemp;
+                        }
+                    }
+
+                    if (parms.ImpactorParametersId == long.MinValue)
+                    {
+                        strErrorMessage = parms.Insert();
+                    }
+                    else
+                    {
+                        strErrorMessage = parms.Update();
+                    }
+
+                    if (string.IsNullOrEmpty(strErrorMessage) == true)
+                    {
+                        if (isAfterCopy == false)
+                        {
+                            strErrorMessage = InsertOrUpdateAxis(TestId, parms.ImpactorParametersId);
+                        }
                     }
                 }
+                else
+                {
+                    strErrorMessage = "TestId is not valid in Parmeters Save";
+                }
             }
-            else
-            {
-                strErrorMessage = "TestId is not valid in Parmeters Save";
-            }
+
             return strErrorMessage;
         }
 
         public void ClearAll () 
         {
-            cboImpactor.SelectedIndex = -1;
-            rdoFF.Checked = false;
-            rdoGuided.Checked = false;
+            cboImpactor.SelectedItem = null;
             txtTemperature.Text = string.Empty;
             txtHumidity.Text = string.Empty;
             txtTrigger1.Text = string.Empty;
@@ -251,13 +234,117 @@ namespace ImpactorControls
             txtNotes.Text = string.Empty;
             txtFirePressure.Text = string.Empty;
             txtCylinderSpeed.Text = string.Empty;
+            txtCylenderKPH.Text = string.Empty;
             txtMeasuredSpeed.Text = string.Empty;
+            txtMeasuredKPH.Text= string.Empty;
             txtCylinderwithout.Text = string.Empty;
             txtAcceleratorTemperature.Text = string.Empty;
             txtTankTemperature.Text = string.Empty;
             txtAirbag1.Text = string.Empty;
             txtAirbag2.Text = string.Empty;
             txtAirbag3.Text = string.Empty;
+        }
+
+        public void ClearControl(string name)
+        {
+            if (string.IsNullOrEmpty(name) == false)
+            {
+                Control[] found = Controls.Find(name, true);
+                foreach (Control ctrl in found)
+                {
+                    if (ctrl is TextBox txt)
+                    {
+                        txt.Text = string.Empty;
+                    }
+                    if (ctrl is ComboBox cmb)
+                    {
+                        cmb.SelectedItem = null;
+                    }
+
+                }
+            }
+        }
+
+        public void ClearAxis()
+        {
+            AddDgvLines();
+        }
+        private string VerifyRequiredFields (bool isAfterCopy)
+        {
+            string strVerified;
+            if (cboImpactor.SelectedItem != null)
+            {
+                if (txtTemperature.Text != string.Empty)
+                {
+                    if (txtHumidity.Text != string.Empty)
+                    {
+                        if (isAfterCopy == false)
+                        {
+                            if (txtFirePressure.Text != string.Empty)
+                            {
+                                if (txtCylinderSpeed.Text != string.Empty)
+                                {
+                                    if (txtMeasuredSpeed.Text != string.Empty)
+                                    {
+                                        if (txtCylinderwithout.Text != string.Empty)
+                                        {
+                                            if (txtAcceleratorTemperature.Text != string.Empty)
+                                            {
+                                                if (txtTankTemperature.Text != string.Empty)
+                                                {
+                                                    strVerified = string.Empty;
+                                                }
+                                                else
+                                                {
+                                                    strVerified = "Please enter the Tank Temperature";
+                                                }
+                                            }
+                                            else
+                                            {
+                                                strVerified = "Please enter the Accelerator Temperature";
+                                            }
+                                        }
+                                        else
+                                        {
+                                            strVerified = "Please enter the Cylinder without Impactor Set Point";
+                                        }
+                                    }
+                                    else
+                                    {
+                                        strVerified = "Please enter the Measured Speed";
+                                    }
+                                }
+                                else
+                                {
+                                    strVerified = "Please enter the Cylinder Speed";
+                                }
+                            }
+                            else
+                            {
+                                strVerified = "Please enter the Fire Pressue";
+                            }
+                        }
+                        else
+                        {
+                            strVerified = string.Empty;
+                        }
+                    }
+                    else
+                    {
+                        strVerified = "Please enter the Humidity";
+                    }
+                }
+                else
+                {
+                    strVerified = "Please enter the Temperature";
+                }
+            }
+            else
+            {
+                strVerified = "Parameters not saved.";
+            }
+
+            return strVerified;
         }
         private string LoadAxisGrid(long testid)
         {
@@ -290,7 +377,13 @@ namespace ImpactorControls
                         Row.Cells[3].Value = Conversion.FormatInt(loadAxis.ZAxis, "##0").ToString();
 
                         Row.Cells.Add(new DataGridViewTextBoxCell());
-                        Row.Cells[4].Value = Conversion.FormatDouble(loadAxis.Alpha, "##0.0").ToString();
+                        if (loadAxis.Alpha > 0)
+                        {
+                            Row.Cells[4].Value = Conversion.FormatDouble(loadAxis.Alpha, "##0.0").ToString();
+                        }
+
+                        Row.Cells.Add(new DataGridViewTextBoxCell());
+                        Row.Cells[5].Value = loadAxis.ImpactorAxisId.ToString();
 
                         dgAxis.Rows.Add(Row);
                     }
@@ -304,113 +397,152 @@ namespace ImpactorControls
             return strErroMessage;
         }
 
-        private string InsertAxis (long TestId, long ParmetersId)
+        private string InsertOrUpdateAxis(long TestId, long ParmetersId)
         {
             string strErrorMessage = string.Empty;
 
             foreach (DataGridViewRow row in dgAxis.Rows)
             {
-                ImpactorAxis axis = new ImpactorAxis(_ConnectionString)
+                if (row.Cells[5].Value == null)
                 {
-                    ImpactorTestId = TestId,
-                    ImpactorParameterId = ParmetersId,
-                    SetName = row.Cells[0].Value.ToString(),
-                };
-
-                if (row.Cells[1].Value != null)
+                    strErrorMessage = InsertAxis(TestId, ParmetersId, row);
+                }
+                else
                 {
-                    if (int.TryParse(row.Cells[1].Value.ToString(), out int val) == true)
-                    {
-                        axis.XAxis = val;
-                    }
+                    strErrorMessage = UpdateAxis(TestId, ParmetersId, row);
                 }
 
-                if (row.Cells[2].Value != null)
-                {
-                    if (int.TryParse(row.Cells[2].Value.ToString(), out int val) == true)
-                    {
-                        axis.YAxis = val;
-                    }
-                }
-
-                if (row.Cells[3].Value != null)
-                {
-                    if (int.TryParse(row.Cells[3].Value.ToString(), out int val) == true)
-                    {
-                        axis.ZAxis = val;
-                    }
-                }
-
-                if (row.Cells[4].Value != null)
-                {
-                    if (double.TryParse(row.Cells[4].Value.ToString(), out double dTemp) == true)
-                    {
-                        axis.Alpha = dTemp;
-                    }
-                }
-
-                strErrorMessage = axis.Insert();
-                if (string.IsNullOrEmpty(strErrorMessage) == false)
+                if ( string.IsNullOrEmpty(strErrorMessage) == false )
                 {
                     break;
                 }
             }
+
+            return strErrorMessage;
+        }
+        private string InsertAxis(long TestId, long ParmetersId, DataGridViewRow row)
+        {
+            string strErrorMessage;
+
+            ImpactorAxis axis = new ImpactorAxis(_ConnectionString)
+            {
+                ImpactorTestId = TestId,
+                ImpactorParameterId = ParmetersId,
+                SetName = row.Cells[0].Value.ToString(),
+            };
+
+            if (row.Cells[1].Value != null)
+            {
+                if (int.TryParse(row.Cells[1].Value.ToString(), out int val) == true)
+                {
+                    axis.XAxis = val;
+                }
+
+            }
+
+            if (row.Cells[2].Value != null)
+            {
+                if (int.TryParse(row.Cells[2].Value.ToString(), out int val) == true)
+                {
+                    axis.YAxis = val;
+                }
+            }
+
+            if (row.Cells[3].Value != null)
+            {
+                if (int.TryParse(row.Cells[3].Value.ToString(), out int val) == true)
+                {
+                    axis.ZAxis = val;
+                }
+            }
+
+            if (row.Cells[4].Value != null)
+            {
+                if (double.TryParse(row.Cells[4].Value.ToString(), out double dTemp) == true)
+                {
+                    axis.Alpha = dTemp;
+                }
+            }
+            else
+            {
+                axis.Alpha = 0;
+            }
+
+            strErrorMessage = axis.Insert();
+
             return strErrorMessage;
         }
 
-        private string UpdateAxis (long TestId, long ParmetersId, long ImpactorAxisId)
+        private string UpdateAxis(long TestId, long ParmetersId, DataGridViewRow row)
         {
-            string strErrorMessage = string.Empty;
+            string strErrorMessage;
 
-            foreach (DataGridViewRow row in dgAxis.Rows)
+            ImpactorAxis axis = new ImpactorAxis(_ConnectionString)
             {
-                ImpactorAxis axis = new ImpactorAxis(_ConnectionString)
-                {
-                    ImpactorAxisId = ImpactorAxisId,
-                    ImpactorTestId = TestId,
-                    ImpactorParameterId = ParmetersId,
+                ImpactorTestId = TestId,
+                ImpactorParameterId = ParmetersId,
 
-                    SetName = row.Cells[0].Value.ToString(),
-                };
+                SetName = row.Cells[0].Value.ToString(),
+            };
 
-                if (row.Cells[1].Value != null)
+            if (row.Cells[1].Value != null)
+            {
+                if (int.TryParse(row.Cells[1].Value.ToString(), out int val) == true)
                 {
-                    if (int.TryParse(row.Cells[1].Value.ToString(), out int val) == true)
-                    {
-                        axis.XAxis = val;
-                    }
-                }
-
-                if (row.Cells[2].Value != null)
-                {
-                    if (int.TryParse(row.Cells[2].Value.ToString(), out int val) == true)
-                    {
-                        axis.YAxis = val;
-                    }
-                }
-
-                if (row.Cells[3].Value != null)
-                {
-                    if (int.TryParse(row.Cells[3].Value.ToString(), out int val) == true)
-                    {
-                        axis.ZAxis = val;
-                    }
-                }
-
-                if (row.Cells[4].Value != null)
-                {
-                    if (double.TryParse(row.Cells[4].Value.ToString(), out double dTemp) == true)
-                    {
-                        axis.Alpha = dTemp;
-                    }
-                }
-
-                strErrorMessage = axis.Update();
-                if (string.IsNullOrEmpty(strErrorMessage) == false)
-                {
-                    break;
+                    axis.XAxis = val;
                 }
             }
+            else
+            {
+                axis.XAxis = -1;
+            }
+
+            if (row.Cells[2].Value != null)
+            {
+                if (int.TryParse(row.Cells[2].Value.ToString(), out int val) == true)
+                {
+                    axis.YAxis = val;
+                }
+            }
+            else
+            {
+                axis.YAxis = -1;
+            }
+
+            if (row.Cells[3].Value != null)
+            {
+                if (int.TryParse(row.Cells[3].Value.ToString(), out int val) == true)
+                {
+                    axis.ZAxis = val;
+                }
+            }
+            else
+            {
+                axis.ZAxis = -1;
+            }
+
+            if (row.Cells[4].Value != null)
+            {
+                if (double.TryParse(row.Cells[4].Value.ToString(), out double dTemp) == true)
+                {
+                    axis.Alpha = dTemp;
+                }
+            }
+            else
+            {
+                axis.Alpha = -1;
+            }
+
+            if (row.Cells[5].Value != null)
+            {
+                if (long.TryParse(row.Cells[5].Value.ToString(), out long lTemp) == true)
+                {
+                    axis.ImpactorAxisId = lTemp;
+                }
+            }
+
+            strErrorMessage = axis.Update();
+
             return strErrorMessage;
 
         }
@@ -428,8 +560,6 @@ namespace ImpactorControls
             }
         }
 
-       
-
         private void TxtCylinderSpeed_Leave(object sender, EventArgs e)
         {
             if (int.TryParse(txtCylinderSpeed.Text, out int value) == true)
@@ -445,6 +575,19 @@ namespace ImpactorControls
                 txtMeasuredKPH.Text = Conversion.FormatDouble(Conversion.ConvertMMPerSecToKPH(value), "#.###0");
             }
         }
-            
+
+        private void CboImpactorIndexChanged(object sender, EventArgs e)
+        {
+            if (cboImpactor.SelectedItem is DropDownItem item)
+            {
+                EventHandler handler = ImpactorIdChanged;
+                e = new ImpactorId
+                {
+                    SelectedImpactorId = item.Id,
+                };
+
+                handler?.Invoke(this, e);
+            }
+        }
     }
 }
