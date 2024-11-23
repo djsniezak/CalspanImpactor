@@ -43,5 +43,6 @@ using System.Runtime.InteropServices;
 //      September 16, 2024 - Added Protocol Dialog
 //      October 6, 2024 - Added Saving and Loading Protocol
 //      November 16, 2024 - Released
+//      November 23, 2024 - Installed
 [assembly: AssemblyVersion("1.0.003")]
 [assembly: AssemblyFileVersion("1.0.003")]
