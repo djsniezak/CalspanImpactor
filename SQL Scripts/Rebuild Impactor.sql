@@ -1,16 +1,20 @@
-/***************************** Rebuild Impactor **************************
-**  Original Design Date August 24, 2024                         
-**/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*	Rebuild Impactor
+*
+*	Created: December 7, 2024
+*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 USE [Impactor]
 GO
 
-/****** Object:  Table [dbo].[ImpactorAxis]    Script Date: 8/23/2024 10:41:29 AM ******/
+/****** Object:  Table [dbo].[ImpactorAxis]    Script Date: 12/7/2024 10:41:19 AM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ImpactorAxis]') AND type in (N'U'))
 DROP TABLE [dbo].[ImpactorAxis]
 GO
 
-/****** Object:  Table [dbo].[ImpactorAxis]    Script Date: 8/23/2024 10:41:29 AM ******/
+/****** Object:  Table [dbo].[ImpactorAxis]    Script Date: 12/7/2024 10:41:19 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -29,19 +33,19 @@ CREATE TABLE [dbo].[ImpactorAxis](
  CONSTRAINT [PK_ImpactorAxis] PRIMARY KEY CLUSTERED 
 (
 	[ImpactorAxisId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
 USE [Impactor]
 GO
 
-/****** Object:  Table [dbo].[ImpactorClient]    Script Date: 8/23/2024 10:41:39 AM ******/
+/****** Object:  Table [dbo].[ImpactorClient]    Script Date: 12/7/2024 10:42:53 AM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ImpactorClient]') AND type in (N'U'))
 DROP TABLE [dbo].[ImpactorClient]
 GO
 
-/****** Object:  Table [dbo].[ImpactorClient]    Script Date: 8/23/2024 10:41:39 AM ******/
+/****** Object:  Table [dbo].[ImpactorClient]    Script Date: 12/7/2024 10:42:53 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -64,19 +68,19 @@ CREATE TABLE [dbo].[ImpactorClient](
  CONSTRAINT [PK_ImpactorClient] PRIMARY KEY CLUSTERED 
 (
 	[ImpactorClientId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
 USE [Impactor]
 GO
 
-/****** Object:  Table [dbo].[ImpactorParameters]    Script Date: 8/23/2024 10:41:50 AM ******/
+/****** Object:  Table [dbo].[ImpactorParameters]    Script Date: 12/7/2024 10:43:05 AM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ImpactorParameters]') AND type in (N'U'))
 DROP TABLE [dbo].[ImpactorParameters]
 GO
 
-/****** Object:  Table [dbo].[ImpactorParameters]    Script Date: 8/23/2024 10:41:50 AM ******/
+/****** Object:  Table [dbo].[ImpactorParameters]    Script Date: 12/7/2024 10:43:05 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -87,8 +91,6 @@ CREATE TABLE [dbo].[ImpactorParameters](
 	[ImpactorParametersId] [bigint] IDENTITY(1,1) NOT NULL,
 	[ImpactorTestId] [bigint] NULL,
 	[ImpactorTypeId] [bigint] NULL,
-	[AxisId] [bigint] NULL,
-	[GuidedOrFreeFlight] [varchar](50) NULL,
 	[Temperature] [decimal](5, 2) NULL,
 	[Humidity] [decimal](5, 2) NULL,
 	[Trigger1] [int] NULL,
@@ -107,19 +109,19 @@ CREATE TABLE [dbo].[ImpactorParameters](
  CONSTRAINT [PK_ImpactorParameters] PRIMARY KEY CLUSTERED 
 (
 	[ImpactorParametersId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
 USE [Impactor]
 GO
 
-/****** Object:  Table [dbo].[ImpactorTest]    Script Date: 8/23/2024 10:42:04 AM ******/
+/****** Object:  Table [dbo].[ImpactorTest]    Script Date: 12/7/2024 10:43:20 AM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ImpactorTest]') AND type in (N'U'))
 DROP TABLE [dbo].[ImpactorTest]
 GO
 
-/****** Object:  Table [dbo].[ImpactorTest]    Script Date: 8/23/2024 10:42:04 AM ******/
+/****** Object:  Table [dbo].[ImpactorTest]    Script Date: 12/7/2024 10:43:20 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -135,23 +137,24 @@ CREATE TABLE [dbo].[ImpactorTest](
 	[Engineer] [varchar](50) NULL,
 	[Operator] [varchar](50) NULL,
 	[TestTypeId] [bigint] NULL,
+	[ProtocolId] [bigint] NULL,
 	[Notes] [varchar](500) NULL,
  CONSTRAINT [PK_ImpactorTest] PRIMARY KEY CLUSTERED 
 (
 	[ImpactorTestId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
 USE [Impactor]
 GO
 
-/****** Object:  Table [dbo].[ImpactorTestType]    Script Date: 8/23/2024 10:42:16 AM ******/
+/****** Object:  Table [dbo].[ImpactorTestType]    Script Date: 12/7/2024 10:43:42 AM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ImpactorTestType]') AND type in (N'U'))
 DROP TABLE [dbo].[ImpactorTestType]
 GO
 
-/****** Object:  Table [dbo].[ImpactorTestType]    Script Date: 8/23/2024 10:42:16 AM ******/
+/****** Object:  Table [dbo].[ImpactorTestType]    Script Date: 12/7/2024 10:43:42 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -165,19 +168,19 @@ CREATE TABLE [dbo].[ImpactorTestType](
  CONSTRAINT [PK_ImpactorTestType] PRIMARY KEY CLUSTERED 
 (
 	[ImpactorTestTypeId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
 USE [Impactor]
 GO
 
-/****** Object:  Table [dbo].[ImpactorType]    Script Date: 8/23/2024 1:27:24 PM ******/
+/****** Object:  Table [dbo].[ImpactorType]    Script Date: 12/7/2024 10:43:56 AM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ImpactorType]') AND type in (N'U'))
 DROP TABLE [dbo].[ImpactorType]
 GO
 
-/****** Object:  Table [dbo].[ImpactorType]    Script Date: 8/23/2024 1:27:24 PM ******/
+/****** Object:  Table [dbo].[ImpactorType]    Script Date: 12/7/2024 10:43:56 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -192,19 +195,19 @@ CREATE TABLE [dbo].[ImpactorType](
  CONSTRAINT [PK_ImpactorType] PRIMARY KEY CLUSTERED 
 (
 	[ImpactorTypeId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
 USE [Impactor]
 GO
 
-/****** Object:  Table [dbo].[Protocol]    Script Date: 8/24/2024 9:56:56 AM ******/
+/****** Object:  Table [dbo].[Protocol]    Script Date: 12/7/2024 10:44:10 AM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Protocol]') AND type in (N'U'))
 DROP TABLE [dbo].[Protocol]
 GO
 
-/****** Object:  Table [dbo].[Protocol]    Script Date: 8/24/2024 9:56:56 AM ******/
+/****** Object:  Table [dbo].[Protocol]    Script Date: 12/7/2024 10:44:10 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -217,19 +220,14 @@ CREATE TABLE [dbo].[Protocol](
 	[Name] [varchar](50) NULL,
 	[ImpactorMass] [decimal](5, 2) NULL,
 	[TargetingMethod] [varchar](50) NULL,
-	[ImpactSpeed] [decimal](5, 2) NULL,
-	[ImpactAngle] [int] NULL,
+	[NormalImpactSpeed] [decimal](5, 2) NULL,
+	[NormalImpactAngle] [int] NULL,
  CONSTRAINT [PK_Protocol] PRIMARY KEY CLUSTERED 
 (
 	[ProtocolId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
-
-
---Rebuild Indexes
-Exec sp_msforeachtable 'SET QUOTED_IDENTIFIER ON; ALTER INDEX ALL ON ? REBUILD'
-GO
 
 
