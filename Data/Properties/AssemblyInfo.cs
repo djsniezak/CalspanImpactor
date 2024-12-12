@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -38,5 +37,9 @@ using System.Runtime.InteropServices;
 //          July 27, 2024 - Added Impactor Axis
 //          August 24, 2024 - Add rest of classes
 //          Stored Not Released August 24, 2024 - Version 1.002
-[assembly: AssemblyVersion("1.0.0")]
-[assembly: AssemblyFileVersion("1.0.0")]
+//  Version 1.1.0
+//          December 12, 2024 - changed the starting Run Number from "000" to "001"
+//          December 12, 2024 - Added ConvertMPerSecToKPH to Conversions
+//          December 12, 2024 - Added ListBoxItem
+[assembly: AssemblyVersion("1.1.0")]
+[assembly: AssemblyFileVersion("1.1.0")]

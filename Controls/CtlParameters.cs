@@ -56,6 +56,7 @@ namespace ImpactorControls
             string strErrorMessage = parms.GetForAnImpactorTest (testId);
             if (string.IsNullOrEmpty(strErrorMessage) == true)
             {
+                // Note AcceleratorTemperature was changed to Accumulator on the form BUT not in the supporting code.
                 ImpactorParametersId = parms.ImpactorParametersId;
                 ComboFuctions.SelectCmboItem(cboImpactor, parms.ImpactorTypeId);
                
@@ -66,9 +67,9 @@ namespace ImpactorControls
                 txtNotes.Text = parms.Notes;
                 txtFirePressure.Text = Conversion.FormatDecimal(parms.FirePressure, "###0.0");
                 txtCylinderSpeed.Text = Conversion.FormatInt(parms.CylinderSpeed,"##0");
-                txtCylenderKPH.Text = Conversion.ConvertMMPerSecToKPH(parms.CylinderSpeed).ToString("#.###0");
+                txtCylenderKPH.Text = Conversion.ConvertMPerSecToKPH(parms.CylinderSpeed).ToString("#.###0");
                 txtMeasuredSpeed.Text = Conversion.FormatInt(parms.MeasuredSpeed,"##0");
-                txtMeasuredKPH.Text = Conversion.FormatDouble (Conversion.ConvertMMPerSecToKPH(parms.MeasuredSpeed),"#.###0");
+                txtMeasuredKPH.Text = Conversion.FormatDouble (Conversion.ConvertMPerSecToKPH(parms.MeasuredSpeed),"#.###0");
                 txtCylinderwithout.Text = Conversion.FormatInt(parms.CylinderWithOutImpactorSetpoint, "##0");
                 txtAcceleratorTemperature.Text = Conversion.FormatDecimal(parms.AcceleratorTemperature, "##0.0");
                 txtTankTemperature.Text = Conversion.FormatDecimal(parms.TankTemperature, "##0.0");
@@ -301,7 +302,7 @@ namespace ImpactorControls
                                             }
                                             else
                                             {
-                                                strVerified = "Please enter the Accelerator Temperature";
+                                                strVerified = "Please enter the Accumulator Temperature";
                                             }
                                         }
                                         else
@@ -564,7 +565,7 @@ namespace ImpactorControls
         {
             if (int.TryParse(txtCylinderSpeed.Text, out int value) == true)
             {
-                txtCylenderKPH.Text = Conversion.ConvertMMPerSecToKPH(value).ToString("#.###0");
+                txtCylenderKPH.Text = Conversion.ConvertMPerSecToKPH(value).ToString("#.###0");
             }
         }
 
@@ -572,7 +573,7 @@ namespace ImpactorControls
         {
             if (int.TryParse(txtMeasuredSpeed.Text, out int value) == true)
             {
-                txtMeasuredKPH.Text = Conversion.FormatDouble(Conversion.ConvertMMPerSecToKPH(value), "#.###0");
+                txtMeasuredKPH.Text = Conversion.FormatDouble(Conversion.ConvertMPerSecToKPH(value), "#.###0");
             }
         }
 

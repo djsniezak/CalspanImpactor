@@ -39,9 +39,12 @@ namespace Impactor
                 lstClient.Items.Clear();
 
                 foreach ( ImpactorClient cl in clients ) 
-                { 
-                    DropDownItem item = new DropDownItem( cl.ImpactorClientId, cl.CompanyName );
-                    lstClient.Items.Add ( item );
+                {
+                    if (cl.Status == true)
+                    {
+                        ListBoxItem item = new ListBoxItem(cl.ImpactorClientId, cl.CompanyName, cl);
+                        lstClient.Items.Add(item);
+                    }
                 }
 
                 lstClient.DisplayMember = "Text";
@@ -61,7 +64,7 @@ namespace Impactor
         {
             if (lstClient.SelectedIndex > -1) 
             { 
-                if ( lstClient.SelectedItem is DropDownItem item ) 
+                if ( lstClient.SelectedItem is ListBoxItem item ) 
                 {
                     ClearControls();
                     btnUpdate.Text = "Update";
@@ -113,7 +116,15 @@ namespace Impactor
                 {
                     if (txtClientPrefix.Text != string.Empty)
                     {
-                        IsValid = true;
+                        if (IsClientPrefixUsed(txtClientPrefix.Text) == true)
+                        {
+                            MessageBox.Show ("The Client Prefix: " + txtClientPrefix.Text + " is already in use.", "Clients", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            IsValid = true;
+                        }
+                        
                     }
                     else
                     {
@@ -131,6 +142,25 @@ namespace Impactor
             }
 
             return IsValid;
+        }
+
+        private bool IsClientPrefixUsed (string clientPrefix)
+        {
+            bool IsUsed = false;
+
+            foreach (ListBoxItem itm in lstClient.Items)
+            {
+                if (itm.Item is ImpactorClient clt)
+                {
+                    if (clt.ClientPrefix == clientPrefix)
+                    {
+                        IsUsed = true;
+                        break;
+                    }
+                }
+            }
+
+            return IsUsed;
         }
         private void BtnNew_Clicked(object sender, EventArgs e)
         {
@@ -171,7 +201,7 @@ namespace Impactor
                 }
                 else
                 {
-                    if (lstClient.SelectedItem is DropDownItem item)
+                    if (lstClient.SelectedItem is ListBoxItem item)
                     {
                         client.ImpactorClientId = item.Id;
                         strErrorMessage = client.Update();

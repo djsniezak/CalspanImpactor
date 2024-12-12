@@ -58,7 +58,7 @@ namespace Data
             int LastNumber = GetLastRun(strSearch, out errorMessage);
             if (LastNumber > -1 )
             {
-                strNewRunNumber = strSearch + "-" + LastNumber.ToString("000");
+                strNewRunNumber = strSearch + "-" + LastNumber.ToString("001");
             }
 
 

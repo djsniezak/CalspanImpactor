@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -10,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Controls")]
-[assembly: AssemblyCopyright("Copyright ©  2023")]
+[assembly: AssemblyCopyright("Copyright © 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -37,5 +36,8 @@ using System.Runtime.InteropServices;
 //  Version 1.1.0 - Stored Not released August 24, 20
 //  Version 1.2.0
 //              October 7, 2024 - Added Load and Save Protocol
-[assembly: AssemblyVersion("1.1.0")]
-[assembly: AssemblyFileVersion("1.1.0")]
+//  Version 1.3.0
+//              December 12, 2024 - Changed Cylinder Speeds from mm/s => m/s
+//              December 12, 2024 - Changed the lables Accelerator Temperature to Accumulator Temperature - supporting code NOT changed
+[assembly: AssemblyVersion("1.3.0")]
+[assembly: AssemblyFileVersion("1.3.0")]

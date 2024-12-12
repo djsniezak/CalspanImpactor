@@ -22,6 +22,22 @@ namespace Data
         }
     }
 
+    public class ListBoxItem
+    {
+        public long Id { get; set; }
+        public string Text { get; set; }
+
+        public object Item { get; set; }
+        public ListBoxItem() { }
+        public ListBoxItem(long id, string text, object item)
+        {
+            Id = id;
+            Text = text;
+            Item = item;
+        }
+    }
+
+
     public class ComboFuctions
     {
         public static void SelectCmboItem(ComboBox cmbo, long Id)
@@ -57,12 +73,25 @@ namespace Data
 
     public class Conversion
     {
-        private const double ToKPH = 0.0036;
+        private const double MMToKPH = 0.0036;
         public static double ConvertMMPerSecToKPH(int MmPerSec)
         {
             if (MmPerSec != int.MinValue)
             {
-                return MmPerSec * ToKPH;
+                return MmPerSec * MMToKPH;
+            }
+            else
+            {
+                return 0.0;
+            }
+        }
+
+        private const double MToKPH = 3.6;
+        public static double ConvertMPerSecToKPH(int MPerSec)
+        {
+            if (MPerSec != int.MinValue)
+            {
+                return MPerSec * MToKPH;
             }
             else
             {

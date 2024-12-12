@@ -45,7 +45,7 @@
             this.txtTankTemperature = new System.Windows.Forms.TextBox();
             this.lblTankTemperature = new System.Windows.Forms.Label();
             this.txtAcceleratorTemperature = new System.Windows.Forms.TextBox();
-            this.lblAcceleratorTemperature = new System.Windows.Forms.Label();
+            this.lblAcccumulatorTemperature = new System.Windows.Forms.Label();
             this.lblCylWOUnits = new System.Windows.Forms.Label();
             this.txtCylinderwithout = new System.Windows.Forms.TextBox();
             this.lblCylenderwithout = new System.Windows.Forms.Label();
@@ -54,6 +54,12 @@
             this.lblCylinderKPH = new System.Windows.Forms.Label();
             this.txtCylenderKPH = new System.Windows.Forms.TextBox();
             this.dgAxis = new System.Windows.Forms.DataGridView();
+            this.Parm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Xaxis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Yaxis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Zaxis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Alpha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AxisId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblAirbag3Ms = new System.Windows.Forms.Label();
             this.txtAirbag3 = new System.Windows.Forms.TextBox();
             this.lblAirbag3 = new System.Windows.Forms.Label();
@@ -70,7 +76,7 @@
             this.lblTrapMsKphMph = new System.Windows.Forms.Label();
             this.txtMeasuredSpeed = new System.Windows.Forms.TextBox();
             this.lblTrapVelocity = new System.Windows.Forms.Label();
-            this.lblMsKphMph = new System.Windows.Forms.Label();
+            this.lblCylinderSpeedMPS = new System.Windows.Forms.Label();
             this.txtCylinderSpeed = new System.Windows.Forms.TextBox();
             this.lblLaunchVelocity = new System.Windows.Forms.Label();
             this.lblBarPsi = new System.Windows.Forms.Label();
@@ -90,12 +96,6 @@
             this.lblTemperature = new System.Windows.Forms.Label();
             this.cboImpactor = new System.Windows.Forms.ComboBox();
             this.lblImpactor = new System.Windows.Forms.Label();
-            this.Parm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Xaxis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Yaxis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Zaxis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Alpha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AxisId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpParameters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAxis)).BeginInit();
             this.SuspendLayout();
@@ -121,7 +121,7 @@
             this.grpParameters.Controls.Add(this.txtTankTemperature);
             this.grpParameters.Controls.Add(this.lblTankTemperature);
             this.grpParameters.Controls.Add(this.txtAcceleratorTemperature);
-            this.grpParameters.Controls.Add(this.lblAcceleratorTemperature);
+            this.grpParameters.Controls.Add(this.lblAcccumulatorTemperature);
             this.grpParameters.Controls.Add(this.lblCylWOUnits);
             this.grpParameters.Controls.Add(this.txtCylinderwithout);
             this.grpParameters.Controls.Add(this.lblCylenderwithout);
@@ -146,7 +146,7 @@
             this.grpParameters.Controls.Add(this.lblTrapMsKphMph);
             this.grpParameters.Controls.Add(this.txtMeasuredSpeed);
             this.grpParameters.Controls.Add(this.lblTrapVelocity);
-            this.grpParameters.Controls.Add(this.lblMsKphMph);
+            this.grpParameters.Controls.Add(this.lblCylinderSpeedMPS);
             this.grpParameters.Controls.Add(this.txtCylinderSpeed);
             this.grpParameters.Controls.Add(this.lblLaunchVelocity);
             this.grpParameters.Controls.Add(this.lblBarPsi);
@@ -314,7 +314,7 @@
             this.lblAccC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAccC.AutoSize = true;
             this.lblAccC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccC.Location = new System.Drawing.Point(448, 363);
+            this.lblAccC.Location = new System.Drawing.Point(451, 363);
             this.lblAccC.Name = "lblAccC";
             this.lblAccC.Size = new System.Drawing.Size(14, 13);
             this.lblAccC.TabIndex = 99;
@@ -354,21 +354,21 @@
             // 
             this.txtAcceleratorTemperature.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtAcceleratorTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAcceleratorTemperature.Location = new System.Drawing.Point(398, 360);
+            this.txtAcceleratorTemperature.Location = new System.Drawing.Point(401, 360);
             this.txtAcceleratorTemperature.Name = "txtAcceleratorTemperature";
             this.txtAcceleratorTemperature.Size = new System.Drawing.Size(45, 20);
             this.txtAcceleratorTemperature.TabIndex = 13;
             // 
-            // lblAcceleratorTemperature
+            // lblAcccumulatorTemperature
             // 
-            this.lblAcceleratorTemperature.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblAcceleratorTemperature.AutoSize = true;
-            this.lblAcceleratorTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAcceleratorTemperature.Location = new System.Drawing.Point(271, 364);
-            this.lblAcceleratorTemperature.Name = "lblAcceleratorTemperature";
-            this.lblAcceleratorTemperature.Size = new System.Drawing.Size(127, 13);
-            this.lblAcceleratorTemperature.TabIndex = 99;
-            this.lblAcceleratorTemperature.Text = "Accelerator Temperature:";
+            this.lblAcccumulatorTemperature.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblAcccumulatorTemperature.AutoSize = true;
+            this.lblAcccumulatorTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAcccumulatorTemperature.Location = new System.Drawing.Point(271, 364);
+            this.lblAcccumulatorTemperature.Name = "lblAcccumulatorTemperature";
+            this.lblAcccumulatorTemperature.Size = new System.Drawing.Size(132, 13);
+            this.lblAcccumulatorTemperature.TabIndex = 99;
+            this.lblAcccumulatorTemperature.Text = "Accumulator Temperature:";
             // 
             // lblCylWOUnits
             // 
@@ -377,9 +377,9 @@
             this.lblCylWOUnits.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCylWOUnits.Location = new System.Drawing.Point(223, 364);
             this.lblCylWOUnits.Name = "lblCylWOUnits";
-            this.lblCylWOUnits.Size = new System.Drawing.Size(33, 13);
+            this.lblCylWOUnits.Size = new System.Drawing.Size(25, 13);
             this.lblCylWOUnits.TabIndex = 99;
-            this.lblCylWOUnits.Text = "mm/s";
+            this.lblCylWOUnits.Text = "m/s";
             // 
             // txtCylinderwithout
             // 
@@ -459,6 +459,37 @@
             this.dgAxis.Name = "dgAxis";
             this.dgAxis.Size = new System.Drawing.Size(599, 150);
             this.dgAxis.TabIndex = 7;
+            // 
+            // Parm
+            // 
+            this.Parm.HeaderText = "Parm";
+            this.Parm.Name = "Parm";
+            // 
+            // Xaxis
+            // 
+            this.Xaxis.HeaderText = "X-Axis";
+            this.Xaxis.Name = "Xaxis";
+            // 
+            // Yaxis
+            // 
+            this.Yaxis.HeaderText = "Y-Axis";
+            this.Yaxis.Name = "Yaxis";
+            // 
+            // Zaxis
+            // 
+            this.Zaxis.HeaderText = "Z-Axis";
+            this.Zaxis.Name = "Zaxis";
+            // 
+            // Alpha
+            // 
+            this.Alpha.HeaderText = "Alpha";
+            this.Alpha.Name = "Alpha";
+            // 
+            // AxisId
+            // 
+            this.AxisId.HeaderText = "Id";
+            this.AxisId.Name = "AxisId";
+            this.AxisId.Visible = false;
             // 
             // lblAirbag3Ms
             // 
@@ -629,16 +660,16 @@
             this.lblTrapVelocity.TabIndex = 99;
             this.lblTrapVelocity.Text = "Measured Speed:";
             // 
-            // lblMsKphMph
+            // lblCylinderSpeedMPS
             // 
-            this.lblMsKphMph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblMsKphMph.AutoSize = true;
-            this.lblMsKphMph.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMsKphMph.Location = new System.Drawing.Point(317, 327);
-            this.lblMsKphMph.Name = "lblMsKphMph";
-            this.lblMsKphMph.Size = new System.Drawing.Size(33, 13);
-            this.lblMsKphMph.TabIndex = 99;
-            this.lblMsKphMph.Text = "mm/s";
+            this.lblCylinderSpeedMPS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblCylinderSpeedMPS.AutoSize = true;
+            this.lblCylinderSpeedMPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCylinderSpeedMPS.Location = new System.Drawing.Point(309, 327);
+            this.lblCylinderSpeedMPS.Name = "lblCylinderSpeedMPS";
+            this.lblCylinderSpeedMPS.Size = new System.Drawing.Size(25, 13);
+            this.lblCylinderSpeedMPS.TabIndex = 99;
+            this.lblCylinderSpeedMPS.Text = "m/s";
             // 
             // txtCylinderSpeed
             // 
@@ -824,37 +855,6 @@
             this.lblImpactor.TabIndex = 0;
             this.lblImpactor.Text = "Impactor:";
             // 
-            // Parm
-            // 
-            this.Parm.HeaderText = "Parm";
-            this.Parm.Name = "Parm";
-            // 
-            // Xaxis
-            // 
-            this.Xaxis.HeaderText = "X-Axis";
-            this.Xaxis.Name = "Xaxis";
-            // 
-            // Yaxis
-            // 
-            this.Yaxis.HeaderText = "Y-Axis";
-            this.Yaxis.Name = "Yaxis";
-            // 
-            // Zaxis
-            // 
-            this.Zaxis.HeaderText = "Z-Axis";
-            this.Zaxis.Name = "Zaxis";
-            // 
-            // Alpha
-            // 
-            this.Alpha.HeaderText = "Alpha";
-            this.Alpha.Name = "Alpha";
-            // 
-            // AxisId
-            // 
-            this.AxisId.HeaderText = "Id";
-            this.AxisId.Name = "AxisId";
-            this.AxisId.Visible = false;
-            // 
             // CtlParameters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -889,7 +889,7 @@
         private System.Windows.Forms.Label lblTrapMsKphMph;
         private System.Windows.Forms.TextBox txtMeasuredSpeed;
         private System.Windows.Forms.Label lblTrapVelocity;
-        private System.Windows.Forms.Label lblMsKphMph;
+        private System.Windows.Forms.Label lblCylinderSpeedMPS;
         private System.Windows.Forms.TextBox txtCylinderSpeed;
         private System.Windows.Forms.Label lblLaunchVelocity;
         private System.Windows.Forms.Label lblBarPsi;
@@ -917,7 +917,7 @@
         private System.Windows.Forms.TextBox txtCylinderwithout;
         private System.Windows.Forms.Label lblCylenderwithout;
         private System.Windows.Forms.TextBox txtAcceleratorTemperature;
-        private System.Windows.Forms.Label lblAcceleratorTemperature;
+        private System.Windows.Forms.Label lblAcccumulatorTemperature;
         private System.Windows.Forms.TextBox txtTankTemperature;
         private System.Windows.Forms.Label lblTankTemperature;
         private System.Windows.Forms.Label lblTempC;

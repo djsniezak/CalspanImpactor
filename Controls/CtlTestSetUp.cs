@@ -247,8 +247,11 @@ namespace ImpactorControls
             {
                 foreach (ImpactorClient client in clients)
                 {
-                    DropDownItem item = new DropDownItem(client.ImpactorClientId, client.ShortName);
-                    cmbClientName.Items.Add(item);
+                    if (client.Status == true)
+                    {
+                        DropDownItem item = new DropDownItem(client.ImpactorClientId, client.ShortName);
+                        cmbClientName.Items.Add(item);
+                    }
                 }
 
                 cmbClientName.DisplayMember = "Text";

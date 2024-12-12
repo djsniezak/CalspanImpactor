@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -44,5 +43,13 @@ using System.Runtime.InteropServices;
 //      October 6, 2024 - Added Saving and Loading Protocol
 //      November 16, 2024 - Released
 //      November 23, 2024 - Installed
-[assembly: AssemblyVersion("1.0.003")]
-[assembly: AssemblyFileVersion("1.0.003")]
+//  Version 1.0.004
+//      December 12, 2024 - Modified Client to not allow duplicated Client Prefixes
+//      December 12, 2024 - changed the starting Run Number from "000" to "001"
+//      December 12, 2024 - Added ConvertMPerSecToKPH to Conversions
+//      December 12, 2024 - Added ListBoxItem
+//      December 12, 2024 - Changed Cylinder Speeds from mm/s => m/s
+//      December 12, 2024 - Changed the lables Accelerator Temperature to Accumulator Temperature - supporting code NOT changed
+//      Released December 12, 2024
+[assembly: AssemblyVersion("1.0.004")]
+[assembly: AssemblyFileVersion("1.0.004")]
