@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Data;
+using System;
 using System.Windows.Forms;
-using ImpactorControls;
-using static ImpactorControls.CtrlTestFilter;
-using Data;
 
 
 namespace Impactor
@@ -25,17 +16,20 @@ namespace Impactor
             ctlTestSetUp.ConnectionString = _ConnectionString;
             ctrlTestFilter.ConnectionString = _ConnectionString;
             ctlProtocol.ConnectionString = _ConnectionString;
+            ctlTires.ConnectionString = _ConnectionString;  
 
             ctrlTestFilter.ImpactorTestSelected += CtrlTestFilter_ImpactorTestSelected;
             ctlTestSetUp.ImpactorTestTypeSelected += CtlTestSetUp_ImpactorTestTypeSelected;
+            ctlTestSetUp.SpecimenIndexSelected += CtlTestSetUp_SpecimenIndexSelected;
             ctlProtocol.ProtocolSelected += CtlProtocol1_ProtocolSelected;
-            
 
             string strErrorMessage = LoadFilterControl();
             if (string.IsNullOrEmpty(strErrorMessage) == true)
             {
                 ctlParameters.Enabled = false;
                 ctlProtocol.Enabled = false;
+                ctlTires.Enabled = false;
+
                 btnCopy.Enabled = false;
                 btnReload.Enabled = false;
                 btnSave.Enabled = false;
@@ -44,6 +38,18 @@ namespace Impactor
             else
             {
                 MessageBox.Show(strErrorMessage, "Loading Test Filter Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void CtlTestSetUp_SpecimenIndexSelected(object sender, EventArgs e)
+        {
+            if ( e is SpecimenId specimen )
+            {
+                ctlTires.Specimen = specimen.SelectedSpecimenId;
+                if (TestId != long.MinValue)
+                {
+                    ctlTires.TestId = TestId;
+                }
             }
         }
 
@@ -66,7 +72,8 @@ namespace Impactor
                     strErrorMessage = ctlProtocol.LoadProtocol();
                     if ( string.IsNullOrEmpty(strErrorMessage) == true)
                     {
-
+                        ctlParameters.TestTypeId = item.SelectedTestTypeId;
+                        ctlParameters.NameAxis();
                     }
                     else
                     {
@@ -84,6 +91,8 @@ namespace Impactor
         {
             if (e is ImpactorTestId item)
             {
+                ClearAll();
+
                 TestId = item.SelectedTestId;
                 string strErrorMessage = LoadTest();
                 if (string.IsNullOrEmpty(strErrorMessage) == false)
@@ -107,21 +116,27 @@ namespace Impactor
                 strErrorMessage = ctlParameters.LoadTest(TestId);
                 if (string.IsNullOrEmpty(strErrorMessage) == true)
                 {
-                    if (ctlTestSetUp.ProtocolId != long.MinValue)
+                    strErrorMessage = ctlTires.LoadTest(TestId, ctlTires.Specimen);
+                    if (string.IsNullOrEmpty(strErrorMessage) == true)
                     {
-                        strErrorMessage = ctlProtocol.LoadTest(ctlTestSetUp.ProtocolId);
-                        if ( string.IsNullOrEmpty(strErrorMessage) == true )
+                        if (ctlTestSetUp.ProtocolId != long.MinValue)
                         {
+                            strErrorMessage = ctlProtocol.LoadTest(ctlTestSetUp.ProtocolId);
+                            if (string.IsNullOrEmpty(strErrorMessage) == true)
+                            {
 
-                        }
-                        else
-                        {
-                            MessageBox.Show(strErrorMessage, "Loading an Impactor Test", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            else
+                            {
+                                MessageBox.Show(strErrorMessage, "Loading an Impactor Test", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
 
                     ctlParameters.Enabled = true;
                     ctlProtocol.Enabled = true;
+                    ctlTires.Enabled = true;
+
                     btnCopy.Enabled = true;
                     btnReload.Enabled = true;
                     btnSave.Enabled = true; 
@@ -201,25 +216,34 @@ namespace Impactor
                 string strErrorMessage = ctlTestSetUp.Save();
                 if (string.IsNullOrEmpty(strErrorMessage) == true)
                 {
-                    bool after = false;
-                    if ( e is SaveOptions options )
-                    {
-                        after = options.isAfterCopy;
-                    }
-                    ctlParameters.TestId = TestId;
-                    strErrorMessage = ctlParameters.Save( after );
+                    strErrorMessage = ctlTires.Save();
                     if ( string.IsNullOrEmpty(strErrorMessage) == true )
                     {
-                        MessageBox.Show( "Saving Test Id: " + ctlTestSetUp.TestNumber + " was successful", "Save Impactor Test", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        bool after = false;
+                        if (e is SaveOptions options)
+                        {
+                            after = options.IsAfterCopy;
+                        }
+                        ctlParameters.TestId = TestId;
+                        strErrorMessage = ctlParameters.Save( after );
+
+                        if (string.IsNullOrEmpty(strErrorMessage) == true)
+                        {
+                            MessageBox.Show("Saving Test Id: " + ctlTestSetUp.TestNumber + " was successful", "Save Impactor Test", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show(strErrorMessage, "Save Impactor Test - Tires", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show(strErrorMessage, "Save Impactor Test", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(strErrorMessage, "Save Impactor Test - Parameters", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show(strErrorMessage, "Save Impactor Test", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(strErrorMessage, "Save Impactor Test - Setup", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -255,7 +279,7 @@ namespace Impactor
                     {
                         SaveOptions options = new SaveOptions()
                         {
-                            isAfterCopy = true,
+                            IsAfterCopy = true,
                         };
 
                         BtnSave(null, options);

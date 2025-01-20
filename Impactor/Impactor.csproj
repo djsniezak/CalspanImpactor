@@ -47,6 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMPFrmReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMPFrmReports.Designer.cs">
+      <DependentUpon>IMPFrmReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IMPSpecimen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMPSpecimen.Designer.cs">
+      <DependentUpon>IMPSpecimen.cs</DependentUpon>
+    </Compile>
     <Compile Include="IMPAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,8 +121,14 @@
     <EmbeddedResource Include="IMPFrmProtocol.resx">
       <DependentUpon>IMPFrmProtocol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IMPFrmReports.resx">
+      <DependentUpon>IMPFrmReports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IMPFrmTestType.resx">
       <DependentUpon>IMPFrmTestType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IMPSpecimen.resx">
+      <DependentUpon>IMPSpecimen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -135,10 +153,10 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="App.Debug.config">
-        <DependentUpon>App.config</DependentUpon>
+      <DependentUpon>App.config</DependentUpon>
     </None>
     <None Include="App.Release.config">
-        <DependentUpon>App.config</DependentUpon>
+      <DependentUpon>App.config</DependentUpon>
     </None>
   </ItemGroup>
   <Target Name="SetAppConfig" BeforeTargets="Compile">

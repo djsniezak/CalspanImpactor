@@ -100,5 +100,34 @@ namespace Impactor
                     break;
             }
         }
+
+        private void MnuSpecimen_Click(object sender, EventArgs e)
+        {
+            IMPSpecimen frm = new IMPSpecimen(_ConnectionString);
+
+            switch (frm.ShowDialog())
+            {
+                case DialogResult.OK:
+                    break;
+                case DialogResult.Cancel:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void MnuRunReports_Clicked(object sender, EventArgs e)
+        {
+            FrmReports frm = new FrmReports(_ConnectionString);
+            switch (frm.ShowDialog())
+            {
+                case DialogResult.OK:
+                    break;
+                case DialogResult.Cancel:
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

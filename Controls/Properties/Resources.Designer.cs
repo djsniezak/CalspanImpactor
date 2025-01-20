@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Impactor.Properties {
+namespace Controls.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Impactor.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Impactor.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Controls.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,49 +63,9 @@ namespace Impactor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Calspan_Logo {
+        internal static System.Drawing.Bitmap Small {
             get {
-                object obj = ResourceManager.GetObject("Calspan_Logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Image1 {
-            get {
-                object obj = ResourceManager.GetObject("Image1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ProgramsPlus {
-            get {
-                object obj = ResourceManager.GetObject("ProgramsPlus", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ProgramsPlus1 {
-            get {
-                object obj = ResourceManager.GetObject("ProgramsPlus1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ProgramsPlus11 {
-            get {
-                object obj = ResourceManager.GetObject("ProgramsPlus11", resourceCulture);
+                object obj = ResourceManager.GetObject("Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

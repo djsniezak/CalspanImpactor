@@ -1,13 +1,6 @@
 ﻿using Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using System.Windows.Forms;
 
 namespace Impactor
@@ -15,6 +8,7 @@ namespace Impactor
     public partial class IMPFrmTestType : Form
     {
         private readonly string _ConnectionString = string.Empty;
+        private long TestTypeId = long.MinValue;
         public IMPFrmTestType( string _connectionString)
         {
             _ConnectionString = _connectionString;
@@ -92,7 +86,15 @@ namespace Impactor
                 }
                 else
                 {
-                    strErrorMessage = type.Update();
+                    if ( TestTypeId != long.MinValue )
+                    {
+                        type.ImpactorTestTypeId = TestTypeId;
+                        strErrorMessage = type.Update();
+                    }
+                    else
+                    {
+                        strErrorMessage = "Test Type Id is undefined.";
+                    }
                 }
 
                 if (string.IsNullOrEmpty(strErrorMessage) == true)
@@ -132,6 +134,7 @@ namespace Impactor
                 { 
                     txtTestName.Text = type.TestName;
                     txtDescription.Text = type.Description; 
+                    TestTypeId = type.ImpactorTestTypeId;
                     btnNew.Enabled = false;
                     btnUpdate.Text = "Update";
                     btnUpdate.Enabled = true;

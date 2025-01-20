@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace Data
@@ -22,10 +18,10 @@ namespace Data
         public long ImpactorTypeId { get; set; } = long.MinValue;
 
         [XmlAttribute("Temperature")]
-        public decimal Temperature { get; set; } = decimal.MinValue;
+        public double Temperature { get; set; } = double.MinValue;
 
         [XmlAttribute("Humidity")]
-        public decimal Humidity { get; set; } = decimal.MinValue;
+        public double Humidity { get; set; } = double.MinValue;
 
         [XmlAttribute("Trigger1")]
         public int Trigger1 { get; set; } = int.MinValue;
@@ -37,22 +33,22 @@ namespace Data
         public string Notes { get; set; } = string.Empty;
 
         [XmlAttribute("FirePressure")]
-        public decimal FirePressure { get; set; } = decimal.MinValue;
+        public double FirePressure { get; set; } = double.MinValue;
 
         [XmlAttribute("CylinderSpeed")]
-        public int CylinderSpeed { get; set; } = int.MinValue;
+        public double CylinderSpeed { get; set; } = double.MinValue;
 
         [XmlAttribute("MeasuredSpeed")]
-        public int MeasuredSpeed { get; set; } = int.MinValue;
+        public double MeasuredSpeed { get; set; } = double.MinValue;
 
         [XmlAttribute("CylinderWithOutImpactorSetpoint")]
-        public int CylinderWithOutImpactorSetpoint { get; set; } = int.MinValue;
+        public double CylinderWithOutImpactorSetpoint { get; set; } = double.MinValue;
 
-        [XmlAttribute("AccleratorTemperature")]
-        public decimal AcceleratorTemperature { get; set; } = decimal.MinValue;
+        [XmlAttribute("AccumulatorTemperature")]
+        public double AccumulatorTemperature { get; set; } = double.MinValue;
 
         [XmlAttribute("TankTemperature")]
-        public decimal TankTemperature { get; set; } = decimal.MinValue;
+        public double TankTemperature { get; set; } = double.MinValue;
 
         [XmlAttribute("AirBag1")]
         public int AirBag1 { get; set; } = int.MinValue;
@@ -62,6 +58,9 @@ namespace Data
 
         [XmlAttribute("AirBag3")]
         public int AirBag3 { get; set; } = int.MinValue;
+
+        [XmlAttribute("DryFires")]
+        public int DryFires { get; set; } = int.MinValue;
 
         private SqlConnection _connection = null;
         public ImpactorParameters( string _connectionString) : base(_connectionString )
@@ -103,12 +102,12 @@ namespace Data
                             ImpactorTypeId = lTemp;
                         }
                         
-                        if (decimal.TryParse(reader["Temperature"].ToString(), out decimal dTemp) == true )
+                        if (double.TryParse(reader["Temperature"].ToString(), out double dTemp) == true )
                         {
                             Temperature = dTemp;
                         }
 
-                        if (decimal.TryParse(reader["Humidity"].ToString(), out dTemp) == true)
+                        if (double.TryParse(reader["Humidity"].ToString(), out dTemp) == true)
                         {
                             Humidity = dTemp;
                         }
@@ -125,32 +124,32 @@ namespace Data
 
                         Notes = reader["Notes"].ToString();
 
-                        if (decimal.TryParse(reader["FirePressure"].ToString(), out dTemp) == true)
+                        if (double.TryParse(reader["FirePressure"].ToString(), out dTemp) == true)
                         {
                             FirePressure = dTemp;
                         }
 
-                        if (int.TryParse(reader["CylinderSpeed"].ToString(), out iTemp) == true)
+                        if (double.TryParse(reader["CylinderSpeed"].ToString(), out dTemp) == true)
                         {
                             CylinderSpeed = iTemp;
                         }
 
-                        if (int.TryParse(reader["MeasuredSpeed"].ToString(), out iTemp) == true)
+                        if (double.TryParse(reader["MeasuredSpeed"].ToString(), out dTemp) == true)
                         {
                             MeasuredSpeed = iTemp;
                         }
 
-                        if (int.TryParse(reader["WithOutImpactorSetPoint"].ToString(), out iTemp) == true)
+                        if (double.TryParse(reader["WithOutImpactorSetPoint"].ToString(), out dTemp) == true)
                         {
                             CylinderWithOutImpactorSetpoint = iTemp;
                         }
 
-                        if (decimal.TryParse(reader["AcceleratorTemperature"].ToString(), out dTemp) == true)
+                        if (double.TryParse(reader["AccumulatorTemperature"].ToString(), out dTemp) == true)
                         {
-                            AcceleratorTemperature = dTemp;
+                            AccumulatorTemperature = dTemp;
                         }
 
-                        if (decimal.TryParse(reader["TankTemperature"].ToString(), out dTemp) == true)
+                        if (double.TryParse(reader["TankTemperature"].ToString(), out dTemp) == true)
                         {
                             TankTemperature = dTemp;
                         }
@@ -168,6 +167,11 @@ namespace Data
                         if (int.TryParse(reader["AirBag3"].ToString(), out iTemp) == true)
                         {
                             AirBag3 = iTemp;
+                        }
+
+                        if (int.TryParse(reader["DryFires"].ToString(), out iTemp) == true)
+                        {
+                            DryFires = iTemp;
                         }
                     }
                 }
@@ -223,12 +227,12 @@ namespace Data
                             ImpactorTypeId = lTemp;
                         }
 
-                        if (decimal.TryParse(reader["Temperature"].ToString(), out decimal dTemp) == true)
+                        if (double.TryParse(reader["Temperature"].ToString(), out double dTemp) == true)
                         {
                             Temperature = dTemp;
                         }
 
-                        if (decimal.TryParse(reader["Humidity"].ToString(), out dTemp) == true)
+                        if (double.TryParse(reader["Humidity"].ToString(), out dTemp) == true)
                         {
                             Humidity = dTemp;
                         }
@@ -245,32 +249,32 @@ namespace Data
 
                         Notes = reader["Notes"].ToString();
 
-                        if (decimal.TryParse(reader["FirePressure"].ToString(), out dTemp) == true)
+                        if (double.TryParse(reader["FirePressure"].ToString(), out dTemp) == true)
                         {
                             FirePressure = dTemp;
                         }
 
-                        if (int.TryParse(reader["CylinderSpeed"].ToString(), out iTemp) == true)
+                        if (double.TryParse(reader["CylinderSpeed"].ToString(), out dTemp) == true)
                         {
                             CylinderSpeed = iTemp;
                         }
 
-                        if (int.TryParse(reader["MeasuredSpeed"].ToString(), out iTemp) == true)
+                        if (double.TryParse(reader["MeasuredSpeed"].ToString(), out dTemp) == true)
                         {
                             MeasuredSpeed = iTemp;
                         }
 
-                        if (int.TryParse(reader["WithOutImpactorSetPoint"].ToString(), out iTemp) == true)
+                        if (double.TryParse(reader["WithOutImpactorSetPoint"].ToString(), out dTemp) == true)
                         {
                             CylinderWithOutImpactorSetpoint = iTemp;
                         }
 
-                        if (decimal.TryParse(reader["AcceleratorTemperature"].ToString(), out dTemp) == true)
+                        if ( double.TryParse(reader["AccumulatorTemperature"].ToString(), out dTemp) == true)
                         {
-                            AcceleratorTemperature = dTemp;
+                            AccumulatorTemperature = dTemp;
                         }
 
-                        if (decimal.TryParse(reader["TankTemperature"].ToString(), out dTemp) == true)
+                        if (double.TryParse(reader["TankTemperature"].ToString(), out dTemp) == true)
                         {
                             TankTemperature = dTemp;
                         }
@@ -288,6 +292,11 @@ namespace Data
                         if (int.TryParse(reader["AirBag3"].ToString(), out iTemp) == true)
                         {
                             AirBag3 = iTemp;
+                        }
+
+                        if (int.TryParse(reader["DryFires"].ToString(), out iTemp) == true)
+                        {
+                            DryFires = iTemp;
                         }
                     }
                 }
@@ -346,7 +355,7 @@ namespace Data
 
                 cmd.Parameters.Add("@Notes", SqlDbType.VarChar).Value = Notes;
 
-                if (FirePressure == decimal.MinValue)
+                if (FirePressure == double.MinValue)
                 {
                     cmd.Parameters.Add("@FirePressure", SqlDbType.Decimal).Value = DBNull.Value;
                 }
@@ -355,43 +364,43 @@ namespace Data
                     cmd.Parameters.Add("@FirePressure", SqlDbType.Decimal).Value = FirePressure;
                 }
 
-                if (CylinderSpeed == int.MinValue)
+                if (CylinderSpeed == double.MinValue)
                 {
-                    cmd.Parameters.Add("@CylinderSpeed", SqlDbType.Int).Value = DBNull.Value;
+                    cmd.Parameters.Add("@CylinderSpeed", SqlDbType.Decimal).Value = DBNull.Value;
                 }
                 else
                 {
-                    cmd.Parameters.Add("@CylinderSpeed", SqlDbType.Int).Value = CylinderSpeed;
+                    cmd.Parameters.Add("@CylinderSpeed", SqlDbType.Decimal).Value = CylinderSpeed;
                 }
 
-                if (MeasuredSpeed == int.MinValue)
+                if (MeasuredSpeed == double.MinValue)
                 {
-                    cmd.Parameters.Add("@MeasuredSpeed", SqlDbType.Int).Value = DBNull.Value;
+                    cmd.Parameters.Add("@MeasuredSpeed", SqlDbType.Decimal).Value = DBNull.Value;
                 }
                 else
                 {
-                    cmd.Parameters.Add("@MeasuredSpeed", SqlDbType.Int).Value = MeasuredSpeed;
+                    cmd.Parameters.Add("@MeasuredSpeed", SqlDbType.Decimal).Value = MeasuredSpeed;
                 }
 
-                if (CylinderWithOutImpactorSetpoint == int.MinValue)
+                if (CylinderWithOutImpactorSetpoint == double.MinValue)
                 {
-                    cmd.Parameters.Add("@WithOutImpactorSetPoint", SqlDbType.Int).Value = DBNull.Value;
+                    cmd.Parameters.Add("@WithOutImpactorSetPoint", SqlDbType.Decimal).Value = DBNull.Value;
                 }
                 else
                 {
                     cmd.Parameters.Add("@WithOutImpactorSetPoint", SqlDbType.Int).Value = CylinderWithOutImpactorSetpoint;
                 }
 
-                if (AcceleratorTemperature == decimal.MinValue)
+                if (AccumulatorTemperature == double.MinValue)
                 {
-                    cmd.Parameters.Add("@AcceleratorTemperature", SqlDbType.Decimal).Value = DBNull.Value;
+                    cmd.Parameters.Add("@AccumulatorTemperature", SqlDbType.Decimal).Value = DBNull.Value;
                 }
                 else
                 {
-                    cmd.Parameters.Add("@AcceleratorTemperature", SqlDbType.Decimal).Value = AcceleratorTemperature;
+                    cmd.Parameters.Add("@AccumulatorTemperature", SqlDbType.Decimal).Value = AccumulatorTemperature;
                 }
 
-                if (TankTemperature == decimal.MinValue)
+                if (TankTemperature == double.MinValue)
                 {
                     cmd.Parameters.Add("@TankTemperature", SqlDbType.Decimal).Value = DBNull.Value;
                 }
@@ -426,6 +435,15 @@ namespace Data
                 else
                 {
                     cmd.Parameters.Add("@Airbag3", SqlDbType.Int).Value = AirBag3;
+                }
+
+                if (DryFires == int.MinValue)
+                {
+                    cmd.Parameters.Add("@DryFires", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@DryFires", SqlDbType.Int).Value = DryFires;
                 }
 
                 try
@@ -488,10 +506,10 @@ namespace Data
                 {
                     cmd.Parameters.Add("@Trigger2", SqlDbType.Int).Value = Trigger2;
                 }
-                
+
                 cmd.Parameters.Add("@Notes", SqlDbType.VarChar).Value = Notes;
 
-                if (FirePressure == decimal.MinValue)
+                if (FirePressure == double.MinValue)
                 {
                     cmd.Parameters.Add("@FirePressure", SqlDbType.Decimal).Value = DBNull.Value;
                 }
@@ -500,43 +518,43 @@ namespace Data
                     cmd.Parameters.Add("@FirePressure", SqlDbType.Decimal).Value = FirePressure;
                 }
 
-                if (CylinderSpeed == int.MinValue)
+                if (CylinderSpeed == double.MinValue)
                 {
-                    cmd.Parameters.Add("@CylinderSpeed", SqlDbType.Int).Value = DBNull.Value;
+                    cmd.Parameters.Add("@CylinderSpeed", SqlDbType.Decimal).Value = DBNull.Value;
                 }
                 else
                 {
-                    cmd.Parameters.Add("@CylinderSpeed", SqlDbType.Int).Value = CylinderSpeed;
+                    cmd.Parameters.Add("@CylinderSpeed", SqlDbType.Decimal).Value = CylinderSpeed;
                 }
 
-                if (MeasuredSpeed == int.MinValue)
+                if (MeasuredSpeed == double.MinValue)
                 {
-                    cmd.Parameters.Add("@MeasuredSpeed", SqlDbType.Int).Value = DBNull.Value;
+                    cmd.Parameters.Add("@MeasuredSpeed", SqlDbType.Decimal).Value = DBNull.Value;
                 }
                 else
                 {
-                    cmd.Parameters.Add("@MeasuredSpeed", SqlDbType.Int).Value = MeasuredSpeed;
+                    cmd.Parameters.Add("@MeasuredSpeed", SqlDbType.Decimal).Value = MeasuredSpeed;
                 }
 
-                if (CylinderWithOutImpactorSetpoint == int.MinValue)
+                if (CylinderWithOutImpactorSetpoint == double.MinValue)
                 {
-                    cmd.Parameters.Add("@WithOutImpactorSetPoint", SqlDbType.Int).Value = DBNull.Value;
+                    cmd.Parameters.Add("@WithOutImpactorSetPoint", SqlDbType.Decimal).Value = DBNull.Value;
                 }
                 else
                 {
-                    cmd.Parameters.Add("@WithOutImpactorSetPoint", SqlDbType.Int).Value = CylinderWithOutImpactorSetpoint;
+                    cmd.Parameters.Add("@WithOutImpactorSetPoint", SqlDbType.Decimal).Value = CylinderWithOutImpactorSetpoint;
                 }
 
-                if (AcceleratorTemperature == decimal.MinValue)
+                if (AccumulatorTemperature == double.MinValue)
                 {
-                    cmd.Parameters.Add("@AcceleratorTemperature", SqlDbType.Decimal).Value = DBNull.Value;
+                    cmd.Parameters.Add("@AccumulatorTemperature", SqlDbType.Decimal).Value = DBNull.Value;
                 }
                 else
                 {
-                    cmd.Parameters.Add("@AcceleratorTemperature", SqlDbType.Decimal).Value = AcceleratorTemperature;
+                    cmd.Parameters.Add("@AccumulatorTemperature", SqlDbType.Decimal).Value = AccumulatorTemperature;
                 }
                 
-                if (TankTemperature == decimal.MinValue)
+                if (TankTemperature == double.MinValue)
                 {
                     cmd.Parameters.Add("@TankTemperature", SqlDbType.Decimal).Value = DBNull.Value;
                 }
@@ -571,6 +589,15 @@ namespace Data
                 else
                 {
                     cmd.Parameters.Add("@Airbag3", SqlDbType.Int).Value = AirBag3;
+                }
+
+                if (DryFires == int.MinValue)
+                {
+                    cmd.Parameters.Add("@DryFires", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@DryFires", SqlDbType.Int).Value = DryFires;
                 }
 
                 try

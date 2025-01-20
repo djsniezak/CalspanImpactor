@@ -23,7 +23,7 @@ GO
 
 CREATE TABLE [dbo].[ImpactorAxis](
 	[ImpactorAxisId] [bigint] IDENTITY(1,1) NOT NULL,
-	[ImpactorTestId] [bigint] NULL,
+	[ImpactorTestId] [bigint] NOT NULL,
 	[ImpactorParameterId] [bigint] NULL,
 	[SetName] [varchar](50) NULL,
 	[XAxis] [int] NULL,
@@ -72,15 +72,23 @@ CREATE TABLE [dbo].[ImpactorClient](
 ) ON [PRIMARY]
 GO
 
+INSERT INTO ImpactorClient ([CompanyName], [ShortName], [ClientPrefix], [ClientCode], [Address1], [Address2], [City], [State], [Zip], [PhoneNumber], [Status])
+				VALUES 
+				('National Highway Traffic Safety Admisitration','NHTSA','FM','1','1200 New Jersey Ave. SE',NULL,'Washington','DC','20590',NULL, 1),
+				('Rivian','Rivian','RIV','8892','123 Any Street','Upper','My City','MI','14042','7165551212', 1),
+				('Foxtron','Fox','FOX','7345','456 My Street',NULL,'Your City',NULL,'222222','5555555555', 1),
+				('Vinfast','Vin','VIN','9210','99 No Street',NULL,'Black',NULL,'9999999','2224560987', 1);
+GO
+
 USE [Impactor]
 GO
 
-/****** Object:  Table [dbo].[ImpactorParameters]    Script Date: 12/7/2024 10:43:05 AM ******/
+/****** Object:  Table [dbo].[ImpactorParameters]    Script Date: 1/5/2025 2:57:25 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ImpactorParameters]') AND type in (N'U'))
 DROP TABLE [dbo].[ImpactorParameters]
 GO
 
-/****** Object:  Table [dbo].[ImpactorParameters]    Script Date: 12/7/2024 10:43:05 AM ******/
+/****** Object:  Table [dbo].[ImpactorParameters]    Script Date: 1/5/2025 2:57:25 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -98,14 +106,15 @@ CREATE TABLE [dbo].[ImpactorParameters](
 	[ParmsId] [bigint] NULL,
 	[Notes] [varchar](500) NULL,
 	[FirePressure] [decimal](5, 1) NULL,
-	[CylinderSpeed] [int] NULL,
-	[MeasuredSpeed] [int] NULL,
-	[WithOutImpactorSetPoint] [int] NULL,
-	[AcceleratorTemperature] [decimal](5, 2) NULL,
+	[CylinderSpeed] [decimal](5, 3) NULL,
+	[MeasuredSpeed] [decimal](5, 3) NULL,
+	[WithOutImpactorSetPoint] [decimal](5, 3) NULL,
+	[AccumulatorTemperature] [decimal](5, 2) NULL,
 	[TankTemperature] [decimal](5, 2) NULL,
 	[Airbag1] [int] NULL,
 	[Airbag2] [int] NULL,
 	[Airbag3] [int] NULL,
+	[DryFires] [int] NULL,
  CONSTRAINT [PK_ImpactorParameters] PRIMARY KEY CLUSTERED 
 (
 	[ImpactorParametersId] ASC
@@ -113,15 +122,16 @@ CREATE TABLE [dbo].[ImpactorParameters](
 ) ON [PRIMARY]
 GO
 
+
 USE [Impactor]
 GO
 
-/****** Object:  Table [dbo].[ImpactorTest]    Script Date: 12/7/2024 10:43:20 AM ******/
+/****** Object:  Table [dbo].[ImpactorTest]    Script Date: 1/2/2025 4:41:38 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ImpactorTest]') AND type in (N'U'))
 DROP TABLE [dbo].[ImpactorTest]
 GO
 
-/****** Object:  Table [dbo].[ImpactorTest]    Script Date: 12/7/2024 10:43:20 AM ******/
+/****** Object:  Table [dbo].[ImpactorTest]    Script Date: 1/2/2025 4:41:38 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -133,11 +143,11 @@ CREATE TABLE [dbo].[ImpactorTest](
 	[TestRunNumber] [varchar](50) NULL,
 	[RunTime] [datetime] NULL,
 	[CustomerId] [bigint] NULL,
-	[Specimen] [varchar](50) NULL,
+	[SpecimenId] [bigint] NULL,
 	[Engineer] [varchar](50) NULL,
 	[Operator] [varchar](50) NULL,
 	[TestTypeId] [bigint] NULL,
-	[ProtocolId] [bigint] NULL,
+	[ProtocolId] [bigint] NOT NULL,
 	[Notes] [varchar](500) NULL,
  CONSTRAINT [PK_ImpactorTest] PRIMARY KEY CLUSTERED 
 (
@@ -145,6 +155,7 @@ CREATE TABLE [dbo].[ImpactorTest](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
 
 USE [Impactor]
 GO
@@ -172,6 +183,19 @@ CREATE TABLE [dbo].[ImpactorTestType](
 ) ON [PRIMARY]
 GO
 
+INSERT INTO ImpactorTestType ([TestName], [Description])
+                 VALUES 
+					('Adult Headform','Adult Headform'),
+					('Child Headform','Child Headform'),
+					('Small Guided (Upper Legform)',	'Small Guided (Upper Legform)'),
+					('Small Guided (Other)',	'Small Guided (Other)'),
+					('Large Guided','Large Guided'),
+					('FlexPLI','FlexPLI'),
+					('Other','Other'),
+					('WS Rib Impactor', 'WS Rib'),
+					('Knee Impactor','Knee Impactor');
+GO
+
 USE [Impactor]
 GO
 
@@ -197,6 +221,21 @@ CREATE TABLE [dbo].[ImpactorType](
 	[ImpactorTypeId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+
+INSERT INTO ImpactorType ([ImpactorTestTypeId], [SerialNumber], [Owner])
+			VALUES
+			(1,'7236','DTS'),
+			(1,'4489','NHTSA'),
+			(2,'7026', 'NHTSA'),
+			(2,'1301','Tesla'),
+			(6,'5176','Telsa'),
+			(6,'8839','Lucid'),
+			(6,'5461','NHTSA'),
+			(3,'UL168','NHTSA'),
+			(8,'CAL01',NULL),
+			(9,'CAL02',NULL);
+
 GO
 
 USE [Impactor]
@@ -229,5 +268,81 @@ CREATE TABLE [dbo].[Protocol](
 ) ON [PRIMARY]
 GO
 
+INSERT INTO Protocol ([ImpactorTypeId], [Name], [ImpactorMass], [TargetingMethod], [NormalImpactSpeed], [NormalImpactAngle])
+				VALUES
+				(1,'EuroNCAP',	4.50,'Aiming',	11.10,	65),
+				(1,'GTR',	4.50,'PoFC',	9.70,	65),
+				(2,'EuroNCAP',	3.50,'Aiming',	11.10,	50),
+				(2,'GTR',	3.50,'PoFC',	9.70,	50);
+GO
+
+USE [Impactor]
+GO
+
+/****** Object:  Table [dbo].[Specimen]    Script Date: 1/3/2025 3:01:31 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Specimen]') AND type in (N'U'))
+DROP TABLE [dbo].[Specimen]
+GO
+
+/****** Object:  Table [dbo].[Specimen]    Script Date: 1/3/2025 3:01:31 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Specimen](
+	[SpecimenId] [bigint] IDENTITY(1,1) NOT NULL,
+	[CustomerId] [bigint] NULL,
+	[Year] [int] NULL,
+	[Make] [varchar](50) NULL,
+	[Model] [varchar](50) NULL,
+	[VIN] [varchar](75) NULL,
+	[Mass] [decimal](5, 1) NULL,
+	[Notes] [varchar](max) NULL,
+ CONSTRAINT [PK_Specimen] PRIMARY KEY CLUSTERED 
+(
+	[SpecimenId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+
+USE [Impactor]
+GO
+
+/****** Object:  Table [dbo].[Tires]    Script Date: 1/4/2025 12:10:08 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Tires]') AND type in (N'U'))
+DROP TABLE [dbo].[Tires]
+GO
+
+/****** Object:  Table [dbo].[Tires]    Script Date: 1/4/2025 12:10:08 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Tires](
+	[TiresId] [bigint] IDENTITY(1,1) NOT NULL,
+	[ImpactorTestId] [bigint] NULL,
+	[SpecimenId] [bigint] NULL,
+	[SpecificationFront] [varchar](100) NULL,
+	[SpecificationRear] [varchar](100) NULL,
+	[PressureFL] [decimal](3, 1) NULL,
+	[PressureFR] [decimal](3, 1) NULL,
+	[PressureRL] [decimal](3, 1) NULL,
+	[PressureRR] [decimal](3, 1) NULL,
+	[HeightFL] [decimal](5, 1) NULL,
+	[HeightFR] [decimal](5, 1) NULL,
+	[HeightRL] [decimal](5, 1) NULL,
+	[HeightRR] [decimal](5, 1) NULL,
+	[Notes] [varchar](255) NULL,
+ CONSTRAINT [PK_Tires] PRIMARY KEY CLUSTERED 
+(
+	[TiresId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
 
 

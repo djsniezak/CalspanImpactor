@@ -35,12 +35,14 @@
             this.mnuDatabaseEditor = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuClient = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuImpactorType = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuProtocol = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSpecimen = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTestType = new System.Windows.Forms.ToolStripMenuItem();
             this.testsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuImpactor = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuReports = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuProtocol = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRunReports = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,6 +81,7 @@
             this.mnuClient,
             this.mnuImpactorType,
             this.mnuProtocol,
+            this.mnuSpecimen,
             this.mnuTestType});
             this.mnuDatabaseEditor.Name = "mnuDatabaseEditor";
             this.mnuDatabaseEditor.Size = new System.Drawing.Size(101, 20);
@@ -87,21 +90,35 @@
             // mnuClient
             // 
             this.mnuClient.Name = "mnuClient";
-            this.mnuClient.Size = new System.Drawing.Size(180, 22);
+            this.mnuClient.Size = new System.Drawing.Size(149, 22);
             this.mnuClient.Text = "Client";
             this.mnuClient.Click += new System.EventHandler(this.MnuClient_Click);
             // 
             // mnuImpactorType
             // 
             this.mnuImpactorType.Name = "mnuImpactorType";
-            this.mnuImpactorType.Size = new System.Drawing.Size(180, 22);
+            this.mnuImpactorType.Size = new System.Drawing.Size(149, 22);
             this.mnuImpactorType.Text = "Impactor Type";
             this.mnuImpactorType.Click += new System.EventHandler(this.MnuImpactorType_Click);
+            // 
+            // mnuProtocol
+            // 
+            this.mnuProtocol.Name = "mnuProtocol";
+            this.mnuProtocol.Size = new System.Drawing.Size(149, 22);
+            this.mnuProtocol.Text = "Protocol";
+            this.mnuProtocol.Click += new System.EventHandler(this.MnuProtocil_Click);
+            // 
+            // mnuSpecimen
+            // 
+            this.mnuSpecimen.Name = "mnuSpecimen";
+            this.mnuSpecimen.Size = new System.Drawing.Size(149, 22);
+            this.mnuSpecimen.Text = "Specimen";
+            this.mnuSpecimen.Click += new System.EventHandler(this.MnuSpecimen_Click);
             // 
             // mnuTestType
             // 
             this.mnuTestType.Name = "mnuTestType";
-            this.mnuTestType.Size = new System.Drawing.Size(180, 22);
+            this.mnuTestType.Size = new System.Drawing.Size(149, 22);
             this.mnuTestType.Text = "Test Type";
             this.mnuTestType.Click += new System.EventHandler(this.MnuTestType_Click);
             // 
@@ -122,6 +139,8 @@
             // 
             // mnuReports
             // 
+            this.mnuReports.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuRunReports});
             this.mnuReports.Name = "mnuReports";
             this.mnuReports.Size = new System.Drawing.Size(59, 20);
             this.mnuReports.Text = "Reports";
@@ -133,12 +152,12 @@
             this.mnuAbout.Text = "About";
             this.mnuAbout.Click += new System.EventHandler(this.MnuAbout_Click);
             // 
-            // mnuProtocol
+            // mnuRunReports
             // 
-            this.mnuProtocol.Name = "mnuProtocol";
-            this.mnuProtocol.Size = new System.Drawing.Size(180, 22);
-            this.mnuProtocol.Text = "Protocol";
-            this.mnuProtocol.Click += new System.EventHandler(this.MnuProtocil_Click);
+            this.mnuRunReports.Name = "mnuRunReports";
+            this.mnuRunReports.Size = new System.Drawing.Size(180, 22);
+            this.mnuRunReports.Text = "Run Reports";
+            this.mnuRunReports.Click += new System.EventHandler(this.MnuRunReports_Clicked);
             // 
             // IMPFrmMain
             // 
@@ -174,6 +193,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnuAbout;
         private System.Windows.Forms.ToolStripMenuItem mnuImpactorType;
         private System.Windows.Forms.ToolStripMenuItem mnuProtocol;
+        private System.Windows.Forms.ToolStripMenuItem mnuSpecimen;
+        private System.Windows.Forms.ToolStripMenuItem mnuRunReports;
     }
 }
 

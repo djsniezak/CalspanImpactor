@@ -22,8 +22,8 @@ namespace Data
         [XmlAttribute("CustomerId")]
         public long CustomerId { get; set; } = long.MinValue;
 
-        [XmlAttribute("Specimen")]
-        public string Specimen { get; set; } = string.Empty;
+        [XmlAttribute("SpecimenId")]
+        public long SpecimenId { get; set; } = long.MinValue;
 
         [XmlAttribute("Engineer")]
         public string Engineer { get; set; } = string.Empty;
@@ -58,7 +58,7 @@ namespace Data
             int LastNumber = GetLastRun(strSearch, out errorMessage);
             if (LastNumber > -1 )
             {
-                strNewRunNumber = strSearch + "-" + LastNumber.ToString("001");
+                strNewRunNumber = strSearch + "-" + LastNumber.ToString("000");
             }
 
 
@@ -99,7 +99,11 @@ namespace Data
                             CustomerId = lTemp;
                         }
 
-                        Specimen = reader["Specimen"].ToString();
+                        if (long.TryParse(reader["SpecimenId"].ToString(), out lTemp) == true)
+                        {
+                            SpecimenId = lTemp;
+                        }
+                        
                         Engineer = reader["Engineer"].ToString();
                         Operator = reader["Operator"].ToString();
 
@@ -170,7 +174,11 @@ namespace Data
                                 test.CustomerId = lTemp;
                             }
 
-                            test.Specimen = reader["Specimen"].ToString();
+                            if (long.TryParse(reader["SpecimenId"].ToString(), out lTemp) == true)
+                            {
+                                test.SpecimenId = lTemp;
+                            }
+                            
                             test.Engineer = reader["Engineer"].ToString();
                             test.Operator = reader["Operator"].ToString();
 
@@ -223,7 +231,7 @@ namespace Data
                 sqlCommand.Parameters.Add("@TestRunNumber", SqlDbType.VarChar).Value = ImpactorRunNumber;
                 sqlCommand.Parameters.Add("@RunTime", SqlDbType.DateTime).Value = RunTime;
                 sqlCommand.Parameters.Add("@CustomerId", SqlDbType.BigInt).Value = CustomerId;
-                sqlCommand.Parameters.Add("@Specimen", SqlDbType.VarChar).Value = Specimen;
+                sqlCommand.Parameters.Add("@SpecimenId", SqlDbType.BigInt).Value = SpecimenId;
                 sqlCommand.Parameters.Add("@Engineer", SqlDbType.VarChar).Value = Engineer;
                 sqlCommand.Parameters.Add("@Operator", SqlDbType.VarChar).Value = Operator;
                 sqlCommand.Parameters.Add("@TestTypeId", SqlDbType.BigInt).Value = TestTypeId;
@@ -267,7 +275,7 @@ namespace Data
                 cmd.Parameters.Add("@TestRunNumber", SqlDbType.VarChar).Value = ImpactorRunNumber;
                 cmd.Parameters.Add("@RunTime", SqlDbType.DateTime).Value = RunTime;
                 cmd.Parameters.Add("@CustomerId", SqlDbType.BigInt).Value = CustomerId;
-                cmd.Parameters.Add("@Specimen", SqlDbType.VarChar).Value = Specimen;
+                cmd.Parameters.Add("@SpecimenId", SqlDbType.BigInt).Value = SpecimenId;
                 cmd.Parameters.Add("@Engineer", SqlDbType.VarChar).Value = Engineer;
                 cmd.Parameters.Add("@Operator", SqlDbType.VarChar).Value = Operator;
                 cmd.Parameters.Add("@TestTypeId", SqlDbType.BigInt).Value = TestTypeId;

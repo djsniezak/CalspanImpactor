@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Data")]
-[assembly: AssemblyCopyright("Copyright ©  2024")]
+[assembly: AssemblyCopyright("Copyright © 2024-2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -41,5 +41,14 @@ using System.Runtime.InteropServices;
 //          December 12, 2024 - changed the starting Run Number from "000" to "001"
 //          December 12, 2024 - Added ConvertMPerSecToKPH to Conversions
 //          December 12, 2024 - Added ListBoxItem
-[assembly: AssemblyVersion("1.1.0")]
-[assembly: AssemblyFileVersion("1.1.0")]
+// Version 1.2.0
+//          December 26, 2024 - Added DryFires to the ImpactorParameters
+//          December 28, 2024 - Changed Axis X,Y, and Z to double
+//          December 28, 2024 - Changed the speeds in Paramater to doubles
+//          December 28, 2024 - ConvertMPerSecToKPH(double MPerSec) from int formal parameter
+//          January 2, 2025 - Added Specimen class
+//          January 4, 2025 - Added Tires class
+//          January 5, 2025 - Changed Accelerator Temperture to Accumulator Temperature
+//          Released January 20, 2025
+[assembly: AssemblyVersion("1.2.0")]
+[assembly: AssemblyFileVersion("1.2.0")]

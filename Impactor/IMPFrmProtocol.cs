@@ -1,13 +1,9 @@
 ﻿using Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Impactor
@@ -166,19 +162,19 @@ namespace Impactor
                     protocol.TargetingMethod = tItem.Text;
                 }
 
-                if (decimal.TryParse(txtKg.Text, out decimal dTemp) == true)
+                if (double.TryParse(txtKg.Text, out double dTemp) == true)
                 {
                     protocol.ImpactorMass = dTemp;
                 }
 
-                if (decimal.TryParse(txtMetersPerSecond.Text, out dTemp) == true)
+                if ( double.TryParse(txtMetersPerSecond.Text, out dTemp) == true)
                 {
                     protocol.NormalImpactSpeed = dTemp;
                 }
 
-                if (int.TryParse(txtNormalImpactAngle.Text, out int iTemp) == true)
+                if (double.TryParse(txtNormalImpactAngle.Text, out dTemp) == true)
                 {
-                    protocol.NormalImpactAngle = iTemp;
+                    protocol.NormalImpactAngle = dTemp;
                 }
 
                 if (btnUpdate.Text == "Save")
@@ -228,7 +224,7 @@ namespace Impactor
                     ComboFuctions.SelectCmboItem(cmboTargetingMethod, protocol.TargetingMethod);
                     txtKg.Text = protocol.ImpactorMass.ToString("#0.0");
                     txtMetersPerSecond.Text = protocol.NormalImpactSpeed.ToString("#0.0");
-                    txtNormalImpactAngle.Text = protocol.NormalImpactAngle.ToString("#0");
+                    txtNormalImpactAngle.Text = protocol.NormalImpactAngle.ToString("#0.0");
 
                     EnableDisable();
                 }

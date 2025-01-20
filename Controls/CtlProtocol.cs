@@ -59,6 +59,7 @@ namespace Controls
             lblNormalImpactSpeedValue.Text = string.Empty;  
             lblNormalImpactAngleValue.Text = string.Empty;
             txtHic.Text = string.Empty;
+            txtHic.Visible = false;
             
         }
         public string LoadProtocol()

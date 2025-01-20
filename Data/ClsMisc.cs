@@ -87,7 +87,7 @@ namespace Data
         }
 
         private const double MToKPH = 3.6;
-        public static double ConvertMPerSecToKPH(int MPerSec)
+        public static double ConvertMPerSecToKPH(double MPerSec)
         {
             if (MPerSec != int.MinValue)
             {
@@ -165,8 +165,13 @@ namespace Data
         public long SelectedProtocolId { get; set; } = long.MinValue;
     }
 
+    public class SpecimenId : EventArgs
+    {
+        public long SelectedSpecimenId { get; set; } = long.MinValue;
+    }
+
     public class SaveOptions : EventArgs
     {
-        public bool isAfterCopy { get; set; } = false;
+        public bool IsAfterCopy { get; set; } = false;
     }
 }

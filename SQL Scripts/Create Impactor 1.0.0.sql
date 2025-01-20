@@ -1,7 +1,7 @@
 --USE [master]
 --GO
---DROP DATABASE Impactor;/****** Object:  Database [Impactor]    Script Date: 11/2/2024 3:45:52 PM ******/
---GO
+----DROP DATABASE Impactor;/****** Object:  Database [Impactor]    Script Date: 11/2/2024 3:45:52 PM ******/
+----GO
 --/****** Object:  Database [Impactor]    Script Date: 11/2/2024 3:45:52 PM ******/
 --CREATE DATABASE [Impactor]
 -- CONTAINMENT = NONE

@@ -47,11 +47,14 @@
     <Compile Include="ClsImpactorAxis.cs" />
     <Compile Include="ClsImpactorClient.cs" />
     <Compile Include="ClsImpactorParameters.cs" />
+    <Compile Include="ClsImpactorSpecimen.cs" />
     <Compile Include="ClsImpactorTest.cs" />
     <Compile Include="ClsImpactorTestType.cs" />
     <Compile Include="ClsImpactorType.cs" />
     <Compile Include="ClsMisc.cs" />
     <Compile Include="ClsProtocol.cs" />
+    <Compile Include="ClsReports.cs" />
+    <Compile Include="ClsTires.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

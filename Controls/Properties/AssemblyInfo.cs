@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Controls")]
-[assembly: AssemblyCopyright("Copyright © 2024")]
+[assembly: AssemblyCopyright("Copyright © 2024-2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -39,5 +39,12 @@ using System.Runtime.InteropServices;
 //  Version 1.3.0
 //              December 12, 2024 - Changed Cylinder Speeds from mm/s => m/s
 //              December 12, 2024 - Changed the lables Accelerator Temperature to Accumulator Temperature - supporting code NOT changed
-[assembly: AssemblyVersion("1.3.0")]
-[assembly: AssemblyFileVersion("1.3.0")]
+//  Version 1.4.0
+//              December 26, 2024 - Modifed CtlTestSetup to allow the Impactor Test Id to be modifed by the user.
+//              December 26, 2024 - Add DryFires to the Parameter Screen and back Office code
+//              December 28, 2024 - In Parameters changed speeds to double, in Axis change X,Y,Z axis tp double
+//              January 4, 2025 - Added CtlTires
+//              January 18, 2025 - Added ability for just Client owned specimens to be displayed.
+//              Released January 20, 2025
+[assembly: AssemblyVersion("1.4.0")]
+[assembly: AssemblyFileVersion("1.4.0")]

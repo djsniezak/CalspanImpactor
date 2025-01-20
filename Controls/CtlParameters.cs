@@ -3,12 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -20,6 +14,7 @@ namespace ImpactorControls
         private string _ConnectionString = string.Empty;
         private long _TestId = long.MinValue;
         private long _ParametersId = long.MinValue;
+        private long _TestTypeId = long.MinValue;
 
         public event EventHandler ImpactorIdChanged;
         public CtlParameters()
@@ -34,7 +29,6 @@ namespace ImpactorControls
             {
                 _ConnectionString = value;
             }
-
         }
 
         public long TestId
@@ -49,6 +43,11 @@ namespace ImpactorControls
             set { _ParametersId = value; }
         }
       
+        public long TestTypeId
+        {
+            get { return _TestTypeId; }
+            set { _TestTypeId = value; }
+        }
 
         public string LoadTest (long testId)
         {
@@ -56,26 +55,27 @@ namespace ImpactorControls
             string strErrorMessage = parms.GetForAnImpactorTest (testId);
             if (string.IsNullOrEmpty(strErrorMessage) == true)
             {
-                // Note AcceleratorTemperature was changed to Accumulator on the form BUT not in the supporting code.
                 ImpactorParametersId = parms.ImpactorParametersId;
                 ComboFuctions.SelectCmboItem(cboImpactor, parms.ImpactorTypeId);
-               
-                txtTemperature.Text = Conversion.FormatDecimal(parms.Temperature, "##0.0");
-                txtHumidity.Text = Conversion.FormatDecimal(parms.Humidity, "##0.0");
+                txtTemperature.Text = Conversion.FormatDouble(parms.Temperature, "##0.#0");
+                txtHumidity.Text = Conversion.FormatDouble(parms.Humidity, "##0.0");
                 txtTrigger1.Text = Conversion.FormatInt (parms.Trigger1,"##0");
                 txtTrigger2.Text = Conversion.FormatInt(parms.Trigger2, "##0");
                 txtNotes.Text = parms.Notes;
-                txtFirePressure.Text = Conversion.FormatDecimal(parms.FirePressure, "###0.0");
-                txtCylinderSpeed.Text = Conversion.FormatInt(parms.CylinderSpeed,"##0");
-                txtCylenderKPH.Text = Conversion.ConvertMPerSecToKPH(parms.CylinderSpeed).ToString("#.###0");
-                txtMeasuredSpeed.Text = Conversion.FormatInt(parms.MeasuredSpeed,"##0");
-                txtMeasuredKPH.Text = Conversion.FormatDouble (Conversion.ConvertMPerSecToKPH(parms.MeasuredSpeed),"#.###0");
-                txtCylinderwithout.Text = Conversion.FormatInt(parms.CylinderWithOutImpactorSetpoint, "##0");
-                txtAcceleratorTemperature.Text = Conversion.FormatDecimal(parms.AcceleratorTemperature, "##0.0");
-                txtTankTemperature.Text = Conversion.FormatDecimal(parms.TankTemperature, "##0.0");
+                txtFirePressure.Text = Conversion.FormatDouble(parms.FirePressure, "###0.0");
+                txtCylinderSpeed.Text = Conversion.FormatDouble(parms.CylinderSpeed,"#0.##0");
+                txtCylenderKPH.Text = Conversion.ConvertMPerSecToKPH(parms.CylinderSpeed).ToString("#0.##0");
+                txtMeasuredSpeed.Text = Conversion.FormatDouble(parms.MeasuredSpeed,"#0.##0");
+                txtMeasuredKPH.Text = Conversion.FormatDouble (Conversion.ConvertMPerSecToKPH(parms.MeasuredSpeed),"#0.##0");
+                txtCylinderwithout.Text = Conversion.FormatDouble(parms.CylinderWithOutImpactorSetpoint, "#0.##0");
+                txtAccumulatorTemperature.Text = Conversion.FormatDouble(parms.AccumulatorTemperature, "#0.#0");
+                txtTankTemperature.Text = Conversion.FormatDouble(parms.TankTemperature, "#0.#0");
                 txtAirbag1.Text = Conversion.FormatInt(parms.AirBag1,"###0");
                 txtAirbag2.Text = Conversion.FormatInt(parms.AirBag2,"###0");
                 txtAirbag3.Text = Conversion.FormatInt(parms.AirBag3,"###0");
+                txtDryFires.Text = Conversion.FormatInt(parms.DryFires,"###0");
+
+                NameAxis();
 
                 strErrorMessage = LoadAxisGrid(testId);
             }
@@ -128,11 +128,11 @@ namespace ImpactorControls
                         parms.ImpactorTypeId = item.Id;
                     }
 
-                    if (decimal.TryParse(txtTemperature.Text, out decimal value) == true)
+                    if (double.TryParse(txtTemperature.Text, out double value) == true)
                     {
                         parms.Temperature = value;
                     }
-                    if (decimal.TryParse(txtHumidity.Text, out value) == true)
+                    if (double.TryParse(txtHumidity.Text, out value) == true)
                     {
                         parms.Humidity = value;
                     }
@@ -151,33 +151,31 @@ namespace ImpactorControls
                             parms.Trigger2 = iTemp;
                         }
 
-                        
-
-                        if (decimal.TryParse(txtFirePressure.Text, out value) == true)
+                        if (double.TryParse(txtFirePressure.Text, out value) == true)
                         {
                             parms.FirePressure = value;
                         }
-                        if (int.TryParse(txtCylinderSpeed.Text, out iTemp) == true)
+                        if (double.TryParse(txtCylinderSpeed.Text, out value) == true)
                         {
-                            parms.CylinderSpeed = iTemp;
+                            parms.CylinderSpeed = value;
                         }
 
-                        if (int.TryParse(txtMeasuredSpeed.Text, out iTemp) == true)
+                        if (double.TryParse(txtMeasuredSpeed.Text, out value) == true)
                         {
-                            parms.MeasuredSpeed = iTemp;
+                            parms.MeasuredSpeed = value;
                         }
 
-                        if (int.TryParse(txtCylinderwithout.Text, out iTemp) == true)
+                        if (double.TryParse(txtCylinderwithout.Text, out value) == true)
                         {
-                            parms.CylinderWithOutImpactorSetpoint = iTemp;
+                            parms.CylinderWithOutImpactorSetpoint = value;
                         }
 
-                        if (decimal.TryParse(txtAcceleratorTemperature.Text, out value) == true)
+                        if (double.TryParse(txtAccumulatorTemperature.Text, out value) == true)
                         {
-                            parms.AcceleratorTemperature = value;
+                            parms.AccumulatorTemperature = value;
                         }
 
-                        if (decimal.TryParse(txtTankTemperature.Text, out value) == true)
+                        if (double.TryParse(txtTankTemperature.Text, out value) == true)
                         {
                             parms.TankTemperature = value;
                         }
@@ -195,6 +193,11 @@ namespace ImpactorControls
                         if (int.TryParse(txtAirbag3.Text, out iTemp) == true)
                         {
                             parms.AirBag3 = iTemp;
+                        }
+
+                        if (int.TryParse(txtDryFires.Text, out iTemp) == true)
+                        {
+                            parms.DryFires = iTemp;
                         }
                     }
 
@@ -239,11 +242,12 @@ namespace ImpactorControls
             txtMeasuredSpeed.Text = string.Empty;
             txtMeasuredKPH.Text= string.Empty;
             txtCylinderwithout.Text = string.Empty;
-            txtAcceleratorTemperature.Text = string.Empty;
+            txtAccumulatorTemperature.Text = string.Empty;
             txtTankTemperature.Text = string.Empty;
             txtAirbag1.Text = string.Empty;
             txtAirbag2.Text = string.Empty;
             txtAirbag3.Text = string.Empty;
+            txtDryFires.Text = string.Empty;
         }
 
         public void ClearControl(string name)
@@ -289,7 +293,7 @@ namespace ImpactorControls
                                     {
                                         if (txtCylinderwithout.Text != string.Empty)
                                         {
-                                            if (txtAcceleratorTemperature.Text != string.Empty)
+                                            if (txtAccumulatorTemperature.Text != string.Empty)
                                             {
                                                 if (txtTankTemperature.Text != string.Empty)
                                                 {
@@ -342,7 +346,7 @@ namespace ImpactorControls
             }
             else
             {
-                strVerified = "Parameters not saved.";
+                strVerified = "Please select an Impactor";
             }
 
             return strVerified;
@@ -355,43 +359,29 @@ namespace ImpactorControls
             };
         
             dgAxis.Rows.Clear();
+            AddDgvLines();
 
             List<ImpactorAxis> axisList = axis.GetAll(testid, out string strErroMessage);
             if (string.IsNullOrEmpty(strErroMessage) == true)
             {
                 if (axisList.Count > 0)
                 {
+                    int RowCount = 0;
                     foreach (ImpactorAxis loadAxis in axisList)
                     {
-                        DataGridViewRow Row = new DataGridViewRow();
+                        DataGridViewRow Row = dgAxis.Rows[RowCount];
 
-                        Row.Cells.Add(new DataGridViewTextBoxCell());
                         Row.Cells[0].Value = loadAxis.SetName;
-
-                        Row.Cells.Add(new DataGridViewTextBoxCell());
-                        Row.Cells[1].Value = Conversion.FormatInt(loadAxis.XAxis, "##0").ToString();
-
-                        Row.Cells.Add(new DataGridViewTextBoxCell());
-                        Row.Cells[2].Value = Conversion.FormatInt(loadAxis.YAxis, "##0").ToString();
-
-                        Row.Cells.Add(new DataGridViewTextBoxCell());
-                        Row.Cells[3].Value = Conversion.FormatInt(loadAxis.ZAxis, "##0").ToString();
-
-                        Row.Cells.Add(new DataGridViewTextBoxCell());
+                        Row.Cells[1].Value = Conversion.FormatDouble(loadAxis.XAxis, "##0.0").ToString();
+                        Row.Cells[2].Value = Conversion.FormatDouble(loadAxis.YAxis, "##0.0").ToString();
+                        Row.Cells[3].Value = Conversion.FormatDouble(loadAxis.ZAxis, "##0.0").ToString();
                         if (loadAxis.Alpha > 0)
                         {
-                            Row.Cells[4].Value = Conversion.FormatDouble(loadAxis.Alpha, "##0.0").ToString();
+                            Row.Cells[4].Value = Conversion.FormatDouble(loadAxis.Alpha, "#0.0").ToString();
                         }
-
-                        Row.Cells.Add(new DataGridViewTextBoxCell());
                         Row.Cells[5].Value = loadAxis.ImpactorAxisId.ToString();
-
-                        dgAxis.Rows.Add(Row);
+                        RowCount++;
                     }
-                }
-                else
-                {
-                    AddDgvLines();
                 }
             }
 
@@ -434,7 +424,7 @@ namespace ImpactorControls
 
             if (row.Cells[1].Value != null)
             {
-                if (int.TryParse(row.Cells[1].Value.ToString(), out int val) == true)
+                if (double.TryParse(row.Cells[1].Value.ToString(), out double val) == true)
                 {
                     axis.XAxis = val;
                 }
@@ -443,7 +433,7 @@ namespace ImpactorControls
 
             if (row.Cells[2].Value != null)
             {
-                if (int.TryParse(row.Cells[2].Value.ToString(), out int val) == true)
+                if (double.TryParse(row.Cells[2].Value.ToString(), out double val) == true)
                 {
                     axis.YAxis = val;
                 }
@@ -451,7 +441,7 @@ namespace ImpactorControls
 
             if (row.Cells[3].Value != null)
             {
-                if (int.TryParse(row.Cells[3].Value.ToString(), out int val) == true)
+                if (double.TryParse(row.Cells[3].Value.ToString(), out double val) == true)
                 {
                     axis.ZAxis = val;
                 }
@@ -488,7 +478,7 @@ namespace ImpactorControls
 
             if (row.Cells[1].Value != null)
             {
-                if (int.TryParse(row.Cells[1].Value.ToString(), out int val) == true)
+                if (double.TryParse(row.Cells[1].Value.ToString(), out double val) == true)
                 {
                     axis.XAxis = val;
                 }
@@ -500,7 +490,7 @@ namespace ImpactorControls
 
             if (row.Cells[2].Value != null)
             {
-                if (int.TryParse(row.Cells[2].Value.ToString(), out int val) == true)
+                if (double.TryParse(row.Cells[2].Value.ToString(), out double val) == true)
                 {
                     axis.YAxis = val;
                 }
@@ -512,7 +502,7 @@ namespace ImpactorControls
 
             if (row.Cells[3].Value != null)
             {
-                if (int.TryParse(row.Cells[3].Value.ToString(), out int val) == true)
+                if (double.TryParse(row.Cells[3].Value.ToString(), out double val) == true)
                 {
                     axis.ZAxis = val;
                 }
@@ -547,6 +537,7 @@ namespace ImpactorControls
             return strErrorMessage;
 
         }
+
         private void AddDgvLines()
         {
             dgAxis.Rows.Clear();
@@ -555,15 +546,56 @@ namespace ImpactorControls
             {
                 DataGridViewRow Row = new DataGridViewRow();
                 Row.Cells.Add(new DataGridViewTextBoxCell());
-                Row.Cells[0].Value = "P" + index.ToString();
                 Row.Cells[0].ReadOnly = true;
                 dgAxis.Rows.Add(Row);
             }
+
+            NameAxis();
         }
 
+        public void NameAxis()
+        {
+            bool isHead = false;
+            if (string.IsNullOrEmpty(_ConnectionString) == false && TestTypeId != long.MinValue)
+            {
+                string strErrorMessage;
+                ImpactorTestType tType = new ImpactorTestType(_ConnectionString);
+                strErrorMessage = tType.Get(TestTypeId);
+                if (string.IsNullOrEmpty(strErrorMessage) == true)
+                {
+                    if (tType.Description.Contains("Head") == true)
+                    {
+                        isHead = true;
+                    }
+
+                    for (int index = 0; index < 4; ++index)
+                    {
+                        if (isHead == true)
+                        {
+                            if (index == 0)
+                            {
+                                dgAxis.Rows[index].Cells[0].Value = "P1 (AP)";
+                            }
+                            else if (index == 1)
+                            {
+                                dgAxis.Rows[index].Cells[0].Value = "P1 (CP)";
+                            }
+                            else
+                            {
+                                dgAxis.Rows[index].Cells[0].Value = "P" + (index + 1).ToString();
+                            }
+                        }
+                        else
+                        {
+                            dgAxis.Rows[index].Cells[0].Value = "P" + (index + 1).ToString();
+                        }
+                    }
+                }
+            }
+        }
         private void TxtCylinderSpeed_Leave(object sender, EventArgs e)
         {
-            if (int.TryParse(txtCylinderSpeed.Text, out int value) == true)
+            if (double.TryParse(txtCylinderSpeed.Text, out double value) == true)
             {
                 txtCylenderKPH.Text = Conversion.ConvertMPerSecToKPH(value).ToString("#.###0");
             }
@@ -571,9 +603,9 @@ namespace ImpactorControls
 
         private void TxtMeasuredSpeed_Leave(object sender, EventArgs e)
         {
-            if (int.TryParse(txtMeasuredSpeed.Text, out int value) == true)
+            if (double.TryParse(txtMeasuredSpeed.Text, out double value) == true)
             {
-                txtMeasuredKPH.Text = Conversion.FormatDouble(Conversion.ConvertMPerSecToKPH(value), "#.###0");
+                txtMeasuredKPH.Text = Conversion.ConvertMPerSecToKPH(value).ToString ("#.###0");
             }
         }
 
@@ -588,6 +620,21 @@ namespace ImpactorControls
                 };
 
                 handler?.Invoke(this, e);
+
+                NameAxis();
+            }
+        }
+
+        private void BtnAddDryFire_Clicked(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDryFires.Text) == true)
+            {
+                txtDryFires.Text = "0";
+            }
+
+            if (int.TryParse(txtDryFires.Text, out int value) == true)
+            {
+                txtDryFires.Text = Conversion.FormatInt(++value, "##0");
             }
         }
     }

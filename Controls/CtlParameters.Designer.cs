@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.grpParameters = new System.Windows.Forms.GroupBox();
+            this.btnAddDryFire = new System.Windows.Forms.Button();
             this.lblPercentHumidity = new System.Windows.Forms.Label();
             this.lblRequired10 = new System.Windows.Forms.Label();
             this.lblRequired9 = new System.Windows.Forms.Label();
@@ -44,7 +45,7 @@
             this.lblTempC = new System.Windows.Forms.Label();
             this.txtTankTemperature = new System.Windows.Forms.TextBox();
             this.lblTankTemperature = new System.Windows.Forms.Label();
-            this.txtAcceleratorTemperature = new System.Windows.Forms.TextBox();
+            this.txtAccumulatorTemperature = new System.Windows.Forms.TextBox();
             this.lblAcccumulatorTemperature = new System.Windows.Forms.Label();
             this.lblCylWOUnits = new System.Windows.Forms.Label();
             this.txtCylinderwithout = new System.Windows.Forms.TextBox();
@@ -69,10 +70,8 @@
             this.lblAirbag1Ms = new System.Windows.Forms.Label();
             this.txtAirbag1 = new System.Windows.Forms.TextBox();
             this.lblAirbag1 = new System.Windows.Forms.Label();
-            this.txtAngleYZ = new System.Windows.Forms.TextBox();
-            this.lblAngleYZ = new System.Windows.Forms.Label();
-            this.txtAngleXz = new System.Windows.Forms.TextBox();
-            this.lblAngleXZ = new System.Windows.Forms.Label();
+            this.txtDryFires = new System.Windows.Forms.TextBox();
+            this.lblDryFires = new System.Windows.Forms.Label();
             this.lblTrapMsKphMph = new System.Windows.Forms.Label();
             this.txtMeasuredSpeed = new System.Windows.Forms.TextBox();
             this.lblTrapVelocity = new System.Windows.Forms.Label();
@@ -105,6 +104,7 @@
             this.grpParameters.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpParameters.Controls.Add(this.btnAddDryFire);
             this.grpParameters.Controls.Add(this.lblPercentHumidity);
             this.grpParameters.Controls.Add(this.lblRequired10);
             this.grpParameters.Controls.Add(this.lblRequired9);
@@ -120,7 +120,7 @@
             this.grpParameters.Controls.Add(this.lblTempC);
             this.grpParameters.Controls.Add(this.txtTankTemperature);
             this.grpParameters.Controls.Add(this.lblTankTemperature);
-            this.grpParameters.Controls.Add(this.txtAcceleratorTemperature);
+            this.grpParameters.Controls.Add(this.txtAccumulatorTemperature);
             this.grpParameters.Controls.Add(this.lblAcccumulatorTemperature);
             this.grpParameters.Controls.Add(this.lblCylWOUnits);
             this.grpParameters.Controls.Add(this.txtCylinderwithout);
@@ -139,10 +139,8 @@
             this.grpParameters.Controls.Add(this.lblAirbag1Ms);
             this.grpParameters.Controls.Add(this.txtAirbag1);
             this.grpParameters.Controls.Add(this.lblAirbag1);
-            this.grpParameters.Controls.Add(this.txtAngleYZ);
-            this.grpParameters.Controls.Add(this.lblAngleYZ);
-            this.grpParameters.Controls.Add(this.txtAngleXz);
-            this.grpParameters.Controls.Add(this.lblAngleXZ);
+            this.grpParameters.Controls.Add(this.txtDryFires);
+            this.grpParameters.Controls.Add(this.lblDryFires);
             this.grpParameters.Controls.Add(this.lblTrapMsKphMph);
             this.grpParameters.Controls.Add(this.txtMeasuredSpeed);
             this.grpParameters.Controls.Add(this.lblTrapVelocity);
@@ -173,6 +171,16 @@
             this.grpParameters.TabIndex = 0;
             this.grpParameters.TabStop = false;
             this.grpParameters.Text = "Parameters";
+            // 
+            // btnAddDryFire
+            // 
+            this.btnAddDryFire.Location = new System.Drawing.Point(651, 67);
+            this.btnAddDryFire.Name = "btnAddDryFire";
+            this.btnAddDryFire.Size = new System.Drawing.Size(32, 23);
+            this.btnAddDryFire.TabIndex = 100;
+            this.btnAddDryFire.Text = "+1";
+            this.btnAddDryFire.UseVisualStyleBackColor = true;
+            this.btnAddDryFire.Click += new System.EventHandler(this.BtnAddDryFire_Clicked);
             // 
             // lblPercentHumidity
             // 
@@ -350,14 +358,14 @@
             this.lblTankTemperature.TabIndex = 99;
             this.lblTankTemperature.Text = "Tank Temperature:";
             // 
-            // txtAcceleratorTemperature
+            // txtAccumulatorTemperature
             // 
-            this.txtAcceleratorTemperature.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtAcceleratorTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAcceleratorTemperature.Location = new System.Drawing.Point(401, 360);
-            this.txtAcceleratorTemperature.Name = "txtAcceleratorTemperature";
-            this.txtAcceleratorTemperature.Size = new System.Drawing.Size(45, 20);
-            this.txtAcceleratorTemperature.TabIndex = 13;
+            this.txtAccumulatorTemperature.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtAccumulatorTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAccumulatorTemperature.Location = new System.Drawing.Point(401, 360);
+            this.txtAccumulatorTemperature.Name = "txtAccumulatorTemperature";
+            this.txtAccumulatorTemperature.Size = new System.Drawing.Size(45, 20);
+            this.txtAccumulatorTemperature.TabIndex = 13;
             // 
             // lblAcccumulatorTemperature
             // 
@@ -584,60 +592,34 @@
             this.lblAirbag1.TabIndex = 99;
             this.lblAirbag1.Text = "Airbag 1:";
             // 
-            // txtAngleYZ
+            // txtDryFires
             // 
-            this.txtAngleYZ.Enabled = false;
-            this.txtAngleYZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAngleYZ.Location = new System.Drawing.Point(560, 47);
-            this.txtAngleYZ.Name = "txtAngleYZ";
-            this.txtAngleYZ.Size = new System.Drawing.Size(45, 20);
-            this.txtAngleYZ.TabIndex = 54;
-            this.txtAngleYZ.Visible = false;
+            this.txtDryFires.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDryFires.Location = new System.Drawing.Point(618, 69);
+            this.txtDryFires.Name = "txtDryFires";
+            this.txtDryFires.Size = new System.Drawing.Size(27, 20);
+            this.txtDryFires.TabIndex = 52;
             // 
-            // lblAngleYZ
+            // lblDryFires
             // 
-            this.lblAngleYZ.AutoSize = true;
-            this.lblAngleYZ.Enabled = false;
-            this.lblAngleYZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAngleYZ.Location = new System.Drawing.Point(500, 50);
-            this.lblAngleYZ.Name = "lblAngleYZ";
-            this.lblAngleYZ.Size = new System.Drawing.Size(54, 13);
-            this.lblAngleYZ.TabIndex = 53;
-            this.lblAngleYZ.Text = "Angle YZ:";
-            this.lblAngleYZ.Visible = false;
-            // 
-            // txtAngleXz
-            // 
-            this.txtAngleXz.Enabled = false;
-            this.txtAngleXz.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAngleXz.Location = new System.Drawing.Point(437, 47);
-            this.txtAngleXz.Name = "txtAngleXz";
-            this.txtAngleXz.Size = new System.Drawing.Size(45, 20);
-            this.txtAngleXz.TabIndex = 52;
-            this.txtAngleXz.Visible = false;
-            // 
-            // lblAngleXZ
-            // 
-            this.lblAngleXZ.AutoSize = true;
-            this.lblAngleXZ.Enabled = false;
-            this.lblAngleXZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAngleXZ.Location = new System.Drawing.Point(377, 50);
-            this.lblAngleXZ.Name = "lblAngleXZ";
-            this.lblAngleXZ.Size = new System.Drawing.Size(54, 13);
-            this.lblAngleXZ.TabIndex = 51;
-            this.lblAngleXZ.Text = "Angle XZ:";
-            this.lblAngleXZ.Visible = false;
+            this.lblDryFires.AutoSize = true;
+            this.lblDryFires.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDryFires.Location = new System.Drawing.Point(564, 72);
+            this.lblDryFires.Name = "lblDryFires";
+            this.lblDryFires.Size = new System.Drawing.Size(48, 13);
+            this.lblDryFires.TabIndex = 51;
+            this.lblDryFires.Text = "Dry Fires";
             // 
             // lblTrapMsKphMph
             // 
             this.lblTrapMsKphMph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTrapMsKphMph.AutoSize = true;
             this.lblTrapMsKphMph.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrapMsKphMph.Location = new System.Drawing.Point(585, 325);
+            this.lblTrapMsKphMph.Location = new System.Drawing.Point(591, 325);
             this.lblTrapMsKphMph.Name = "lblTrapMsKphMph";
-            this.lblTrapMsKphMph.Size = new System.Drawing.Size(33, 13);
+            this.lblTrapMsKphMph.Size = new System.Drawing.Size(25, 13);
             this.lblTrapMsKphMph.TabIndex = 99;
-            this.lblTrapMsKphMph.Text = "mm/s";
+            this.lblTrapMsKphMph.Text = "m/s";
             // 
             // txtMeasuredSpeed
             // 
@@ -895,10 +877,8 @@
         private System.Windows.Forms.Label lblBarPsi;
         private System.Windows.Forms.TextBox txtFirePressure;
         private System.Windows.Forms.Label lblFirePressure;
-        private System.Windows.Forms.TextBox txtAngleYZ;
-        private System.Windows.Forms.Label lblAngleYZ;
-        private System.Windows.Forms.TextBox txtAngleXz;
-        private System.Windows.Forms.Label lblAngleXZ;
+        private System.Windows.Forms.TextBox txtDryFires;
+        private System.Windows.Forms.Label lblDryFires;
         private System.Windows.Forms.Label lblAirbag3Ms;
         private System.Windows.Forms.TextBox txtAirbag3;
         private System.Windows.Forms.Label lblAirbag3;
@@ -916,7 +896,7 @@
         private System.Windows.Forms.Label lblCylWOUnits;
         private System.Windows.Forms.TextBox txtCylinderwithout;
         private System.Windows.Forms.Label lblCylenderwithout;
-        private System.Windows.Forms.TextBox txtAcceleratorTemperature;
+        private System.Windows.Forms.TextBox txtAccumulatorTemperature;
         private System.Windows.Forms.Label lblAcccumulatorTemperature;
         private System.Windows.Forms.TextBox txtTankTemperature;
         private System.Windows.Forms.Label lblTankTemperature;
@@ -939,5 +919,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Zaxis;
         private System.Windows.Forms.DataGridViewTextBoxColumn Alpha;
         private System.Windows.Forms.DataGridViewTextBoxColumn AxisId;
+        private System.Windows.Forms.Button btnAddDryFire;
     }
 }

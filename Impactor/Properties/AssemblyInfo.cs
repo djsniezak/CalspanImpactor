@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Impactor")]
-[assembly: AssemblyCopyright("Copyright © 2024")]
+[assembly: AssemblyCopyright("Copyright © 2024-2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -51,5 +51,17 @@ using System.Runtime.InteropServices;
 //      December 12, 2024 - Changed Cylinder Speeds from mm/s => m/s
 //      December 12, 2024 - Changed the lables Accelerator Temperature to Accumulator Temperature - supporting code NOT changed
 //      Released December 12, 2024
-[assembly: AssemblyVersion("1.0.004")]
-[assembly: AssemblyFileVersion("1.0.004")]
+// Version 1.0.005
+//      December 26, 2024 - Added DryFires to the ImpactorParameters
+//      December 26, 2024 - Modifed CtlTestSetup to allow the Impactor Test Id to be modifed by the user.
+//      December 26, 2024 - Add DryFires to the Parameter Screen and back Office code
+//      December 28, 2024 - Changed Axis X,Y, and Z to double
+//      December 28, 2024 - Changed the speeds in Paramater to doubles
+//      December 28, 2024 - ConvertMPerSecToKPH(double MPerSec) from int formal parameter
+//      December 28, 2024 - In Parameters changed speeds to double, in Axis change X,Y,Z axis tp double
+//      January 3, 2025 - Added Specimen Form
+//      January 11, 2025 - Added Reports
+//      January 18, 2025 - Changed Save Order so parameters are last.
+//      Released January 20, 2025
+[assembly: AssemblyVersion("1.0.005")]
+[assembly: AssemblyFileVersion("1.0.005")]

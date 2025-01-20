@@ -26,13 +26,13 @@ namespace Data
         public string SetName { get; set; } = string.Empty;
 
         [XmlAttribute("XAxis")]
-        public int XAxis { get; set; } = int.MinValue;
+        public double XAxis { get; set; } = double.MinValue;
 
         [XmlAttribute("YAxis")]
-        public int YAxis { get; set; } = int.MinValue;
+        public double YAxis { get; set; } = double.MinValue;
 
         [XmlAttribute("ZAxis")]
-        public int ZAxis { get; set; } = int.MinValue;
+        public double ZAxis { get; set; } = double.MinValue;
 
         [XmlAttribute("Alpha")]
         public double Alpha { get; set; } = double.MinValue;
@@ -41,7 +41,6 @@ namespace Data
         private readonly string  _connectionString = string.Empty;
         public ImpactorAxis( string connectionString ) : base( connectionString )
         { 
-            
         }
 
         public string Get(long impactorAxisId, string setName)
@@ -79,22 +78,22 @@ namespace Data
 
                         SetName = reader["SetName"].ToString();
 
-                        if (int.TryParse(reader["XAxis"].ToString(), out int iTemp) == true)
+                        if (double.TryParse(reader["XAxis"].ToString(), out double dTemp) == true)
                         {
-                            XAxis = iTemp;
+                            XAxis = dTemp;
                         }
 
-                        if (int.TryParse(reader["YAxis"].ToString(), out  iTemp) == true)
+                        if (double.TryParse(reader["YAxis"].ToString(), out  dTemp) == true)
                         {
-                            YAxis = iTemp;
+                            YAxis = dTemp;
                         }
 
-                        if (int.TryParse(reader["ZAxis"].ToString(), out  iTemp) == true)
+                        if (double.TryParse(reader["ZAxis"].ToString(), out  dTemp) == true)
                         {
-                            ZAxis = iTemp;
+                            ZAxis = dTemp;
                         }
 
-                        if( double.TryParse(reader["Alpha"].ToString(), out double dTemp) == true)
+                        if( double.TryParse(reader["Alpha"].ToString(), out  dTemp) == true)
                         {
                             Alpha = dTemp;
                         }
@@ -158,22 +157,22 @@ namespace Data
 
                             axis.SetName = reader["SetName"].ToString();
 
-                            if (int.TryParse(reader["XAxis"].ToString(), out int iTemp) == true)
+                            if (double.TryParse(reader["XAxis"].ToString(), out double dTemp) == true)
                             {
-                                axis.XAxis = iTemp;
+                                axis.XAxis = dTemp;
                             }
 
-                            if (int.TryParse(reader["YAxis"].ToString(), out iTemp) == true)
+                            if (double.TryParse(reader["YAxis"].ToString(), out dTemp) == true)
                             {
-                                axis.YAxis = iTemp;
+                                axis.YAxis = dTemp;
                             }
 
-                            if (int.TryParse(reader["ZAxis"].ToString(), out iTemp) == true)
+                            if (double.TryParse(reader["ZAxis"].ToString(), out dTemp) == true)
                             {
-                                axis.ZAxis = iTemp;
+                                axis.ZAxis = dTemp;
                             }
 
-                            if (double.TryParse(reader["Alpha"].ToString(), out double dTemp) == true)
+                            if (double.TryParse(reader["Alpha"].ToString(), out dTemp) == true)
                             {
                                 axis.Alpha = dTemp;
                             }
@@ -212,13 +211,45 @@ namespace Data
                     CommandText = "InsertImpactorAxis",
                 };
 
-                sqlCommand.Parameters.Add("@ImpactorTestId", SqlDbType.VarChar).Value = ImpactorTestId;
-                sqlCommand.Parameters.Add("@ImpactorParameterId", SqlDbType.VarChar).Value = ImpactorParameterId;
+                sqlCommand.Parameters.Add("@ImpactorTestId", SqlDbType.BigInt).Value = ImpactorTestId;
+                sqlCommand.Parameters.Add("@ImpactorParameterId", SqlDbType.BigInt).Value = ImpactorParameterId;
                 sqlCommand.Parameters.Add("@SetName", SqlDbType.VarChar).Value = SetName;
-                sqlCommand.Parameters.Add("@XAxis", SqlDbType.Int).Value = XAxis;
-                sqlCommand.Parameters.Add("@YAxis", SqlDbType.Int).Value = YAxis;
-                sqlCommand.Parameters.Add("@ZAxis", SqlDbType.Int).Value = ZAxis;
-                sqlCommand.Parameters.Add("@Alpha", SqlDbType.Decimal).Value = Alpha;
+
+                if (XAxis == double.MinValue)
+                {
+                    sqlCommand.Parameters.Add("@XAxis", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    sqlCommand.Parameters.Add("@XAxis", SqlDbType.Decimal).Value = XAxis;
+                }
+
+                if (YAxis == double.MinValue)
+                {
+                    sqlCommand.Parameters.Add("@YAxis", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    sqlCommand.Parameters.Add("@YAxis", SqlDbType.Decimal).Value = YAxis;
+                }
+
+                if (ZAxis == double.MinValue)
+                {
+                    sqlCommand.Parameters.Add("@ZAxis", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    sqlCommand.Parameters.Add("@ZAxis", SqlDbType.Decimal).Value = ZAxis;
+                }
+
+                if (Alpha == double.MinValue)
+                {
+                    sqlCommand.Parameters.Add("@Alpha", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    sqlCommand.Parameters.Add("@Alpha", SqlDbType.Decimal).Value = Alpha;
+                }
 
                 try
                 {
@@ -259,10 +290,41 @@ namespace Data
                 cmd.Parameters.Add("@ImpactorTestId", SqlDbType.BigInt).Value = ImpactorTestId;
                 cmd.Parameters.Add("@ImpactorParameterId", SqlDbType.BigInt).Value = ImpactorParameterId;
                 cmd.Parameters.Add("@SetName", SqlDbType.VarChar).Value = SetName;
-                cmd.Parameters.Add("@XAxis", SqlDbType.Int).Value = XAxis;  
-                cmd.Parameters.Add("@YAxis", SqlDbType.Int).Value = YAxis;
-                cmd.Parameters.Add("@ZAxis", SqlDbType.Int).Value = ZAxis;
-                cmd.Parameters.Add("@Alpha", SqlDbType.Decimal).Value = Alpha;
+                if (XAxis == double.MinValue)
+                {
+                    cmd.Parameters.Add("@XAxis", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@XAxis", SqlDbType.Decimal).Value = XAxis;
+                }
+
+                if (YAxis == double.MinValue)
+                {
+                    cmd.Parameters.Add("@YAxis", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@YAxis", SqlDbType.Decimal).Value = YAxis;
+                }
+
+                if (ZAxis == double.MinValue)
+                {
+                    cmd.Parameters.Add("@ZAxis", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@ZAxis", SqlDbType.Decimal).Value = ZAxis;
+                }
+
+                if (Alpha == double.MinValue)
+                {
+                    cmd.Parameters.Add("@Alpha", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@Alpha", SqlDbType.Decimal).Value = Alpha;
+                }
 
                 try
                 {

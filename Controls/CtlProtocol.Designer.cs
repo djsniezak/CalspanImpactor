@@ -90,36 +90,32 @@
             this.lblNormalImpactAngleValue.AutoSize = true;
             this.lblNormalImpactAngleValue.Location = new System.Drawing.Point(179, 163);
             this.lblNormalImpactAngleValue.Name = "lblNormalImpactAngleValue";
-            this.lblNormalImpactAngleValue.Size = new System.Drawing.Size(39, 13);
+            this.lblNormalImpactAngleValue.Size = new System.Drawing.Size(0, 13);
             this.lblNormalImpactAngleValue.TabIndex = 109;
-            this.lblNormalImpactAngleValue.Text = "XXXX";
             // 
             // lblNormalImpactSpeedValue
             // 
             this.lblNormalImpactSpeedValue.AutoSize = true;
             this.lblNormalImpactSpeedValue.Location = new System.Drawing.Point(179, 137);
             this.lblNormalImpactSpeedValue.Name = "lblNormalImpactSpeedValue";
-            this.lblNormalImpactSpeedValue.Size = new System.Drawing.Size(39, 13);
+            this.lblNormalImpactSpeedValue.Size = new System.Drawing.Size(0, 13);
             this.lblNormalImpactSpeedValue.TabIndex = 108;
-            this.lblNormalImpactSpeedValue.Text = "XXXX";
             // 
             // lblAimingValue
             // 
             this.lblAimingValue.AutoSize = true;
             this.lblAimingValue.Location = new System.Drawing.Point(179, 111);
             this.lblAimingValue.Name = "lblAimingValue";
-            this.lblAimingValue.Size = new System.Drawing.Size(39, 13);
+            this.lblAimingValue.Size = new System.Drawing.Size(0, 13);
             this.lblAimingValue.TabIndex = 107;
-            this.lblAimingValue.Text = "XXXX";
             // 
             // lblKgValue
             // 
             this.lblKgValue.AutoSize = true;
             this.lblKgValue.Location = new System.Drawing.Point(179, 85);
             this.lblKgValue.Name = "lblKgValue";
-            this.lblKgValue.Size = new System.Drawing.Size(39, 13);
+            this.lblKgValue.Size = new System.Drawing.Size(0, 13);
             this.lblKgValue.TabIndex = 106;
-            this.lblKgValue.Text = "XXXX";
             // 
             // lblImpactAngle
             // 

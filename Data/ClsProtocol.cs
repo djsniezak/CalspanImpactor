@@ -22,17 +22,16 @@ namespace Data
         public string Name { get; set; } = string.Empty;
 
         [XmlAttribute("ImpactorMass")]
-        public decimal ImpactorMass { get; set; } = decimal.MinValue;
+        public double ImpactorMass { get; set; } = double.MinValue;
 
         [XmlAttribute("Targeting Method")]
         public string TargetingMethod { get; set; } = string.Empty;
 
         [XmlAttribute("NormalImpactSpeed")]
-
-        public decimal NormalImpactSpeed { get; set; } = decimal.MinValue;
+        public double NormalImpactSpeed { get; set; } = double.MinValue;
 
         [XmlAttribute("NormalImpactAngle")]
-        public int NormalImpactAngle { get; set; } = int.MinValue;
+        public double NormalImpactAngle { get; set; } = double.MinValue;
 
         private readonly string _ConnectionString = string.Empty;
         private SqlConnection _Connection { get; set; } = null;
@@ -73,21 +72,21 @@ namespace Data
                         Name = reader["Name"].ToString();
 
 
-                        if ( decimal.TryParse (reader["ImpactorMass"].ToString(), out decimal dTemp) == true )
+                        if ( double.TryParse (reader["ImpactorMass"].ToString(), out double dTemp) == true )
                         {
                             ImpactorMass = dTemp;
                         }
 
                         TargetingMethod = reader["TargetingMethod"].ToString();
 
-                        if (decimal.TryParse(reader["NormalImpactSpeed"].ToString(), out dTemp) == true)
+                        if (double.TryParse(reader["NormalImpactSpeed"].ToString(), out dTemp) == true)
                         {
                             NormalImpactSpeed = dTemp;
                         }
 
-                        if (int.TryParse(reader["NormalImpactAngle"].ToString(), out int iTemp) == true)
+                        if (double.TryParse(reader["NormalImpactAngle"].ToString(), out dTemp) == true)
                         {
-                            NormalImpactAngle= iTemp;
+                            NormalImpactAngle= dTemp;
                         }
                     }
                 }
@@ -142,14 +141,14 @@ namespace Data
                             protocol.Name = reader["Name"].ToString();
 
 
-                            if (decimal.TryParse(reader["ImpactorMass"].ToString(), out decimal dTemp) == true)
+                            if (double.TryParse(reader["ImpactorMass"].ToString(), out double dTemp) == true)
                             {
                                 protocol.ImpactorMass = dTemp;
                             }
 
                             protocol.TargetingMethod = reader["TargetingMethod"].ToString();
 
-                            if (decimal.TryParse(reader["NormalImpactSpeed"].ToString(), out dTemp) == true)
+                            if (double.TryParse(reader["NormalImpactSpeed"].ToString(), out dTemp) == true)
                             {
                                 protocol.NormalImpactSpeed = dTemp;
                             }
@@ -215,21 +214,21 @@ namespace Data
                         Name = reader["Name"].ToString();
 
 
-                        if (decimal.TryParse(reader["ImpactorMass"].ToString(), out decimal dTemp) == true)
+                        if (double.TryParse(reader["ImpactorMass"].ToString(), out double dTemp) == true)
                         {
                             ImpactorMass = dTemp;
                         }
 
                         TargetingMethod = reader["TargetingMethod"].ToString();
 
-                        if (decimal.TryParse(reader["NormalImpactSpeed"].ToString(), out dTemp) == true)
+                        if (double.TryParse(reader["NormalImpactSpeed"].ToString(), out dTemp) == true)
                         {
                             NormalImpactSpeed = dTemp;
                         }
 
-                        if (int.TryParse(reader["NormalImpactAngle"].ToString(), out int iTemp) == true)
+                        if (double.TryParse(reader["NormalImpactAngle"].ToString(), out dTemp) == true)
                         {
-                            NormalImpactAngle = iTemp;
+                            NormalImpactAngle = dTemp;
                         }
                     }
                 }
@@ -267,7 +266,7 @@ namespace Data
                 sqlCommand.Parameters.Add("@ImpactorMass", SqlDbType.Decimal).Value = ImpactorMass;
                 sqlCommand.Parameters.Add("@TargetingMethod", SqlDbType.VarChar).Value = TargetingMethod;
                 sqlCommand.Parameters.Add("@NormalImpactSpeed", SqlDbType.Decimal).Value = NormalImpactSpeed;
-                sqlCommand.Parameters.Add("@NormalImpactAngle", SqlDbType.Int).Value = NormalImpactAngle;
+                sqlCommand.Parameters.Add("@NormalImpactAngle", SqlDbType.Decimal).Value = NormalImpactAngle;
 
                 try
                 {
@@ -309,7 +308,7 @@ namespace Data
                 cmd.Parameters.Add("@ImpactorMass", SqlDbType.Decimal).Value = ImpactorMass;
                 cmd.Parameters.Add("@TargetingMethod", SqlDbType.VarChar).Value = TargetingMethod;
                 cmd.Parameters.Add("@NormalImpactSpeed", SqlDbType.Decimal).Value = NormalImpactSpeed;
-                cmd.Parameters.Add("@NormalImpactAngle", SqlDbType.Int).Value = NormalImpactAngle;
+                cmd.Parameters.Add("@NormalImpactAngle", SqlDbType.Decimal).Value = NormalImpactAngle;
 
                 try
                 {

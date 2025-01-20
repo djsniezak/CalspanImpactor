@@ -1,13 +1,7 @@
 ﻿using Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Impactor
@@ -110,35 +104,42 @@ namespace Impactor
         private bool ValidateControls ()
         {
             bool IsValid = false;
-            if (txtCompanyName.Text != string.Empty)
+            if (btnUpdate.Text == "New")
             {
-                if (txtShortName.Text != string.Empty)
+                if (txtCompanyName.Text != string.Empty)
                 {
-                    if (txtClientPrefix.Text != string.Empty)
+                    if (txtShortName.Text != string.Empty)
                     {
-                        if (IsClientPrefixUsed(txtClientPrefix.Text) == true)
+                        if (txtClientPrefix.Text != string.Empty)
                         {
-                            MessageBox.Show ("The Client Prefix: " + txtClientPrefix.Text + " is already in use.", "Clients", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            if (IsClientPrefixUsed(txtClientPrefix.Text) == true)
+                            {
+                                MessageBox.Show("The Client Prefix: " + txtClientPrefix.Text + " is already in use.", "Clients", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            else
+                            {
+                                IsValid = true;
+                            }
+
                         }
                         else
                         {
-                            IsValid = true;
+                            MessageBox.Show("Please enter the Client Prefix", "Clients", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        
                     }
                     else
                     {
-                        MessageBox.Show("Please enter the Client Prefix", "Clients", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Please enter the Company Short Name", "Clients", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please enter the Company Short Name", "Clients", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please enter the Company Name", "Clients", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show ("Please enter the Company Name", "Clients", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                IsValid = true;
             }
 
             return IsValid;
