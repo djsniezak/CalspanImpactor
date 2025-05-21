@@ -60,8 +60,14 @@ using System.Runtime.InteropServices;
 //      December 28, 2024 - ConvertMPerSecToKPH(double MPerSec) from int formal parameter
 //      December 28, 2024 - In Parameters changed speeds to double, in Axis change X,Y,Z axis tp double
 //      January 3, 2025 - Added Specimen Form
-//      January 11, 2025 - Added Reports
+//      January 11, 2025 - Added ReportSetup
 //      January 18, 2025 - Changed Save Order so parameters are last.
 //      Released January 20, 2025
-[assembly: AssemblyVersion("1.0.005")]
-[assembly: AssemblyFileVersion("1.0.005")]
+// Version 1.0.006
+//      February 9, 2025 - Added Tires to Clear All
+//      Febraruy 14, 2025 - Added Active to Specimen
+//      February 17, 2025 - Added Injury Type
+//      May 3, 2025 - Updated Report Screen to add Error Reporting Text Box
+//      May 21, 2025 - Released
+[assembly: AssemblyVersion("1.0.006")]
+[assembly: AssemblyFileVersion("1.0.006")]

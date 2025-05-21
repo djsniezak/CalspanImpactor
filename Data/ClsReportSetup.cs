@@ -7,18 +7,52 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using ImpactorReports;
+using Data;
 
-namespace Data
+namespace ImpactorReports
 {
-    public class Reports : Database
+    public class ReportSetup : Database
     {
         private string _ConnectionString = string.Empty;
         private SqlConnection _connection = null;
+        public ImpactorTest TestData { get; set; } = null;
+        public ImpactorParameters TestParameters { get; set; } = null;
+        public ImpactorInjuryTimeData TestInjuryData { get; set; } = null;
+        public ImpactorSpecimen Specimen { get; set; } = null;
 
 
-        public Reports(string connectionString) : base(connectionString)
+        public ReportSetup(string connectionString) : base(connectionString)
         {
             _ConnectionString = connectionString;
+        }
+
+        public string RunDataReport (List<TestList>tests)
+        {
+            string strErrorMessage = string.Empty;
+
+            foreach (TestList testlist in tests)
+            {
+                TestData = new ImpactorTest(_ConnectionString);
+                strErrorMessage = TestData.Get(testlist.ImpactorTestId);
+                if (string.IsNullOrEmpty(strErrorMessage) == true)
+                {
+                    TestParameters = new ImpactorParameters (_ConnectionString);
+                    strErrorMessage = TestParameters.GetForAnImpactorTest(testlist.ImpactorTestId);
+                    if ( string.IsNullOrEmpty(strErrorMessage) == true )
+                    {
+                        TestInjuryData = new ImpactorInjuryTimeData(_ConnectionString);
+                        List<ImpactorInjuryTimeData> timeData = TestInjuryData.GetAllForATest(testlist.TestRunNumber, out strErrorMessage);
+                        if (string.IsNullOrEmpty(strErrorMessage) == true )
+                        {
+                            //strErrorMessage = ImpactorDataReport.BuildImpactorData( this );
+                        }
+                    }
+
+                }
+            }
+
+            return strErrorMessage;
         }
     }
 
@@ -34,6 +68,7 @@ namespace Data
         public string Model { get; set; } = string.Empty;
         public string VIN { get; set; } = string.Empty;
         public long ImpactorTestId { get; set; } = long.MinValue;
+        public long SpecimenId { get; set; } = long.MinValue;   
 
         public TestList(string connectionString) : base(connectionString)
         {
@@ -79,6 +114,11 @@ namespace Data
                             if (long.TryParse(reader["ImpactorTestId"].ToString(), out long iLong) == true)
                             {
                                 listMember.ImpactorTestId = iLong;
+                            }
+
+                            if (long.TryParse(reader["SpecimenId"].ToString(), out iLong) == true)
+                            {
+                                listMember.SpecimenId = iLong;
                             }
 
                             tests.Add(listMember);

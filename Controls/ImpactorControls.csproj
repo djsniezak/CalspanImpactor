@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CtlInjuryTimeData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlInjuryTimeData.Designer.cs">
+      <DependentUpon>CtlInjuryTimeData.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlParameters.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -73,6 +79,24 @@
     <Compile Include="CtrlTestFilter.Designer.cs">
       <DependentUpon>CtrlTestFilter.cs</DependentUpon>
     </Compile>
+    <Compile Include="IMPFrmSelectCritical.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMPFrmSelectCritical.Designer.cs">
+      <DependentUpon>IMPFrmSelectCritical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IMPFrmSelectTestParameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMPFrmSelectTestParameter.Designer.cs">
+      <DependentUpon>IMPFrmSelectTestParameter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IMPFrmSelectTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMPFrmSelectTime.Designer.cs">
+      <DependentUpon>IMPFrmSelectTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -81,6 +105,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CtlInjuryTimeData.resx">
+      <DependentUpon>CtlInjuryTimeData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtlParameters.resx">
       <DependentUpon>CtlParameters.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +122,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlTestFilter.resx">
       <DependentUpon>CtrlTestFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IMPFrmSelectCritical.resx">
+      <DependentUpon>IMPFrmSelectCritical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IMPFrmSelectTestParameter.resx">
+      <DependentUpon>IMPFrmSelectTestParameter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IMPFrmSelectTime.resx">
+      <DependentUpon>IMPFrmSelectTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

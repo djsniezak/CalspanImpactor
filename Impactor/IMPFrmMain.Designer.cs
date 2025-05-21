@@ -34,15 +34,16 @@
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDatabaseEditor = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuClient = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuImpactorType = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuInjuryType = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuInjuryTime = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuProtocol = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSpecimen = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTestType = new System.Windows.Forms.ToolStripMenuItem();
             this.testsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuImpactor = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuReports = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRunReports = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,7 +80,8 @@
             // 
             this.mnuDatabaseEditor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuClient,
-            this.mnuImpactorType,
+            this.mnuInjuryType,
+            this.mnuInjuryTime,
             this.mnuProtocol,
             this.mnuSpecimen,
             this.mnuTestType});
@@ -94,12 +96,19 @@
             this.mnuClient.Text = "Client";
             this.mnuClient.Click += new System.EventHandler(this.MnuClient_Click);
             // 
-            // mnuImpactorType
+            // mnuInjuryType
             // 
-            this.mnuImpactorType.Name = "mnuImpactorType";
-            this.mnuImpactorType.Size = new System.Drawing.Size(149, 22);
-            this.mnuImpactorType.Text = "Impactor Type";
-            this.mnuImpactorType.Click += new System.EventHandler(this.MnuImpactorType_Click);
+            this.mnuInjuryType.Name = "mnuInjuryType";
+            this.mnuInjuryType.Size = new System.Drawing.Size(149, 22);
+            this.mnuInjuryType.Text = "Impactor Type";
+            this.mnuInjuryType.Click += new System.EventHandler(this.MunImpactorType_Click);
+            // 
+            // mnuInjuryTime
+            // 
+            this.mnuInjuryTime.Name = "mnuInjuryTime";
+            this.mnuInjuryTime.Size = new System.Drawing.Size(149, 22);
+            this.mnuInjuryTime.Text = "Injury Time";
+            this.mnuInjuryTime.Click += new System.EventHandler(this.MnuInjuryTime_Click);
             // 
             // mnuProtocol
             // 
@@ -145,19 +154,19 @@
             this.mnuReports.Size = new System.Drawing.Size(59, 20);
             this.mnuReports.Text = "Reports";
             // 
-            // mnuAbout
-            // 
-            this.mnuAbout.Name = "mnuAbout";
-            this.mnuAbout.Size = new System.Drawing.Size(52, 20);
-            this.mnuAbout.Text = "About";
-            this.mnuAbout.Click += new System.EventHandler(this.MnuAbout_Click);
-            // 
             // mnuRunReports
             // 
             this.mnuRunReports.Name = "mnuRunReports";
             this.mnuRunReports.Size = new System.Drawing.Size(180, 22);
             this.mnuRunReports.Text = "Run Reports";
             this.mnuRunReports.Click += new System.EventHandler(this.MnuRunReports_Clicked);
+            // 
+            // mnuAbout
+            // 
+            this.mnuAbout.Name = "mnuAbout";
+            this.mnuAbout.Size = new System.Drawing.Size(52, 20);
+            this.mnuAbout.Text = "About";
+            this.mnuAbout.Click += new System.EventHandler(this.MnuAbout_Click);
             // 
             // IMPFrmMain
             // 
@@ -191,10 +200,11 @@
         private System.Windows.Forms.ToolStripMenuItem mnuImpactor;
         private System.Windows.Forms.ToolStripMenuItem mnuReports;
         private System.Windows.Forms.ToolStripMenuItem mnuAbout;
-        private System.Windows.Forms.ToolStripMenuItem mnuImpactorType;
+        private System.Windows.Forms.ToolStripMenuItem mnuInjuryType;
         private System.Windows.Forms.ToolStripMenuItem mnuProtocol;
         private System.Windows.Forms.ToolStripMenuItem mnuSpecimen;
         private System.Windows.Forms.ToolStripMenuItem mnuRunReports;
+        private System.Windows.Forms.ToolStripMenuItem mnuInjuryTime;
     }
 }
 

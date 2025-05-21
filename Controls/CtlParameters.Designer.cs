@@ -167,7 +167,7 @@
             this.grpParameters.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpParameters.Location = new System.Drawing.Point(3, 3);
             this.grpParameters.Name = "grpParameters";
-            this.grpParameters.Size = new System.Drawing.Size(726, 432);
+            this.grpParameters.Size = new System.Drawing.Size(726, 425);
             this.grpParameters.TabIndex = 0;
             this.grpParameters.TabStop = false;
             this.grpParameters.Text = "Parameters";
@@ -198,7 +198,7 @@
             this.lblRequired10.AutoSize = true;
             this.lblRequired10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRequired10.ForeColor = System.Drawing.Color.Red;
-            this.lblRequired10.Location = new System.Drawing.Point(467, 360);
+            this.lblRequired10.Location = new System.Drawing.Point(467, 353);
             this.lblRequired10.Name = "lblRequired10";
             this.lblRequired10.Size = new System.Drawing.Size(15, 18);
             this.lblRequired10.TabIndex = 99;
@@ -211,7 +211,7 @@
             this.lblRequired9.AutoSize = true;
             this.lblRequired9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRequired9.ForeColor = System.Drawing.Color.Red;
-            this.lblRequired9.Location = new System.Drawing.Point(260, 363);
+            this.lblRequired9.Location = new System.Drawing.Point(260, 356);
             this.lblRequired9.Name = "lblRequired9";
             this.lblRequired9.Size = new System.Drawing.Size(15, 18);
             this.lblRequired9.TabIndex = 99;
@@ -224,7 +224,7 @@
             this.lblRequired8.AutoSize = true;
             this.lblRequired8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRequired8.ForeColor = System.Drawing.Color.Red;
-            this.lblRequired8.Location = new System.Drawing.Point(2, 363);
+            this.lblRequired8.Location = new System.Drawing.Point(2, 356);
             this.lblRequired8.Name = "lblRequired8";
             this.lblRequired8.Size = new System.Drawing.Size(15, 18);
             this.lblRequired8.TabIndex = 99;
@@ -237,7 +237,7 @@
             this.lblRequired7.AutoSize = true;
             this.lblRequired7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRequired7.ForeColor = System.Drawing.Color.Red;
-            this.lblRequired7.Location = new System.Drawing.Point(431, 323);
+            this.lblRequired7.Location = new System.Drawing.Point(431, 316);
             this.lblRequired7.Name = "lblRequired7";
             this.lblRequired7.Size = new System.Drawing.Size(15, 18);
             this.lblRequired7.TabIndex = 99;
@@ -250,7 +250,7 @@
             this.lblRequired6.AutoSize = true;
             this.lblRequired6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRequired6.ForeColor = System.Drawing.Color.Red;
-            this.lblRequired6.Location = new System.Drawing.Point(170, 324);
+            this.lblRequired6.Location = new System.Drawing.Point(170, 317);
             this.lblRequired6.Name = "lblRequired6";
             this.lblRequired6.Size = new System.Drawing.Size(15, 18);
             this.lblRequired6.TabIndex = 99;
@@ -263,7 +263,7 @@
             this.lblRequired5.AutoSize = true;
             this.lblRequired5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRequired5.ForeColor = System.Drawing.Color.Red;
-            this.lblRequired5.Location = new System.Drawing.Point(6, 321);
+            this.lblRequired5.Location = new System.Drawing.Point(6, 314);
             this.lblRequired5.Name = "lblRequired5";
             this.lblRequired5.Size = new System.Drawing.Size(15, 18);
             this.lblRequired5.TabIndex = 84;
@@ -311,7 +311,7 @@
             this.lblTankC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTankC.AutoSize = true;
             this.lblTankC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTankC.Location = new System.Drawing.Point(633, 364);
+            this.lblTankC.Location = new System.Drawing.Point(633, 357);
             this.lblTankC.Name = "lblTankC";
             this.lblTankC.Size = new System.Drawing.Size(14, 13);
             this.lblTankC.TabIndex = 99;
@@ -322,7 +322,7 @@
             this.lblAccC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAccC.AutoSize = true;
             this.lblAccC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccC.Location = new System.Drawing.Point(451, 363);
+            this.lblAccC.Location = new System.Drawing.Point(451, 356);
             this.lblAccC.Name = "lblAccC";
             this.lblAccC.Size = new System.Drawing.Size(14, 13);
             this.lblAccC.TabIndex = 99;
@@ -342,7 +342,7 @@
             // 
             this.txtTankTemperature.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtTankTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTankTemperature.Location = new System.Drawing.Point(582, 360);
+            this.txtTankTemperature.Location = new System.Drawing.Point(582, 353);
             this.txtTankTemperature.Name = "txtTankTemperature";
             this.txtTankTemperature.Size = new System.Drawing.Size(45, 20);
             this.txtTankTemperature.TabIndex = 14;
@@ -352,7 +352,7 @@
             this.lblTankTemperature.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTankTemperature.AutoSize = true;
             this.lblTankTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTankTemperature.Location = new System.Drawing.Point(478, 364);
+            this.lblTankTemperature.Location = new System.Drawing.Point(478, 357);
             this.lblTankTemperature.Name = "lblTankTemperature";
             this.lblTankTemperature.Size = new System.Drawing.Size(98, 13);
             this.lblTankTemperature.TabIndex = 99;
@@ -362,7 +362,7 @@
             // 
             this.txtAccumulatorTemperature.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtAccumulatorTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccumulatorTemperature.Location = new System.Drawing.Point(401, 360);
+            this.txtAccumulatorTemperature.Location = new System.Drawing.Point(401, 353);
             this.txtAccumulatorTemperature.Name = "txtAccumulatorTemperature";
             this.txtAccumulatorTemperature.Size = new System.Drawing.Size(45, 20);
             this.txtAccumulatorTemperature.TabIndex = 13;
@@ -372,7 +372,7 @@
             this.lblAcccumulatorTemperature.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAcccumulatorTemperature.AutoSize = true;
             this.lblAcccumulatorTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAcccumulatorTemperature.Location = new System.Drawing.Point(271, 364);
+            this.lblAcccumulatorTemperature.Location = new System.Drawing.Point(271, 357);
             this.lblAcccumulatorTemperature.Name = "lblAcccumulatorTemperature";
             this.lblAcccumulatorTemperature.Size = new System.Drawing.Size(132, 13);
             this.lblAcccumulatorTemperature.TabIndex = 99;
@@ -383,7 +383,7 @@
             this.lblCylWOUnits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCylWOUnits.AutoSize = true;
             this.lblCylWOUnits.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCylWOUnits.Location = new System.Drawing.Point(223, 364);
+            this.lblCylWOUnits.Location = new System.Drawing.Point(223, 357);
             this.lblCylWOUnits.Name = "lblCylWOUnits";
             this.lblCylWOUnits.Size = new System.Drawing.Size(25, 13);
             this.lblCylWOUnits.TabIndex = 99;
@@ -393,7 +393,7 @@
             // 
             this.txtCylinderwithout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtCylinderwithout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCylinderwithout.Location = new System.Drawing.Point(174, 360);
+            this.txtCylinderwithout.Location = new System.Drawing.Point(174, 353);
             this.txtCylinderwithout.Name = "txtCylinderwithout";
             this.txtCylinderwithout.Size = new System.Drawing.Size(45, 20);
             this.txtCylinderwithout.TabIndex = 12;
@@ -403,7 +403,7 @@
             this.lblCylenderwithout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCylenderwithout.AutoSize = true;
             this.lblCylenderwithout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCylenderwithout.Location = new System.Drawing.Point(14, 364);
+            this.lblCylenderwithout.Location = new System.Drawing.Point(14, 357);
             this.lblCylenderwithout.Name = "lblCylenderwithout";
             this.lblCylenderwithout.Size = new System.Drawing.Size(159, 13);
             this.lblCylenderwithout.TabIndex = 70;
@@ -414,7 +414,7 @@
             this.lblMeasuredKPH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMeasuredKPH.AutoSize = true;
             this.lblMeasuredKPH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMeasuredKPH.Location = new System.Drawing.Point(680, 325);
+            this.lblMeasuredKPH.Location = new System.Drawing.Point(680, 318);
             this.lblMeasuredKPH.Name = "lblMeasuredKPH";
             this.lblMeasuredKPH.Size = new System.Drawing.Size(25, 13);
             this.lblMeasuredKPH.TabIndex = 99;
@@ -425,7 +425,7 @@
             this.txtMeasuredKPH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMeasuredKPH.Enabled = false;
             this.txtMeasuredKPH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMeasuredKPH.Location = new System.Drawing.Point(634, 321);
+            this.txtMeasuredKPH.Location = new System.Drawing.Point(634, 314);
             this.txtMeasuredKPH.Name = "txtMeasuredKPH";
             this.txtMeasuredKPH.Size = new System.Drawing.Size(45, 20);
             this.txtMeasuredKPH.TabIndex = 99;
@@ -435,7 +435,7 @@
             this.lblCylinderKPH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCylinderKPH.AutoSize = true;
             this.lblCylinderKPH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCylinderKPH.Location = new System.Drawing.Point(403, 326);
+            this.lblCylinderKPH.Location = new System.Drawing.Point(403, 319);
             this.lblCylinderKPH.Name = "lblCylinderKPH";
             this.lblCylinderKPH.Size = new System.Drawing.Size(25, 13);
             this.lblCylinderKPH.TabIndex = 99;
@@ -446,7 +446,7 @@
             this.txtCylenderKPH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtCylenderKPH.Enabled = false;
             this.txtCylenderKPH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCylenderKPH.Location = new System.Drawing.Point(352, 321);
+            this.txtCylenderKPH.Location = new System.Drawing.Point(352, 314);
             this.txtCylenderKPH.Name = "txtCylenderKPH";
             this.txtCylenderKPH.Size = new System.Drawing.Size(45, 20);
             this.txtCylenderKPH.TabIndex = 99;
@@ -504,7 +504,7 @@
             this.lblAirbag3Ms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAirbag3Ms.AutoSize = true;
             this.lblAirbag3Ms.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAirbag3Ms.Location = new System.Drawing.Point(680, 400);
+            this.lblAirbag3Ms.Location = new System.Drawing.Point(680, 393);
             this.lblAirbag3Ms.Name = "lblAirbag3Ms";
             this.lblAirbag3Ms.Size = new System.Drawing.Size(20, 13);
             this.lblAirbag3Ms.TabIndex = 99;
@@ -514,7 +514,7 @@
             // 
             this.txtAirbag3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtAirbag3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAirbag3.Location = new System.Drawing.Point(629, 397);
+            this.txtAirbag3.Location = new System.Drawing.Point(629, 390);
             this.txtAirbag3.Name = "txtAirbag3";
             this.txtAirbag3.Size = new System.Drawing.Size(45, 20);
             this.txtAirbag3.TabIndex = 17;
@@ -524,7 +524,7 @@
             this.lblAirbag3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAirbag3.AutoSize = true;
             this.lblAirbag3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAirbag3.Location = new System.Drawing.Point(574, 401);
+            this.lblAirbag3.Location = new System.Drawing.Point(574, 394);
             this.lblAirbag3.Name = "lblAirbag3";
             this.lblAirbag3.Size = new System.Drawing.Size(49, 13);
             this.lblAirbag3.TabIndex = 99;
@@ -535,7 +535,7 @@
             this.lblAirbag2Ms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAirbag2Ms.AutoSize = true;
             this.lblAirbag2Ms.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAirbag2Ms.Location = new System.Drawing.Point(398, 401);
+            this.lblAirbag2Ms.Location = new System.Drawing.Point(398, 394);
             this.lblAirbag2Ms.Name = "lblAirbag2Ms";
             this.lblAirbag2Ms.Size = new System.Drawing.Size(20, 13);
             this.lblAirbag2Ms.TabIndex = 99;
@@ -545,7 +545,7 @@
             // 
             this.txtAirbag2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtAirbag2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAirbag2.Location = new System.Drawing.Point(347, 397);
+            this.txtAirbag2.Location = new System.Drawing.Point(347, 390);
             this.txtAirbag2.Name = "txtAirbag2";
             this.txtAirbag2.Size = new System.Drawing.Size(45, 20);
             this.txtAirbag2.TabIndex = 16;
@@ -555,7 +555,7 @@
             this.lblAirbag2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAirbag2.AutoSize = true;
             this.lblAirbag2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAirbag2.Location = new System.Drawing.Point(292, 401);
+            this.lblAirbag2.Location = new System.Drawing.Point(292, 394);
             this.lblAirbag2.Name = "lblAirbag2";
             this.lblAirbag2.Size = new System.Drawing.Size(49, 13);
             this.lblAirbag2.TabIndex = 99;
@@ -566,7 +566,7 @@
             this.lblAirbag1Ms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAirbag1Ms.AutoSize = true;
             this.lblAirbag1Ms.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAirbag1Ms.Location = new System.Drawing.Point(145, 401);
+            this.lblAirbag1Ms.Location = new System.Drawing.Point(145, 394);
             this.lblAirbag1Ms.Name = "lblAirbag1Ms";
             this.lblAirbag1Ms.Size = new System.Drawing.Size(20, 13);
             this.lblAirbag1Ms.TabIndex = 99;
@@ -576,7 +576,7 @@
             // 
             this.txtAirbag1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtAirbag1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAirbag1.Location = new System.Drawing.Point(94, 397);
+            this.txtAirbag1.Location = new System.Drawing.Point(94, 390);
             this.txtAirbag1.Name = "txtAirbag1";
             this.txtAirbag1.Size = new System.Drawing.Size(45, 20);
             this.txtAirbag1.TabIndex = 15;
@@ -586,7 +586,7 @@
             this.lblAirbag1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAirbag1.AutoSize = true;
             this.lblAirbag1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAirbag1.Location = new System.Drawing.Point(43, 401);
+            this.lblAirbag1.Location = new System.Drawing.Point(43, 394);
             this.lblAirbag1.Name = "lblAirbag1";
             this.lblAirbag1.Size = new System.Drawing.Size(49, 13);
             this.lblAirbag1.TabIndex = 99;
@@ -615,7 +615,7 @@
             this.lblTrapMsKphMph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTrapMsKphMph.AutoSize = true;
             this.lblTrapMsKphMph.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrapMsKphMph.Location = new System.Drawing.Point(591, 325);
+            this.lblTrapMsKphMph.Location = new System.Drawing.Point(591, 318);
             this.lblTrapMsKphMph.Name = "lblTrapMsKphMph";
             this.lblTrapMsKphMph.Size = new System.Drawing.Size(25, 13);
             this.lblTrapMsKphMph.TabIndex = 99;
@@ -625,7 +625,7 @@
             // 
             this.txtMeasuredSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtMeasuredSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMeasuredSpeed.Location = new System.Drawing.Point(539, 321);
+            this.txtMeasuredSpeed.Location = new System.Drawing.Point(539, 314);
             this.txtMeasuredSpeed.Name = "txtMeasuredSpeed";
             this.txtMeasuredSpeed.Size = new System.Drawing.Size(45, 20);
             this.txtMeasuredSpeed.TabIndex = 11;
@@ -636,7 +636,7 @@
             this.lblTrapVelocity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTrapVelocity.AutoSize = true;
             this.lblTrapVelocity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrapVelocity.Location = new System.Drawing.Point(442, 325);
+            this.lblTrapVelocity.Location = new System.Drawing.Point(442, 318);
             this.lblTrapVelocity.Name = "lblTrapVelocity";
             this.lblTrapVelocity.Size = new System.Drawing.Size(91, 13);
             this.lblTrapVelocity.TabIndex = 99;
@@ -647,7 +647,7 @@
             this.lblCylinderSpeedMPS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCylinderSpeedMPS.AutoSize = true;
             this.lblCylinderSpeedMPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCylinderSpeedMPS.Location = new System.Drawing.Point(309, 327);
+            this.lblCylinderSpeedMPS.Location = new System.Drawing.Point(309, 320);
             this.lblCylinderSpeedMPS.Name = "lblCylinderSpeedMPS";
             this.lblCylinderSpeedMPS.Size = new System.Drawing.Size(25, 13);
             this.lblCylinderSpeedMPS.TabIndex = 99;
@@ -657,7 +657,7 @@
             // 
             this.txtCylinderSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtCylinderSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCylinderSpeed.Location = new System.Drawing.Point(257, 322);
+            this.txtCylinderSpeed.Location = new System.Drawing.Point(257, 315);
             this.txtCylinderSpeed.Name = "txtCylinderSpeed";
             this.txtCylinderSpeed.Size = new System.Drawing.Size(45, 20);
             this.txtCylinderSpeed.TabIndex = 10;
@@ -668,7 +668,7 @@
             this.lblLaunchVelocity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblLaunchVelocity.AutoSize = true;
             this.lblLaunchVelocity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaunchVelocity.Location = new System.Drawing.Point(182, 326);
+            this.lblLaunchVelocity.Location = new System.Drawing.Point(182, 319);
             this.lblLaunchVelocity.Name = "lblLaunchVelocity";
             this.lblLaunchVelocity.Size = new System.Drawing.Size(81, 13);
             this.lblLaunchVelocity.TabIndex = 99;
@@ -679,7 +679,7 @@
             this.lblBarPsi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblBarPsi.AutoSize = true;
             this.lblBarPsi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBarPsi.Location = new System.Drawing.Point(147, 325);
+            this.lblBarPsi.Location = new System.Drawing.Point(147, 318);
             this.lblBarPsi.Name = "lblBarPsi";
             this.lblBarPsi.Size = new System.Drawing.Size(22, 13);
             this.lblBarPsi.TabIndex = 99;
@@ -689,7 +689,7 @@
             // 
             this.txtFirePressure.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtFirePressure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirePressure.Location = new System.Drawing.Point(96, 321);
+            this.txtFirePressure.Location = new System.Drawing.Point(96, 314);
             this.txtFirePressure.Name = "txtFirePressure";
             this.txtFirePressure.Size = new System.Drawing.Size(45, 20);
             this.txtFirePressure.TabIndex = 9;
@@ -699,7 +699,7 @@
             this.lblFirePressure.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblFirePressure.AutoSize = true;
             this.lblFirePressure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirePressure.Location = new System.Drawing.Point(23, 325);
+            this.lblFirePressure.Location = new System.Drawing.Point(23, 318);
             this.lblFirePressure.Name = "lblFirePressure";
             this.lblFirePressure.Size = new System.Drawing.Size(71, 13);
             this.lblFirePressure.TabIndex = 99;
@@ -843,7 +843,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.grpParameters);
             this.Name = "CtlParameters";
-            this.Size = new System.Drawing.Size(732, 438);
+            this.Size = new System.Drawing.Size(732, 443);
             this.grpParameters.ResumeLayout(false);
             this.grpParameters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAxis)).EndInit();

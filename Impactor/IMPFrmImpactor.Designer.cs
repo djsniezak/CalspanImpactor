@@ -39,11 +39,12 @@
             this.btnReload = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.btnClearAll = new System.Windows.Forms.ToolStripButton();
+            this.ctlInjuryTimeData = new Controls.CtlInjuryTimeData();
+            this.ctlTires = new Controls.CtlTires();
             this.ctlProtocol = new Controls.CtlProtocol();
             this.ctlParameters = new ImpactorControls.CtlParameters();
             this.ctlTestSetUp = new ImpactorControls.CtlTestSetUp();
             this.ctrlTestFilter = new ImpactorControls.CtrlTestFilter();
-            this.ctlTires = new Controls.CtlTires();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +62,7 @@
             this.btnClearAll});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1246, 28);
+            this.toolStrip1.Size = new System.Drawing.Size(1599, 28);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -147,21 +148,41 @@
             this.btnClearAll.Text = "Clear All";
             this.btnClearAll.Click += new System.EventHandler(this.BrnClearAll_Click);
             // 
+            // ctlInjuryTimeData
+            // 
+            this.ctlInjuryTimeData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctlInjuryTimeData.Location = new System.Drawing.Point(974, 279);
+            this.ctlInjuryTimeData.Name = "ctlInjuryTimeData";
+            this.ctlInjuryTimeData.Size = new System.Drawing.Size(581, 529);
+            this.ctlInjuryTimeData.TabIndex = 8;
+            // 
+            // ctlTires
+            // 
+            this.ctlTires.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctlTires.Location = new System.Drawing.Point(1153, 28);
+            this.ctlTires.Name = "ctlTires";
+            this.ctlTires.Size = new System.Drawing.Size(421, 249);
+            this.ctlTires.Specimen = ((long)(-9223372036854775808));
+            this.ctlTires.TabIndex = 7;
+            this.ctlTires.TestId = ((long)(-9223372036854775808));
+            // 
             // ctlProtocol
             // 
-            this.ctlProtocol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctlProtocol.Location = new System.Drawing.Point(971, 279);
+            this.ctlProtocol.Location = new System.Drawing.Point(829, 24);
             this.ctlProtocol.Name = "ctlProtocol";
-            this.ctlProtocol.Size = new System.Drawing.Size(263, 230);
+            this.ctlProtocol.Size = new System.Drawing.Size(263, 249);
             this.ctlProtocol.TabIndex = 6;
             this.ctlProtocol.TestType = ((long)(-9223372036854775808));
             // 
             // ctlParameters
             // 
+            this.ctlParameters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.ctlParameters.ImpactorParametersId = ((long)(-9223372036854775808));
             this.ctlParameters.Location = new System.Drawing.Point(236, 279);
             this.ctlParameters.Name = "ctlParameters";
-            this.ctlParameters.Size = new System.Drawing.Size(732, 438);
+            this.ctlParameters.Size = new System.Drawing.Size(732, 533);
             this.ctlParameters.TabIndex = 5;
             this.ctlParameters.TestId = ((long)(-9223372036854775808));
             this.ctlParameters.TestTypeId = ((long)(-9223372036854775808));
@@ -181,22 +202,15 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ctrlTestFilter.Location = new System.Drawing.Point(12, 28);
             this.ctrlTestFilter.Name = "ctrlTestFilter";
-            this.ctrlTestFilter.Size = new System.Drawing.Size(218, 703);
+            this.ctrlTestFilter.Size = new System.Drawing.Size(218, 784);
             this.ctrlTestFilter.TabIndex = 0;
-            // 
-            // ctlTires
-            // 
-            this.ctlTires.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctlTires.Location = new System.Drawing.Point(822, 28);
-            this.ctlTires.Name = "ctlTires";
-            this.ctlTires.Size = new System.Drawing.Size(412, 246);
-            this.ctlTires.TabIndex = 7;
             // 
             // IMPFrmImpactor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1246, 739);
+            this.ClientSize = new System.Drawing.Size(1599, 820);
+            this.Controls.Add(this.ctlInjuryTimeData);
             this.Controls.Add(this.ctlTires);
             this.Controls.Add(this.ctlProtocol);
             this.Controls.Add(this.toolStrip1);
@@ -230,5 +244,6 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripButton btnClearAll;
         private Controls.CtlTires ctlTires;
+        private Controls.CtlInjuryTimeData ctlInjuryTimeData;
     }
 }

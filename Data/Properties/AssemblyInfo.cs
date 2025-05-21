@@ -50,5 +50,16 @@ using System.Runtime.InteropServices;
 //          January 4, 2025 - Added Tires class
 //          January 5, 2025 - Changed Accelerator Temperture to Accumulator Temperature
 //          Released January 20, 2025
-[assembly: AssemblyVersion("1.2.0")]
-[assembly: AssemblyFileVersion("1.2.0")]
+// Version 1.3.0
+//          February 9, 2025 - Add GetAll Models
+//          February 14, 2025 - Added Active to Specimen class
+//          February 17, 2025 - Added Injury Type Class
+//          February 17, 2025 - Added SelectComboBox using boolean value
+//          February 17, 2025 - Added ClsReports
+//          March 8, 2025 - Added Impactor Injury Time
+//          March 8, 2025 - Added Impactor Injury Time Data
+//          April 27, 2025 - Added Impactor Critial Injury Names and Impactor Critical Injury Data
+//          April 27, 2025 - Added Value (object) to DropdownList class
+//          May 21, 2025 - Released
+[assembly: AssemblyVersion("1.3.0")]
+[assembly: AssemblyFileVersion("1.3.0")]

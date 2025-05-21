@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpactorControls", "Control
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{A731D6C1-586B-4B29-980C-2AF5F56E69F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpactorReports", "ImpactorReports\ImpactorReports.csproj", "{08D211BE-33D9-4AD9-B88E-FE03CB0017B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A731D6C1-586B-4B29-980C-2AF5F56E69F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A731D6C1-586B-4B29-980C-2AF5F56E69F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A731D6C1-586B-4B29-980C-2AF5F56E69F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08D211BE-33D9-4AD9-B88E-FE03CB0017B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08D211BE-33D9-4AD9-B88E-FE03CB0017B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08D211BE-33D9-4AD9-B88E-FE03CB0017B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08D211BE-33D9-4AD9-B88E-FE03CB0017B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

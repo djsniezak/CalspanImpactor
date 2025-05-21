@@ -53,6 +53,12 @@
     <Compile Include="IMPFrmReports.Designer.cs">
       <DependentUpon>IMPFrmReports.cs</DependentUpon>
     </Compile>
+    <Compile Include="IMPFrmInjuryTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMPFrmInjuryTime.Designer.cs">
+      <DependentUpon>IMPFrmInjuryTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="IMPSpecimen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     <EmbeddedResource Include="IMPFrmTestType.resx">
       <DependentUpon>IMPFrmTestType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IMPFrmInjuryTime.resx">
+      <DependentUpon>IMPFrmInjuryTime.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IMPSpecimen.resx">
       <DependentUpon>IMPSpecimen.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +192,10 @@
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{a731d6c1-586b-4b29-980c-2af5f56e69f6}</Project>
       <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ImpactorReports\ImpactorReports.csproj">
+      <Project>{08d211be-33d9-4ad9-b88e-fe03cb0017b1}</Project>
+      <Name>ImpactorReports</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

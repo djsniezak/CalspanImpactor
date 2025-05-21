@@ -72,20 +72,6 @@ namespace Impactor
             }
         }
 
-        private void MnuImpactorType_Click(object sender, EventArgs e)
-        {
-            IMPFrmImpactorType frm = new IMPFrmImpactorType(_ConnectionString);
-            switch (frm.ShowDialog())
-            {
-                case DialogResult.OK:
-                    break;
-                case DialogResult.Cancel:
-                    break;
-                default:
-                    break;
-            }
-        }
-
         private void MnuProtocil_Click(object sender, EventArgs e)
         {
             IMPFrmProtocol frm = new IMPFrmProtocol (_ConnectionString);
@@ -119,6 +105,40 @@ namespace Impactor
         private void MnuRunReports_Clicked(object sender, EventArgs e)
         {
             FrmReports frm = new FrmReports(_ConnectionString);
+            switch (frm.ShowDialog())
+            {
+                case DialogResult.OK:
+                    break;
+                case DialogResult.Cancel:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void MunImpactorType_Click(object sender, EventArgs e)
+        {
+            IMPFrmImpactorType frm = new IMPFrmImpactorType (_ConnectionString);
+            switch (frm.ShowDialog())
+            {
+                case DialogResult.OK:
+                    break;
+                case DialogResult.Cancel:
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        private void MnuInjuryType_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MnuInjuryTime_Click(object sender, EventArgs e)
+        {
+            IMPFrmInjuryTime frm = new IMPFrmInjuryTime(_ConnectionString);
             switch (frm.ShowDialog())
             {
                 case DialogResult.OK:

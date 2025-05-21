@@ -363,8 +363,11 @@ namespace ImpactorControls
                     {
                         if (type.CustomerId == item.Id)
                         {
-                            DropDownItem specimenItem = new DropDownItem(type.SpecimenId, type.Make + " " + type.Model + " " + type.VIN);
-                            cmboSpecimen.Items.Add(specimenItem);
+                            if (type.Active == true)
+                            {
+                                DropDownItem specimenItem = new DropDownItem(type.SpecimenId, type.Make + " " + type.Model + " " + type.VIN);
+                                cmboSpecimen.Items.Add(specimenItem);
+                            }
                         }
                     }
                 }

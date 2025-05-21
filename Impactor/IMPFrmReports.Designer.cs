@@ -52,6 +52,16 @@
             this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TestId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SpecimenId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblModel = new System.Windows.Forms.Label();
+            this.cmboModel = new System.Windows.Forms.ComboBox();
+            this.ckShowAll = new System.Windows.Forms.CheckBox();
+            this.progress = new System.Windows.Forms.ProgressBar();
+            this.txtProgress = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.lblProgress = new System.Windows.Forms.Label();
+            this.lblMessages = new System.Windows.Forms.Label();
+            this.saveDlg = new System.Windows.Forms.SaveFileDialog();
             this.grpRunReports.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +88,7 @@
             // lblTestDates
             // 
             this.lblTestDates.AutoSize = true;
-            this.lblTestDates.Location = new System.Drawing.Point(12, 66);
+            this.lblTestDates.Location = new System.Drawing.Point(12, 65);
             this.lblTestDates.Name = "lblTestDates";
             this.lblTestDates.Size = new System.Drawing.Size(62, 13);
             this.lblTestDates.TabIndex = 2;
@@ -112,11 +122,11 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(1064, 263);
+            this.btnCancel.Location = new System.Drawing.Point(1064, 410);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 9;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Close";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
@@ -126,12 +136,12 @@
             this.grpRunReports.Controls.Add(this.btnFinal);
             this.grpRunReports.Controls.Add(this.btnSummary);
             this.grpRunReports.Controls.Add(this.btnData);
-            this.grpRunReports.Location = new System.Drawing.Point(52, 186);
+            this.grpRunReports.Location = new System.Drawing.Point(52, 193);
             this.grpRunReports.Name = "grpRunReports";
             this.grpRunReports.Size = new System.Drawing.Size(257, 71);
             this.grpRunReports.TabIndex = 10;
             this.grpRunReports.TabStop = false;
-            this.grpRunReports.Text = "Reports";
+            this.grpRunReports.Text = "ReportSetup";
             // 
             // btnFinal
             // 
@@ -202,7 +212,7 @@
             // 
             // btnLoadTests
             // 
-            this.btnLoadTests.Location = new System.Drawing.Point(80, 102);
+            this.btnLoadTests.Location = new System.Drawing.Point(80, 157);
             this.btnLoadTests.Name = "btnLoadTests";
             this.btnLoadTests.Size = new System.Drawing.Size(229, 23);
             this.btnLoadTests.TabIndex = 15;
@@ -214,8 +224,7 @@
             // 
             this.dgvTest.AllowUserToAddRows = false;
             this.dgvTest.AllowUserToDeleteRows = false;
-            this.dgvTest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvTest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -225,11 +234,12 @@
             this.Make,
             this.Model,
             this.VIN,
-            this.TestId});
+            this.TestId,
+            this.SpecimenId});
             this.dgvTest.Location = new System.Drawing.Point(315, 6);
             this.dgvTest.Name = "dgvTest";
             this.dgvTest.ReadOnly = true;
-            this.dgvTest.Size = new System.Drawing.Size(824, 251);
+            this.dgvTest.Size = new System.Drawing.Size(824, 258);
             this.dgvTest.TabIndex = 16;
             // 
             // TestRun
@@ -277,12 +287,106 @@
             this.TestId.ReadOnly = true;
             this.TestId.Visible = false;
             // 
+            // SpecimenId
+            // 
+            this.SpecimenId.HeaderText = "SpecimenId";
+            this.SpecimenId.Name = "SpecimenId";
+            this.SpecimenId.ReadOnly = true;
+            this.SpecimenId.Visible = false;
+            // 
+            // lblModel
+            // 
+            this.lblModel.AutoSize = true;
+            this.lblModel.Location = new System.Drawing.Point(35, 93);
+            this.lblModel.Name = "lblModel";
+            this.lblModel.Size = new System.Drawing.Size(39, 13);
+            this.lblModel.TabIndex = 17;
+            this.lblModel.Text = "Model:";
+            // 
+            // cmboModel
+            // 
+            this.cmboModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmboModel.FormattingEnabled = true;
+            this.cmboModel.Location = new System.Drawing.Point(80, 90);
+            this.cmboModel.Name = "cmboModel";
+            this.cmboModel.Size = new System.Drawing.Size(121, 21);
+            this.cmboModel.TabIndex = 18;
+            // 
+            // ckShowAll
+            // 
+            this.ckShowAll.AutoSize = true;
+            this.ckShowAll.Location = new System.Drawing.Point(207, 92);
+            this.ckShowAll.Name = "ckShowAll";
+            this.ckShowAll.Size = new System.Drawing.Size(102, 17);
+            this.ckShowAll.TabIndex = 19;
+            this.ckShowAll.Text = "Include Inactive";
+            this.ckShowAll.UseVisualStyleBackColor = true;
+            this.ckShowAll.CheckedChanged += new System.EventHandler(this.CkShowAll_Checked);
+            // 
+            // progress
+            // 
+            this.progress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progress.Location = new System.Drawing.Point(315, 283);
+            this.progress.Name = "progress";
+            this.progress.Size = new System.Drawing.Size(824, 23);
+            this.progress.TabIndex = 20;
+            // 
+            // txtProgress
+            // 
+            this.txtProgress.Location = new System.Drawing.Point(315, 312);
+            this.txtProgress.Multiline = true;
+            this.txtProgress.Name = "txtProgress";
+            this.txtProgress.Size = new System.Drawing.Size(824, 92);
+            this.txtProgress.TabIndex = 21;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Location = new System.Drawing.Point(315, 410);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(198, 23);
+            this.btnSave.TabIndex = 22;
+            this.btnSave.Text = "Save Progress Messages to Text File";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
+            // lblProgress
+            // 
+            this.lblProgress.AutoSize = true;
+            this.lblProgress.Location = new System.Drawing.Point(258, 288);
+            this.lblProgress.Name = "lblProgress";
+            this.lblProgress.Size = new System.Drawing.Size(51, 13);
+            this.lblProgress.TabIndex = 23;
+            this.lblProgress.Text = "Progress:";
+            // 
+            // lblMessages
+            // 
+            this.lblMessages.AutoSize = true;
+            this.lblMessages.Location = new System.Drawing.Point(210, 347);
+            this.lblMessages.Name = "lblMessages";
+            this.lblMessages.Size = new System.Drawing.Size(99, 13);
+            this.lblMessages.TabIndex = 24;
+            this.lblMessages.Text = "Progess Messages:";
+            // 
+            // saveDlg
+            // 
+            this.saveDlg.DefaultExt = "TXT";
+            // 
             // FrmReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1151, 298);
+            this.ClientSize = new System.Drawing.Size(1151, 445);
             this.ControlBox = false;
+            this.Controls.Add(this.lblMessages);
+            this.Controls.Add(this.lblProgress);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.txtProgress);
+            this.Controls.Add(this.progress);
+            this.Controls.Add(this.ckShowAll);
+            this.Controls.Add(this.cmboModel);
+            this.Controls.Add(this.lblModel);
             this.Controls.Add(this.dgvTest);
             this.Controls.Add(this.btnLoadTests);
             this.Controls.Add(this.lblCode);
@@ -300,7 +404,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FrmReports";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Reports";
+            this.Text = "ReportSetup";
             this.grpRunReports.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).EndInit();
             this.ResumeLayout(false);
@@ -327,6 +431,9 @@
         private System.Windows.Forms.Label lblCustomerCode;
         private System.Windows.Forms.Button btnLoadTests;
         private System.Windows.Forms.DataGridView dgvTest;
+        private System.Windows.Forms.Label lblModel;
+        private System.Windows.Forms.ComboBox cmboModel;
+        private System.Windows.Forms.CheckBox ckShowAll;
         private System.Windows.Forms.DataGridViewTextBoxColumn TestRun;
         private System.Windows.Forms.DataGridViewTextBoxColumn TestName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Year;
@@ -334,5 +441,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Model;
         private System.Windows.Forms.DataGridViewTextBoxColumn VIN;
         private System.Windows.Forms.DataGridViewTextBoxColumn TestId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SpecimenId;
+        private System.Windows.Forms.ProgressBar progress;
+        private System.Windows.Forms.TextBox txtProgress;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label lblProgress;
+        private System.Windows.Forms.Label lblMessages;
+        private System.Windows.Forms.SaveFileDialog saveDlg;
     }
 }

@@ -18,7 +18,7 @@ namespace Impactor
         {
             InitializeComponent();
             _ConnectionString = connectionString;
-            string strErrorMessage = LoadSpecimenList();
+            string strErrorMessage = LoadSpecimenList(false);
             if ( string.IsNullOrEmpty(strErrorMessage) == true)
             {
                 strErrorMessage = LoadCustomerCbo();
@@ -33,7 +33,7 @@ namespace Impactor
             }
         }
 
-        private string LoadSpecimenList()
+        private string LoadSpecimenList( bool showAll)
         {
             ImpactorSpecimen spec = new ImpactorSpecimen(_ConnectionString);
             List<ImpactorSpecimen> specimens = spec.GetAll(out string strErrorMessage);
@@ -41,10 +41,21 @@ namespace Impactor
             {
                 lstSpecimens.Items.Clear();
 
-                foreach ( ImpactorSpecimen specimen in specimens )
+                foreach (ImpactorSpecimen specimen in specimens)
                 {
-                    DropDownItem item = new DropDownItem(specimen.SpecimenId, specimen.Make + " " + specimen.Model + " " + specimen.VIN );
-                    lstSpecimens.Items.Add( item );
+                    DropDownItem item = new DropDownItem(specimen.SpecimenId, specimen.Make + " " + specimen.Model + " " + specimen.VIN);
+
+                    if (showAll == true)
+                    {
+                        lstSpecimens.Items.Add(item);
+                    }
+                    else
+                    {
+                        if (specimen.Active == true )
+                        {
+                            lstSpecimens.Items.Add(item);
+                        }
+                    }
                 }
 
                 lstSpecimens.DisplayMember = "Text";
@@ -128,6 +139,7 @@ namespace Impactor
                     txtVIN.Text = spec.VIN.ToString();
                     txtMass.Text = spec.Mass.ToString("###0.0");
                     txtNotes.Text = spec.Notes.ToString();
+                    ckActive.Checked = spec.Active;
 
                 }
                 else
@@ -149,6 +161,7 @@ namespace Impactor
             txtVIN.Enabled = false;
             txtMass.Enabled = false;
             txtNotes.Enabled = false;
+            ckActive.Checked = false;
 
             string strErrorMessage;
 
@@ -157,7 +170,8 @@ namespace Impactor
                 Make = txtMake.Text,
                 Model = txtModel.Text,
                 VIN = txtVIN.Text,
-                Notes = txtNotes.Text
+                Notes = txtNotes.Text,
+                Active = ckActive.Checked,
             };
 
             if ( cmboCustomer.SelectedItem is DropDownItem item )
@@ -187,7 +201,7 @@ namespace Impactor
 
             if (string.IsNullOrEmpty(strErrorMessage) == true)
             {
-                strErrorMessage = LoadSpecimenList();
+                strErrorMessage = LoadSpecimenList(false);
                 if (string.IsNullOrEmpty(strErrorMessage) == true)
                 {
                     MessageBox.Show("Specimen Save Successfully", "Saving Specimen", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -203,6 +217,15 @@ namespace Impactor
             }
 
             ClearAll();
+        }
+
+        private void CkShowAll_Clicked(object sender, EventArgs e)
+        {
+            string strErrorMessage = LoadSpecimenList(ckShowAll.Checked);
+            if ( string.IsNullOrEmpty(strErrorMessage) == false )
+            {
+                MessageBox.Show (strErrorMessage, "Showing Specimen List", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

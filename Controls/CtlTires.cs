@@ -152,5 +152,19 @@ namespace Controls
 
             return strErrorMessage;
         }
+        public void ClearAll()
+        {
+            txtSpecificationFront.Text = string.Empty;
+            txtSpecificationRear.Text = string.Empty;
+            txtNotes.Text = string.Empty;   
+            txtPFL.Text = string.Empty;
+            txtPFR.Text = string.Empty;
+            txtPRL.Text = string.Empty;
+            txtPRR.Text = string.Empty;
+            txtHFL.Text = string.Empty;
+            txtHFR.Text = string.Empty;
+            txtHRL.Text = string.Empty;
+            txtHRR.Text = string.Empty;
+        }
     }
 }

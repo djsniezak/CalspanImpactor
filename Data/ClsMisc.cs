@@ -6,18 +6,34 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Data
 {
     public class DropDownItem
     {
         public long Id { get; set; }
+        public bool BoolValue {  get; set; } = false;
         public string Text { get; set; }
+        public object Value { get; set; } = null;
 
         public DropDownItem() { }
         public DropDownItem(long id, string text)
         {
             Id = id;
+            Text = text;
+        }
+
+        public DropDownItem(long id, string text, object value)
+        {
+            Id= id;
+            Text = text;
+            Value = value;
+        }
+
+        public DropDownItem(bool id, string text)
+        {
+            BoolValue = id;
             Text = text;
         }
     }
@@ -69,6 +85,23 @@ namespace Data
                 }
             }
         }
+
+        public static void SelectCmboItem(ComboBox cmbo, bool value)
+        {
+            foreach (object obj in cmbo.Items)
+            {
+               if ( obj is DropDownItem item)
+                {
+                    if (value == item.BoolValue)
+                    {
+                        cmbo.SelectedItem = item;
+                        break;
+                    }
+                }
+            }
+        }
+
+
     }
 
     public class Conversion
@@ -142,6 +175,18 @@ namespace Data
             }
 
             return returnValue;
+        }
+
+        public static string ConvertFloatToString ( float value, string format )
+        {
+            if ( value == 0 )
+            {
+                return "--";
+            }
+            else
+            {
+                return value.ToString( format );
+            }
         }
 
     }

@@ -46,5 +46,12 @@ using System.Runtime.InteropServices;
 //              January 4, 2025 - Added CtlTires
 //              January 18, 2025 - Added ability for just Client owned specimens to be displayed.
 //              Released January 20, 2025
-[assembly: AssemblyVersion("1.4.0")]
-[assembly: AssemblyFileVersion("1.4.0")]
+//  Version 1.5.0
+//              February 9, 2025 - Added ClearAll to Tires
+//              February 14, 2025 - Added Active to Specimen
+//              March 8, 2025 - Added Injury Data Control
+//              March 22, 2025 - Added Select Time Dialog Box
+//              March 27, 2025 - Added Critial Injury Data and Selection Dialog
+//              May 21, 2025 - Released
+[assembly: AssemblyVersion("1.5.0")]
+[assembly: AssemblyFileVersion("1.5.0")]

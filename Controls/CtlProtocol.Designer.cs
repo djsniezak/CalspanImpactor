@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.grpProtocol = new System.Windows.Forms.GroupBox();
-            this.txtHic = new System.Windows.Forms.TextBox();
-            this.lblHic = new System.Windows.Forms.Label();
             this.lblNormalImpactAngleValue = new System.Windows.Forms.Label();
             this.lblNormalImpactSpeedValue = new System.Windows.Forms.Label();
             this.lblAimingValue = new System.Windows.Forms.Label();
@@ -49,8 +47,6 @@
             this.grpProtocol.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpProtocol.Controls.Add(this.txtHic);
-            this.grpProtocol.Controls.Add(this.lblHic);
             this.grpProtocol.Controls.Add(this.lblNormalImpactAngleValue);
             this.grpProtocol.Controls.Add(this.lblNormalImpactSpeedValue);
             this.grpProtocol.Controls.Add(this.lblAimingValue);
@@ -68,22 +64,6 @@
             this.grpProtocol.TabIndex = 0;
             this.grpProtocol.TabStop = false;
             this.grpProtocol.Text = "Protocol";
-            // 
-            // txtHic
-            // 
-            this.txtHic.Location = new System.Drawing.Point(179, 184);
-            this.txtHic.Name = "txtHic";
-            this.txtHic.Size = new System.Drawing.Size(53, 20);
-            this.txtHic.TabIndex = 111;
-            // 
-            // lblHic
-            // 
-            this.lblHic.AutoSize = true;
-            this.lblHic.Location = new System.Drawing.Point(141, 187);
-            this.lblHic.Name = "lblHic";
-            this.lblHic.Size = new System.Drawing.Size(32, 13);
-            this.lblHic.TabIndex = 110;
-            this.lblHic.Text = "HIC:";
             // 
             // lblNormalImpactAngleValue
             // 
@@ -199,7 +179,5 @@
         private System.Windows.Forms.Label lblNormalImpactSpeedValue;
         private System.Windows.Forms.Label lblAimingValue;
         private System.Windows.Forms.Label lblKgValue;
-        private System.Windows.Forms.TextBox txtHic;
-        private System.Windows.Forms.Label lblHic;
     }
 }

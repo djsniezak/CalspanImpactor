@@ -47,6 +47,8 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.lblNotes = new System.Windows.Forms.Label();
             this.txtNotes = new System.Windows.Forms.TextBox();
+            this.ckActive = new System.Windows.Forms.CheckBox();
+            this.ckShowAll = new System.Windows.Forms.CheckBox();
             this.grpGeneral.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,13 +57,14 @@
             this.lstSpecimens.FormattingEnabled = true;
             this.lstSpecimens.Location = new System.Drawing.Point(12, 12);
             this.lstSpecimens.Name = "lstSpecimens";
-            this.lstSpecimens.Size = new System.Drawing.Size(271, 329);
+            this.lstSpecimens.Size = new System.Drawing.Size(271, 355);
             this.lstSpecimens.TabIndex = 0;
             this.lstSpecimens.SelectedIndexChanged += new System.EventHandler(this.LstSpecimen_SelectIndexChanged);
             // 
             // grpGeneral
             // 
             this.grpGeneral.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.grpGeneral.Controls.Add(this.ckActive);
             this.grpGeneral.Controls.Add(this.txtMass);
             this.grpGeneral.Controls.Add(this.lblMass);
             this.grpGeneral.Controls.Add(this.txtVIN);
@@ -74,7 +77,7 @@
             this.grpGeneral.Controls.Add(this.lblYear);
             this.grpGeneral.Location = new System.Drawing.Point(304, 65);
             this.grpGeneral.Name = "grpGeneral";
-            this.grpGeneral.Size = new System.Drawing.Size(307, 158);
+            this.grpGeneral.Size = new System.Drawing.Size(318, 189);
             this.grpGeneral.TabIndex = 3;
             this.grpGeneral.TabStop = false;
             this.grpGeneral.Text = "General Data";
@@ -189,7 +192,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(506, 357);
+            this.btnClose.Location = new System.Drawing.Point(521, 373);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(105, 25);
             this.btnClose.TabIndex = 8;
@@ -201,7 +204,7 @@
             // 
             this.btnUpdateSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUpdateSave.Enabled = false;
-            this.btnUpdateSave.Location = new System.Drawing.Point(395, 357);
+            this.btnUpdateSave.Location = new System.Drawing.Point(410, 373);
             this.btnUpdateSave.Name = "btnUpdateSave";
             this.btnUpdateSave.Size = new System.Drawing.Size(105, 25);
             this.btnUpdateSave.TabIndex = 7;
@@ -211,7 +214,7 @@
             // btnNew
             // 
             this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNew.Location = new System.Drawing.Point(284, 357);
+            this.btnNew.Location = new System.Drawing.Point(299, 373);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(105, 25);
             this.btnNew.TabIndex = 6;
@@ -222,7 +225,7 @@
             // lblNotes
             // 
             this.lblNotes.AutoSize = true;
-            this.lblNotes.Location = new System.Drawing.Point(301, 235);
+            this.lblNotes.Location = new System.Drawing.Point(300, 269);
             this.lblNotes.Name = "lblNotes";
             this.lblNotes.Size = new System.Drawing.Size(38, 13);
             this.lblNotes.TabIndex = 99;
@@ -231,17 +234,41 @@
             // txtNotes
             // 
             this.txtNotes.Enabled = false;
-            this.txtNotes.Location = new System.Drawing.Point(304, 251);
+            this.txtNotes.Location = new System.Drawing.Point(303, 285);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
-            this.txtNotes.Size = new System.Drawing.Size(307, 82);
+            this.txtNotes.Size = new System.Drawing.Size(319, 82);
             this.txtNotes.TabIndex = 4;
+            // 
+            // ckActive
+            // 
+            this.ckActive.AutoSize = true;
+            this.ckActive.Location = new System.Drawing.Point(23, 148);
+            this.ckActive.Name = "ckActive";
+            this.ckActive.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ckActive.Size = new System.Drawing.Size(56, 17);
+            this.ckActive.TabIndex = 101;
+            this.ckActive.Text = "Active";
+            this.ckActive.UseVisualStyleBackColor = true;
+            // 
+            // ckShowAll
+            // 
+            this.ckShowAll.AutoSize = true;
+            this.ckShowAll.Location = new System.Drawing.Point(528, 27);
+            this.ckShowAll.Name = "ckShowAll";
+            this.ckShowAll.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ckShowAll.Size = new System.Drawing.Size(67, 17);
+            this.ckShowAll.TabIndex = 102;
+            this.ckShowAll.Text = "Show All";
+            this.ckShowAll.UseVisualStyleBackColor = true;
+            this.ckShowAll.CheckedChanged += new System.EventHandler(this.CkShowAll_Clicked);
             // 
             // IMPSpecimen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 394);
+            this.ClientSize = new System.Drawing.Size(638, 410);
+            this.Controls.Add(this.ckShowAll);
             this.Controls.Add(this.txtNotes);
             this.Controls.Add(this.lblNotes);
             this.Controls.Add(this.btnNew);
@@ -285,5 +312,7 @@
         private System.Windows.Forms.Label lblMass;
         private System.Windows.Forms.Label lblNotes;
         private System.Windows.Forms.TextBox txtNotes;
+        private System.Windows.Forms.CheckBox ckActive;
+        private System.Windows.Forms.CheckBox ckShowAll;
     }
 }

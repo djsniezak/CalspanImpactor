@@ -256,17 +256,17 @@ namespace Data
 
                         if (double.TryParse(reader["CylinderSpeed"].ToString(), out dTemp) == true)
                         {
-                            CylinderSpeed = iTemp;
+                            CylinderSpeed = dTemp;
                         }
 
                         if (double.TryParse(reader["MeasuredSpeed"].ToString(), out dTemp) == true)
                         {
-                            MeasuredSpeed = iTemp;
+                            MeasuredSpeed = dTemp;
                         }
 
                         if (double.TryParse(reader["WithOutImpactorSetPoint"].ToString(), out dTemp) == true)
                         {
-                            CylinderWithOutImpactorSetpoint = iTemp;
+                            CylinderWithOutImpactorSetpoint = dTemp;
                         }
 
                         if ( double.TryParse(reader["AccumulatorTemperature"].ToString(), out dTemp) == true)

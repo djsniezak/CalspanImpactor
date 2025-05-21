@@ -42,6 +42,9 @@ namespace Data
         [XmlAttribute("Notes")]
         public string Notes { get; set; } = string.Empty;
 
+        [XmlAttribute("Active")]
+        public bool Active { get; set; } = true;
+
         private SqlConnection _connection = null;
         private readonly string _connectionString = string.Empty;
 
@@ -95,6 +98,11 @@ namespace Data
                         }
 
                         Notes = reader["Notes"].ToString();
+
+                        if ( bool.TryParse (reader["Active"].ToString(), out bool bTemp) == true )
+                        {
+                            Active = bTemp;
+                        }
                     }
                 }
                 catch (SqlException sqlEx)
@@ -162,6 +170,11 @@ namespace Data
 
                             specimen.Notes = reader["Notes"].ToString();
 
+                            if (bool.TryParse(reader["Active"].ToString(), out bool bTemp) == true)
+                            {
+                                specimen.Active = bTemp;
+                            }
+
                             result.Add(specimen);
                         }
                     }
@@ -203,7 +216,7 @@ namespace Data
                 sqlCommand.Parameters.Add("@VIN", SqlDbType.VarChar).Value = VIN;
                 sqlCommand.Parameters.Add("@Mass", SqlDbType.Decimal).Value = Mass;
                 sqlCommand.Parameters.Add("@Notes", SqlDbType.VarChar).Value = Notes;
-                
+                sqlCommand.Parameters.Add("@Active", SqlDbType.Bit).Value = Active;
 
                 try
                 {
@@ -247,6 +260,7 @@ namespace Data
                 sqlCommand.Parameters.Add("@VIN", SqlDbType.VarChar).Value = VIN;
                 sqlCommand.Parameters.Add("@Mass", SqlDbType.Decimal).Value = Mass;
                 sqlCommand.Parameters.Add("@Notes", SqlDbType.VarChar).Value = Notes;
+                sqlCommand.Parameters.Add("@Active", SqlDbType.Bit).Value = Active;
 
                 try
                 {

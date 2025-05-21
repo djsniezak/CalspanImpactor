@@ -17,6 +17,7 @@ namespace Impactor
             ctrlTestFilter.ConnectionString = _ConnectionString;
             ctlProtocol.ConnectionString = _ConnectionString;
             ctlTires.ConnectionString = _ConnectionString;  
+            ctlInjuryTimeData.ConnectionString = _ConnectionString;
 
             ctrlTestFilter.ImpactorTestSelected += CtrlTestFilter_ImpactorTestSelected;
             ctlTestSetUp.ImpactorTestTypeSelected += CtlTestSetUp_ImpactorTestTypeSelected;
@@ -29,6 +30,7 @@ namespace Impactor
                 ctlParameters.Enabled = false;
                 ctlProtocol.Enabled = false;
                 ctlTires.Enabled = false;
+                ctlInjuryTimeData.Enabled = false;
 
                 btnCopy.Enabled = false;
                 btnReload.Enabled = false;
@@ -119,28 +121,32 @@ namespace Impactor
                     strErrorMessage = ctlTires.LoadTest(TestId, ctlTires.Specimen);
                     if (string.IsNullOrEmpty(strErrorMessage) == true)
                     {
-                        if (ctlTestSetUp.ProtocolId != long.MinValue)
+                        strErrorMessage = ctlInjuryTimeData.LoadData(ctlTestSetUp.TestNumber);
+                        if (string.IsNullOrEmpty(strErrorMessage) == true)
                         {
-                            strErrorMessage = ctlProtocol.LoadTest(ctlTestSetUp.ProtocolId);
-                            if (string.IsNullOrEmpty(strErrorMessage) == true)
+                            if (ctlTestSetUp.ProtocolId != long.MinValue)
                             {
-
-                            }
-                            else
-                            {
-                                MessageBox.Show(strErrorMessage, "Loading an Impactor Test", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                strErrorMessage = ctlProtocol.LoadTest(ctlTestSetUp.ProtocolId);
                             }
                         }
                     }
 
-                    ctlParameters.Enabled = true;
-                    ctlProtocol.Enabled = true;
-                    ctlTires.Enabled = true;
+                    if (string.IsNullOrEmpty(strErrorMessage) == true)
+                    {
+                        ctlParameters.Enabled = true;
+                        ctlProtocol.Enabled = true;
+                        ctlTires.Enabled = true;
+                        ctlInjuryTimeData.Enabled = true;
 
-                    btnCopy.Enabled = true;
-                    btnReload.Enabled = true;
-                    btnSave.Enabled = true; 
-                    btnClearAll.Enabled = true;
+                        btnCopy.Enabled = true;
+                        btnReload.Enabled = true;
+                        btnSave.Enabled = true;
+                        btnClearAll.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show(strErrorMessage, "Loading an Impactor Test", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             return strErrorMessage;
@@ -151,6 +157,8 @@ namespace Impactor
             ctlTestSetUp.ClearAll();
             ctlParameters.ClearAll();
             ctlProtocol.ClearAll();
+            ctlTires.ClearAll();
+            ctlInjuryTimeData.ClearAll();
         }
         private void BtnNew(object sender, EventArgs e)
         {
@@ -219,21 +227,30 @@ namespace Impactor
                     strErrorMessage = ctlTires.Save();
                     if ( string.IsNullOrEmpty(strErrorMessage) == true )
                     {
-                        bool after = false;
-                        if (e is SaveOptions options)
+                        strErrorMessage = ctlInjuryTimeData.Save();
+                        if (string.IsNullOrWhiteSpace(strErrorMessage) == true)
                         {
-                            after = options.IsAfterCopy;
-                        }
-                        ctlParameters.TestId = TestId;
-                        strErrorMessage = ctlParameters.Save( after );
+                            bool after = false;
+                            if (e is SaveOptions options)
+                            {
+                                after = options.IsAfterCopy;
+                            }
+                            ctlParameters.TestId = TestId;
+                            strErrorMessage = ctlParameters.Save(after);
 
-                        if (string.IsNullOrEmpty(strErrorMessage) == true)
-                        {
-                            MessageBox.Show("Saving Test Id: " + ctlTestSetUp.TestNumber + " was successful", "Save Impactor Test", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            if (string.IsNullOrEmpty(strErrorMessage) == true)
+                            {
+                                MessageBox.Show("Saving Test Id: " + ctlTestSetUp.TestNumber + " was successful", "Save Impactor Test", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show(strErrorMessage, "Save Impactor Test - Tires", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show(strErrorMessage, "Save Impactor Test - Tires", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(strErrorMessage, "Save Impactor Test - Impactor Time Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
@@ -311,7 +328,8 @@ namespace Impactor
         {
             ClearAll();
             ctlParameters.Enabled = false;
-            ctlProtocol.Enabled = false;    
+            ctlProtocol.Enabled = false; 
+            ctlTires.Enabled = false;
             btnClearAll.Enabled = false;
             btnReload.Enabled = false;  
             btnSave.Enabled = false;

@@ -176,6 +176,59 @@ namespace Data
             return result;
         }
 
+        public List<ImpactorSpecimen> GetAllModels(long custId, out string errorMessage)
+        {
+            List<ImpactorSpecimen> result = new List<ImpactorSpecimen>();
+            _connection = Open(out errorMessage);
+
+            if (string.IsNullOrEmpty(errorMessage) == true)
+            {
+                SqlDataReader reader;
+                SqlCommand cmd = _connection.CreateCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "GetModelsforCustomer";
+                cmd.Parameters.Add("@ImpactorClientId", SqlDbType.BigInt).Value = custId;
+
+                try
+                {
+                    reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            ImpactorSpecimen specimen = new ImpactorSpecimen(_connectionString);
+
+                            if (long.TryParse(reader["SpecimenId"].ToString(), out long lTemp) == true)
+                            {
+                                specimen.SpecimenId = lTemp;
+                            }
+
+                            specimen.Model = reader["Model"].ToString();
+                            if (bool.TryParse(reader["Active"].ToString(), out bool bTemp) == true)
+                            {
+                                specimen.Active = bTemp;
+                            }
+                            result.Add(specimen);
+                        }
+                    }
+                }
+                catch (SqlException sqlEx)
+                {
+                    errorMessage = sqlEx.Message;
+                }
+                catch (Exception ex)
+                {
+                    errorMessage = ex.Message;
+                }
+                finally
+                {
+                    cmd.Dispose();
+                    errorMessage += Close();
+                }
+            }
+
+            return result;
+        }
         public string Insert()
         {
             _connection = Open(out string strErrorMessage);

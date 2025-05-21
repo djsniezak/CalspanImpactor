@@ -23,8 +23,6 @@ namespace Controls
         public CtlProtocol()
         {
             InitializeComponent();
-            lblHic.Visible = false;
-            txtHic.Visible = false;
         }
         public string ConnectionString
         {
@@ -58,9 +56,6 @@ namespace Controls
             lblAimingValue.Text = string.Empty;
             lblNormalImpactSpeedValue.Text = string.Empty;  
             lblNormalImpactAngleValue.Text = string.Empty;
-            txtHic.Text = string.Empty;
-            txtHic.Visible = false;
-            
         }
         public string LoadProtocol()
         {
@@ -111,34 +106,28 @@ namespace Controls
 
         private void CboProtocolIndexChanged(object sender, EventArgs e)
         {
-            if ( cboProtocol.SelectedItem is DropDownItem item)
+            if (cboProtocol.SelectedItem is DropDownItem item)
             {
                 Protocol p = new Protocol(_ConnectionString);
                 string strErrorMessage = p.Get(item.Id);
-                if ( string.IsNullOrEmpty(strErrorMessage ) == true ) 
+                if (string.IsNullOrEmpty(strErrorMessage) == true)
                 {
                     lblKgValue.Text = p.ImpactorMass.ToString("#0.0");
                     lblAimingValue.Text = p.TargetingMethod;
                     lblNormalImpactSpeedValue.Text = p.NormalImpactSpeed.ToString("#0.0");
                     lblNormalImpactAngleValue.Text = p.NormalImpactAngle.ToString("#0");
 
-                    if(item.Text.Contains ("Headform") == true)
+                    EventHandler handler = ProtocolSelected;
+                    e = new ProtocolId
                     {
-                        lblHic.Visible = true;
-                        txtHic.Visible = true;  
-                    }
+                        SelectedProtocolId = item.Id,
+                    };
 
-                        EventHandler handler = ProtocolSelected;
-                        e = new ProtocolId
-                        {
-                            SelectedProtocolId = item.Id,
-                        };
-
-                        handler?.Invoke(this, e);
+                    handler?.Invoke(this, e);
                 }
                 else
                 {
-                    MessageBox.Show (strErrorMessage, "Loading Protocol", MessageBoxButtons.OK, MessageBoxIcon.Error );
+                    MessageBox.Show(strErrorMessage, "Loading Protocol", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
