@@ -61,5 +61,8 @@ using System.Runtime.InteropServices;
 //          April 27, 2025 - Added Impactor Critial Injury Names and Impactor Critical Injury Data
 //          April 27, 2025 - Added Value (object) to DropdownList class
 //          May 21, 2025 - Released
-[assembly: AssemblyVersion("1.3.0")]
-[assembly: AssemblyFileVersion("1.3.0")]
+// Version 1.3.1
+//          July 6, 2025 - Made active true on Specimen Insert.
+//          July 6, 2025 - Released
+[assembly: AssemblyVersion("1.3.1")]
+[assembly: AssemblyFileVersion("1.3.1")]

@@ -69,5 +69,8 @@ using System.Runtime.InteropServices;
 //      February 17, 2025 - Added Injury Type
 //      May 3, 2025 - Updated Report Screen to add Error Reporting Text Box
 //      May 21, 2025 - Released
-[assembly: AssemblyVersion("1.0.006")]
-[assembly: AssemblyFileVersion("1.0.006")]
+//  Version 1.0.007
+//      July 6, 2025 - Fised Speciman not showing new specimans
+//      July 6, 2025 - Released
+[assembly: AssemblyVersion("1.0.007")]
+[assembly: AssemblyFileVersion("1.0.007")]

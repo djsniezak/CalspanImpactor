@@ -1,12 +1,6 @@
 ﻿using Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Impactor
@@ -92,6 +86,8 @@ namespace Impactor
             txtVIN.Text = string.Empty;
             txtMass.Text = string.Empty;
             txtNotes.Text = string.Empty;
+            ckActive.Checked = false;
+            ckShowAll.Checked = false;
 
         }
         private void BtnClose_Click(object sender, EventArgs e)
@@ -152,17 +148,6 @@ namespace Impactor
 
         private void BtnUpdateSave_Click(object sender, EventArgs e)
         {
-            btnUpdateSave.Text = string.Empty;
-            btnUpdateSave.Enabled = false;
-            cmboCustomer.Enabled = false;
-            txtYear.Enabled = false;
-            txtMake.Enabled = false;
-            txtModel.Enabled = false;
-            txtVIN.Enabled = false;
-            txtMass.Enabled = false;
-            txtNotes.Enabled = false;
-            ckActive.Checked = false;
-
             string strErrorMessage;
 
             ImpactorSpecimen spec = new ImpactorSpecimen(_ConnectionString)

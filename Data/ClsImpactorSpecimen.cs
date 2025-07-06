@@ -216,7 +216,7 @@ namespace Data
                 sqlCommand.Parameters.Add("@VIN", SqlDbType.VarChar).Value = VIN;
                 sqlCommand.Parameters.Add("@Mass", SqlDbType.Decimal).Value = Mass;
                 sqlCommand.Parameters.Add("@Notes", SqlDbType.VarChar).Value = Notes;
-                sqlCommand.Parameters.Add("@Active", SqlDbType.Bit).Value = Active;
+                sqlCommand.Parameters.Add("@Active", SqlDbType.Bit).Value = true;
 
                 try
                 {
