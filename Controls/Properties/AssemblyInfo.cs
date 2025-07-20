@@ -53,5 +53,8 @@ using System.Runtime.InteropServices;
 //              March 22, 2025 - Added Select Time Dialog Box
 //              March 27, 2025 - Added Critial Injury Data and Selection Dialog
 //              May 21, 2025 - Released
-[assembly: AssemblyVersion("1.5.0")]
-[assembly: AssemblyFileVersion("1.5.0")]
+// Version 1.5.1 
+//              July 20, 2025 - Fixed issue when more than 4 axises are in the database for a test
+//              July 20, 2025 - Released
+[assembly: AssemblyVersion("1.5.1")]
+[assembly: AssemblyFileVersion("1.5.1")]

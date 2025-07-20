@@ -369,18 +369,21 @@ namespace ImpactorControls
                     int RowCount = 0;
                     foreach (ImpactorAxis loadAxis in axisList)
                     {
-                        DataGridViewRow Row = dgAxis.Rows[RowCount];
-
-                        Row.Cells[0].Value = loadAxis.SetName;
-                        Row.Cells[1].Value = Conversion.FormatDouble(loadAxis.XAxis, "##0.0").ToString();
-                        Row.Cells[2].Value = Conversion.FormatDouble(loadAxis.YAxis, "##0.0").ToString();
-                        Row.Cells[3].Value = Conversion.FormatDouble(loadAxis.ZAxis, "##0.0").ToString();
-                        if (loadAxis.Alpha > 0)
+                        if (RowCount < dgAxis.Rows.Count)
                         {
-                            Row.Cells[4].Value = Conversion.FormatDouble(loadAxis.Alpha, "#0.0").ToString();
+                            DataGridViewRow Row = dgAxis.Rows[RowCount];
+
+                            Row.Cells[0].Value = loadAxis.SetName;
+                            Row.Cells[1].Value = Conversion.FormatDouble(loadAxis.XAxis, "##0.0").ToString();
+                            Row.Cells[2].Value = Conversion.FormatDouble(loadAxis.YAxis, "##0.0").ToString();
+                            Row.Cells[3].Value = Conversion.FormatDouble(loadAxis.ZAxis, "##0.0").ToString();
+                            if (loadAxis.Alpha > 0)
+                            {
+                                Row.Cells[4].Value = Conversion.FormatDouble(loadAxis.Alpha, "#0.0").ToString();
+                            }
+                            Row.Cells[5].Value = loadAxis.ImpactorAxisId.ToString();
+                            RowCount++;
                         }
-                        Row.Cells[5].Value = loadAxis.ImpactorAxisId.ToString();
-                        RowCount++;
                     }
                 }
             }

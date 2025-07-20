@@ -70,7 +70,10 @@ using System.Runtime.InteropServices;
 //      May 3, 2025 - Updated Report Screen to add Error Reporting Text Box
 //      May 21, 2025 - Released
 //  Version 1.0.007
-//      July 6, 2025 - Fised Speciman not showing new specimans
+//      July 6, 2025 - Fixed Speciman not showing new specimans
 //      July 6, 2025 - Released
-[assembly: AssemblyVersion("1.0.007")]
-[assembly: AssemblyFileVersion("1.0.007")]
+//  Version 1.0.008
+//      July 20, 2025 - Fixed a bug in the Axis system that was causing crashes
+//      July 20, 2025 - Released
+[assembly: AssemblyVersion("1.0.008")]
+[assembly: AssemblyFileVersion("1.0.008")]
