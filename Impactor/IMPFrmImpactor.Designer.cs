@@ -45,6 +45,7 @@
             this.ctlParameters = new ImpactorControls.CtlParameters();
             this.ctlTestSetUp = new ImpactorControls.CtlTestSetUp();
             this.ctrlTestFilter = new ImpactorControls.CtrlTestFilter();
+            this.btnVehicleDamage = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -152,9 +153,9 @@
             // 
             this.ctlInjuryTimeData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctlInjuryTimeData.Location = new System.Drawing.Point(974, 279);
+            this.ctlInjuryTimeData.Location = new System.Drawing.Point(993, 318);
             this.ctlInjuryTimeData.Name = "ctlInjuryTimeData";
-            this.ctlInjuryTimeData.Size = new System.Drawing.Size(581, 529);
+            this.ctlInjuryTimeData.Size = new System.Drawing.Size(581, 451);
             this.ctlInjuryTimeData.TabIndex = 8;
             // 
             // ctlTires
@@ -177,12 +178,12 @@
             // 
             // ctlParameters
             // 
-            this.ctlParameters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ctlParameters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ctlParameters.ImpactorParametersId = ((long)(-9223372036854775808));
-            this.ctlParameters.Location = new System.Drawing.Point(236, 279);
+            this.ctlParameters.Location = new System.Drawing.Point(236, 318);
             this.ctlParameters.Name = "ctlParameters";
-            this.ctlParameters.Size = new System.Drawing.Size(732, 533);
+            this.ctlParameters.SelectedLauncher = null;
+            this.ctlParameters.Size = new System.Drawing.Size(751, 447);
             this.ctlParameters.TabIndex = 5;
             this.ctlParameters.TestId = ((long)(-9223372036854775808));
             this.ctlParameters.TestTypeId = ((long)(-9223372036854775808));
@@ -192,7 +193,7 @@
             this.ctlTestSetUp.Location = new System.Drawing.Point(237, 28);
             this.ctlTestSetUp.Name = "ctlTestSetUp";
             this.ctlTestSetUp.ProtocolId = ((long)(-9223372036854775808));
-            this.ctlTestSetUp.Size = new System.Drawing.Size(525, 249);
+            this.ctlTestSetUp.Size = new System.Drawing.Size(525, 284);
             this.ctlTestSetUp.TabIndex = 1;
             this.ctlTestSetUp.TestId = ((long)(-9223372036854775808));
             // 
@@ -202,14 +203,26 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ctrlTestFilter.Location = new System.Drawing.Point(12, 28);
             this.ctrlTestFilter.Name = "ctrlTestFilter";
-            this.ctrlTestFilter.Size = new System.Drawing.Size(218, 784);
+            this.ctrlTestFilter.Size = new System.Drawing.Size(218, 741);
             this.ctrlTestFilter.TabIndex = 0;
+            // 
+            // btnVehicleDamage
+            // 
+            this.btnVehicleDamage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVehicleDamage.Location = new System.Drawing.Point(1453, 283);
+            this.btnVehicleDamage.Name = "btnVehicleDamage";
+            this.btnVehicleDamage.Size = new System.Drawing.Size(118, 35);
+            this.btnVehicleDamage.TabIndex = 9;
+            this.btnVehicleDamage.Text = "Vehicle Damage";
+            this.btnVehicleDamage.UseVisualStyleBackColor = true;
+            this.btnVehicleDamage.Click += new System.EventHandler(this.BtnVehicleDamage_Click);
             // 
             // IMPFrmImpactor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1599, 820);
+            this.ClientSize = new System.Drawing.Size(1599, 781);
+            this.Controls.Add(this.btnVehicleDamage);
             this.Controls.Add(this.ctlInjuryTimeData);
             this.Controls.Add(this.ctlTires);
             this.Controls.Add(this.ctlProtocol);
@@ -245,5 +258,6 @@
         private System.Windows.Forms.ToolStripButton btnClearAll;
         private Controls.CtlTires ctlTires;
         private Controls.CtlInjuryTimeData ctlInjuryTimeData;
+        private System.Windows.Forms.Button btnVehicleDamage;
     }
 }

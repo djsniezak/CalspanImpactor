@@ -14,12 +14,13 @@ namespace ImpactorControls
         private string _ConnectionString = string.Empty;
         private long _TestId = long.MinValue;
         private long _ProtocolId = long.MinValue;
-        private long _SelectedSpecimen = long.MinValue;
+        private readonly long _SelectedSpecimen = long.MinValue;
         private bool _Loading = false;
         private List<ImpactorTest>_Tests = new List<ImpactorTest>();
 
         public event EventHandler ImpactorTestTypeSelected;
         public event EventHandler SpecimenIndexSelected;
+        public event EventHandler LauncherSelected;
 
         public CtlTestSetUp()
         {
@@ -38,22 +39,30 @@ namespace ImpactorControls
                     string strErrorMessage = LoadClientCombo();
                     if (string.IsNullOrEmpty(strErrorMessage) == true)
                     {
-                        strErrorMessage = LoadTestTypeCombo();
-                        if ( string.IsNullOrEmpty(strErrorMessage) == true )
+                        strErrorMessage = LoadLauncherData();
+                        if (string.IsNullOrEmpty(strErrorMessage) == true)
                         {
-                            strErrorMessage = LoadSpecimenCombo();
-                            if ( string.IsNullOrEmpty(strErrorMessage) == true )
+                            strErrorMessage = LoadTestTypeCombo();
+                            if (string.IsNullOrEmpty(strErrorMessage) == true)
                             {
+                                strErrorMessage = LoadSpecimenCombo();
+                                if (string.IsNullOrEmpty(strErrorMessage) == true)
+                                {
 
+                                }
+                                else
+                                {
+                                    MessageBox.Show(strErrorMessage, "Loading Specimens", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
                             }
                             else
                             {
-                                MessageBox.Show(strErrorMessage, "Loading Specimens", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show(strErrorMessage, "Loading Test Type Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         else
                         {
-                            MessageBox.Show(strErrorMessage, "Loading Test Type Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(strErrorMessage, "Loading Launcher Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
@@ -103,16 +112,23 @@ namespace ImpactorControls
             {
                 if (cmbClientName.SelectedIndex != -1 ) 
                 {
-                    if (cmboSpecimen.SelectedItem is DropDownItem)
+                    if (cmboLauncher.SelectedIndex != -1)
                     {
-                        if (cboTestType.SelectedIndex == -1)
+                        if (cmboSpecimen.SelectedItem is DropDownItem)
                         {
-                            strErrorMessage = "Please Select a Test Type.";
+                            if (cboTestType.SelectedIndex == -1)
+                            {
+                                strErrorMessage = "Please Select a Test Type.";
+                            }
+                        }
+                        else
+                        {
+                            strErrorMessage = "Please add a Specimen";
                         }
                     }
                     else
                     {
-                        strErrorMessage = "Please add a Specimen";
+                        strErrorMessage = "Please add a Launcher";
                     }
                 }
                 else
@@ -145,32 +161,44 @@ namespace ImpactorControls
                 newTest.CustomerId = item.Id;
             }
 
+            if (cmboLauncher.SelectedItem is DropDownItem launcherItem)
+            {
+                newTest.LauncherId = launcherItem.Id;
+            }
+
             if (cboTestType.SelectedItem is DropDownItem Typeitem)
             {
                 newTest.TestTypeId = Typeitem.Id;
             }
 
-            if ( cmboSpecimen.SelectedItem is DropDownItem SpecimenItem)
+            if (cmboSpecimen.SelectedItem is DropDownItem SpecimenItem)
             {
                 newTest.SpecimenId = SpecimenItem.Id;
             }
 
-            newTest.ImpactorRunNumber = newTest.CreateImpactorRunNumber(txtClientPrefix.Text, out strErrorMessage);
-            if (string.IsNullOrEmpty(strErrorMessage) == true)
+            if (cmboLauncher.SelectedItem is DropDownItem LauncherItem)
             {
-                if (IsImpactorIdDuplicated(newTest.ImpactorRunNumber) == false)
+                newTest.ImpactorRunNumber = newTest.CreateImpactorRunNumber(txtClientPrefix.Text, LauncherItem.Text, out strErrorMessage);
+                if (string.IsNullOrEmpty(strErrorMessage) == true)
                 {
-                    strErrorMessage = newTest.Insert();
-                    if (string.IsNullOrEmpty(strErrorMessage) == true)
+                    if (IsImpactorIdDuplicated(newTest.ImpactorRunNumber) == false)
                     {
-                        txtImpactorID.Text = newTest.ImpactorRunNumber;
-                        TestId = newTest.ImpactorTestId;
+                        strErrorMessage = newTest.Insert();
+                        if (string.IsNullOrEmpty(strErrorMessage) == true)
+                        {
+                            txtImpactorID.Text = newTest.ImpactorRunNumber;
+                            TestId = newTest.ImpactorTestId;
+                        }
+                    }
+                    else
+                    {
+                        strErrorMessage = "The Impactor Test ID " + newTest.ImpactorRunNumber + " is already being used.";
                     }
                 }
-                else
-                {
-                    strErrorMessage = "The Impactor Test ID " + newTest.ImpactorRunNumber + " is already being used.";
-                }
+            }
+            else
+            {
+                strErrorMessage = "No Launcher Selected.";
             }
 
             return strErrorMessage;
@@ -183,6 +211,7 @@ namespace ImpactorControls
             cmbClientName.SelectedIndex = -1;  
             txtClientCode.Text = string.Empty;
             txtClientPrefix.Text = string.Empty; 
+            cmboLauncher.SelectedItem = null;
             cmboSpecimen.SelectedItem = null;
             txtEngineer.Text = string.Empty;    
             txtOperator.Text = string.Empty;    
@@ -220,6 +249,7 @@ namespace ImpactorControls
                     txtImpactorID.Text = loadTest.ImpactorRunNumber;
                     dteTestDateTime.Value = loadTest.RunTime;
                     ComboFuctions.SelectCmboItem(cmbClientName, loadTest.CustomerId);
+                    ComboFuctions.SelectCmboItem(cmboLauncher, loadTest.LauncherId);
                     ComboFuctions.SelectCmboItem(cmboSpecimen, loadTest.SpecimenId);
                     txtEngineer.Text = loadTest.Engineer;
                     txtOperator.Text = loadTest.Operator;
@@ -229,11 +259,11 @@ namespace ImpactorControls
                     txtImpactorID.Enabled = false;
                     txtImpactorID.BackColor = SystemColors.ButtonFace;
                     btnUnlock.Visible = true;
+                    
+                    _Tests.Clear();
+                    loadTest = new ImpactorTest(_ConnectionString);
+                    _Tests = loadTest.GetAll(out strErrorMessage);
                 }
-
-                _Tests.Clear();
-                loadTest = new ImpactorTest(_ConnectionString);
-                _Tests = loadTest.GetAll(out strErrorMessage);
             }
             else
             {
@@ -262,6 +292,11 @@ namespace ImpactorControls
                 if (cmbClientName.SelectedItem is DropDownItem cItem)
                 {
                     saveTest.CustomerId = cItem.Id;
+                }
+
+                if ( cmboLauncher.SelectedItem is DropDownItem lItem)
+                {
+                    saveTest.LauncherId = lItem.Id;
                 }
 
                 if (cmboSpecimen.SelectedItem is DropDownItem sItem)
@@ -325,6 +360,25 @@ namespace ImpactorControls
             {
                 txtClientCode.Text = client.ClientCode;
                 txtClientPrefix.Text = client.ClientPrefix;
+            }
+
+            return strErrorMessage;
+        }
+
+        private string LoadLauncherData()
+        {
+            Launcher launcher = new Launcher(_ConnectionString);
+            List<Launcher> launcherList = launcher.GetAll(out string strErrorMessage);
+            if (string.IsNullOrEmpty(strErrorMessage) == true)
+            {
+                foreach (Launcher launcher1 in launcherList)
+                {
+                    DropDownItem item = new DropDownItem(launcher1.LauncherId, launcher1.Name);
+                    cmboLauncher.Items.Add(item);
+                }
+
+                cmboLauncher.DisplayMember = "Text";
+                cmboLauncher.ValueMember = "Id";
             }
 
             return strErrorMessage;
@@ -436,6 +490,20 @@ namespace ImpactorControls
                 };
 
                 handler?.Invoke(this, e);
+            }
+        }
+
+        private void CmboLauncher_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmboLauncher.SelectedItem is DropDownItem item)
+            {
+                EventHandler handler = LauncherSelected;
+                e = new LauncherObject
+                {
+                    launcher = item,
+                };
+                handler?.Invoke(this, e);
+
             }
         }
     }

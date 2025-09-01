@@ -56,5 +56,8 @@ using System.Runtime.InteropServices;
 // Version 1.5.1 
 //              July 20, 2025 - Fixed issue when more than 4 axises are in the database for a test
 //              July 20, 2025 - Released
-[assembly: AssemblyVersion("1.5.1")]
-[assembly: AssemblyFileVersion("1.5.1")]
+// Version 1.6.0
+//              Added Lanucher, Head Impact Speed
+//              Released Septeber 1, 2025
+[assembly: AssemblyVersion("1.6.0")]
+[assembly: AssemblyFileVersion("1.6.0")]

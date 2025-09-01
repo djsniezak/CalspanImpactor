@@ -149,5 +149,20 @@ namespace Impactor
                     break;
             }
         }
+
+        private void MnuLauncher_Click(object sender, EventArgs e)
+        {
+            IMPFrmLauncher frm = new IMPFrmLauncher(_ConnectionString);
+            switch (frm.ShowDialog())
+            {
+                case DialogResult.OK:
+                    break;
+                case DialogResult.Cancel:
+                    break;
+                default:
+                    break;
+            }
+
+        }
     }
 }

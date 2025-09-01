@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design;
+using System.Web;
 using System.Windows.Forms;
 
 
@@ -15,6 +16,7 @@ namespace ImpactorControls
         private long _TestId = long.MinValue;
         private long _ParametersId = long.MinValue;
         private long _TestTypeId = long.MinValue;
+        private DropDownItem _selectedLauncher = null;
 
         public event EventHandler ImpactorIdChanged;
         public CtlParameters()
@@ -49,6 +51,11 @@ namespace ImpactorControls
             set { _TestTypeId = value; }
         }
 
+        public DropDownItem SelectedLauncher
+        {
+            get { return _selectedLauncher; }
+            set { _selectedLauncher = value; }
+        }
         public string LoadTest (long testId)
         {
             ImpactorParameters parms = new ImpactorParameters(_ConnectionString);
@@ -57,24 +64,26 @@ namespace ImpactorControls
             {
                 ImpactorParametersId = parms.ImpactorParametersId;
                 ComboFuctions.SelectCmboItem(cboImpactor, parms.ImpactorTypeId);
-                txtTemperature.Text = Conversion.FormatDouble(parms.Temperature, "##0.#0");
+                txtTemperature.Text = Conversion.FormatDouble(parms.Temperature, "##0.0");
                 txtHumidity.Text = Conversion.FormatDouble(parms.Humidity, "##0.0");
                 txtTrigger1.Text = Conversion.FormatInt (parms.Trigger1,"##0");
                 txtTrigger2.Text = Conversion.FormatInt(parms.Trigger2, "##0");
+                txtAscMaxSpeed.Text = Conversion.FormatDouble(parms.ASCMaxSpeed, "##0.##0");
+                txtSetSpeed.Text = Conversion.FormatDouble(parms.SetSpeed, "##0.##0");
                 txtNotes.Text = parms.Notes;
                 txtFirePressure.Text = Conversion.FormatDouble(parms.FirePressure, "###0.0");
                 txtCylinderSpeed.Text = Conversion.FormatDouble(parms.CylinderSpeed,"#0.##0");
-                txtCylenderKPH.Text = Conversion.ConvertMPerSecToKPH(parms.CylinderSpeed).ToString("#0.##0");
                 txtMeasuredSpeed.Text = Conversion.FormatDouble(parms.MeasuredSpeed,"#0.##0");
-                txtMeasuredKPH.Text = Conversion.FormatDouble (Conversion.ConvertMPerSecToKPH(parms.MeasuredSpeed),"#0.##0");
                 txtCylinderwithout.Text = Conversion.FormatDouble(parms.CylinderWithOutImpactorSetpoint, "#0.##0");
                 txtAccumulatorTemperature.Text = Conversion.FormatDouble(parms.AccumulatorTemperature, "#0.#0");
                 txtTankTemperature.Text = Conversion.FormatDouble(parms.TankTemperature, "#0.#0");
                 txtAirbag1.Text = Conversion.FormatInt(parms.AirBag1,"###0");
                 txtAirbag2.Text = Conversion.FormatInt(parms.AirBag2,"###0");
                 txtAirbag3.Text = Conversion.FormatInt(parms.AirBag3,"###0");
+                txtHeadImpactTime.Text = Conversion.FormatInt(parms.HeadImpactTime, "###0");
                 txtDryFires.Text = Conversion.FormatInt(parms.DryFires,"###0");
 
+                ShowHideLauncherParameters();
                 NameAxis();
 
                 strErrorMessage = LoadAxisGrid(testId);
@@ -128,6 +137,11 @@ namespace ImpactorControls
                         parms.ImpactorTypeId = item.Id;
                     }
 
+                    if (SelectedLauncher is DropDownItem launcher)
+                    {
+                        parms.LauncherId = launcher.Id;
+                    }
+
                     if (double.TryParse(txtTemperature.Text, out double value) == true)
                     {
                         parms.Temperature = value;
@@ -135,6 +149,15 @@ namespace ImpactorControls
                     if (double.TryParse(txtHumidity.Text, out value) == true)
                     {
                         parms.Humidity = value;
+                    }
+                    if ( double.TryParse(txtAscMaxSpeed.Text, out value) == true)
+                    {
+                        parms.ASCMaxSpeed = value;
+                    }
+
+                    if ( double.TryParse (txtSetSpeed.Text, out value) == true)
+                    {
+                        parms.SetSpeed = value;
                     }
 
                     parms.Notes = txtNotes.Text;
@@ -195,6 +218,11 @@ namespace ImpactorControls
                             parms.AirBag3 = iTemp;
                         }
 
+                        if (int.TryParse(txtHeadImpactTime.Text, out iTemp) == true)
+                        {
+                            parms.HeadImpactTime = iTemp;
+                        }
+
                         if (int.TryParse(txtDryFires.Text, out iTemp) == true)
                         {
                             parms.DryFires = iTemp;
@@ -234,19 +262,20 @@ namespace ImpactorControls
             txtHumidity.Text = string.Empty;
             txtTrigger1.Text = string.Empty;
             txtTrigger2.Text = string.Empty;
+            txtAscMaxSpeed.Text = string.Empty;
+            txtSetSpeed.Text = string.Empty;    
             AddDgvLines();
             txtNotes.Text = string.Empty;
             txtFirePressure.Text = string.Empty;
             txtCylinderSpeed.Text = string.Empty;
-            txtCylenderKPH.Text = string.Empty;
             txtMeasuredSpeed.Text = string.Empty;
-            txtMeasuredKPH.Text= string.Empty;
             txtCylinderwithout.Text = string.Empty;
             txtAccumulatorTemperature.Text = string.Empty;
             txtTankTemperature.Text = string.Empty;
             txtAirbag1.Text = string.Empty;
             txtAirbag2.Text = string.Empty;
             txtAirbag3.Text = string.Empty;
+            txtHeadImpactTime.Text = string.Empty;  
             txtDryFires.Text = string.Empty;
         }
 
@@ -270,48 +299,145 @@ namespace ImpactorControls
             }
         }
 
+        private void ShowHideLauncherParameters()
+        {
+            if (_selectedLauncher != null)
+            {
+                switch (_selectedLauncher.Text)
+                {
+                    case "Aries":
+                        lblRequired11.Visible = false;
+                        lblAscKPH.Visible = false;
+                        txtAscMaxSpeed.Visible = false;
+                        lblRequired12.Visible = false;  
+                        lblAscMaxSpeed.Visible = false;
+                        lblSetSpeed.Visible = false;
+                        txtSetSpeed.Visible = false;
+                        lblSetKPH.Visible = false;
+                        lblRequired8.Visible = true;
+                        lblClyinderwithout.Visible = true;
+                        txtCylinderwithout.Visible = true;
+                        lblCylWOUnits.Visible = true;
+                        lblLaunchVelocity.Visible = true;
+                        lblRequired6.Visible = true;
+                        txtCylinderSpeed.Visible = true;
+                        lblCylinderSpeedMPS.Visible = true;
+                        lblRequired9.Visible = true;
+                        lblAcccumulatorTemperature.Visible = true;
+                        txtAccumulatorTemperature.Visible = true;
+                        lblAccC.Visible = true;
+                        lblRequired10.Visible = true;
+                        lblTankTemperature.Visible = true;
+                        txtTankTemperature.Visible = true;
+                        lblTankC.Visible = true;
+
+                        break;
+                    case "Teccon":
+                        lblRequired6.Visible = false;
+                        lblRequired8.Visible = false;
+                        lblClyinderwithout.Visible = false;
+                        txtCylinderwithout.Visible = false;
+                        lblCylWOUnits.Visible = false;
+                        lblLaunchVelocity.Visible = false;
+                        txtCylinderSpeed.Visible = false;
+                        lblCylinderSpeedMPS.Visible = false;
+                        lblRequired9.Visible = false;
+                        lblAcccumulatorTemperature.Visible = false;
+                        txtAccumulatorTemperature.Visible = false;
+                        lblAccC.Visible = false;
+                        lblRequired10.Visible = false;
+                        lblTankTemperature.Visible = false;
+                        txtTankTemperature.Visible = false;
+                        lblTankC.Visible = false;
+
+                        lblRequired11.Visible = true;
+                        lblAscKPH.Visible = true;
+                        txtAscMaxSpeed.Visible = true;
+                        lblRequired12.Visible = true;
+                        lblAscMaxSpeed.Visible = true;
+                        lblSetSpeed.Visible = true;
+                        txtSetSpeed.Visible = true;
+                        lblSetKPH.Visible = true;
+
+                        break;
+                    default:
+                        MessageBox.Show("Launcher is Unknown", "Show Hide Controls", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        break;
+                }
+            }
+        }
+
         public void ClearAxis()
         {
             AddDgvLines();
         }
-        private string VerifyRequiredFields (bool isAfterCopy)
+        private string VerifyRequiredFields(bool isAfterCopy)
         {
             string strVerified;
             if (cboImpactor.SelectedItem != null)
             {
-                if (txtTemperature.Text != string.Empty)
+                if (SelectedLauncher is DropDownItem item)
                 {
-                    if (txtHumidity.Text != string.Empty)
+                    string LauncherName = item.Text;
+                    if (txtTemperature.Text != string.Empty)
                     {
-                        if (isAfterCopy == false)
+                        if (txtHumidity.Text != string.Empty)
                         {
-                            if (txtFirePressure.Text != string.Empty)
+                            if (isAfterCopy == false)
                             {
-                                if (txtCylinderSpeed.Text != string.Empty)
+                                if (txtFirePressure.Text != string.Empty)
                                 {
                                     if (txtMeasuredSpeed.Text != string.Empty)
                                     {
-                                        if (txtCylinderwithout.Text != string.Empty)
+                                        if (LauncherName == "Aries")
                                         {
-                                            if (txtAccumulatorTemperature.Text != string.Empty)
+                                            if (txtCylinderSpeed.Text != string.Empty)
                                             {
-                                                if (txtTankTemperature.Text != string.Empty)
+                                                if (txtCylinderwithout.Text != string.Empty)
+                                                {
+                                                    if (txtAccumulatorTemperature.Text != string.Empty)
+                                                    {
+                                                        if (txtTankTemperature.Text != string.Empty)
+                                                        {
+                                                            strVerified = string.Empty;
+                                                        }
+                                                        else
+                                                        {
+                                                            strVerified = "Please enter the Tank Temperature";
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        strVerified = "Please enter the Accumulator Temperature";
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    strVerified = "Please enter the Cylinder without Impactor Set Point";
+                                                }
+                                            }
+                                            else
+                                            {
+                                                strVerified = "Please enter the Cylinder Speed";
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if ( txtAscMaxSpeed.Text != string.Empty)
+                                            {
+                                                if (txtSetSpeed.Text != string.Empty)
                                                 {
                                                     strVerified = string.Empty;
                                                 }
                                                 else
                                                 {
-                                                    strVerified = "Please enter the Tank Temperature";
+                                                    strVerified = "Please enter the Set Speed";
                                                 }
                                             }
                                             else
                                             {
-                                                strVerified = "Please enter the Accumulator Temperature";
+                                                strVerified = "Please enter the ASC Max Speed";
                                             }
-                                        }
-                                        else
-                                        {
-                                            strVerified = "Please enter the Cylinder without Impactor Set Point";
                                         }
                                     }
                                     else
@@ -321,27 +447,27 @@ namespace ImpactorControls
                                 }
                                 else
                                 {
-                                    strVerified = "Please enter the Cylinder Speed";
+                                    strVerified = "Please enter the Fire Pressue";
                                 }
                             }
                             else
                             {
-                                strVerified = "Please enter the Fire Pressue";
+                                strVerified = string.Empty;
                             }
                         }
                         else
                         {
-                            strVerified = string.Empty;
+                            strVerified = "Please enter the Humidity";
                         }
                     }
                     else
                     {
-                        strVerified = "Please enter the Humidity";
+                        strVerified = "Please enter the Temperature";
                     }
                 }
                 else
                 {
-                    strVerified = "Please enter the Temperature";
+                    strVerified = "Please select a Launcher";
                 }
             }
             else
@@ -594,21 +720,6 @@ namespace ImpactorControls
                         }
                     }
                 }
-            }
-        }
-        private void TxtCylinderSpeed_Leave(object sender, EventArgs e)
-        {
-            if (double.TryParse(txtCylinderSpeed.Text, out double value) == true)
-            {
-                txtCylenderKPH.Text = Conversion.ConvertMPerSecToKPH(value).ToString("#.###0");
-            }
-        }
-
-        private void TxtMeasuredSpeed_Leave(object sender, EventArgs e)
-        {
-            if (double.TryParse(txtMeasuredSpeed.Text, out double value) == true)
-            {
-                txtMeasuredKPH.Text = Conversion.ConvertMPerSecToKPH(value).ToString ("#.###0");
             }
         }
 

@@ -6,6 +6,9 @@
 *
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+Do Not Run until fixed
+Need to add many tables and values
+
 USE [Impactor]
 GO
 
@@ -279,12 +282,12 @@ GO
 USE [Impactor]
 GO
 
-/****** Object:  Table [dbo].[Specimen]    Script Date: 1/3/2025 3:01:31 PM ******/
+/****** Object:  Table [dbo].[Specimen]    Script Date: 8/23/2025 3:40:54 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Specimen]') AND type in (N'U'))
 DROP TABLE [dbo].[Specimen]
 GO
 
-/****** Object:  Table [dbo].[Specimen]    Script Date: 1/3/2025 3:01:31 PM ******/
+/****** Object:  Table [dbo].[Specimen]    Script Date: 8/23/2025 3:40:54 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -300,12 +303,15 @@ CREATE TABLE [dbo].[Specimen](
 	[VIN] [varchar](75) NULL,
 	[Mass] [decimal](5, 1) NULL,
 	[Notes] [varchar](max) NULL,
+	[Active] [bit] NULL,
  CONSTRAINT [PK_Specimen] PRIMARY KEY CLUSTERED 
 (
 	[SpecimenId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+
+
 
 
 USE [Impactor]

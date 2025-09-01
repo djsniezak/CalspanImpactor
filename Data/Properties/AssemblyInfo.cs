@@ -64,5 +64,10 @@ using System.Runtime.InteropServices;
 // Version 1.3.1
 //          July 6, 2025 - Made active true on Specimen Insert.
 //          July 6, 2025 - Released
-[assembly: AssemblyVersion("1.3.1")]
-[assembly: AssemblyFileVersion("1.3.1")]
+// Version 1.4.0
+//          August 9, 2025 - Added Launcher
+//          August 29, 2025 - add Vehicle Damage class
+//          August 31, 2025 - Add Head Impact Speed 
+//          Released Septeber 1, 2025
+[assembly: AssemblyVersion("1.4.0")]
+[assembly: AssemblyFileVersion("1.4.0")]

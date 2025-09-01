@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMPFrmLauncher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMPFrmLauncher.Designer.cs">
+      <DependentUpon>IMPFrmLauncher.cs</DependentUpon>
+    </Compile>
     <Compile Include="IMPFrmReports.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +64,12 @@
     </Compile>
     <Compile Include="IMPFrmInjuryTime.Designer.cs">
       <DependentUpon>IMPFrmInjuryTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IMPFrmVehicleDamage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMPFrmVehicleDamage.Designer.cs">
+      <DependentUpon>IMPFrmVehicleDamage.cs</DependentUpon>
     </Compile>
     <Compile Include="IMPSpecimen.cs">
       <SubType>Form</SubType>
@@ -121,6 +133,9 @@
     <EmbeddedResource Include="IMPFrmImpactorType.resx">
       <DependentUpon>IMPFrmImpactorType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IMPFrmLauncher.resx">
+      <DependentUpon>IMPFrmLauncher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IMPFrmMain.resx">
       <DependentUpon>IMPFrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IMPFrmInjuryTime.resx">
       <DependentUpon>IMPFrmInjuryTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IMPFrmVehicleDamage.resx">
+      <DependentUpon>IMPFrmVehicleDamage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IMPSpecimen.resx">
       <DependentUpon>IMPSpecimen.cs</DependentUpon>
