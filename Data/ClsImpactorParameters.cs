@@ -17,6 +17,9 @@ namespace Data
         [XmlAttribute("ImpactorTypeId")]
         public long ImpactorTypeId { get; set; } = long.MinValue;
 
+        [XmlAttribute("LauncherId")]
+        public long LauncherId { get; set; } = long.MinValue;
+
         [XmlAttribute("Temperature")]
         public double Temperature { get; set; } = double.MinValue;
 
@@ -28,6 +31,12 @@ namespace Data
 
         [XmlAttribute("Trigger2")]
         public int Trigger2 { get; set; } = int.MinValue;
+
+        [XmlAttribute("ASCMaxSpeed")]
+        public double ASCMaxSpeed { get; set; } = double.MinValue;
+
+        [XmlAttribute("SetSpeed")]
+        public double SetSpeed { get; set; } = double.MinValue;
 
         [XmlAttribute("Notes")]
         public string Notes { get; set; } = string.Empty;
@@ -58,6 +67,9 @@ namespace Data
 
         [XmlAttribute("AirBag3")]
         public int AirBag3 { get; set; } = int.MinValue;
+
+        [XmlAttribute("HeadImpactTime")]
+        public int HeadImpactTime { get; set; } = int.MinValue;
 
         [XmlAttribute("DryFires")]
         public int DryFires { get; set; } = int.MinValue;
@@ -101,7 +113,12 @@ namespace Data
                         {
                             ImpactorTypeId = lTemp;
                         }
-                        
+
+                        if (long.TryParse(reader["LauncherId"].ToString(), out lTemp) == true)
+                        {
+                            LauncherId = lTemp;
+                        }
+
                         if (double.TryParse(reader["Temperature"].ToString(), out double dTemp) == true )
                         {
                             Temperature = dTemp;
@@ -120,6 +137,16 @@ namespace Data
                         if (int.TryParse(reader["Trigger2"].ToString(), out iTemp) == true)
                         {
                             Trigger2 = iTemp;
+                        }
+
+                        if ( double.TryParse(reader["ASCMaxSpeed"].ToString(), out dTemp) == true)
+                        {
+                            ASCMaxSpeed = dTemp;
+                        }
+
+                        if (double.TryParse(reader["SetSpeed"].ToString(), out dTemp) == true)
+                        {
+                            SetSpeed = dTemp;
                         }
 
                         Notes = reader["Notes"].ToString();
@@ -167,6 +194,11 @@ namespace Data
                         if (int.TryParse(reader["AirBag3"].ToString(), out iTemp) == true)
                         {
                             AirBag3 = iTemp;
+                        }
+
+                        if (int.TryParse(reader["HeadImpactTime"].ToString(), out iTemp) == true)
+                        {
+                            HeadImpactTime = iTemp;
                         }
 
                         if (int.TryParse(reader["DryFires"].ToString(), out iTemp) == true)
@@ -227,6 +259,11 @@ namespace Data
                             ImpactorTypeId = lTemp;
                         }
 
+                        if (long.TryParse(reader["LauncherId"].ToString(), out lTemp) == true)
+                        {
+                            LauncherId = lTemp;
+                        }
+
                         if (double.TryParse(reader["Temperature"].ToString(), out double dTemp) == true)
                         {
                             Temperature = dTemp;
@@ -245,6 +282,16 @@ namespace Data
                         if (int.TryParse(reader["Trigger2"].ToString(), out iTemp) == true)
                         {
                             Trigger2 = iTemp;
+                        }
+
+                        if (double.TryParse(reader["ASCMaxSpeed"].ToString(), out dTemp) == true)
+                        {
+                            ASCMaxSpeed = dTemp;
+                        }
+
+                        if (double.TryParse(reader["SetSpeed"].ToString(), out dTemp) == true)
+                        {
+                            SetSpeed = dTemp;
                         }
 
                         Notes = reader["Notes"].ToString();
@@ -294,6 +341,11 @@ namespace Data
                             AirBag3 = iTemp;
                         }
 
+                        if (int.TryParse(reader["HeadImpactTime"].ToString(), out iTemp) == true)
+                        {
+                            HeadImpactTime = iTemp;
+                        }
+
                         if (int.TryParse(reader["DryFires"].ToString(), out iTemp) == true)
                         {
                             DryFires = iTemp;
@@ -332,6 +384,7 @@ namespace Data
 
                 cmd.Parameters.Add("@ImpactorTestId", SqlDbType.BigInt).Value = ImpactorTestId;
                 cmd.Parameters.Add("@ImpactorTypeId", SqlDbType.BigInt).Value = ImpactorTypeId;
+                cmd.Parameters.Add("@LauncherId", SqlDbType.BigInt).Value = LauncherId;
                 cmd.Parameters.Add("@Temperature", SqlDbType.Decimal).Value = Temperature;
                 cmd.Parameters.Add("@Humidity", SqlDbType.Decimal).Value = Humidity;
 
@@ -351,6 +404,24 @@ namespace Data
                 else
                 {
                     cmd.Parameters.Add("@Trigger2", SqlDbType.Int).Value = Trigger2;
+                }
+
+                if (ASCMaxSpeed == double.MinValue)
+                {
+                    cmd.Parameters.Add("@ASCMaxSpeed", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@ASCMaxSpeed", SqlDbType.Decimal).Value = ASCMaxSpeed;
+                }
+
+                if (SetSpeed == double.MinValue)
+                {
+                    cmd.Parameters.Add("@SetSpeed", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@SetSpeed", SqlDbType.Decimal).Value = SetSpeed;
                 }
 
                 cmd.Parameters.Add("@Notes", SqlDbType.VarChar).Value = Notes;
@@ -437,6 +508,15 @@ namespace Data
                     cmd.Parameters.Add("@Airbag3", SqlDbType.Int).Value = AirBag3;
                 }
 
+                if (HeadImpactTime == int.MinValue)
+                {
+                    cmd.Parameters.Add("@HeadImpactTime", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@HeadImpactTime", SqlDbType.Int).Value =HeadImpactTime;
+                }
+
                 if (DryFires == int.MinValue)
                 {
                     cmd.Parameters.Add("@DryFires", SqlDbType.Int).Value = DBNull.Value;
@@ -486,6 +566,7 @@ namespace Data
                 cmd.Parameters.Add("@ImpactorParametersId", SqlDbType.BigInt).Value = ImpactorParametersId;
                 cmd.Parameters.Add("@ImpactorTestId", SqlDbType.BigInt).Value = ImpactorTestId;
                 cmd.Parameters.Add("@ImpactorTypeId", SqlDbType.BigInt).Value = ImpactorTypeId;
+                cmd.Parameters.Add("@LauncherId", SqlDbType.BigInt).Value = LauncherId;
                 cmd.Parameters.Add("@Temperature", SqlDbType.Decimal).Value = Temperature;
                 cmd.Parameters.Add("@Humidity", SqlDbType.Decimal).Value = Humidity;
                
@@ -505,6 +586,24 @@ namespace Data
                 else
                 {
                     cmd.Parameters.Add("@Trigger2", SqlDbType.Int).Value = Trigger2;
+                }
+
+                if (ASCMaxSpeed == double.MinValue)
+                {
+                    cmd.Parameters.Add("@ASCMaxSpeed", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@ASCMaxSpeed", SqlDbType.Decimal).Value = ASCMaxSpeed;
+                }
+
+                if (SetSpeed == double.MinValue)
+                {
+                    cmd.Parameters.Add("@SetSpeed", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@SetSpeed", SqlDbType.Decimal).Value = SetSpeed;
                 }
 
                 cmd.Parameters.Add("@Notes", SqlDbType.VarChar).Value = Notes;
@@ -589,6 +688,15 @@ namespace Data
                 else
                 {
                     cmd.Parameters.Add("@Airbag3", SqlDbType.Int).Value = AirBag3;
+                }
+
+                if (HeadImpactTime == int.MinValue)
+                {
+                    cmd.Parameters.Add("@HeadImpactTime", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@HeadImpactTime", SqlDbType.Int).Value = HeadImpactTime;
                 }
 
                 if (DryFires == int.MinValue)

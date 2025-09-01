@@ -75,5 +75,10 @@ using System.Runtime.InteropServices;
 //  Version 1.0.008
 //      July 20, 2025 - Fixed a bug in the Axis system that was causing crashes
 //      July 20, 2025 - Released
-[assembly: AssemblyVersion("1.0.008")]
-[assembly: AssemblyFileVersion("1.0.008")]
+//  Version 1.0.009
+//      August 9, 2025 - Added Launcher Dialog
+//      August 29, 2025 - Added Vehicle Damage
+//      August 31, 2025 - Added head impact speed.
+//      Released Septeber 1, 2025
+[assembly: AssemblyVersion("1.0.009")]
+[assembly: AssemblyFileVersion("1.0.009")]

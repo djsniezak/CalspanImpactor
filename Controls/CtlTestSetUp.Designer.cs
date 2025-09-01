@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.grpTestSetup = new System.Windows.Forms.GroupBox();
+            this.cmboLauncher = new System.Windows.Forms.ComboBox();
+            this.lbRequiredLauncher = new System.Windows.Forms.Label();
+            this.lblLauncher = new System.Windows.Forms.Label();
             this.cmboSpecimen = new System.Windows.Forms.ComboBox();
             this.btnUnlock = new System.Windows.Forms.Button();
             this.lblRequired4 = new System.Windows.Forms.Label();
@@ -62,6 +65,9 @@
             this.grpTestSetup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpTestSetup.Controls.Add(this.cmboLauncher);
+            this.grpTestSetup.Controls.Add(this.lbRequiredLauncher);
+            this.grpTestSetup.Controls.Add(this.lblLauncher);
             this.grpTestSetup.Controls.Add(this.cmboSpecimen);
             this.grpTestSetup.Controls.Add(this.btnUnlock);
             this.grpTestSetup.Controls.Add(this.lblRequired4);
@@ -90,16 +96,48 @@
             this.grpTestSetup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpTestSetup.Location = new System.Drawing.Point(3, 3);
             this.grpTestSetup.Name = "grpTestSetup";
-            this.grpTestSetup.Size = new System.Drawing.Size(530, 242);
+            this.grpTestSetup.Size = new System.Drawing.Size(530, 257);
             this.grpTestSetup.TabIndex = 0;
             this.grpTestSetup.TabStop = false;
             this.grpTestSetup.Text = "Test Setup";
+            // 
+            // cmboLauncher
+            // 
+            this.cmboLauncher.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmboLauncher.FormattingEnabled = true;
+            this.cmboLauncher.Location = new System.Drawing.Point(111, 100);
+            this.cmboLauncher.Name = "cmboLauncher";
+            this.cmboLauncher.Size = new System.Drawing.Size(146, 21);
+            this.cmboLauncher.TabIndex = 110;
+            this.cmboLauncher.SelectedIndexChanged += new System.EventHandler(this.CmboLauncher_SelectedIndexChanged);
+            // 
+            // lbRequiredLauncher
+            // 
+            this.lbRequiredLauncher.AutoSize = true;
+            this.lbRequiredLauncher.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRequiredLauncher.ForeColor = System.Drawing.Color.Red;
+            this.lbRequiredLauncher.Location = new System.Drawing.Point(27, 101);
+            this.lbRequiredLauncher.Name = "lbRequiredLauncher";
+            this.lbRequiredLauncher.Size = new System.Drawing.Size(15, 18);
+            this.lbRequiredLauncher.TabIndex = 109;
+            this.lbRequiredLauncher.Text = "*";
+            this.lbRequiredLauncher.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblLauncher
+            // 
+            this.lblLauncher.AutoSize = true;
+            this.lblLauncher.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLauncher.Location = new System.Drawing.Point(43, 101);
+            this.lblLauncher.Name = "lblLauncher";
+            this.lblLauncher.Size = new System.Drawing.Size(62, 15);
+            this.lblLauncher.TabIndex = 108;
+            this.lblLauncher.Text = "Launcher:";
             // 
             // cmboSpecimen
             // 
             this.cmboSpecimen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmboSpecimen.FormattingEnabled = true;
-            this.cmboSpecimen.Location = new System.Drawing.Point(111, 100);
+            this.cmboSpecimen.Location = new System.Drawing.Point(111, 127);
             this.cmboSpecimen.Name = "cmboSpecimen";
             this.cmboSpecimen.Size = new System.Drawing.Size(255, 21);
             this.cmboSpecimen.TabIndex = 107;
@@ -121,7 +159,7 @@
             this.lblRequired4.AutoSize = true;
             this.lblRequired4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRequired4.ForeColor = System.Drawing.Color.Red;
-            this.lblRequired4.Location = new System.Drawing.Point(27, 94);
+            this.lblRequired4.Location = new System.Drawing.Point(27, 129);
             this.lblRequired4.Name = "lblRequired4";
             this.lblRequired4.Size = new System.Drawing.Size(15, 18);
             this.lblRequired4.TabIndex = 105;
@@ -132,7 +170,7 @@
             // 
             this.lblSpecimen.AutoSize = true;
             this.lblSpecimen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSpecimen.Location = new System.Drawing.Point(39, 101);
+            this.lblSpecimen.Location = new System.Drawing.Point(39, 128);
             this.lblSpecimen.Name = "lblSpecimen";
             this.lblSpecimen.Size = new System.Drawing.Size(66, 15);
             this.lblSpecimen.TabIndex = 104;
@@ -143,7 +181,7 @@
             this.lblRequired3.AutoSize = true;
             this.lblRequired3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRequired3.ForeColor = System.Drawing.Color.Red;
-            this.lblRequired3.Location = new System.Drawing.Point(31, 155);
+            this.lblRequired3.Location = new System.Drawing.Point(31, 174);
             this.lblRequired3.Name = "lblRequired3";
             this.lblRequired3.Size = new System.Drawing.Size(15, 18);
             this.lblRequired3.TabIndex = 102;
@@ -180,7 +218,7 @@
             this.txtNotes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNotes.Location = new System.Drawing.Point(111, 188);
+            this.txtNotes.Location = new System.Drawing.Point(111, 207);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.Size = new System.Drawing.Size(409, 44);
@@ -190,7 +228,7 @@
             // 
             this.lblNotes.AutoSize = true;
             this.lblNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotes.Location = new System.Drawing.Point(63, 202);
+            this.lblNotes.Location = new System.Drawing.Point(63, 221);
             this.lblNotes.Name = "lblNotes";
             this.lblNotes.Size = new System.Drawing.Size(42, 15);
             this.lblNotes.TabIndex = 99;
@@ -203,7 +241,7 @@
             this.cboTestType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTestType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTestType.FormattingEnabled = true;
-            this.cboTestType.Location = new System.Drawing.Point(111, 161);
+            this.cboTestType.Location = new System.Drawing.Point(111, 180);
             this.cboTestType.Name = "cboTestType";
             this.cboTestType.Size = new System.Drawing.Size(409, 21);
             this.cboTestType.TabIndex = 9;
@@ -213,7 +251,7 @@
             // 
             this.lblTestType.AutoSize = true;
             this.lblTestType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTestType.Location = new System.Drawing.Point(43, 162);
+            this.lblTestType.Location = new System.Drawing.Point(43, 181);
             this.lblTestType.Name = "lblTestType";
             this.lblTestType.Size = new System.Drawing.Size(62, 15);
             this.lblTestType.TabIndex = 99;
@@ -223,7 +261,7 @@
             // 
             this.txtOperator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtOperator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOperator.Location = new System.Drawing.Point(385, 137);
+            this.txtOperator.Location = new System.Drawing.Point(385, 154);
             this.txtOperator.Name = "txtOperator";
             this.txtOperator.Size = new System.Drawing.Size(135, 20);
             this.txtOperator.TabIndex = 8;
@@ -233,7 +271,7 @@
             this.lblOperator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblOperator.AutoSize = true;
             this.lblOperator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOperator.Location = new System.Drawing.Point(321, 137);
+            this.lblOperator.Location = new System.Drawing.Point(321, 156);
             this.lblOperator.Name = "lblOperator";
             this.lblOperator.Size = new System.Drawing.Size(58, 15);
             this.lblOperator.TabIndex = 99;
@@ -242,7 +280,7 @@
             // txtEngineer
             // 
             this.txtEngineer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEngineer.Location = new System.Drawing.Point(111, 135);
+            this.txtEngineer.Location = new System.Drawing.Point(111, 154);
             this.txtEngineer.Name = "txtEngineer";
             this.txtEngineer.Size = new System.Drawing.Size(146, 20);
             this.txtEngineer.TabIndex = 7;
@@ -251,7 +289,7 @@
             // 
             this.lblEngineer.AutoSize = true;
             this.lblEngineer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEngineer.Location = new System.Drawing.Point(45, 137);
+            this.lblEngineer.Location = new System.Drawing.Point(45, 156);
             this.lblEngineer.Name = "lblEngineer";
             this.lblEngineer.Size = new System.Drawing.Size(60, 15);
             this.lblEngineer.TabIndex = 99;
@@ -371,7 +409,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.grpTestSetup);
             this.Name = "CtlTestSetUp";
-            this.Size = new System.Drawing.Size(536, 248);
+            this.Size = new System.Drawing.Size(536, 275);
             this.grpTestSetup.ResumeLayout(false);
             this.grpTestSetup.PerformLayout();
             this.ResumeLayout(false);
@@ -406,5 +444,8 @@
         private System.Windows.Forms.Label lblSpecimen;
         private System.Windows.Forms.Button btnUnlock;
         private System.Windows.Forms.ComboBox cmboSpecimen;
+        private System.Windows.Forms.ComboBox cmboLauncher;
+        private System.Windows.Forms.Label lbRequiredLauncher;
+        private System.Windows.Forms.Label lblLauncher;
     }
 }

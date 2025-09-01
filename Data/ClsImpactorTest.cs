@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace Data
@@ -15,6 +16,9 @@ namespace Data
 
         [XmlAttribute("ImpactorRun")]
         public string ImpactorRunNumber { get; set; } = string.Empty;
+
+        [XmlAttribute("LauncherId")]
+        public long LauncherId { get; set; } = long.MinValue;
 
         [XmlAttribute("RunTime")]
         public DateTime RunTime { get; set; } = DateTime.MinValue;
@@ -50,17 +54,30 @@ namespace Data
 
         }
 
-        public string CreateImpactorRunNumber (string CustomerPrefix, out string errorMessage )
+        public string CreateImpactorRunNumber (string CustomerPrefix, string SelecctedLauncher, out string errorMessage )
         {
             string strNewRunNumber = string.Empty;
             string year = DateTime.Today.Year.ToString().Substring(2);
-            string strSearch = CustomerPrefix + "-" + "AL" + year;
+            string launcherPrefix = string.Empty;
+            switch (SelecctedLauncher)
+            {
+                case "Aries":
+                    launcherPrefix = "AL";
+                    break;
+                case "Teccon":
+                    launcherPrefix = "TL";
+                    break;
+                default:
+                    launcherPrefix = "ER";
+                    break;
+            }
+            string strSearch = CustomerPrefix + "-" + launcherPrefix + year;
+
             int LastNumber = GetLastRun(strSearch, out errorMessage);
             if (LastNumber > -1 )
             {
                 strNewRunNumber = strSearch + "-" + LastNumber.ToString("000");
             }
-
 
             return strNewRunNumber;
         }
@@ -88,6 +105,11 @@ namespace Data
                         }
 
                         ImpactorRunNumber = reader["TestRunNumber"].ToString();
+
+                        if (long.TryParse(reader["LauncherId"].ToString(), out lTemp) == true)
+                        {
+                            LauncherId = lTemp;
+                        }
 
                         if ( DateTime.TryParse (reader["RunTime"].ToString(), out DateTime dte) == true )
                         {
@@ -169,6 +191,11 @@ namespace Data
                                 test.RunTime = dte;
                             }
 
+                            if (long.TryParse(reader["LauncherId"].ToString(), out lTemp) == true)
+                            {
+                                test.LauncherId = lTemp;
+                            }
+
                             if (long.TryParse(reader["CustomerId"].ToString(), out lTemp) == true)
                             {
                                 test.CustomerId = lTemp;
@@ -229,6 +256,7 @@ namespace Data
                 };
 
                 sqlCommand.Parameters.Add("@TestRunNumber", SqlDbType.VarChar).Value = ImpactorRunNumber;
+                sqlCommand.Parameters.Add("@LauncherId", SqlDbType.BigInt).Value = LauncherId;
                 sqlCommand.Parameters.Add("@RunTime", SqlDbType.DateTime).Value = RunTime;
                 sqlCommand.Parameters.Add("@CustomerId", SqlDbType.BigInt).Value = CustomerId;
                 sqlCommand.Parameters.Add("@SpecimenId", SqlDbType.BigInt).Value = SpecimenId;
@@ -273,6 +301,7 @@ namespace Data
                 cmd.CommandText = "UpdateImpactorTest";
                 cmd.Parameters.Add("@ImpactorTestId", SqlDbType.BigInt).Value = ImpactorTestId;
                 cmd.Parameters.Add("@TestRunNumber", SqlDbType.VarChar).Value = ImpactorRunNumber;
+                cmd.Parameters.Add("@LauncherId", SqlDbType.BigInt).Value = LauncherId;
                 cmd.Parameters.Add("@RunTime", SqlDbType.DateTime).Value = RunTime;
                 cmd.Parameters.Add("@CustomerId", SqlDbType.BigInt).Value = CustomerId;
                 cmd.Parameters.Add("@SpecimenId", SqlDbType.BigInt).Value = SpecimenId;

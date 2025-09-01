@@ -219,4 +219,9 @@ namespace Data
     {
         public bool IsAfterCopy { get; set; } = false;
     }
+
+    public class LauncherObject : EventArgs
+    {
+        public DropDownItem launcher { get; set; } = null;
+    }
 }

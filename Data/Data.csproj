@@ -49,6 +49,7 @@
     <Compile Include="ClsImpactorCriticalInjuryData.cs" />
     <Compile Include="ClsImpactorCriticalInjuryNames.cs" />
     <Compile Include="ClsImpactorInjuryTime.cs" />
+    <Compile Include="ClsImpactorLauncher.cs" />
     <Compile Include="ClsImpactorParameters.cs" />
     <Compile Include="ClsImpactorSpecimen.cs" />
     <Compile Include="ClsImpactorTest.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="ClsParameterNames.cs" />
     <Compile Include="ClsProtocol.cs" />
     <Compile Include="ClsTires.cs" />
+    <Compile Include="ClsVehicleDamage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

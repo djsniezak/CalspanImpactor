@@ -44,6 +44,7 @@
             this.mnuReports = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRunReports = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuLauncher = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,6 +83,7 @@
             this.mnuClient,
             this.mnuInjuryType,
             this.mnuInjuryTime,
+            this.mnuLauncher,
             this.mnuProtocol,
             this.mnuSpecimen,
             this.mnuTestType});
@@ -92,42 +94,42 @@
             // mnuClient
             // 
             this.mnuClient.Name = "mnuClient";
-            this.mnuClient.Size = new System.Drawing.Size(149, 22);
+            this.mnuClient.Size = new System.Drawing.Size(180, 22);
             this.mnuClient.Text = "Client";
             this.mnuClient.Click += new System.EventHandler(this.MnuClient_Click);
             // 
             // mnuInjuryType
             // 
             this.mnuInjuryType.Name = "mnuInjuryType";
-            this.mnuInjuryType.Size = new System.Drawing.Size(149, 22);
+            this.mnuInjuryType.Size = new System.Drawing.Size(180, 22);
             this.mnuInjuryType.Text = "Impactor Type";
             this.mnuInjuryType.Click += new System.EventHandler(this.MunImpactorType_Click);
             // 
             // mnuInjuryTime
             // 
             this.mnuInjuryTime.Name = "mnuInjuryTime";
-            this.mnuInjuryTime.Size = new System.Drawing.Size(149, 22);
+            this.mnuInjuryTime.Size = new System.Drawing.Size(180, 22);
             this.mnuInjuryTime.Text = "Injury Time";
             this.mnuInjuryTime.Click += new System.EventHandler(this.MnuInjuryTime_Click);
             // 
             // mnuProtocol
             // 
             this.mnuProtocol.Name = "mnuProtocol";
-            this.mnuProtocol.Size = new System.Drawing.Size(149, 22);
+            this.mnuProtocol.Size = new System.Drawing.Size(180, 22);
             this.mnuProtocol.Text = "Protocol";
             this.mnuProtocol.Click += new System.EventHandler(this.MnuProtocil_Click);
             // 
             // mnuSpecimen
             // 
             this.mnuSpecimen.Name = "mnuSpecimen";
-            this.mnuSpecimen.Size = new System.Drawing.Size(149, 22);
+            this.mnuSpecimen.Size = new System.Drawing.Size(180, 22);
             this.mnuSpecimen.Text = "Specimen";
             this.mnuSpecimen.Click += new System.EventHandler(this.MnuSpecimen_Click);
             // 
             // mnuTestType
             // 
             this.mnuTestType.Name = "mnuTestType";
-            this.mnuTestType.Size = new System.Drawing.Size(149, 22);
+            this.mnuTestType.Size = new System.Drawing.Size(180, 22);
             this.mnuTestType.Text = "Test Type";
             this.mnuTestType.Click += new System.EventHandler(this.MnuTestType_Click);
             // 
@@ -157,7 +159,7 @@
             // mnuRunReports
             // 
             this.mnuRunReports.Name = "mnuRunReports";
-            this.mnuRunReports.Size = new System.Drawing.Size(180, 22);
+            this.mnuRunReports.Size = new System.Drawing.Size(138, 22);
             this.mnuRunReports.Text = "Run Reports";
             this.mnuRunReports.Click += new System.EventHandler(this.MnuRunReports_Clicked);
             // 
@@ -167,6 +169,13 @@
             this.mnuAbout.Size = new System.Drawing.Size(52, 20);
             this.mnuAbout.Text = "About";
             this.mnuAbout.Click += new System.EventHandler(this.MnuAbout_Click);
+            // 
+            // mnuLauncher
+            // 
+            this.mnuLauncher.Name = "mnuLauncher";
+            this.mnuLauncher.Size = new System.Drawing.Size(180, 22);
+            this.mnuLauncher.Text = "Launcher";
+            this.mnuLauncher.Click += new System.EventHandler(this.MnuLauncher_Click);
             // 
             // IMPFrmMain
             // 
@@ -205,6 +214,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuSpecimen;
         private System.Windows.Forms.ToolStripMenuItem mnuRunReports;
         private System.Windows.Forms.ToolStripMenuItem mnuInjuryTime;
+        private System.Windows.Forms.ToolStripMenuItem mnuLauncher;
     }
 }
 

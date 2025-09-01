@@ -8,9 +8,12 @@ namespace Impactor
     public partial class IMPFrmImpactor : Form
     {
         private long TestId = long.MinValue;
+        private readonly string _ConnectionString = string.Empty;   
 
-        public IMPFrmImpactor( string _ConnectionString)
+        public IMPFrmImpactor( string connectionString)
         {
+            _ConnectionString = connectionString;
+
             InitializeComponent();
             ctlParameters.ConnectionString = _ConnectionString;
             ctlTestSetUp.ConnectionString = _ConnectionString;
@@ -22,6 +25,7 @@ namespace Impactor
             ctrlTestFilter.ImpactorTestSelected += CtrlTestFilter_ImpactorTestSelected;
             ctlTestSetUp.ImpactorTestTypeSelected += CtlTestSetUp_ImpactorTestTypeSelected;
             ctlTestSetUp.SpecimenIndexSelected += CtlTestSetUp_SpecimenIndexSelected;
+            ctlTestSetUp.LauncherSelected += CtlTestSetUp_LauncherSelected;
             ctlProtocol.ProtocolSelected += CtlProtocol1_ProtocolSelected;
 
             string strErrorMessage = LoadFilterControl();
@@ -40,6 +44,14 @@ namespace Impactor
             else
             {
                 MessageBox.Show(strErrorMessage, "Loading Test Filter Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void CtlTestSetUp_LauncherSelected(object sender, EventArgs e)
+        {
+            if (e is LauncherObject selectedLauncher)
+            {
+                ctlParameters.SelectedLauncher = selectedLauncher.launcher;
             }
         }
 
@@ -334,6 +346,19 @@ namespace Impactor
             btnReload.Enabled = false;  
             btnSave.Enabled = false;
             btnCopy.Enabled = false;
+        }
+
+        private void BtnVehicleDamage_Click(object sender, EventArgs e)
+        {
+            if (TestId != long.MinValue)
+            {
+                IMPFrmVehicleDamage frm = new IMPFrmVehicleDamage(_ConnectionString, TestId);
+                frm.Show();
+            }
+            else
+            {
+                MessageBox.Show ("Please load a test before attempting to load the Vehicle Damage screen", "Unable to Load Vehicle Damamge Screen", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }
