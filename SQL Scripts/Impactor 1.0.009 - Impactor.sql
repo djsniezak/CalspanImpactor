@@ -1,7 +1,12 @@
 USE [Impactor]
 GO
 
-/****** Object:  Table [dbo].[ImpactorLauncher]    Script Date: 8/9/2025 12:51:52 PM ******/
+/****** Object:  Table [dbo].[ImpactorLauncher]    Script Date: 9/1/2025 10:08:59 AM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ImpactorLauncher]') AND type in (N'U'))
+DROP TABLE [dbo].[ImpactorLauncher]
+GO
+
+/****** Object:  Table [dbo].[ImpactorLauncher]    Script Date: 9/1/2025 10:08:59 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -9,15 +14,16 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[ImpactorLauncher](
-	[IdLauncher] [bigint] IDENTITY(1,1) NOT NULL,
+	[LauncherId] [bigint] IDENTITY(1,1) NOT NULL,
 	[Name] [varchar](50) NULL,
 	[Active] [bit] NULL,
  CONSTRAINT [PK_ImpactorLauncher] PRIMARY KEY CLUSTERED 
 (
-	[IdLauncher] ASC
+	[LauncherId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
 
 USE [Impactor]
 GO
@@ -762,6 +768,64 @@ BEGIN
 		[TestRunId] = @TestRunId
 	WHERE [VehicleDamageId] = @VehicleDamageId
 
+END
+GO
+
+USE [Impactor]
+GO
+
+/****** Object:  StoredProcedure [dbo].[UpdateImpactorTest]    Script Date: 9/1/2025 10:17:06 AM ******/
+DROP PROCEDURE [dbo].[UpdateImpactorTest]
+GO
+
+/****** Object:  StoredProcedure [dbo].[UpdateImpactorTest]    Script Date: 9/1/2025 10:17:06 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+-- =============================================
+-- Author:		Don Sniezak
+-- Create date: July 22, 2024
+-- Update Date: January 2, 2025 - Changed Specimen to SpecimentId from varcar to bigint
+-- Update Date: August 9, 2025 - Add Launcher
+-- Description:	A procedure to update an Impactor Test record
+-- =============================================
+CREATE PROCEDURE [dbo].[UpdateImpactorTest]
+	
+	@ImpactorTestId bigint,
+	@TestRunNumber varchar(50),
+	@LauncherId bigint,
+	@RunTime datetime,
+	@CustomerId bigint,
+	@SpecimenId bigint,
+	@Engineer varchar(50),
+	@Operator varchar(50),
+	@TestTypeId bigint,
+	@ProtocolId bigint,
+	@Notes varchar(500)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	UPDATE [dbo].[ImpactorTest] SET
+		[TestRunNumber] = @TestRunNumber,
+		[LauncherId] = @LauncherId,
+		[RunTime] = @RunTime,
+		[CustomerId] = @CustomerId,
+		[SpecimenId] = @SpecimenId,
+		[Engineer] = @Engineer,
+		[Operator] = @Operator,
+		[TestTypeId] = @TestTypeId,
+		[ProtocolId] = @ProtocolId,
+		[Notes] = @Notes
+	WHERE [ImpactorTestId] = @ImpactorTestId
 END
 GO
 
